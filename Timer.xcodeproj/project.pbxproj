@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1044DCA91DD20880006B6582 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044DCA81DD20880006B6582 /* Application.swift */; };
 		10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */; };
 		10FB24DE1DD0D3EE00A47755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DD1DD0D3EE00A47755 /* ViewController.swift */; };
 		10FB24E11DD0D3EE00A47755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24DF1DD0D3EE00A47755 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1044DCA81DD20880006B6582 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = source/Application.swift; sourceTree = "<group>"; };
 		10FB24D81DD0D3EE00A47755 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FB24DD1DD0D3EE00A47755 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1044DCA71DD20811006B6582 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1044DCA81DD20880006B6582 /* Application.swift */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
 		10FB24CF1DD0D3EE00A47755 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		10FB24DA1DD0D3EE00A47755 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				1044DCA71DD20811006B6582 /* source */,
 				10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */,
 				10FB24DD1DD0D3EE00A47755 /* ViewController.swift */,
 				10FB24DF1DD0D3EE00A47755 /* Main.storyboard */,
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1044DCA91DD20880006B6582 /* Application.swift in Sources */,
 				10FB24DE1DD0D3EE00A47755 /* ViewController.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
 			);
@@ -300,6 +312,7 @@
 				10FB24EC1DD0D3EE00A47755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

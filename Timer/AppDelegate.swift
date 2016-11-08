@@ -20,12 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        let value = url.absoluteString
-        let urlArray = value.components(separatedBy: "//")
-        let message = urlArray[1]
-        let alert = UIAlertView()
-        alert.message = message
-        alert.show()
+        Application.instance.SetMessage(url.absoluteString.components(separatedBy: "//")[1])
         return true
     }
 
