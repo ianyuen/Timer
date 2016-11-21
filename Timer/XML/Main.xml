@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>background</type>
+		<posX>0</posX>
+		<posY>83</posY>
+		<width>screenWidth</width>
+		<height>screenHeight</height>
+		<color>0xed9b3f</color>
+	</object>
+<view>
