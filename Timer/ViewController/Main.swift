@@ -25,6 +25,10 @@ class Main: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+
 	func initView() {
 		let objectManager = ObjectManager(view: view, controller: self)
 		objectManager.Parse("Main")
