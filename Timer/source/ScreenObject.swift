@@ -11,6 +11,7 @@ import Foundation
 
 class ScreenObject {
 	var type = ""
+	var name = ""
 
 	var width: CGFloat = 0
 	var height: CGFloat = 0

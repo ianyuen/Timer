@@ -9,6 +9,7 @@
 import UIKit
 
 class Main: UIViewController {
+	let background = UILabel()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,8 +26,8 @@ class Main: UIViewController {
 	}
 
 	func initView() {
-		let objectManager = ObjectManager()
+		let objectManager = ObjectManager(view: view, controller: self)
 		objectManager.Parse("Main")
-		objectManager.DrawScreen(view)
+		objectManager.DrawObject(background, type: "background", name: "screenBackground")
 	}
 }

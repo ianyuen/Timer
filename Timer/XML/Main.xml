@@ -2,10 +2,11 @@
 <view>
 	<object>
 		<type>background</type>
+		<name>screenBackground</name>
 		<posX>0</posX>
-		<posY>83</posY>
+		<posY>0</posY>
 		<width>screenWidth</width>
 		<height>screenHeight</height>
-		<color>0xed9b3f</color>
+		<color>ed9b3f</color>
 	</object>
 <view>

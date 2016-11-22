@@ -77,7 +77,9 @@ class ParseXML : NSObject, XMLParserDelegate {
 			switch curElement {
 			case "type":
 				object.type = string
-				
+			case "name":
+				object.name = string
+
 			case "width":
 				object.width = CGFloatFromString(string)
 			case "height":
@@ -88,8 +90,7 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.yPosition = CGFloatFromString(string)
 				
 			case "color":
-				let color = Color()
-				object.color = color.GetColor(string)
+				object.color = UInt32(string, radix: 16)!
 			default:
 				return
 			}
