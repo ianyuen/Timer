@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>image</type>
+		<name>background1</name>
+		<width>1146</width>
+		<height>1146</height>
+		<posX>0</posX>
+		<posY>0</posY>
+		<icon>startButton1</icon>
+	</object>
+	<object>
+		<type>image</type>
+		<name>background2</name>
+		<width>1128</width>
+		<height>1128</height>
+		<posX>18</posX>
+		<posY>18</posY>
+		<icon>startButton2</icon>
+	</object>
+	<object>
+		<type>image</type>
+		<name>background3</name>
+		<width>980</width>
+		<height>980</height>
+		<posX>166</posX>
+		<posY>166</posY>
+		<icon>startButton3</icon>
+	</object>
+<view>

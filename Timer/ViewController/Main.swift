@@ -9,14 +9,20 @@
 import UIKit
 
 class Main: UIViewController {
+	let round = UILabel()
+	let endTime = UILabel()
 	let background = UILabel()
+	let screenTitle = UILabel()
+	let historyButton = UIButton()
+	let settingsButton = UIButton()
+	let titleBackground = UILabel()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		ScreenSize.instance.setStatusHeight(UIApplication.shared.statusBarFrame.size.height)
-		ScreenSize.instance.setCurrentWidth(self.view.frame.size.width)
-		ScreenSize.instance.setCurrentHeight(self.view.frame.size.height)
+		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
+		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
+		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
 		initView()
 	}
 
@@ -32,6 +38,21 @@ class Main: UIViewController {
 	func initView() {
 		let objectManager = ObjectManager(view: view, controller: self)
 		objectManager.Parse("Main")
-		objectManager.DrawObject(background, type: "background", name: "screenBackground")
+		objectManager.DrawObject(background, type: "background", name: "background")
+		objectManager.DrawObject(round, type: "label", name: "round")
+		objectManager.DrawObject(screenTitle, type: "label", name: "title")
+		objectManager.DrawObject(historyButton, type: "button", name: "historyButton")
+		objectManager.DrawObject(settingsButton, type: "button", name: "settingsButton")
+
+		objectManager.DrawObject(titleBackground, type: "background", name: "titleBackground")
+		objectManager.DrawObject(endTime, type: "label", name: "endTime")
+
+		let roundButton = RoundButton(self)
+		objectManager.DrawObject(roundButton, type: "roundButton", name: "roundButton")
+
+		let resetButton = MainButton(self)
+		let startButton = MainButton(self)
+		objectManager.DrawObject(startButton, type: "mainButton", name: "startButton")
+		objectManager.DrawObject(resetButton, type: "mainButton", name: "resetButton")
 	}
 }

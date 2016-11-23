@@ -19,43 +19,43 @@ class ScreenSize {
 	var currentWidth: CGFloat = 0
 	var currentHeight: CGFloat = 0
 
-	func getStatusHeight() -> CGFloat {
+	func GetStatusHeight() -> CGFloat {
 		return statusHeight
 	}
 
-	func setStatusHeight(_ height: CGFloat) -> Void {
+	func SetStatusHeight(_ height: CGFloat) -> Void {
 		statusHeight = height
 	}
 
-	func getCurrentWidth() -> CGFloat {
+	func GetCurrentWidth() -> CGFloat {
 		return currentWidth
 	}
 
-	func setCurrentWidth(_ width: CGFloat) -> Void {
+	func SetCurrentWidth(_ width: CGFloat) -> Void {
 		currentWidth = width
 	}
 
-	func getCurrentHeight() -> CGFloat {
+	func GetCurrentHeight() -> CGFloat {
 		return currentHeight
 	}
 
-	func setCurrentHeight(_ height: CGFloat) -> Void {
+	func SetCurrentHeight(_ height: CGFloat) -> Void {
 		currentHeight = height
 	}
 
-	func getPositionX(_ positionX:CGFloat) ->  CGFloat {
+	func GetPositionX(_ positionX:CGFloat) ->  CGFloat {
 		return (currentWidth * positionX) / defaultWidth
 	}
 
-	func getPositionY(_ positionY:CGFloat) ->  CGFloat {
+	func GetPositionY(_ positionY:CGFloat) ->  CGFloat {
 		return (currentHeight * positionY) / defaultHeight
 	}
 
-	func getItemWidth(_ itemWidth:CGFloat) ->  CGFloat {
+	func GetItemWidth(_ itemWidth:CGFloat) ->  CGFloat {
 		return (currentWidth * itemWidth) / defaultWidth
 	}
 
-	func getItemHeight(_ itemHeight:CGFloat) ->  CGFloat {
+	func GetItemHeight(_ itemHeight:CGFloat) ->  CGFloat {
 		return (currentHeight * itemHeight) / defaultHeight
 	}
 }

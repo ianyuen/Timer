@@ -28,42 +28,6 @@ class ParseXML : NSObject, XMLParserDelegate {
 		return screenObjects
 	}
 
-	func StringToCGFloat(_ value: String) -> CGFloat {
-		let result = NumberFormatter().number(from: value)
-		if result != nil {
-			return CGFloat(result!)
-		} else {
-			return 0
-		}
-	}
-
-	func CGFloatFromString(_ value: String) -> CGFloat {
-		var isAdd = true
-		var result: CGFloat = 0
-		let valueArray = value.characters.split{$0 == " "}.map(String.init)
-		for value in valueArray {
-			switch value {
-			case "+":
-				isAdd = true
-			case "-":
-				isAdd = false
-			case "screenWidth":
-				result = result + ScreenSize.instance.defaultWidth
-			case "screenHeight":
-				result = result + ScreenSize.instance.defaultHeight
-			default:
-				let number = StringToCGFloat(value)
-				if isAdd {
-					result = result + number
-				} else {
-					result = result - number
-				}
-			}
-		}
-
-		return result
-	}
-
 	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
 		curElement = elementName
 		didStartElement = true
@@ -79,20 +43,28 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.type = string
 			case "name":
 				object.name = string
-
-			case "width":
-				object.width = CGFloatFromString(string)
-			case "height":
-				object.height = CGFloatFromString(string)
+			case "text":
+				object.text = string
+			case "font":
+				object.font = string
+			case "icon":
+				object.icon = string
 			case "posX":
-				object.xPosition = CGFloatFromString(string)
+				object.xPosition = string
 			case "posY":
-				object.yPosition = CGFloatFromString(string)
-				
+				object.yPosition = string
+			case "width":
+				object.width = string
+			case "height":
+				object.height = string
+
+			case "size":
+				object.size = CGFloat(NumberFormatter().number(from: string)!)
+
 			case "color":
 				object.color = UInt32(string, radix: 16)!
-			default:
-				return
+
+			default: return
 			}
 		}
 	}

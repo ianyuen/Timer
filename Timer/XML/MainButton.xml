@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>image</type>
+		<name>background</name>
+		<width>width</width>
+		<height>height</height>
+		<posX>0</posX>
+		<posY>0</posY>
+		<icon>mainButton</icon>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>title</name>
+		<posX>centerWidth</posX>
+		<posY>87</posY>
+		<text>Barbell Tabata Workout</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+<view>

@@ -2,11 +2,101 @@
 <view>
 	<object>
 		<type>background</type>
-		<name>screenBackground</name>
-		<posX>0</posX>
-		<posY>0</posY>
+		<name>background</name>
 		<width>screenWidth</width>
 		<height>screenHeight</height>
+		<posX>0</posX>
+		<posY>0</posY>
 		<color>ed9b3f</color>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>settingsButton</name>
+		<width>145</width>
+		<height>145</height>
+		<posX>50</posX>
+		<posY>80</posY>
+		<icon>settings</icon>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>historyButton</name>
+		<width>145</width>
+		<height>145</height>
+		<icon>history</icon>
+		<posX>screenWidth - 50 - 145</posX>
+		<posY>80</posY>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>title</name>
+		<posX>centerWidth</posX>
+		<posY>87</posY>
+		<text>Barbell Tabata Workout</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>round</name>
+		<posX>centerWidth</posX>
+		<posY>187</posY>
+		<text>ROUND 5/15</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<color>ffffff</color>
+	</object>
+
+	<object>
+		<type>background</type>
+		<name>titleBackground</name>
+		<width>screenWidth</width>
+		<height>80</height>
+		<posX>0</posX>
+		<posY>467</posY>
+		<color>ce7336</color>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>endTime</name>
+		<posX>centerWidth</posX>
+		<posY>515</posY>
+		<text>Training ends in 9:15</text>
+		<font>LiberationSans</font>
+		<size>18</size>
+	</object>
+
+	<object>
+		<type>roundButton</type>
+		<name>start</name>
+		<width>1146</width>
+		<height>1146</height>
+		<posX>50</posX>
+		<posY>1789</posY>
+	</object>
+
+	<object>
+		<type>mainButton</type>
+		<name>startButton</name>
+		<width>521</width>
+		<height>235</height>
+		<posX>100</posX>
+		<posY>1789</posY>
+		<text>START</text>
+	</object>
+
+	<object>
+		<type>mainButton</type>
+		<name>resetButton</name>
+		<width>521</width>
+		<height>235</height>
+		<posX>screenWidth - 100 - 521</posX>
+		<posY>1789</posY>
+		<text>RESET</text>
 	</object>
 <view>
