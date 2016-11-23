@@ -9,22 +9,24 @@
 		<posY>0</posY>
 		<icon>startButton1</icon>
 	</object>
+
 	<object>
 		<type>image</type>
 		<name>background2</name>
 		<width>1128</width>
 		<height>1128</height>
-		<posX>18</posX>
-		<posY>18</posY>
+		<posX>9</posX>
+		<posY>9</posY>
 		<icon>startButton2</icon>
 	</object>
+
 	<object>
 		<type>image</type>
 		<name>background3</name>
 		<width>980</width>
 		<height>980</height>
-		<posX>166</posX>
-		<posY>166</posY>
+		<posX>83</posX>
+		<posY>83</posY>
 		<icon>startButton3</icon>
 	</object>
 <view>

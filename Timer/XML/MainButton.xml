@@ -3,8 +3,8 @@
 	<object>
 		<type>image</type>
 		<name>background</name>
-		<width>width</width>
-		<height>height</height>
+		<width>520</width>
+		<height>235</height>
 		<posX>0</posX>
 		<posY>0</posY>
 		<icon>mainButton</icon>

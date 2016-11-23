@@ -73,17 +73,17 @@
 
 	<object>
 		<type>roundButton</type>
-		<name>start</name>
+		<name>roundButton</name>
 		<width>1146</width>
 		<height>1146</height>
 		<posX>50</posX>
-		<posY>1789</posY>
+		<posY>615</posY>
 	</object>
 
 	<object>
 		<type>mainButton</type>
 		<name>startButton</name>
-		<width>521</width>
+		<width>520</width>
 		<height>235</height>
 		<posX>100</posX>
 		<posY>1789</posY>
@@ -93,9 +93,9 @@
 	<object>
 		<type>mainButton</type>
 		<name>resetButton</name>
-		<width>521</width>
+		<width>520</width>
 		<height>235</height>
-		<posX>screenWidth - 100 - 521</posX>
+		<posX>1242 - 100 - 520</posX>
 		<posY>1789</posY>
 		<text>RESET</text>
 	</object>

@@ -122,8 +122,7 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
 
 		imageView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		let image = UIImage(named: object.icon)
-		imageView.image = image
+		imageView.image = object.icon
 		view.addSubview(imageView)
 	}
 
@@ -139,8 +138,7 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		let image = UIImage(named: object.icon)
-		button.setImage(image, for: UIControlState())
+		button.setImage(object.icon, for: UIControlState())
 		view.addSubview(button)
 	}
 
@@ -186,9 +184,8 @@ class ObjectManager {
 		let objectY = CGFloatFromString(object.yPosition)
 		let positionX = ScreenSize.instance.GetPositionX(objectX)
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
-		
+
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.initView()
 		view.addSubview(button)
 	}
 }

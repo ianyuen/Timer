@@ -20,6 +20,12 @@ class RoundButton: UIButton {
 	init(_ controller: UIViewController) {
 		super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 		parent = controller
+
+		let objectManager = ObjectManager(view: self, controller: parent!)
+		objectManager.Parse("RoundButton")
+		objectManager.DrawObject(background1, type: "image", name: "background1")
+		objectManager.DrawObject(background2, type: "image", name: "background2")
+		objectManager.DrawObject(background3, type: "image", name: "background3")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -27,10 +33,5 @@ class RoundButton: UIButton {
 	}
 
 	func initView() {
-		let objectManager = ObjectManager(view: self, controller: parent!)
-		objectManager.Parse("RoundButton")
-		objectManager.DrawObject(background1, type: "image", name: "background1")
-		objectManager.DrawObject(background2, type: "image", name: "background2")
-		objectManager.DrawObject(background3, type: "image", name: "background3")
 	}
 }

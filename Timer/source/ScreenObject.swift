@@ -14,12 +14,12 @@ class ScreenObject {
 	var name = ""
 	var text = ""
 	var font = ""
-	var icon = ""
 	var width = ""
 	var height = ""
 	var xPosition = ""
 	var yPosition = ""
 
+	var icon = UIImage()
 	var size: CGFloat = 0
 	var color: UInt32 = 0
 }
