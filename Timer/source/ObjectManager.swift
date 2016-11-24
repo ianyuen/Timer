@@ -25,14 +25,14 @@ class ObjectManager {
 		screenObjects = parseXML.Parse(xmlFile)
 	}
 
-	func DrawObject(_ object: Any, type: String, name: String) {
+	func DrawObject(_ object: Any, type: String, name: String, angle: CGFloat = 0) {
 		for screenObject in screenObjects {
 			if screenObject.name == name {
 				switch type {
 				case "label":
 					AddLabel(object as! UILabel, view: parentView, object: screenObject)
 				case "image":
-					AddImage(object as! UIImageView, view: parentView, object: screenObject)
+					AddImage(object as! UIImageView, view: parentView, object: screenObject, angle: angle)
 				case "button":
 					AddButton(object as! UIButton, view: parentView, object: screenObject)
 				case "background":
@@ -110,7 +110,7 @@ class ObjectManager {
 		view.addSubview(label)
 	}
 
-	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject) {
+	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat) {
 		let objectWidth = CGFloatFromString(object.width)
 		let objectHeight = CGFloatFromString(object.height)
 		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
@@ -123,6 +123,9 @@ class ObjectManager {
 
 		imageView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		imageView.image = object.icon
+		UIView.animate(withDuration: 2.0, animations: {
+			imageView.transform = CGAffineTransform(rotationAngle: angle)
+		})
 		view.addSubview(imageView)
 	}
 
@@ -186,6 +189,7 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		button.addTarget(button, action: #selector(button.Clicked(_:)), for: UIControlEvents.touchUpInside)
 		view.addSubview(button)
 	}
 }

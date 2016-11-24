@@ -95,7 +95,7 @@
 		<name>resetButton</name>
 		<width>520</width>
 		<height>235</height>
-		<posX>1242 - 100 - 520</posX>
+		<posX>622</posX>
 		<posY>1789</posY>
 		<text>RESET</text>
 	</object>
