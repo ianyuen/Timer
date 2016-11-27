@@ -3,19 +3,28 @@
 	<object>
 		<type>image</type>
 		<name>background</name>
-		<width>520</width>
-		<height>235</height>
+		<width>438</width>
+		<height>145</height>
 		<posX>0</posX>
 		<posY>0</posY>
 		<icon>mainButton</icon>
 	</object>
 
 	<object>
+		<type>image</type>
+		<name>icon</name>
+		<width>77</width>
+		<height>77</height>
+		<posX>40</posX>
+		<posY>34</posY>
+		<icon>mainButton</icon>
+	</object>
+
+	<object>
 		<type>label</type>
 		<name>title</name>
-		<posX>centerWidth</posX>
-		<posY>87</posY>
-		<text>Barbell Tabata Workout</text>
+		<posX>38</posX>
+		<posY>30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
 	</object>

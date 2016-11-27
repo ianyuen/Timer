@@ -43,6 +43,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.type = string
 			case "name":
 				object.name = string
+			case "image":
+				object.image = string
 			case "text":
 				object.text = string
 			case "font":
@@ -58,6 +60,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 
 			case "icon":
 				object.icon = UIImage(named: string)!
+			case "line":
+				object.line = Int(string, radix: 10)!
 			case "size":
 				object.size = CGFloat(NumberFormatter().number(from: string)!)
 			case "color":

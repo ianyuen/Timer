@@ -55,4 +55,14 @@ class Main: UIViewController {
 		objectManager.DrawObject(startButton, type: "mainButton", name: "startButton")
 		objectManager.DrawObject(resetButton, type: "mainButton", name: "resetButton")
 	}
+
+	func PrintFontNames() {
+		let fontFamilyNames = UIFont.familyNames
+		for familyName in fontFamilyNames {
+			print("------------------------------")
+			print("Font Family Name = [\(familyName)]")
+			let names = UIFont.fontNames(forFamilyName: familyName)
+			print("Font Names = [\(names)]")
+		}
+	}
 }

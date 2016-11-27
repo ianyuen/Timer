@@ -25,14 +25,14 @@ class ObjectManager {
 		screenObjects = parseXML.Parse(xmlFile)
 	}
 
-	func DrawObject(_ object: Any, type: String, name: String, angle: CGFloat = 0) {
+	func DrawObject(_ object: Any, type: String, name: String, angle: CGFloat = 0, image: String = "", spec: String = "") {
 		for screenObject in screenObjects {
 			if screenObject.name == name {
 				switch type {
 				case "label":
-					AddLabel(object as! UILabel, view: parentView, object: screenObject)
+					AddLabel(object as! UILabel, view: parentView, object: screenObject, spec: spec)
 				case "image":
-					AddImage(object as! UIImageView, view: parentView, object: screenObject, angle: angle)
+					AddImage(object as! UIImageView, view: parentView, object: screenObject, angle: angle, image: image)
 				case "button":
 					AddButton(object as! UIButton, view: parentView, object: screenObject)
 				case "background":
@@ -93,12 +93,28 @@ class ObjectManager {
 		return result
 	}
 
-	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, alpha:Double = 1.0) {
+	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String, alpha:Double = 1.0) {
 		label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-		label.text = object.text
+		if spec == "" {
+			label.text = object.text
+		} else {
+			label.text = spec
+		}
 		label.font = UIFont(name: object.font, size: object.size)
 		label.textColor = color.UIColorFromHex(object.color, alpha: alpha)
-		label.sizeToFit()
+		if object.width != "" {
+			let objectWidth = CGFloatFromString(object.width)
+			let objectHeight = CGFloatFromString(object.height)
+
+			let width = ScreenSize.instance.GetItemWidth(objectWidth)
+			let height = ScreenSize.instance.GetItemWidth(objectHeight)
+			label.frame = CGRect(x: 0, y: 0, width: width, height: height)
+			label.lineBreakMode = NSLineBreakMode.byWordWrapping
+			label.textAlignment = NSTextAlignment.center
+		} else {
+			label.sizeToFit()
+		}
+
 		if object.xPosition == "centerWidth" {
 			label.frame.origin.x = (parentView.frame.width - label.frame.width) / 2
 		} else {
@@ -107,10 +123,11 @@ class ObjectManager {
 
 		let objectY = CGFloatFromString(object.yPosition)
 		label.frame.origin.y = ScreenSize.instance.GetPositionY(objectY)
+		label.numberOfLines = object.line
 		view.addSubview(label)
 	}
 
-	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat) {
+	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat, image: String) {
 		let objectWidth = CGFloatFromString(object.width)
 		let objectHeight = CGFloatFromString(object.height)
 		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
@@ -122,7 +139,11 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
 
 		imageView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		imageView.image = object.icon
+		if image == "" {
+			imageView.image = object.icon
+		} else {
+			imageView.image = UIImage(named: image)
+		}
 		UIView.animate(withDuration: 2.0, animations: {
 			imageView.transform = CGAffineTransform(rotationAngle: angle)
 		})
@@ -173,7 +194,10 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		button.icon.image = object.icon
 		button.title.text = object.text
+		button.image = object.image
+		button.initView()
 		view.addSubview(button)
 	}
 

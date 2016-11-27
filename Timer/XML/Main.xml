@@ -7,7 +7,7 @@
 		<height>screenHeight</height>
 		<posX>0</posX>
 		<posY>0</posY>
-		<color>ed9b3f</color>
+		<color>f9aa43</color>
 	</object>
 
 	<object>
@@ -34,20 +34,23 @@
 		<type>label</type>
 		<name>title</name>
 		<posX>centerWidth</posX>
-		<posY>87</posY>
+		<posY>80</posY>
+		<width>515</width>
+		<height>170</height>
 		<text>Barbell Tabata Workout</text>
+		<line>2</line>
 		<font>LiberationSans</font>
-		<size>20</size>
+		<size>19</size>
 	</object>
 
 	<object>
 		<type>label</type>
 		<name>round</name>
 		<posX>centerWidth</posX>
-		<posY>187</posY>
-		<text>ROUND 5/15</text>
+		<posY>280</posY>
+		<text>ROUND   5/15</text>
 		<font>LiberationSans</font>
-		<size>20</size>
+		<size>30</size>
 		<color>ffffff</color>
 	</object>
 
@@ -55,7 +58,7 @@
 		<type>background</type>
 		<name>titleBackground</name>
 		<width>screenWidth</width>
-		<height>80</height>
+		<height>180</height>
 		<posX>0</posX>
 		<posY>467</posY>
 		<color>ce7336</color>
@@ -66,9 +69,9 @@
 		<name>endTime</name>
 		<posX>centerWidth</posX>
 		<posY>515</posY>
-		<text>Training ends in 9:15</text>
+		<text>Training ends in   9:15</text>
 		<font>LiberationSans</font>
-		<size>18</size>
+		<size>20</size>
 	</object>
 
 	<object>
@@ -77,26 +80,28 @@
 		<width>1146</width>
 		<height>1146</height>
 		<posX>50</posX>
-		<posY>615</posY>
+		<posY>697</posY>
 	</object>
 
 	<object>
 		<type>mainButton</type>
 		<name>startButton</name>
-		<width>520</width>
-		<height>235</height>
+		<width>438</width>
+		<height>145</height>
 		<posX>100</posX>
-		<posY>1789</posY>
+		<posY>1893</posY>
+		<image>start</image>
 		<text>START</text>
 	</object>
 
 	<object>
 		<type>mainButton</type>
 		<name>resetButton</name>
-		<width>520</width>
-		<height>235</height>
+		<width>438</width>
+		<height>145</height>
 		<posX>622</posX>
-		<posY>1789</posY>
+		<posY>1893</posY>
+		<image>reset</image>
 		<text>RESET</text>
 	</object>
 <view>
