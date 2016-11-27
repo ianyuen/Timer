@@ -213,7 +213,10 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(objectY)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.addTarget(button, action: #selector(button.Clicked(_:)), for: UIControlEvents.touchUpInside)
+
+		let clicked = #selector(button.Clicked(_:))
+		button.addTarget(button, action: clicked, for: UIControlEvents.touchUpInside)
+		button.initView(parentController)
 		view.addSubview(button)
 	}
 }

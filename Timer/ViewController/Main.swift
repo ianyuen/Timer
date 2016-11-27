@@ -12,10 +12,13 @@ class Main: UIViewController {
 	let round = UILabel()
 	let endTime = UILabel()
 	let background = UILabel()
+	let roundButton = RoundButton()
 	let screenTitle = UILabel()
 	let historyButton = UIButton()
 	let settingsButton = UIButton()
 	let titleBackground = UILabel()
+
+	var angle: CGFloat = 0.0
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,6 +26,7 @@ class Main: UIViewController {
 		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
+		_ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true);
 		initView()
 	}
 
@@ -33,6 +37,15 @@ class Main: UIViewController {
 
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+
+	func update() {
+		if (roundButton.drawing) {
+			roundButton.DrawCircle(angle)
+			angle = angle + CGFloat.pi / 30
+		} else {
+			angle = 0
+		}
 	}
 
 	func initView() {
@@ -47,7 +60,6 @@ class Main: UIViewController {
 		objectManager.DrawObject(titleBackground, type: "background", name: "titleBackground")
 		objectManager.DrawObject(endTime, type: "label", name: "endTime")
 
-		let roundButton = RoundButton(self)
 		objectManager.DrawObject(roundButton, type: "roundButton", name: "roundButton")
 
 		let resetButton = MainButton(self)
