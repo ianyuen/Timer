@@ -67,9 +67,19 @@
 	<object>
 		<type>label</type>
 		<name>endTime</name>
-		<posX>centerWidth</posX>
+		<posX>200</posX>
 		<posY>515</posY>
-		<text>Training ends in   9:15</text>
+		<text>Training ends in</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>endClock</name>
+		<posX>screenWidth - 400</posX>
+		<posY>515</posY>
+		<text>9:15</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 	</object>

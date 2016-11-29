@@ -15,11 +15,6 @@ class ObjectManager {
 	var parentController = UIViewController()
 	var screenObjects = [ScreenObject]()
 
-	init(view: UIView, controller: UIViewController) {
-		parentView = view
-		parentController = controller
-	}
-
 	func Parse(_ xmlFile: String) {
 		let parseXML = ParseXML()
 		screenObjects = parseXML.Parse(xmlFile)
@@ -100,14 +95,14 @@ class ObjectManager {
 		} else {
 			label.text = spec
 		}
+
 		label.font = UIFont(name: object.font, size: object.size)
 		label.textColor = color.UIColorFromHex(object.color, alpha: alpha)
-		if object.width != "" {
-			let objectWidth = CGFloatFromString(object.width)
-			let objectHeight = CGFloatFromString(object.height)
+		label.numberOfLines = object.line
+		if object.width != 0 {
+			let width = ScreenSize.instance.GetItemWidth(object.width)
+			let height = ScreenSize.instance.GetItemWidth(object.height)
 
-			let width = ScreenSize.instance.GetItemWidth(objectWidth)
-			let height = ScreenSize.instance.GetItemWidth(objectHeight)
 			label.frame = CGRect(x: 0, y: 0, width: width, height: height)
 			label.lineBreakMode = NSLineBreakMode.byWordWrapping
 			label.textAlignment = NSTextAlignment.center
@@ -115,28 +110,24 @@ class ObjectManager {
 			label.sizeToFit()
 		}
 
-		if object.xPosition == "centerWidth" {
-			label.frame.origin.x = (parentView.frame.width - label.frame.width) / 2
+		if object.xPosition == -1 {
+			let width = label.frame.width
+			let screenWidth = ScreenSize.instance.GetCurrentWidth()
+			label.frame.origin.x = (screenWidth - width) / 2
 		} else {
-			label.frame.origin.x = CGFloatFromString(object.xPosition)
+			label.frame.origin.x = ScreenSize.instance.GetPositionX(object.xPosition)
 		}
+		label.frame.origin.y = ScreenSize.instance.GetPositionY(object.yPosition)
 
-		let objectY = CGFloatFromString(object.yPosition)
-		label.frame.origin.y = ScreenSize.instance.GetPositionY(objectY)
-		label.numberOfLines = object.line
 		view.addSubview(label)
 	}
 
 	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat, image: String) {
-		let objectWidth = CGFloatFromString(object.width)
-		let objectHeight = CGFloatFromString(object.height)
-		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
-		let itemHeight = ScreenSize.instance.GetItemHeight(objectHeight)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
-		let objectX = CGFloatFromString(object.xPosition)
-		let objectY = CGFloatFromString(object.yPosition)
-		let positionX = ScreenSize.instance.GetPositionX(objectX)
-		let positionY = ScreenSize.instance.GetPositionY(objectY)
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		imageView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		if image == "" {
@@ -151,15 +142,11 @@ class ObjectManager {
 	}
 
 	func AddButton(_ button: UIButton, view: UIView, object: ScreenObject) {
-		let objectWidth = CGFloatFromString(object.width)
-		let objectHeight = CGFloatFromString(object.height)
-		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
-		let itemHeight = ScreenSize.instance.GetItemHeight(objectHeight)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
-		let objectX = CGFloatFromString(object.xPosition)
-		let objectY = CGFloatFromString(object.yPosition)
-		let positionX = ScreenSize.instance.GetPositionX(objectX)
-		let positionY = ScreenSize.instance.GetPositionY(objectY)
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.setImage(object.icon, for: UIControlState())
@@ -167,15 +154,11 @@ class ObjectManager {
 	}
 
 	func AddBackground(_ background: UILabel, view: UIView, object: ScreenObject, alpha:Double = 1.0) {
-		let objectWidth = CGFloatFromString(object.width)
-		let objectHeight = CGFloatFromString(object.height)
-		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
-		let itemHeight = ScreenSize.instance.GetItemHeight(objectHeight)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
-		let objectX = CGFloatFromString(object.xPosition)
-		let objectY = CGFloatFromString(object.yPosition)
-		let positionX = ScreenSize.instance.GetPositionX(objectX)
-		let positionY = ScreenSize.instance.GetPositionY(objectY)
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		background.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		background.backgroundColor = color.UIColorFromHex(object.color, alpha: alpha)
@@ -183,15 +166,11 @@ class ObjectManager {
 	}
 
 	func AddMainButton(_ button : MainButton, view: UIView, object: ScreenObject) {
-		let objectWidth = CGFloatFromString(object.width)
-		let objectHeight = CGFloatFromString(object.height)
-		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
-		let itemHeight = ScreenSize.instance.GetItemHeight(objectHeight)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
-		let objectX = CGFloatFromString(object.xPosition)
-		let objectY = CGFloatFromString(object.yPosition)
-		let positionX = ScreenSize.instance.GetPositionX(objectX)
-		let positionY = ScreenSize.instance.GetPositionY(objectY)
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.icon.image = object.icon
@@ -202,15 +181,11 @@ class ObjectManager {
 	}
 
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {
-		let objectWidth = CGFloatFromString(object.width)
-		let objectHeight = CGFloatFromString(object.height)
-		let itemWidth = ScreenSize.instance.GetItemWidth(objectWidth)
-		let itemHeight = ScreenSize.instance.GetItemHeight(objectHeight)
-		
-		let objectX = CGFloatFromString(object.xPosition)
-		let objectY = CGFloatFromString(object.yPosition)
-		let positionX = ScreenSize.instance.GetPositionX(objectX)
-		let positionY = ScreenSize.instance.GetPositionY(objectY)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 

@@ -11,14 +11,17 @@ import UIKit
 class Main: UIViewController {
 	let round = UILabel()
 	let endTime = UILabel()
+	let endClock = UILabel()
 	let background = UILabel()
 	let roundButton = RoundButton()
 	let screenTitle = UILabel()
+	let objectManager = ObjectManager()
 	let historyButton = UIButton()
 	let settingsButton = UIButton()
 	let titleBackground = UILabel()
 
 	var angle: CGFloat = 0.0
+	var inverse = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -41,15 +44,26 @@ class Main: UIViewController {
 
 	func update() {
 		if (roundButton.drawing) {
-			roundButton.DrawCircle(angle)
-			angle = angle + CGFloat.pi / 30
+			if inverse {
+				roundButton.DrawCircle(angle)
+				angle = angle + CGFloat.pi / 30
+			} else {
+				if angle >= CGFloat.pi {
+					angle = -CGFloat.pi
+					inverse = true
+				} else {
+					roundButton.DrawCircle(angle)
+					angle = angle + CGFloat.pi / 30
+				}
+			}
 		} else {
 			angle = 0
 		}
 	}
 
 	func initView() {
-		let objectManager = ObjectManager(view: view, controller: self)
+		objectManager.parentView = view
+		objectManager.parentController = self
 		objectManager.Parse("Main")
 		objectManager.DrawObject(background, type: "background", name: "background")
 		objectManager.DrawObject(round, type: "label", name: "round")
@@ -59,6 +73,7 @@ class Main: UIViewController {
 
 		objectManager.DrawObject(titleBackground, type: "background", name: "titleBackground")
 		objectManager.DrawObject(endTime, type: "label", name: "endTime")
+		objectManager.DrawObject(endClock, type: "label", name: "endClock")
 
 		objectManager.DrawObject(roundButton, type: "roundButton", name: "roundButton")
 

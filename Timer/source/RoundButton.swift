@@ -16,8 +16,8 @@ class RoundButton: UIButton {
 	var width: CGFloat = 0
 	var height: CGFloat = 0
 	var drawing = false
+	var objectManager = ObjectManager()
 	var parentController: UIViewController? = nil
-	var objectManager: ObjectManager? = nil
 	
 	init() {
 		super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -34,18 +34,19 @@ class RoundButton: UIButton {
 
 	func initView (_ controller : UIViewController) {
 		parentController = controller
-		objectManager = ObjectManager(view: self, controller: parentController!)
-		objectManager?.Parse("RoundButton")
-		objectManager?.DrawObject(background1, type: "image", name: "background1")
-		objectManager?.DrawObject(background2, type: "image", name: "background2")
-		objectManager?.DrawObject(background3, type: "image", name: "background3")
+		objectManager.parentView = self
+		objectManager.parentController = parentController!
+		objectManager.Parse("RoundButton")
+		objectManager.DrawObject(background1, type: "image", name: "background1")
+		objectManager.DrawObject(background2, type: "image", name: "background2")
+		objectManager.DrawObject(background3, type: "image", name: "background3")
 	}
 
 	func DrawCircle(_ angle: CGFloat) {
 		let background4 = UIImageView()
-		objectManager?.DrawObject(background4, type: "image", name: "background4", angle: angle)
-		objectManager?.DrawObject(background1, type: "image", name: "background1")
-		objectManager?.DrawObject(background3, type: "image", name: "background3")
+		objectManager.DrawObject(background4, type: "image", name: "background4", angle: angle)
+		objectManager.DrawObject(background1, type: "image", name: "background1")
+		objectManager.DrawObject(background3, type: "image", name: "background3")
 	}
 
 	func Clicked(_ sender:UIButton!) {

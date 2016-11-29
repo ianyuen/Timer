@@ -17,13 +17,12 @@
 		<height>77</height>
 		<posX>40</posX>
 		<posY>34</posY>
-		<icon>mainButton</icon>
 	</object>
 
 	<object>
 		<type>label</type>
 		<name>title</name>
-		<posX>38</posX>
+		<posX>120</posX>
 		<posY>30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>

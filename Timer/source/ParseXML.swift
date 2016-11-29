@@ -28,6 +28,52 @@ class ParseXML : NSObject, XMLParserDelegate {
 		return screenObjects
 	}
 
+	func StringToCGFloat(_ value: String) -> CGFloat {
+		let result = NumberFormatter().number(from: value)
+		if result != nil {
+			return CGFloat(result!)
+		} else {
+			return 0
+		}
+	}
+	
+	func CGFloatFromString(_ value: String, xPosition: CGFloat = 0, yPosition: CGFloat = 0) -> CGFloat {
+		var isAdd = true
+		var result: CGFloat = 0
+		let valueArray = value.characters.split{$0 == " "}.map(String.init)
+		for value in valueArray {
+			if value == "centerWidth" {
+				result = -1
+			} else if value == "centerHeight" {
+				result = (ScreenSize.instance.GetCurrentHeight() - yPosition) / 2
+			} else {
+				switch value {
+				case "+":
+					isAdd = true
+				case "-":
+					isAdd = false
+				case "width":
+					result = result + object.width
+				case "height":
+					result = result + object.height
+				case "screenWidth":
+					result = result + ScreenSize.instance.defaultWidth
+				case "screenHeight":
+					result = result + ScreenSize.instance.defaultHeight
+				default:
+					let number = StringToCGFloat(value)
+					if isAdd {
+						result = result + number
+					} else {
+						result = result - number
+					}
+				}
+			}
+		}
+		
+		return result
+	}
+
 	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
 		curElement = elementName
 		didStartElement = true
@@ -49,24 +95,25 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.text = string
 			case "font":
 				object.font = string
-			case "posX":
-				object.xPosition = string
-			case "posY":
-				object.yPosition = string
-			case "width":
-				object.width = string
-			case "height":
-				object.height = string
 
 			case "icon":
 				object.icon = UIImage(named: string)!
+
 			case "line":
 				object.line = Int(string, radix: 10)!
-			case "size":
-				object.size = CGFloat(NumberFormatter().number(from: string)!)
 			case "color":
 				object.color = UInt32(string, radix: 16)!
 
+			case "size":
+				object.size = CGFloat(NumberFormatter().number(from: string)!)
+			case "posX":
+				object.xPosition = CGFloatFromString(string)
+			case "posY":
+				object.yPosition = CGFloatFromString(string)
+			case "width":
+				object.width = CGFloatFromString(string)
+			case "height":
+				object.height = CGFloatFromString(string)
 			default: return
 			}
 		}

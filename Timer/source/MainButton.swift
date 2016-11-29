@@ -10,9 +10,10 @@ import UIKit
 
 class MainButton: UIButton {
 	let icon = UIImageView()
-	var image = ""
 	let title = UILabel()
+	var image = ""
 	let background = UIImageView()
+	let objectManager = ObjectManager()
 
 	var width: CGFloat = 0
 	var height: CGFloat = 0
@@ -28,7 +29,8 @@ class MainButton: UIButton {
 	}
 
 	func initView() {
-		let objectManager = ObjectManager(view: self, controller: parent!)
+		objectManager.parentView = self
+		objectManager.parentController = parent!
 		objectManager.Parse("MainButton")
 		objectManager.DrawObject(background, type: "image", name: "background")
 		objectManager.DrawObject(icon, type: "image", name: "icon", image: image)
