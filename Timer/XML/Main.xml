@@ -91,6 +91,7 @@
 		<height>1146</height>
 		<posX>50</posX>
 		<posY>697</posY>
+		<clicked>btnRoundClicked</clicked>
 	</object>
 
 	<object>
@@ -102,6 +103,7 @@
 		<posY>1893</posY>
 		<image>start</image>
 		<text>START</text>
+		<clicked>btnStartClicked</clicked>
 	</object>
 
 	<object>
@@ -113,5 +115,6 @@
 		<posY>1893</posY>
 		<image>reset</image>
 		<text>RESET</text>
+		<clicked>btnResetClicked</clicked>
 	</object>
 <view>

@@ -49,6 +49,7 @@ class RoundButton: UIButton {
 		objectManager.DrawObject(background4, type: "image", name: "background4", angle: angle)
 		objectManager.DrawObject(background1, type: "image", name: "background1")
 		objectManager.DrawObject(background3, type: "image", name: "background3")
+		objectManager.DrawObject(endTime, type: "label", name: "endTime")
 	}
 
 	func Clicked(_ sender:UIButton!) {

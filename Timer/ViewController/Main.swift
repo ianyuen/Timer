@@ -9,10 +9,13 @@
 import UIKit
 
 class Main: UIViewController {
+	var counting = false
 	let round = UILabel()
 	let endTime = UILabel()
 	let endClock = UILabel()
 	let background = UILabel()
+	let resetButton = MainButton()
+	let startButton = MainButton()
 	let roundButton = RoundButton()
 	let screenTitle = UILabel()
 	let objectManager = ObjectManager()
@@ -42,25 +45,6 @@ class Main: UIViewController {
 		return true
 	}
 
-	func update() {
-		if (roundButton.drawing) {
-			if inverse {
-				roundButton.DrawCircle(angle)
-				angle = angle + CGFloat.pi / 30
-			} else {
-				if angle >= CGFloat.pi {
-					angle = -CGFloat.pi
-					inverse = true
-				} else {
-					roundButton.DrawCircle(angle)
-					angle = angle + CGFloat.pi / 30
-				}
-			}
-		} else {
-			angle = 0
-		}
-	}
-
 	func initView() {
 		objectManager.parentView = view
 		objectManager.parentController = self
@@ -77,10 +61,46 @@ class Main: UIViewController {
 
 		objectManager.DrawObject(roundButton, type: "roundButton", name: "roundButton")
 
-		let resetButton = MainButton(self)
-		let startButton = MainButton(self)
 		objectManager.DrawObject(startButton, type: "mainButton", name: "startButton")
 		objectManager.DrawObject(resetButton, type: "mainButton", name: "resetButton")
+	}
+
+	func btnResetClicked(_ sender:UIButton!) {
+		counting = false
+		roundButton.initView(self)
+	}
+
+	func btnStartClicked(_ sender:UIButton!) {
+		counting = !counting
+	}
+
+	func btnRoundClicked(_ sender:UIButton!) {
+		counting = !counting
+	}
+
+	func update() {
+		if (counting) {
+			let image = UIImage(named: "stop")
+			startButton.icon.image = image
+			startButton.title.text = "STOP"
+			if inverse {
+				roundButton.DrawCircle(angle)
+				angle = angle + CGFloat.pi / 30
+			} else {
+				if angle >= CGFloat.pi {
+					angle = -CGFloat.pi
+					inverse = true
+				} else {
+					roundButton.DrawCircle(angle)
+					angle = angle + CGFloat.pi / 30
+				}
+			}
+		} else {
+			angle = 0
+			let image = UIImage(named: "start")
+			startButton.icon.image = image
+			startButton.title.text = "START"
+		}
 	}
 
 	func PrintFontNames() {

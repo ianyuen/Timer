@@ -16,14 +16,14 @@ class ScreenObject {
 	var font = ""
 	var image = ""
 
-	var icon = UIImage()
-
-	var line: Int = 1
-	var color: UInt32 = 0
-
 	var size: CGFloat = 0
 	var width: CGFloat = 0
 	var height: CGFloat = 0
 	var xPosition: CGFloat = 0
 	var yPosition: CGFloat = 0
+
+	var icon = UIImage()
+	var line: Int = 1
+	var color: UInt32 = 0
+	var clicked: Selector? = nil
 }

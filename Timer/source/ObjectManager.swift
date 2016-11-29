@@ -179,21 +179,19 @@ class ObjectManager {
 		button.icon.image = object.icon
 		button.title.text = object.text
 		button.image = object.image
-		button.initView()
+		button.addTarget(parentController, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.initView(parentController)
 		view.addSubview(button)
 	}
 
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-
-		let clicked = #selector(button.Clicked(_:))
-		button.addTarget(button, action: clicked, for: UIControlEvents.touchUpInside)
+		button.addTarget(parentController, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		button.initView(parentController)
 		view.addSubview(button)
 	}
