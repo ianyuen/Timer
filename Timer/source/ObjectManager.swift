@@ -112,13 +112,16 @@ class ObjectManager {
 
 		if object.xPosition == -1 {
 			let width = label.frame.width
-			let screenWidth = ScreenSize.instance.GetCurrentWidth()
-			label.frame.origin.x = (screenWidth - width) / 2
+			label.frame.origin.x = (parentView.frame.width - width) / 2
 		} else {
 			label.frame.origin.x = ScreenSize.instance.GetPositionX(object.xPosition)
 		}
-		label.frame.origin.y = ScreenSize.instance.GetPositionY(object.yPosition)
-
+		if object.yPosition == -1 {
+			let height = label.frame.height
+			label.frame.origin.y = (parentView.frame.height - height) / 2
+		} else {
+			label.frame.origin.y = ScreenSize.instance.GetPositionY(object.yPosition)
+		}
 		view.addSubview(label)
 	}
 

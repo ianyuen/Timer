@@ -39,4 +39,14 @@
 		<posY>0</posY>
 		<icon>startButton4</icon>
 	</object>
+
+	<object>
+		<type>label</type>
+		<name>endTime</name>
+		<posX>centerWidth</posX>
+		<posY>centerHeight</posY>
+		<text>01:00</text>
+		<font>LiberationSans</font>
+		<size>70</size>
+	</object>
 <view>

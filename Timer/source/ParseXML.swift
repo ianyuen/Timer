@@ -45,7 +45,7 @@ class ParseXML : NSObject, XMLParserDelegate {
 			if value == "centerWidth" {
 				result = -1
 			} else if value == "centerHeight" {
-				result = (ScreenSize.instance.GetCurrentHeight() - yPosition) / 2
+				result = -1
 			} else {
 				switch value {
 				case "+":
