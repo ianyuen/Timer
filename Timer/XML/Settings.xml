@@ -9,4 +9,14 @@
 		<posY>0</posY>
 		<color>f9aa43</color>
 	</object>
+
+	<object>
+		<type>backButton</type>
+		<name>backButton</name>
+		<width>200</width>
+		<height>90</height>
+		<posX>50</posX>
+		<posY>105</posY>
+		<clicked>btnBackClicked</clicked>
+	</object>
 </view>

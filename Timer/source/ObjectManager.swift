@@ -11,13 +11,18 @@ import Foundation
 
 class ObjectManager {
 	let color = Color()
-	var parentView = UIView()
-	var parentController = UIViewController()
-	var screenObjects = [ScreenObject]()
+	var parent = UIView()
+	var controller = UIViewController()
+
+	private var screenObjects = [ScreenObject]()
 
 	func Parse(_ xmlFile: String) {
 		let parseXML = ParseXML()
 		screenObjects = parseXML.Parse(xmlFile)
+	}
+
+	func GetObjects() -> [ScreenObject] {
+		return screenObjects
 	}
 
 	func DrawObject(_ object: Any, type: String, name: String, angle: CGFloat = 0, image: String = "", spec: String = "") {
@@ -25,17 +30,17 @@ class ObjectManager {
 			if screenObject.name == name {
 				switch type {
 				case "label":
-					AddLabel(object as! UILabel, view: parentView, object: screenObject, spec: spec)
+					AddLabel(object as! UILabel, view: parent, object: screenObject, spec: spec)
 				case "image":
-					AddImage(object as! UIImageView, view: parentView, object: screenObject, angle: angle, image: image)
+					AddImage(object as! UIImageView, view: parent, object: screenObject, angle: angle, image: image)
 				case "button":
-					AddButton(object as! UIButton, view: parentView, object: screenObject)
+					AddButton(object as! UIButton, view: parent, object: screenObject)
 				case "background":
-					AddBackground(object as! UILabel , view: parentView, object: screenObject)
+					AddBackground(object as! UILabel , view: parent, object: screenObject)
 				case "mainButton":
-					AddMainButton(object as! MainButton, view: parentView, object: screenObject)
+					AddMainButton(object as! MainButton, view: parent, object: screenObject)
 				case "roundButton":
-					AddRoundButton(object as! RoundButton, view: parentView, object: screenObject)
+					AddRoundButton(object as! RoundButton, view: parent, object: screenObject)
 				default: break
 				}
 			}
@@ -67,9 +72,9 @@ class ObjectManager {
 				case "-":
 					isAdd = false
 				case "width":
-					result = result + parentView.frame.width
+					result = result + parent.frame.width
 				case "height":
-					result = result + parentView.frame.height
+					result = result + parent.frame.height
 				case "screenWidth":
 					result = result + ScreenSize.instance.defaultWidth
 				case "screenHeight":
@@ -88,7 +93,7 @@ class ObjectManager {
 		return result
 	}
 
-	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String, alpha:Double = 1.0) {
+	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
 		label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 		if spec == "" {
 			label.text = object.text
@@ -112,20 +117,20 @@ class ObjectManager {
 
 		if object.xPosition == -1 {
 			let width = label.frame.width
-			label.frame.origin.x = (parentView.frame.width - width) / 2
+			label.frame.origin.x = (parent.frame.width - width) / 2
 		} else {
 			label.frame.origin.x = ScreenSize.instance.GetPositionX(object.xPosition)
 		}
 		if object.yPosition == -1 {
 			let height = label.frame.height
-			label.frame.origin.y = (parentView.frame.height - height) / 2
+			label.frame.origin.y = (parent.frame.height - height) / 2
 		} else {
 			label.frame.origin.y = ScreenSize.instance.GetPositionY(object.yPosition)
 		}
 		view.addSubview(label)
 	}
 
-	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat, image: String) {
+	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat = 0, image: String = "") {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
@@ -152,7 +157,7 @@ class ObjectManager {
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.setImage(object.icon, for: UIControlState())
 		if object.clicked != nil {
-			button.addTarget(parentController, action: object.clicked!, for: UIControlEvents.touchUpInside)
+			button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		}
 		view.addSubview(button)
 	}
@@ -169,6 +174,20 @@ class ObjectManager {
 		view.addSubview(background)
 	}
 
+	func AddBackButton(_ button : BackButton, view: UIView, object: ScreenObject) {
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		
+		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		button.SetController(controller)
+		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.initView()
+		view.addSubview(button)
+	}
+
 	func AddMainButton(_ button : MainButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -180,8 +199,8 @@ class ObjectManager {
 		button.icon.image = object.icon
 		button.title.text = object.text
 		button.image = object.image
-		button.addTarget(parentController, action: object.clicked!, for: UIControlEvents.touchUpInside)
-		button.initView(parentController)
+		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.initView(controller)
 		view.addSubview(button)
 	}
 
@@ -192,8 +211,8 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.addTarget(parentController, action: object.clicked!, for: UIControlEvents.touchUpInside)
-		button.initView(parentController)
+		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.initView()
 		view.addSubview(button)
 	}
 }

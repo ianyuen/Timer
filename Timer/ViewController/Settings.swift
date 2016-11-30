@@ -12,6 +12,7 @@ class Settings: UIViewController {
 	let objectManager = ObjectManager()
 
 	let background = UILabel()
+	let backButton = BackButton()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -32,9 +33,21 @@ class Settings: UIViewController {
 	}
 
 	func initView() {
-		objectManager.parentView = view
-		objectManager.parentController = self
+		objectManager.parent = view
+		objectManager.controller = self
 		objectManager.Parse("Settings")
-		objectManager.DrawObject(background, type: "background", name: "background")
+		for object in objectManager.GetObjects() {
+			switch object.type {
+			case "background":
+				objectManager.AddBackground(background, view: view, object: object)
+			case "backButton":
+				objectManager.AddBackButton(backButton, view: view, object: object)
+			default: break
+			}
+		}
+	}
+
+	func btnBackClicked(_ sender:UIButton!) {
+		self.performSegue(withIdentifier: "showMain", sender: self)
 	}
 }

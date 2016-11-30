@@ -48,8 +48,8 @@ class Main: UIViewController {
 	}
 
 	func initView() {
-		objectManager.parentView = view
-		objectManager.parentController = self
+		objectManager.parent = view
+		objectManager.controller = self
 		objectManager.Parse("Main")
 		objectManager.DrawObject(background, type: "background", name: "background")
 		objectManager.DrawObject(round, type: "label", name: "round")
@@ -76,7 +76,7 @@ class Main: UIViewController {
 		endClock.text = ConvertToClock(totalSecond)
 		roundNumber = 15
 		round.text = "ROUND   " + String(roundNumber) + "/15"
-		roundButton.initView(self)
+		roundButton.initView()
 	}
 
 	func btnStartClicked(_ sender:UIButton!) {
@@ -118,7 +118,7 @@ class Main: UIViewController {
 			endSecond = endSecond - 1
 			if endSecond < 0 {
 				angle = 0
-				roundButton.initView(self)
+				roundButton.initView()
 				endSecond = 60
 				roundNumber = roundNumber - 1
 				if roundNumber < 10 {

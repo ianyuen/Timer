@@ -28,8 +28,8 @@ class MainButton: UIButton {
 	}
 
 	func initView(_ controller: UIViewController) {
-		objectManager.parentView = self
-		objectManager.parentController = controller
+		objectManager.parent = self
+		objectManager.controller = controller
 		objectManager.Parse("MainButton")
 		objectManager.DrawObject(background, type: "image", name: "background")
 		objectManager.DrawObject(icon, type: "image", name: "icon", image: image)
