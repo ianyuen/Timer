@@ -33,10 +33,10 @@
 	<object>
 		<type>image</type>
 		<name>background4</name>
-		<width>61</width>
-		<height>1146</height>
-		<posX>543</posX>
-		<posY>0</posY>
+		<width>46</width>
+		<height>1140</height>
+		<posX>550</posX>
+		<posY>3</posY>
 		<icon>startButton4</icon>
 	</object>
 

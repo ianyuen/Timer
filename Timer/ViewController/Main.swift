@@ -24,7 +24,9 @@ class Main: UIViewController {
 	let titleBackground = UILabel()
 
 	var angle: CGFloat = 0.0
-	var inverse = false
+	var endSecond = 60
+	var roundNumber = 15
+	var totalSecond = 900
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -66,7 +68,14 @@ class Main: UIViewController {
 	}
 
 	func btnResetClicked(_ sender:UIButton!) {
+		angle = 0
 		counting = false
+		endSecond = 60
+		roundButton.endTime.text = ConvertToClock(endSecond)
+		totalSecond = 900
+		endClock.text = ConvertToClock(totalSecond)
+		roundNumber = 15
+		round.text = "ROUND   " + String(roundNumber) + "/15"
 		roundButton.initView(self)
 	}
 
@@ -78,29 +87,53 @@ class Main: UIViewController {
 		counting = !counting
 	}
 
+	func ConvertToClock(_ value: Int) -> String{
+		var result = ""
+		let minute = value / 60
+		let second = value % 60
+		if minute < 10 {
+			result = result + "0"
+		}
+		result = result + String(minute) + ":"
+		if second < 10 {
+			result = result + "0"
+		}
+		result = result + String(second)
+		return result
+	}
+
 	func update() {
 		if (counting) {
 			let image = UIImage(named: "stop")
 			startButton.icon.image = image
-			startButton.title.text = "STOP"
-			if inverse {
-				roundButton.DrawCircle(angle)
-				angle = angle + CGFloat.pi / 30
-			} else {
-				if angle >= CGFloat.pi {
-					angle = -CGFloat.pi
-					inverse = true
+			startButton.title.text = "PAUSE"
+
+			roundButton.DrawCircle(angle)
+			angle = angle + CGFloat.pi / 30
+
+			endSecond = endSecond - 1
+			if endSecond < 0 {
+				angle = 0
+				roundButton.initView(self)
+				endSecond = 60
+				roundNumber = roundNumber - 1
+				if roundNumber < 10 {
+					round.text = "ROUND   0" + String(roundNumber) + "/15"
 				} else {
-					roundButton.DrawCircle(angle)
-					angle = angle + CGFloat.pi / 30
+					round.text = "ROUND   " + String(roundNumber) + "/15"
 				}
 			}
+
+			roundButton.endTime.text = ConvertToClock(endSecond)
+
+			totalSecond = totalSecond - 1
+			endClock.text = ConvertToClock(totalSecond)
 		} else {
-			angle = 0
 			let image = UIImage(named: "start")
 			startButton.icon.image = image
 			startButton.title.text = "START"
 		}
+		startButton.title.sizeToFit()
 	}
 
 	func PrintFontNames() {

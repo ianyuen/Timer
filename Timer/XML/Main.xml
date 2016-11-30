@@ -48,7 +48,7 @@
 		<name>round</name>
 		<posX>centerWidth</posX>
 		<posY>280</posY>
-		<text>ROUND   5/15</text>
+		<text>ROUND   15/15</text>
 		<font>LiberationSans</font>
 		<size>30</size>
 		<color>ffffff</color>
@@ -79,7 +79,7 @@
 		<name>endClock</name>
 		<posX>screenWidth - 400</posX>
 		<posY>515</posY>
-		<text>9:15</text>
+		<text>15:00</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 	</object>
@@ -97,7 +97,7 @@
 	<object>
 		<type>mainButton</type>
 		<name>startButton</name>
-		<width>438</width>
+		<width>450</width>
 		<height>145</height>
 		<posX>100</posX>
 		<posY>1893</posY>
@@ -109,9 +109,9 @@
 	<object>
 		<type>mainButton</type>
 		<name>resetButton</name>
-		<width>438</width>
+		<width>450</width>
 		<height>145</height>
-		<posX>622</posX>
+		<posX>692</posX>
 		<posY>1893</posY>
 		<image>reset</image>
 		<text>RESET</text>

@@ -138,9 +138,7 @@ class ObjectManager {
 		} else {
 			imageView.image = UIImage(named: image)
 		}
-		UIView.animate(withDuration: 2.0, animations: {
-			imageView.transform = CGAffineTransform(rotationAngle: angle)
-		})
+		imageView.transform = CGAffineTransform(rotationAngle: angle)
 		view.addSubview(imageView)
 	}
 
