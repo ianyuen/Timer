@@ -151,6 +151,9 @@ class ObjectManager {
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.setImage(object.icon, for: UIControlState())
+		if object.clicked != nil {
+			button.addTarget(parentController, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		}
 		view.addSubview(button)
 	}
 

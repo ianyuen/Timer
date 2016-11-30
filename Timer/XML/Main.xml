@@ -18,6 +18,7 @@
 		<posX>50</posX>
 		<posY>80</posY>
 		<icon>settings</icon>
+		<clicked>btnSettingsClicked</clicked>
 	</object>
 
 	<object>

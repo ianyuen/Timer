@@ -87,6 +87,10 @@ class Main: UIViewController {
 		counting = !counting
 	}
 
+	func btnSettingsClicked(_ sender:UIButton!) {
+		self.performSegue(withIdentifier: "showSettings", sender: self)
+	}
+
 	func ConvertToClock(_ value: Int) -> String{
 		var result = ""
 		let minute = value / 60
