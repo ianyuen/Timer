@@ -15,17 +15,7 @@ class MainButton: UIButton {
 	let background = UIImageView()
 	let objectManager = ObjectManager()
 
-	var width: CGFloat = 0
-	var height: CGFloat = 0
-	var parent: UIViewController? = nil
-
-	init() {
-		super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	var parent = UIViewController()
 
 	func initView(_ controller: UIViewController) {
 		objectManager.parent = self

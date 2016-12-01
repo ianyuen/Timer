@@ -11,8 +11,12 @@ import UIKit
 class Settings: UIViewController {
 	let objectManager = ObjectManager()
 
+	let titleBack = UILabel()
 	let background = UILabel()
+	let newButton = NewButton()
+	let editButton = NewButton()
 	let backButton = BackButton()
+	let weightButton = NewButton()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -39,7 +43,19 @@ class Settings: UIViewController {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "background":
-				objectManager.AddBackground(background, view: view, object: object)
+				if object.name == "titleBack" {
+					objectManager.AddBackground(titleBack, view: view, object: object)
+				} else if object.name == "background" {
+					objectManager.AddBackground(background, view: view, object: object)
+				}
+			case "newButton":
+				if object.name == "newButton" {
+					objectManager.AddNewButton(newButton, view: view, object: object)
+				} else if object.name == "editButton" {
+					objectManager.AddNewButton(editButton, view: view, object: object)
+				} else if object.name == "weightButton" {
+					objectManager.AddNewButton(weightButton, view: view, object: object)
+				}
 			case "backButton":
 				objectManager.AddBackButton(backButton, view: view, object: object)
 			default: break

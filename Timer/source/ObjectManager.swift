@@ -174,6 +174,21 @@ class ObjectManager {
 		view.addSubview(background)
 	}
 
+	func AddNewButton(_ button : NewButton, view: UIView, object: ScreenObject) {
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		
+		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		button.SetController(controller)
+		button.title.text = object.text
+		//button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.initView()
+		view.addSubview(button)
+	}
+
 	func AddBackButton(_ button : BackButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)

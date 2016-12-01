@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>image</type>
+		<name>background</name>
+		<width>434</width>
+		<height>145</height>
+		<posX>0</posX>
+		<posY>0</posY>
+		<icon>newButton</icon>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>title</name>
+		<posX>centerWidth</posX>
+		<posY>centerHeight</posY>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+<view>

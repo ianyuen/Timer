@@ -11,6 +11,16 @@
 	</object>
 
 	<object>
+		<type>background</type>
+		<name>titleBack</name>
+		<width>screenWidth</width>
+		<height>140</height>
+		<posX>0</posX>
+		<posY>80</posY>
+		<color>ce7336</color>
+	</object>
+
+	<object>
 		<type>backButton</type>
 		<name>backButton</name>
 		<width>200</width>
@@ -18,5 +28,35 @@
 		<posX>50</posX>
 		<posY>105</posY>
 		<clicked>btnBackClicked</clicked>
+	</object>
+
+	<object>
+		<type>newButton</type>
+		<name>newButton</name>
+		<width>434</width>
+		<height>145</height>
+		<posX>150</posX>
+		<posY>1609</posY>
+		<text>NEW</text>
+	</object>
+
+	<object>
+		<type>newButton</type>
+		<name>editButton</name>
+		<width>434</width>
+		<height>145</height>
+		<posX>658</posX>
+		<posY>1609</posY>
+		<text>EDIT</text>
+	</object>
+
+	<object>
+		<type>newButton</type>
+		<name>weightButton</name>
+		<width>434</width>
+		<height>145</height>
+		<posX>404</posX>
+		<posY>1881</posY>
+		<text>WEIGHT</text>
 	</object>
 </view>
