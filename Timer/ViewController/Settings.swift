@@ -8,9 +8,11 @@
 
 import UIKit
 
-class Settings: UIViewController {
+class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	let objectManager = ObjectManager()
+	let workoutName = ["Profile Name", "Insane Fat Blasting Boot Camp", "Barbell Tabata Workout"]
 
+	let tableView = UITableView()
 	let titleBack = UILabel()
 	let background = UILabel()
 	let newButton = NewButton()
@@ -42,6 +44,8 @@ class Settings: UIViewController {
 		objectManager.Parse("Settings")
 		for object in objectManager.GetObjects() {
 			switch object.type {
+			case "table":
+				AddTableView(object)
 			case "background":
 				if object.name == "titleBack" {
 					objectManager.AddBackground(titleBack, view: view, object: object)
@@ -65,5 +69,55 @@ class Settings: UIViewController {
 
 	func btnBackClicked(_ sender:UIButton!) {
 		self.performSegue(withIdentifier: "showMain", sender: self)
+	}
+
+	func AddTableView(_ object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		tableView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.register(WorkoutCell.self, forCellReuseIdentifier: "cell")
+		tableView.layoutMargins = UIEdgeInsets.zero
+		tableView.separatorInset = UIEdgeInsets.zero
+		
+		let color = Color()
+		tableView.separatorColor = color.UIColorFromHex(object.color)
+		tableView.backgroundColor = color.UIColorFromHex(object.color)
+		tableView.rowHeight = ScreenSize.instance.GetItemHeight(object.rowHeight)
+		self.view.addSubview(tableView)
+	}
+
+	func btnTableViewCellClicked(_ rowIndex: Int) {
+	}
+
+	//tableview delegate
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		btnTableViewCellClicked(indexPath.row)
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return workoutName.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell:WorkoutCell! = tableView.dequeueReusableCell(withIdentifier: "cell") as! WorkoutCell!
+		
+		cell.initView()
+		let object = ScreenObject()
+		object.xPosition = 503
+		object.yPosition = 140
+		object.text = workoutName[indexPath.row]
+		object.font = "LiberationSans"
+		object.size = 20
+		objectManager.AddLabel(cell.textLabel!, view: cell.contentView, object: object)
+		return cell
 	}
 }

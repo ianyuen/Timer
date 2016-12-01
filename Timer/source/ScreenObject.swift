@@ -19,6 +19,7 @@ class ScreenObject {
 	var size: CGFloat = 0
 	var width: CGFloat = 0
 	var height: CGFloat = 0
+	var rowHeight: CGFloat = 0
 	var xPosition: CGFloat = 0
 	var yPosition: CGFloat = 0
 

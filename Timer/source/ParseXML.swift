@@ -106,6 +106,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.width = CGFloatFromString(string)
 			case "height":
 				object.height = CGFloatFromString(string)
+			case "rowHeight":
+				object.rowHeight = CGFloatFromString(string)
 
 			case "icon":
 				object.icon = UIImage(named: string)!

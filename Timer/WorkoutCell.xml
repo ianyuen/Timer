@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>image</type>
+		<name>background</name>
+		<width>1142</width>
+		<height>128</height>
+		<posX>0</posX>
+		<posY>0</posY>
+		<icon>newButton</icon>
+	</object>
+</view>

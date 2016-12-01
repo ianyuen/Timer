@@ -14,13 +14,13 @@ class NewButton: UIButton {
 	let objectManager = ObjectManager()
 
 	func initView() {
+		objectManager.parent = self
 		objectManager.Parse("NewButton")
 		objectManager.DrawObject(background, type: "image", name: "background")
 		objectManager.DrawObject(title, type: "label", name: "title", angle: 0, spec: title.text!)
 	}
 
 	func SetController(_ viewController: UIViewController) {
-		objectManager.parent = self
 		objectManager.controller = viewController
 	}
 }

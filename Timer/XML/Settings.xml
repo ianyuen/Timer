@@ -31,6 +31,16 @@
 	</object>
 
 	<object>
+		<type>table</type>
+		<posX>50</posX>
+		<posY>280</posY>
+		<width>1142</width>
+		<height>1147</height>
+		<color>f9aa43</color>
+		<rowHeight>128</rowHeight>
+	</object>
+
+	<object>
 		<type>newButton</type>
 		<name>newButton</name>
 		<width>434</width>
