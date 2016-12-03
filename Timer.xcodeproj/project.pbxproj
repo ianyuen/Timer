@@ -28,6 +28,8 @@
 		10E288F71DE33CD200A5C80B /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E288F61DE33CD200A5C80B /* Main.xml */; };
 		10E288F91DE35D8000A5C80B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288F81DE35D8000A5C80B /* Color.swift */; };
 		10E9525A1DF2AD4800F6EE01 /* WorkoutCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */; };
+		10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525B1DF2AE7500F6EE01 /* Details.swift */; };
+		10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E9525D1DF2AEB200F6EE01 /* Details.xml */; };
 		10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */; };
 		10FB24DE1DD0D3EE00A47755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DD1DD0D3EE00A47755 /* ViewController.swift */; };
 		10FB24E11DD0D3EE00A47755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24DF1DD0D3EE00A47755 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		10E288F61DE33CD200A5C80B /* Main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Main.xml; path = XML/Main.xml; sourceTree = "<group>"; };
 		10E288F81DE35D8000A5C80B /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = source/Color.swift; sourceTree = "<group>"; };
 		10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = WorkoutCell.xml; path = XML/WorkoutCell.xml; sourceTree = "<group>"; };
+		10E9525B1DF2AE7500F6EE01 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Details.swift; path = ViewController/Details.swift; sourceTree = "<group>"; };
+		10E9525D1DF2AEB200F6EE01 /* Details.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Details.xml; path = XML/Details.xml; sourceTree = "<group>"; };
 		10FB24D81DD0D3EE00A47755 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FB24DD1DD0D3EE00A47755 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		10E288EA1DE3331700A5C80B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				10E9525B1DF2AE7500F6EE01 /* Details.swift */,
 				10E288EB1DE3347E00A5C80B /* Main.swift */,
 				10A8C9561DEF17E7004C5211 /* Settings.swift */,
 			);
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				107675CE1DEF3AE800CEDAC7 /* BackButton.xml */,
+				10E9525D1DF2AEB200F6EE01 /* Details.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
 				10ADCD621DE5CCAA0078D587 /* MainButton.xml */,
 				1043D7301DF0CAF700C0FF63 /* NewButton.xml */,
@@ -219,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */,
 				10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */,
 				10E288F71DE33CD200A5C80B /* Main.xml in Resources */,
 				10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */,
@@ -254,6 +261,7 @@
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,
+				10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */,
 				10E288F91DE35D8000A5C80B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

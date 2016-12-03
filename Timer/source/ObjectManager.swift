@@ -204,7 +204,7 @@ class ObjectManager {
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.SetController(controller)
 		button.title.text = object.text
-		//button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		button.initView()
 		view.addSubview(button)
 	}

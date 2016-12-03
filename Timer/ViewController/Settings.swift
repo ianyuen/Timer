@@ -14,6 +14,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	let tableView = UITableView()
 	let titleBack = UILabel()
+	let titleText = UILabel()
 	let background = UILabel()
 	let newButton = NewButton()
 	let editButton = NewButton()
@@ -46,6 +47,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			switch object.type {
 			case "table":
 				AddTableView(object)
+			case "label":
+				objectManager.AddLabel(titleText, view: view, object: object)
 			case "background":
 				if object.name == "titleBack" {
 					objectManager.AddBackground(titleBack, view: view, object: object)
@@ -69,6 +72,18 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	func btnBackClicked(_ sender:UIButton!) {
 		self.performSegue(withIdentifier: "showMain", sender: self)
+	}
+
+	func btnNewClicked(_ sender:UIButton!) {
+		self.performSegue(withIdentifier: "showDetails", sender: self)
+	}
+
+	func btnEditClicked(_ sender:UIButton!) {
+		self.performSegue(withIdentifier: "showDetails", sender: self)
+	}
+
+	func btnWeightClicked(_ sender:UIButton!) {
+		self.performSegue(withIdentifier: "showDetails", sender: self)
 	}
 
 	func AddTableView(_ object: ScreenObject) {

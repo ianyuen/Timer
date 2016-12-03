@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>background</type>
+		<name>background</name>
+		<width>screenWidth</width>
+		<height>screenHeight</height>
+		<posX>0</posX>
+		<posY>0</posY>
+		<color>f9aa43</color>
+	</object>
+	
+	<object>
+		<type>background</type>
+		<name>titleBack</name>
+		<width>screenWidth</width>
+		<height>140</height>
+		<posX>0</posX>
+		<posY>80</posY>
+		<color>ce7336</color>
+	</object>
+	
+	<object>
+		<type>backButton</type>
+		<name>backButton</name>
+		<width>200</width>
+		<height>90</height>
+		<posX>50</posX>
+		<posY>105</posY>
+		<clicked>btnBackClicked</clicked>
+	</object>
+
+	<object>
+		<type>label</type>
+		<posX>centerWidth</posX>
+		<posY>105</posY>
+		<text>Training Routine</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+</view>

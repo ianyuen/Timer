@@ -31,6 +31,15 @@
 	</object>
 
 	<object>
+		<type>label</type>
+		<posX>centerWidth</posX>
+		<posY>105</posY>
+		<text>TRAININGS</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+
+	<object>
 		<type>table</type>
 		<posX>50</posX>
 		<posY>280</posY>
@@ -47,6 +56,7 @@
 		<posX>150</posX>
 		<posY>1609</posY>
 		<text>NEW</text>
+		<clicked>btnNewClicked</clicked>
 	</object>
 
 	<object>
@@ -57,6 +67,7 @@
 		<posX>658</posX>
 		<posY>1609</posY>
 		<text>EDIT</text>
+		<clicked>btnEditClicked</clicked>
 	</object>
 
 	<object>
@@ -67,5 +78,6 @@
 		<posX>404</posX>
 		<posY>1881</posY>
 		<text>WEIGHT</text>
+		<clicked>btnWeightClicked</clicked>
 	</object>
 </view>

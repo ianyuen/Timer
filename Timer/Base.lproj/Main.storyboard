@@ -44,11 +44,36 @@
                     </view>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showMain" id="4pX-26-KAy"/>
+                        <segue destination="fad-u4-cyh" kind="show" identifier="showDetails" id="yQR-1R-vXi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNL-nj-W2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="790" y="137"/>
         </scene>
+        <!--Details-->
+        <scene sceneID="Gkc-iZ-hPi">
+            <objects>
+                <viewController id="fad-u4-cyh" customClass="Details" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FrM-5c-eYE"/>
+                        <viewControllerLayoutGuide type="bottom" id="JgT-ag-fcL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QgR-pR-c6z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="Mcp-Vz-lr5" kind="show" identifier="showSettings" id="xlu-5E-f0I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Uh-KR-Bjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482" y="136"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xlu-5E-f0I"/>
+    </inferredMetricsTieBreakers>
 </document>
