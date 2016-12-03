@@ -10,7 +10,7 @@ import UIKit
 
 class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	let objectManager = ObjectManager()
-	let workoutName = ["Profile Name", "Insane Fat Blasting Boot Camp", "Barbell Tabata Workout"]
+	let workoutName = ["Profile Name", "Insane Fat Blasting BootCamp", "Barbell Tabata Workout", "Barbell Tabata Workout", "Barbell Tabata Workout", "Barbell Tabata Workout"]
 
 	let tableView = UITableView()
 	let titleBack = UILabel()
@@ -87,7 +87,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		let color = Color()
 		tableView.separatorColor = color.UIColorFromHex(object.color)
 		tableView.backgroundColor = color.UIColorFromHex(object.color)
-		tableView.rowHeight = ScreenSize.instance.GetItemHeight(object.rowHeight)
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = ScreenSize.instance.GetItemHeight(128)
 		self.view.addSubview(tableView)
 	}
 
@@ -109,15 +110,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell:WorkoutCell! = tableView.dequeueReusableCell(withIdentifier: "cell") as! WorkoutCell!
-		
+		cell.name = workoutName[indexPath.row]
 		cell.initView()
-		let object = ScreenObject()
-		object.xPosition = 503
-		object.yPosition = 140
-		object.text = workoutName[indexPath.row]
-		object.font = "LiberationSans"
-		object.size = 20
-		objectManager.AddLabel(cell.textLabel!, view: cell.contentView, object: object)
 		return cell
 	}
 }

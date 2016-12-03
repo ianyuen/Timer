@@ -93,6 +93,26 @@ class ObjectManager {
 		return result
 	}
 
+	func AddText(_ textView: UITextView, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+
+		textView.isEditable = false
+		textView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		textView.text = object.text
+		textView.font = UIFont(name: object.font, size: object.size)
+		let color = Color()
+		//textView.textColor = constant.UIColorFromHex(color)
+		if object.color == 0 {
+			textView.backgroundColor = UIColor.clear
+		} else {
+			textView.backgroundColor = color.UIColorFromHex(object.color)
+		}
+		view.addSubview(textView)
+	}
+
 	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
 		label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 		if spec == "" {

@@ -9,4 +9,14 @@
 		<posY>0</posY>
 		<icon>newButton</icon>
 	</object>
+
+	<object>
+		<type>text</type>
+		<posX>0</posX>
+		<posY>0</posY>
+		<width>1142</width>
+		<height>128</height>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
 </view>

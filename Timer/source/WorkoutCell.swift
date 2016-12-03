@@ -11,7 +11,9 @@ import UIKit
 class WorkoutCell: UITableViewCell {
 	let objectManager = ObjectManager()
 
-	var background = UIImageView()
+	var name = ""
+	let textView = UITextView()
+	let background = UIImageView()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +29,16 @@ class WorkoutCell: UITableViewCell {
 	func initView() {
 		objectManager.parent = contentView
 		objectManager.Parse("WorkoutCell")
-		objectManager.DrawObject(background, type: "image", name: "background")
+		for object in objectManager.GetObjects() {
+			switch object.type {
+			case "image":
+				objectManager.AddImage(background, view: self, object: object)
+			case "text":
+				object.text = name
+				objectManager.AddText(textView, view: self, object: object)
+			default: break
+			}
+		}
 
 		let color = Color()
 		contentView.backgroundColor = color.UIColorFromHex(0xf9aa43)
