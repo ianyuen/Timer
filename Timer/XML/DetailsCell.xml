@@ -119,4 +119,15 @@
 		<size>16</size>
 		<color>ffffff</color>
 	</object>
+
+	<object>
+		<type>comboBox</type>
+		<name>sound</name>
+		<width>290</width>
+		<height>100</height>
+		<posX>screenWidth - 290 - 50</posX>
+		<posY>128 + 206 + 206 + 206 + 206 + 206 + 198 + 100 + 30</posY>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
 </view>

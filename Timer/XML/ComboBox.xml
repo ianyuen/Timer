@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>image</type>
-		<name>background</name>
+		<type>picker</type>
+		<name>dropDown</name>
 	</object>
 
 	<object>
 		<type>textField</type>
-		<name>textField</name>
+		<name>textBox</name>
 	</object>
 </view>

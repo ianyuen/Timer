@@ -167,6 +167,21 @@ class ObjectManager {
 		view.addSubview(imageView)
 	}
 
+	func AddPicker(_ picker: UIPickerView, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height) * 5
+
+		print("positionX: \(positionX)")
+		print("positionY: \(positionY)")
+		print("itemWidth: \(itemWidth)")
+		print("itemHeight: \(itemHeight)")
+
+		picker.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		view.addSubview(picker)
+	}
+
 	func AddButton(_ button: UIButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -209,6 +224,22 @@ class ObjectManager {
 		textBox.initView()
 
 		view.addSubview(textBox)
+	}
+
+	func AddComboBox(_ comboBox: ComboBox, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		comboBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		//textBox.SetText(object.text)
+		comboBox.SetFont(object.font, size: object.size)
+		comboBox.SetWidth(object.width)
+		comboBox.SetHeight(object.height)
+		comboBox.initView()
+
+		view.addSubview(comboBox)
 	}
 
 	func AddTextField(_ textField: UITextField, view: UIView, object: ScreenObject) {

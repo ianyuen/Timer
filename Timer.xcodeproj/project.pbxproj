@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1003C0C31DF58DD900112FFC /* TextBox.swift */; };
 		1003C0C61DF58E0200112FFC /* TextBox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1003C0C51DF58E0200112FFC /* TextBox.xml */; };
+		1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1003C0C71DF5F1A800112FFC /* ComboBox.swift */; };
+		1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1003C0C91DF5F8BC00112FFC /* ComboBox.xml */; };
 		1035D5BD1DE4B84D000C6BFD /* LiberationSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1035D5BC1DE4B84D000C6BFD /* LiberationSans.ttf */; };
 		1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D72E1DF0C96100C0FF63 /* NewButton.swift */; };
 		1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1043D7301DF0CAF700C0FF63 /* NewButton.xml */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		1003C0C31DF58DD900112FFC /* TextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextBox.swift; path = source/TextBox.swift; sourceTree = "<group>"; };
 		1003C0C51DF58E0200112FFC /* TextBox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TextBox.xml; path = XML/TextBox.xml; sourceTree = "<group>"; };
+		1003C0C71DF5F1A800112FFC /* ComboBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComboBox.swift; path = source/ComboBox.swift; sourceTree = "<group>"; };
+		1003C0C91DF5F8BC00112FFC /* ComboBox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ComboBox.xml; path = XML/ComboBox.xml; sourceTree = "<group>"; };
 		1035D5BC1DE4B84D000C6BFD /* LiberationSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = LiberationSans.ttf; path = Font/LiberationSans.ttf; sourceTree = "<group>"; };
 		1043D72E1DF0C96100C0FF63 /* NewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewButton.swift; path = source/NewButton.swift; sourceTree = "<group>"; };
 		1043D7301DF0CAF700C0FF63 /* NewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewButton.xml; path = XML/NewButton.xml; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				1044DCA81DD20880006B6582 /* Application.swift */,
 				107675D01DEF3DCC00CEDAC7 /* BackButton.swift */,
 				10E288F81DE35D8000A5C80B /* Color.swift */,
+				1003C0C71DF5F1A800112FFC /* ComboBox.swift */,
 				10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */,
 				10ADCD641DE5CE420078D587 /* MainButton.swift */,
 				1043D72E1DF0C96100C0FF63 /* NewButton.swift */,
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				107675CE1DEF3AE800CEDAC7 /* BackButton.xml */,
+				1003C0C91DF5F8BC00112FFC /* ComboBox.xml */,
 				10E9525D1DF2AEB200F6EE01 /* Details.xml */,
 				10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
@@ -247,6 +253,7 @@
 				10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */,
 				10E288F71DE33CD200A5C80B /* Main.xml in Resources */,
 				10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */,
+				1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */,
 				10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */,
 				10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */,
 				10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */,
@@ -282,6 +289,7 @@
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
+				1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,

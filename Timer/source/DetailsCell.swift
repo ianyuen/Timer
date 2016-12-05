@@ -26,6 +26,8 @@ class DetailsCell: UITableViewCell {
 	let warmUpTime = RoundSecondsGroup()
 	let coolDownTime = RoundSecondsGroup()
 
+	let sound = ComboBox()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,6 +50,8 @@ class DetailsCell: UITableViewCell {
 				AddImage(object)
 			case "textBox":
 				AddTextBox(object)
+			case "comboBox":
+				AddComboBox(object)
 			case "background":
 				AddBackground(object)
 			case "roundSecondsGroup":
@@ -81,6 +85,14 @@ class DetailsCell: UITableViewCell {
 		switch object.name {
 		case "roundsNumber":
 			objectManager.AddTextBox(roundsNumber, view: contentView, object: object)
+		default: break
+		}
+	}
+
+	func AddComboBox(_ object: ScreenObject) {
+		switch object.name {
+		case "sound":
+			objectManager.AddComboBox(sound, view: contentView, object: object)
 		default: break
 		}
 	}

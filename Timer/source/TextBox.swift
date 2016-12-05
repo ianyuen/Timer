@@ -26,18 +26,16 @@ class TextBox: UIView {
 		objectManager.parent = self
 		objectManager.Parse("TextBox")
 		for object in objectManager.GetObjects() {
+			object.width = width
+			object.height = height
 			switch object.type {
 			case "image":
 				object.icon = image
-				object.width = width
-				object.height = height
 				objectManager.AddImage(background, view: self, object: object)
 			case "textField":
 				object.text = text
 				object.font = fontName
 				object.size = fontSize
-				object.width = width
-				object.height = height
 				objectManager.AddTextField(textField, view: self, object: object)
 			default: break
 			}
