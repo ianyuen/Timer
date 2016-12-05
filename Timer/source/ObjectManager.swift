@@ -194,6 +194,39 @@ class ObjectManager {
 		view.addSubview(background)
 	}
 
+	func AddTextBox(_ textBox: TextBox, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+
+		textBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		textBox.SetText(object.text)
+		textBox.SetFont(object.font, size: object.size)
+		textBox.SetWidth(object.width)
+		textBox.SetHeight(object.height)
+		textBox.SetBackground(object.icon)
+		textBox.initView()
+
+		view.addSubview(textBox)
+	}
+
+	func AddTextField(_ textField: UITextField, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		textField.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		textField.font = UIFont(name: object.font, size: object.size)
+		textField.text = object.text
+		
+		let color = Color()
+		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
+		textField.textAlignment = NSTextAlignment.center
+		view.addSubview(textField)
+	}
+
 	func AddNewButton(_ button : NewButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -249,5 +282,18 @@ class ObjectManager {
 		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		button.initView()
 		view.addSubview(button)
+	}
+
+	func AddRoundSecondsGroup(group: RoundSecondsGroup, view: UIView, object: ScreenObject) {
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		
+		group.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		group.SetTitle(object.text)
+		group.SetImage(object.icon)
+		group.initView()
+		view.addSubview(group)
 	}
 }

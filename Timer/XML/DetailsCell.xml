@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>background</type>
+		<name>profileBack</name>
+		<width>screenWidth - 100</width>
+		<height>128</height>
+		<posX>0</posX>
+		<posY>0</posY>
+		<color>def015</color>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>profileText</name>
+		<posX>50</posX>
+		<posY>10</posY>
+		<text>Profile Name</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+
+	<object>
+		<type>textBox</type>
+		<name>roundsNumber</name>
+		<width>270</width>
+		<height>128</height>
+		<posX>200</posX>
+		<posY>178</posY>
+		<text>16</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<icon>roundsText</icon>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>roundsTitle</name>
+		<posX>500</posX>
+		<posY>178</posY>
+		<text>Rounds</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<color>ffffff</color>
+	</object>
+
+	<object>
+		<type>roundSecondsGroup</type>
+		<name>roundTime</name>
+		<posX>0</posX>
+		<posY>128 + 206</posY>
+		<width>screenWidth</width>
+		<height>206</height>
+		<icon>timeIcon</icon>
+		<text>Round time</text>
+	</object>
+
+	<object>
+		<type>roundSecondsGroup</type>
+		<name>redTime</name>
+		<posX>0</posX>
+		<posY>128 + 206 + 206</posY>
+		<width>screenWidth</width>
+		<height>206</height>
+		<icon>redIcon</icon>
+		<text>Red</text>
+	</object>
+
+	<object>
+		<type>roundSecondsGroup</type>
+		<name>warmUpTime</name>
+		<posX>0</posX>
+		<posY>128 + 206 + 206 + 206</posY>
+		<width>screenWidth</width>
+		<height>206</height>
+		<icon>warmUpIcon</icon>
+		<text>Warm Up</text>
+	</object>
+
+	<object>
+		<type>roundSecondsGroup</type>
+		<name>coolDownTime</name>
+		<posX>0</posX>
+		<posY>128 + 206 + 206 + 206 + 206</posY>
+		<width>screenWidth</width>
+		<height>206</height>
+		<icon>coolDownIcon</icon>
+		<text>Cool Down</text>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>trainingTime</name>
+		<posX>centerWidth</posX>
+		<posY>128 + 206 + 206 + 206 + 206 + 206 + 85</posY>
+		<text>Training Time</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<color>ffffff</color>
+	</object>
+
+	<object>
+		<type>background</type>
+		<name>totalBack</name>
+		<width>screenWidth - 100</width>
+		<height>100</height>
+		<posX>50</posX>
+		<posY>128 + 206 + 206 + 206 + 206 + 206 + 198</posY>
+		<color>f7c346</color>
+	</object>
+	
+	<object>
+		<type>label</type>
+		<name>totalText</name>
+		<posX>centerWidth</posX>
+		<posY>128 + 206 + 206 + 206 + 206 + 206 + 208</posY>
+		<text>8 Minutes and 10 Seconds</text>
+		<font>LiberationSans</font>
+		<size>16</size>
+		<color>ffffff</color>
+	</object>
+</view>

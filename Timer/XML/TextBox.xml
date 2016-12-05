@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>image</type>
+		<name>background</name>
+		<posX>0</posX>
+		<posY>0</posY>
+	</object>
+
+	<object>
+		<type>textField</type>
+		<name>textField</name>
+		<posX>0</posX>
+		<posY>0</posY>
+		<color>ce7336</color>
+	</object>
+</view>
