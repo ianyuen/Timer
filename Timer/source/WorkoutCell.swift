@@ -13,7 +13,7 @@ class WorkoutCell: UITableViewCell {
 
 	var name = ""
 	let textView = UITextView()
-	let background = UIImageView()
+	let background = UILabel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,15 +31,17 @@ class WorkoutCell: UITableViewCell {
 		objectManager.Parse("WorkoutCell")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "image":
-				objectManager.AddImage(background, view: self, object: object)
+			case "background":
+				objectManager.AddBackground(background, view: contentView, object: object)
 			case "text":
 				object.text = name
-				objectManager.AddText(textView, view: self, object: object)
+				objectManager.AddText(textView, view: contentView, object: object)
 			default: break
 			}
 		}
 
+		background.layer.masksToBounds = true
+		background.layer.cornerRadius = 8
 		let color = Color()
 		contentView.backgroundColor = color.UIColorFromHex(0xf9aa43)
 	}

@@ -39,6 +39,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		return true
 	}
 
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+	}
+
 	func initView() {
 		objectManager.parent = view
 		objectManager.controller = self

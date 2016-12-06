@@ -3,7 +3,7 @@
 	<object>
 		<type>background</type>
 		<name>background</name>
-		<color>def015</color>
+		<color>ed9b3f</color>
 	</object>
 
 	<object>
@@ -14,15 +14,16 @@
 	<object>
 		<type>textField</type>
 		<name>textBox</name>
+		<color>ffffff</color>
 	</object>
 
 	<object>
 		<type>image</type>
-		<name>icon<name>
-		<posX>250</posX>
-		<posY>40</posY>
-		<width>40</width>
-		<height>20</height>
+		<name>icon</name>
+		<posX>300</posX>
+		<posY>49</posY>
+		<width>60</width>
+		<height>30</height>
 		<icon>downIcon</icon>
 	</object>
 </view>

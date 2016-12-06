@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>image</type>
+		<type>background</type>
 		<name>background</name>
 		<width>1142</width>
 		<height>128</height>
 		<posX>0</posX>
 		<posY>0</posY>
-		<icon>newButton</icon>
+		<color>ed9b3f</color>
 	</object>
 
 	<object>
@@ -17,6 +17,6 @@
 		<width>1142</width>
 		<height>128</height>
 		<font>LiberationSans</font>
-		<size>20</size>
+		<size>22</size>
 	</object>
 </view>

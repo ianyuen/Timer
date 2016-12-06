@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsCell: UITableViewCell {
+class DetailsCell: UIScrollView {
 	let objectManager = ObjectManager()
 
 	let totalBack = UILabel()
@@ -31,19 +31,22 @@ class DetailsCell: UITableViewCell {
 	let routine = ComboBox()
 	let motivation = ComboBox()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	let exercise = UILabel()
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	let round1Back = UILabel()
+	let round1Text = UILabel()
+	let round1Title = UILabel()
 
-        // Configure the view for the selected state
-    }
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		DismissKeyboard()
+	}
+
+	func DismissKeyboard() {
+		endEditing(true)
+	}
 
 	func initView() {
-		objectManager.parent = contentView
+		objectManager.parent = self
 		objectManager.Parse("DetailsCell")
 		for object in objectManager.GetObjects() {
 			switch object.type {
@@ -62,18 +65,27 @@ class DetailsCell: UITableViewCell {
 			default: break
 			}
 		}
+		//isScrollEnabled = true
+		alwaysBounceVertical = true
 	}
 
 	func AddLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "totalText":
-			objectManager.AddLabel(totalText, view: contentView, object: object)
+			objectManager.AddLabel(totalText, view: self, object: object)
 		case "roundsTitle":
-			objectManager.AddLabel(roundsTitle, view: contentView, object: object)
+			objectManager.AddLabel(roundsTitle, view: self, object: object)
 		case "profileText":
-			objectManager.AddLabel(profileText, view: contentView, object: object)
+			objectManager.AddLabel(profileText, view: self, object: object)
 		case "trainingTime":
-			objectManager.AddLabel(trainingTime, view: contentView, object: object)
+			objectManager.AddLabel(trainingTime, view: self, object: object)
+		case "exercise":
+			objectManager.AddLabel(exercise, view: self, object: object)
+		case "round1Text":
+			objectManager.AddLabel(round1Text, view: self, object: object)
+		case "round1Title":
+			objectManager.AddLabel(round1Title, view: self, object: object)
+
 		default: break
 		}
 	}
@@ -87,7 +99,7 @@ class DetailsCell: UITableViewCell {
 	func AddTextBox(_ object: ScreenObject) {
 		switch object.name {
 		case "roundsNumber":
-			objectManager.AddTextBox(roundsNumber, view: contentView, object: object)
+			objectManager.AddTextBox(roundsNumber, view: self, object: object)
 		default: break
 		}
 	}
@@ -95,13 +107,13 @@ class DetailsCell: UITableViewCell {
 	func AddComboBox(_ object: ScreenObject) {
 		switch object.name {
 		case "sound":
-			objectManager.AddComboBox(sound, view: contentView, object: object)
+			objectManager.AddComboBox(sound, view: self, object: object)
 		case "vibrate":
-			objectManager.AddComboBox(vibrate, view: contentView, object: object)
+			objectManager.AddComboBox(vibrate, view: self, object: object)
 		case "routine":
-			objectManager.AddComboBox(routine, view: contentView, object: object)
+			objectManager.AddComboBox(routine, view: self, object: object)
 		case "motivation":
-			objectManager.AddComboBox(motivation, view: contentView, object: object)
+			objectManager.AddComboBox(motivation, view: self, object: object)
 		default: break
 		}
 	}
@@ -109,9 +121,11 @@ class DetailsCell: UITableViewCell {
 	func AddBackground(_ object: ScreenObject) {
 		switch object.name {
 		case "totalBack":
-			objectManager.AddBackground(totalBack, view: contentView, object: object)
+			objectManager.AddBackground(totalBack, view: self, object: object)
 		case "profileBack":
-			objectManager.AddBackground(profileBack, view: contentView, object: object)
+			objectManager.AddBackground(profileBack, view: self, object: object)
+		case "round1Back":
+			objectManager.AddBackground(round1Back, view: self, object: object)
 		default: break
 		}
 	}
@@ -119,13 +133,13 @@ class DetailsCell: UITableViewCell {
 	func AddRoundSecondsGroup(_ object: ScreenObject) {
 		switch object.name {
 		case "redTime":
-			objectManager.AddRoundSecondsGroup(group: redTime, view: contentView, object: object)
+			objectManager.AddRoundSecondsGroup(group: redTime, view: self, object: object)
 		case "roundTime":
-			objectManager.AddRoundSecondsGroup(group: roundTime, view: contentView, object: object)
+			objectManager.AddRoundSecondsGroup(group: roundTime, view: self, object: object)
 		case "warmUpTime":
-			objectManager.AddRoundSecondsGroup(group: warmUpTime, view: contentView, object: object)
+			objectManager.AddRoundSecondsGroup(group: warmUpTime, view: self, object: object)
 		case "coolDownTime":
-			objectManager.AddRoundSecondsGroup(group: coolDownTime, view: contentView, object: object)
+			objectManager.AddRoundSecondsGroup(group: coolDownTime, view: self, object: object)
 		default: break
 		}
 	}

@@ -36,6 +36,7 @@ class Main: UIViewController {
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
 		_ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true);
 		initView()
+		PrintFontNames()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -45,6 +46,9 @@ class Main: UIViewController {
 
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 	}
 
 	func initView() {

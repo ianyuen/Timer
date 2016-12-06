@@ -3,19 +3,19 @@
 	<object>
 		<type>image</type>
 		<name>icon</name>
-		<posX>100</posX>
+		<posX>00</posX>
 		<posY>70</posY>
-		<width>66</width>
-		<height>66</height>
+		<width>80</width>
+		<height>80</height>
 	</object>
 
 	<object>
 		<type>label</type>
 		<name>title</name>
-		<posX>196</posX>
+		<posX>110</posX>
 		<posY>70</posY>
 		<font>LiberationSans</font>
-		<size>16</size>
+		<size>20</size>
 		<color>ffffff</color>
 	</object>
 
@@ -24,7 +24,7 @@
 		<name>time</name>
 		<width>145</width>
 		<height>80</height>
-		<posX>712</posX>
+		<posX>662</posX>
 		<posY>70</posY>
 		<text>30</text>
 		<font>LiberationSans</font>
@@ -35,11 +35,11 @@
 	<object>
 		<type>label</type>
 		<name>seconds</name>
-		<posX>887</posX>
+		<posX>837</posX>
 		<posY>70</posY>
 		<text>Seconds</text>
 		<font>LiberationSans</font>
-		<size>16</size>
+		<size>20</size>
 		<color>ffffff</color>
 	</object>
 </view>

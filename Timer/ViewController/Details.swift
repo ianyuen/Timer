@@ -8,10 +8,10 @@
 
 import UIKit
 
-class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Details: UIViewController {
 	let objectManager = ObjectManager()
 
-	let tableView = UITableView()
+	let content = DetailsCell()
 	let titleBack = UILabel()
 	let titleText = UILabel()
 	let background = UILabel()
@@ -34,14 +34,25 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		return true
 	}
 
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		DismissKeyboard()
+	}
+
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+	}
+
+	func DismissKeyboard() {
+		view.endEditing(true)
+	}
+
 	func initView() {
 		objectManager.parent = view
 		objectManager.controller = self
 		objectManager.Parse("Details")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "table":
-				AddTableView(object)
+			case "scrollView":
+				objectManager.AddDetailContent(content, view: view, object: object)
 			case "label":
 				DrawLabel(object)
 			case "background":
@@ -73,48 +84,5 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	func btnBackClicked(_ sender:UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
-	}
-
-	func AddTableView(_ object: ScreenObject) {
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
-		tableView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		tableView.delegate = self
-		tableView.dataSource = self
-		tableView.register(DetailsCell.self, forCellReuseIdentifier: "cell")
-		tableView.layoutMargins = UIEdgeInsets.zero
-		tableView.separatorInset = UIEdgeInsets.zero
-		
-		let color = Color()
-		tableView.separatorColor = color.UIColorFromHex(object.color)
-		tableView.backgroundColor = color.UIColorFromHex(object.color)
-		tableView.rowHeight = ScreenSize.instance.GetItemHeight(1704)
-		self.view.addSubview(tableView)
-	}
-	
-	func btnTableViewCellClicked(_ rowIndex: Int) {
-	}
-	
-	//tableview delegate
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
-	}
-	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		btnTableViewCellClicked(indexPath.row)
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell:DetailsCell! = tableView.dequeueReusableCell(withIdentifier: "cell") as! DetailsCell!
-		cell.backgroundColor = tableView.backgroundColor
-		cell.initView()
-		return cell
 	}
 }

@@ -34,18 +34,19 @@
 		<type>label</type>
 		<name>titleText</name>
 		<posX>centerWidth</posX>
-		<posY>105</posY>
+		<posY>90</posY>
 		<text>Training Routine</text>
 		<font>LiberationSans</font>
-		<size>20</size>
+		<size>26</size>
 	</object>
 
 	<object>
-		<type>table</type>
+		<type>scrollView</type>
+		<name>content</name>
 		<posX>50</posX>
 		<posY>280</posY>
 		<width>1142</width>
-		<height>1704</height>
+		<height>2500</height>
 		<color>f9aa43</color>
 	</object>
 </view>

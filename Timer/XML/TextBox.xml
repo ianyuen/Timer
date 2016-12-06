@@ -8,5 +8,6 @@
 	<object>
 		<type>textField</type>
 		<name>textField</name>
+		<color>ffffff</color>
 	</object>
 </view>

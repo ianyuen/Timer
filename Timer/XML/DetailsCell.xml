@@ -7,7 +7,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>0</posY>
-		<color>def015</color>
+		<color>fce578</color>
 	</object>
 
 	<object>
@@ -18,6 +18,7 @@
 		<text>Profile Name</text>
 		<font>LiberationSans</font>
 		<size>20</size>
+		<color>ce7336</color>
 	</object>
 
 	<object>
@@ -25,7 +26,7 @@
 		<name>roundsNumber</name>
 		<width>270</width>
 		<height>128</height>
-		<posX>200</posX>
+		<posX>330</posX>
 		<posY>178</posY>
 		<text>16</text>
 		<font>LiberationSans</font>
@@ -36,11 +37,11 @@
 	<object>
 		<type>label</type>
 		<name>roundsTitle</name>
-		<posX>500</posX>
-		<posY>178</posY>
+		<posX>630</posX>
+		<posY>188</posY>
 		<text>Rounds</text>
 		<font>LiberationSans</font>
-		<size>20</size>
+		<size>22</size>
 		<color>ffffff</color>
 	</object>
 
@@ -95,7 +96,7 @@
 		<posY>128 + 206 + 206 + 206 + 206 + 206 + 85</posY>
 		<text>Training Time</text>
 		<font>LiberationSans</font>
-		<size>20</size>
+		<size>26</size>
 		<color>ffffff</color>
 	</object>
 
@@ -103,34 +104,34 @@
 		<type>background</type>
 		<name>totalBack</name>
 		<width>screenWidth - 100</width>
-		<height>100</height>
-		<posX>50</posX>
-		<posY>128 + 206 + 206 + 206 + 206 + 206 + 198</posY>
-		<color>f7c346</color>
+		<height>128</height>
+		<posX>0</posX>
+		<posY>1396</posY>
+		<color>ed9b3f</color>
 	</object>
 	
 	<object>
 		<type>label</type>
 		<name>totalText</name>
 		<posX>centerWidth</posX>
-		<posY>128 + 206 + 206 + 206 + 206 + 206 + 208</posY>
+		<posY>128 + 206 + 206 + 206 + 206 + 206 + 208 + 40</posY>
 		<text>8 Minutes and 10 Seconds</text>
 		<font>LiberationSans</font>
-		<size>16</size>
+		<size>20</size>
 		<color>ffffff</color>
 	</object>
 
 	<object>
 		<type>comboBox</type>
 		<name>sound</name>
-		<width>290</width>
-		<height>100</height>
-		<posX>screenWidth - 290 - 50</posX>
-		<posY>128 + 206 + 206 + 206 + 206 + 206 + 198 + 100 + 30</posY>
+		<width>400</width>
+		<height>128</height>
+		<posX>screenWidth - 400 - 100</posX>
+		<posY>1396 + 100 + 40 + 28</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
 	</object>
-
+<!--
 	<object>
 		<type>comboBox</type>
 		<name>vibrate</name>
@@ -159,8 +160,74 @@
 		<width>290</width>
 		<height>100</height>
 		<posX>screenWidth - 290 - 50</posX>
-		<posY>128 + 206 + 206 + 206 + 206 + 206 + 198 + 100 + 30 + 100 + 30 + 100 + 30 + 100 + 30</posY>
+		<posY>1874</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+	</object>
+-->
+	<object>
+		<type>label</type>
+		<name>exercise</name>
+		<posX>centerWidth</posX>
+		<posY>1874 + 146</posY>
+		<text>Exercise</text>
+		<font>LiberationSans</font>
+		<size>26</size>
+		<color>ffffff</color>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>round1Title</name>
+		<posX>0</posX>
+		<posY>1874 + 146 + 150</posY>
+		<text>Round 1</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+
+	<object>
+		<type>background</type>
+		<name>round1Back</name>
+		<width>screenWidth - 100</width>
+		<height>128</height>
+		<posX>0</posX>
+		<posY>1874 + 146 + 150 + 100</posY>
+		<color>ed9b3f</color>
+	</object>
+	
+	<object>
+		<type>label</type>
+		<name>round1Text</name>
+		<posX>70</posX>
+		<posY>1874 + 146 + 150 + 100 + 10</posY>
+		<text>Mountain Climbers</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<color>ffffff</color>
+	</object>
+
+	<object>
+		<type>mainButton</type>
+		<name>saveButton</name>
+		<width>442</width>
+		<height>145</height>
+		<posX>100</posX>
+		<posY>1893</posY>
+		<image>start</image>
+		<text>START</text>
+		<clicked>btnStartClicked</clicked>
+	</object>
+	
+	<object>
+		<type>mainButton</type>
+		<name>deleteButton</name>
+		<width>442</width>
+		<height>145</height>
+		<posX>692</posX>
+		<posY>1893</posY>
+		<image>reset</image>
+		<text>RESET</text>
+		<clicked>btnResetClicked</clicked>
 	</object>
 </view>

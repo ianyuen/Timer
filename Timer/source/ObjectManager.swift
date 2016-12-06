@@ -103,14 +103,26 @@ class ObjectManager {
 		textView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		textView.text = object.text
 		textView.font = UIFont(name: object.font, size: object.size)
+		textView.isScrollEnabled = false
 		let color = Color()
-		//textView.textColor = constant.UIColorFromHex(color)
-		if object.color == 0 {
+		textView.textColor = color.UIColorFromHex(0xffffff)
+		if object.color == 0x373639 {
 			textView.backgroundColor = UIColor.clear
 		} else {
 			textView.backgroundColor = color.UIColorFromHex(object.color)
 		}
 		view.addSubview(textView)
+	}
+
+	func AddDetailContent(_ content: DetailsCell, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+
+		content.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		content.initView()
+		view.addSubview(content)
 	}
 
 	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
@@ -200,6 +212,8 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		background.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		background.layer.masksToBounds = true
+		background.layer.cornerRadius = 8
 		background.backgroundColor = color.UIColorFromHex(object.color, alpha: alpha)
 		view.addSubview(background)
 	}
@@ -248,6 +262,7 @@ class ObjectManager {
 		textField.text = object.text
 		
 		let color = Color()
+		textField.textColor = color.UIColorFromHex(object.color, alpha: 1.0)
 		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
 		textField.textAlignment = NSTextAlignment.center
 		view.addSubview(textField)
