@@ -27,6 +27,9 @@ class DetailsCell: UITableViewCell {
 	let coolDownTime = RoundSecondsGroup()
 
 	let sound = ComboBox()
+	let vibrate = ComboBox()
+	let routine = ComboBox()
+	let motivation = ComboBox()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -93,6 +96,12 @@ class DetailsCell: UITableViewCell {
 		switch object.name {
 		case "sound":
 			objectManager.AddComboBox(sound, view: contentView, object: object)
+		case "vibrate":
+			objectManager.AddComboBox(vibrate, view: contentView, object: object)
+		case "routine":
+			objectManager.AddComboBox(routine, view: contentView, object: object)
+		case "motivation":
+			objectManager.AddComboBox(motivation, view: contentView, object: object)
 		default: break
 		}
 	}
