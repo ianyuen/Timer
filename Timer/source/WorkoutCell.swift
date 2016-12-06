@@ -31,11 +31,11 @@ class WorkoutCell: UITableViewCell {
 		objectManager.Parse("WorkoutCell")
 		for object in objectManager.GetObjects() {
 			switch object.type {
+			case "textView":
+				object.text = name
+				objectManager.AddTextView(textView, view: contentView, object: object)
 			case "background":
 				objectManager.AddBackground(background, view: contentView, object: object)
-			case "text":
-				object.text = name
-				objectManager.AddText(textView, view: contentView, object: object)
 			default: break
 			}
 		}

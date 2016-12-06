@@ -5,15 +5,11 @@
 		<name>background</name>
 		<width>1142</width>
 		<height>128</height>
-		<posX>0</posX>
-		<posY>0</posY>
 		<color>ed9b3f</color>
 	</object>
 
 	<object>
-		<type>text</type>
-		<posX>0</posX>
-		<posY>0</posY>
+		<type>textView</type>
 		<width>1142</width>
 		<height>128</height>
 		<font>LiberationSans</font>
