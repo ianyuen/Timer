@@ -18,8 +18,10 @@ class ComboBox: UIView, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
 	private var fontSize: CGFloat = 0
 	private var textColor: UInt32 = 0
 
+	let icon = UIImageView()
 	let textBox = UITextField()
 	let dropDown = UIPickerView()
+	let background = UILabel()
 
 	var list = ["1", "2", "3"]
 
@@ -38,19 +40,28 @@ class ComboBox: UIView, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
 		objectManager.parent = self
 		objectManager.Parse("ComboBox")
 		for object in objectManager.GetObjects() {
-			object.width = width
-			object.height = height
 			switch object.type {
+			case "image":
+				objectManager.AddImage(icon, view: self, object: object)
 			case "picker":
+				object.width = width
+				object.height = height
 				objectManager.AddPicker(dropDown, view: self, object: object)
 			case "textField":
 				object.text = list[0]
 				object.font = fontName
 				object.size = fontSize
+				object.width = width
+				object.height = height
 				objectManager.AddTextField(textBox, view: self, object: object)
+			case "background":
+				object.width = width
+				object.height = height
+				objectManager.AddBackground(background, view: self, object: object)
 			default: break
 			}
 		}
+		dropDown.isHidden = true
 	}
 
 	func SetText(_ value: String) {
@@ -80,6 +91,7 @@ class ComboBox: UIView, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
 	}
 
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		endEditing(true)
 		return list[row]
 	}
 

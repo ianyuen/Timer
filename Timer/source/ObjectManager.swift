@@ -171,12 +171,7 @@ class ObjectManager {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height) * 5
-
-		print("positionX: \(positionX)")
-		print("positionY: \(positionY)")
-		print("itemWidth: \(itemWidth)")
-		print("itemHeight: \(itemHeight)")
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height) * 4
 
 		picker.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		view.addSubview(picker)

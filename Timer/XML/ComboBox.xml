@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
+		<type>background</type>
+		<name>background</name>
+		<color>def015</color>
+	</object>
+
+	<object>
 		<type>picker</type>
 		<name>dropDown</name>
 	</object>
@@ -8,5 +14,15 @@
 	<object>
 		<type>textField</type>
 		<name>textBox</name>
+	</object>
+
+	<object>
+		<type>image</type>
+		<name>icon<name>
+		<posX>250</posX>
+		<posY>40</posY>
+		<width>40</width>
+		<height>20</height>
+		<icon>downIcon</icon>
 	</object>
 </view>
