@@ -36,7 +36,7 @@ class Main: UIViewController {
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
 		_ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true);
 		initView()
-		PrintFontNames()
+		//PrintFontNames()
 	}
 
 	override func didReceiveMemoryWarning() {

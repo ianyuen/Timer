@@ -26,5 +26,6 @@ class ScreenObject {
 	var icon = UIImage()
 	var line: Int = 1
 	var color: UInt32 = 0x373639
+	var round = false
 	var clicked: Selector? = nil
 }
