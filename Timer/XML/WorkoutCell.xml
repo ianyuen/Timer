@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>background</type>
-		<name>background</name>
+		<type>workoutButton</type>
+		<name>profile</name>
 		<width>1142</width>
 		<height>128</height>
-		<color>ed9b3f</color>
+		<posX>0</posX>
+		<posY>0</posY>
 	</object>
 
 	<object>
-		<type>textView</type>
+		<type>workoutButton</type>
+		<name>insane</name>
 		<width>1142</width>
 		<height>128</height>
-		<font>LiberationSans</font>
-		<size>22</size>
+		<posX>0</posX>
+		<posY>128 + 10</posY>
+	</object>
+
+	<object>
+		<type>workoutButton</type>
+		<name>barbell</name>
+		<width>1142</width>
+		<height>128</height>
+		<posX>0</posX>
+		<posY>138 + 128 + 10</posY>
 	</object>
 </view>

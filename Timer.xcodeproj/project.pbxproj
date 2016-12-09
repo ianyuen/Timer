@@ -16,6 +16,9 @@
 		1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1043D7301DF0CAF700C0FF63 /* NewButton.xml */; };
 		1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */; };
 		1044153E1DFAFF7600978FD5 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044153D1DFAFF7600978FD5 /* ScrollView.swift */; };
+		104415401DFB139A00978FD5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044153F1DFB139A00978FD5 /* Button.swift */; };
+		104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104415411DFB147F00978FD5 /* WorkoutButton.swift */; };
+		104415441DFB153900978FD5 /* WorkoutButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 104415431DFB153900978FD5 /* WorkoutButton.xml */; };
 		10443BF91DF3A42C00FAECA0 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */; };
 		10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */; };
 		1044DCA91DD20880006B6582 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044DCA81DD20880006B6582 /* Application.swift */; };
@@ -56,6 +59,9 @@
 		1043D7301DF0CAF700C0FF63 /* NewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewButton.xml; path = XML/NewButton.xml; sourceTree = "<group>"; };
 		1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutCell.swift; path = source/WorkoutCell.swift; sourceTree = "<group>"; };
 		1044153D1DFAFF7600978FD5 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = source/ScrollView.swift; sourceTree = "<group>"; };
+		1044153F1DFB139A00978FD5 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = source/Button.swift; sourceTree = "<group>"; };
+		104415411DFB147F00978FD5 /* WorkoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutButton.swift; path = source/WorkoutButton.swift; sourceTree = "<group>"; };
+		104415431DFB153900978FD5 /* WorkoutButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = WorkoutButton.xml; path = XML/WorkoutButton.xml; sourceTree = "<group>"; };
 		10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsCell.swift; path = source/DetailsCell.swift; sourceTree = "<group>"; };
 		10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = DetailsCell.xml; path = XML/DetailsCell.xml; sourceTree = "<group>"; };
 		1044DCA81DD20880006B6582 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = source/Application.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 			children = (
 				1044DCA81DD20880006B6582 /* Application.swift */,
 				107675D01DEF3DCC00CEDAC7 /* BackButton.swift */,
+				1044153F1DFB139A00978FD5 /* Button.swift */,
 				10E288F81DE35D8000A5C80B /* Color.swift */,
 				1003C0C71DF5F1A800112FFC /* ComboBox.swift */,
 				10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */,
@@ -125,6 +132,7 @@
 				10E288F31DE33C7B00A5C80B /* ScreenSize.swift */,
 				1044153D1DFAFF7600978FD5 /* ScrollView.swift */,
 				1003C0C31DF58DD900112FFC /* TextBox.swift */,
+				104415411DFB147F00978FD5 /* WorkoutButton.swift */,
 				1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */,
 			);
 			name = source;
@@ -155,6 +163,7 @@
 				10A8C9581DEF18E5004C5211 /* Settings.xml */,
 				1003C0C51DF58E0200112FFC /* TextBox.xml */,
 				10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */,
+				104415431DFB153900978FD5 /* WorkoutButton.xml */,
 			);
 			name = XML;
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 				10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */,
 				10E288F71DE33CD200A5C80B /* Main.xml in Resources */,
 				10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */,
+				104415441DFB153900978FD5 /* WorkoutButton.xml in Resources */,
 				1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */,
 				10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */,
 				10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */,
@@ -291,6 +301,7 @@
 				10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
+				104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */,
@@ -299,6 +310,7 @@
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,
 				10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */,
 				10E288F91DE35D8000A5C80B /* Color.swift in Sources */,
+				104415401DFB139A00978FD5 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

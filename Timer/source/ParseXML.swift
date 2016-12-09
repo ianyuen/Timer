@@ -28,6 +28,17 @@ class ParseXML : NSObject, XMLParserDelegate {
 		return screenObjects
 	}
 
+	func StringToBool(_ value: String) -> Bool {
+		switch value {
+		case "true":
+			return true
+		case "false":
+			return false
+		default:
+			return false
+		}
+	}
+
 	func StringToCGFloat(_ value: String) -> CGFloat {
 		let result = NumberFormatter().number(from: value)
 		if result != nil {
@@ -115,6 +126,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.line = Int(string, radix: 10)!
 			case "color":
 				object.color = UInt32(string, radix: 16)!
+			case "round":
+				object.round = StringToBool(string)
 			case "clicked":
 				object.clicked = NSSelectorFromString(string + ":")
 

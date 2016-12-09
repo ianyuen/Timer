@@ -8,41 +8,41 @@
 
 import UIKit
 
-class WorkoutCell: UITableViewCell {
+class WorkoutCell: ScrollView {
 	let objectManager = ObjectManager()
+	let workoutName = ["Profile Name", "Insane Fat Blasting BootCamp", "Barbell Tabata Workout"]
 
-	var name = ""
-	let textView = UITextView()
-	let background = UILabel()
+	let insane = WorkoutButton()
+	let barbell = WorkoutButton()
+	let profile = WorkoutButton()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-	func initView() {
-		objectManager.parent = contentView
+	override func initView() {
+		objectManager.parent = self
 		objectManager.Parse("WorkoutCell")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "textView":
-				object.text = name
-				objectManager.AddTextView(textView, view: contentView, object: object)
-			case "background":
-				objectManager.AddBackground(background, view: contentView, object: object)
+			case "workoutButton":
+				AddButton(object)
 			default: break
 			}
 		}
 
-		background.layer.masksToBounds = true
-		background.layer.cornerRadius = 8
 		let color = Color()
-		contentView.backgroundColor = color.UIColorFromHex(0xf9aa43)
+		backgroundColor = color.UIColorFromHex(0xf9aa43)
+	}
+
+	func AddButton(_ object: ScreenObject) {
+		switch object.name {
+		case "insane":
+			insane.name = workoutName[1]
+			objectManager.AddButton(insane, view: self, object: object)
+		case "barbell":
+			barbell.name = workoutName[2]
+			objectManager.AddButton(barbell, view: self, object: object)
+		case "profile":
+			profile.name = workoutName[0]
+			objectManager.AddButton(profile, view: self, object: object)
+		default: break
+		}
 	}
 }

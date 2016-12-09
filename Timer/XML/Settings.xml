@@ -40,7 +40,7 @@
 	</object>
 
 	<object>
-		<type>table</type>
+		<type>scrollView</type>
 		<posX>50</posX>
 		<posY>280</posY>
 		<width>1142</width>

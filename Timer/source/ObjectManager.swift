@@ -13,18 +13,18 @@ class ObjectManager {
 	let color = Color()
 	var parent = UIView()
 	var controller = UIViewController()
-	
+
 	private var screenObjects = [ScreenObject]()
-	
+
 	func Parse(_ xmlFile: String) {
 		let parseXML = ParseXML()
 		screenObjects = parseXML.Parse(xmlFile)
 	}
-	
+
 	func GetObjects() -> [ScreenObject] {
 		return screenObjects
 	}
-	
+
 	func DrawObject(_ object: Any, type: String, name: String, angle: CGFloat = 0, image: String = "", spec: String = "") {
 		for screenObject in screenObjects {
 			if screenObject.name == name {
@@ -46,7 +46,7 @@ class ObjectManager {
 			}
 		}
 	}
-	
+
 	func StringToCGFloat(_ value: String) -> CGFloat {
 		let result = NumberFormatter().number(from: value)
 		if result != nil {
@@ -55,7 +55,7 @@ class ObjectManager {
 			return 0
 		}
 	}
-	
+
 	func CGFloatFromString(_ value: String, xPosition: CGFloat = 0, yPosition: CGFloat = 0) -> CGFloat {
 		var isAdd = true
 		var result: CGFloat = 0
@@ -89,16 +89,16 @@ class ObjectManager {
 				}
 			}
 		}
-		
+
 		return result
 	}
-	
+
 	func AddTextView(_ textView: UITextView, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		textView.isEditable = false
 		textView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		textView.text = object.text
@@ -113,18 +113,18 @@ class ObjectManager {
 		}
 		view.addSubview(textView)
 	}
-	
+
 	func AddScrollView(_ content: ScrollView, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		content.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		content.initView()
 		view.addSubview(content)
 	}
-	
+
 	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
 		label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 		if spec == "" {
@@ -132,7 +132,7 @@ class ObjectManager {
 		} else {
 			label.text = spec
 		}
-		
+
 		label.font = UIFont(name: object.font, size: object.size)
 		label.textColor = color.UIColorFromHex(object.color, alpha: alpha)
 		label.numberOfLines = object.line
@@ -161,14 +161,14 @@ class ObjectManager {
 		}
 		view.addSubview(label)
 	}
-	
+
 	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat = 0, image: String = "") {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
+
 		imageView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		if image == "" {
 			imageView.image = object.icon
@@ -178,17 +178,32 @@ class ObjectManager {
 		imageView.transform = CGAffineTransform(rotationAngle: angle)
 		view.addSubview(imageView)
 	}
-	
+
 	func AddPicker(_ picker: UIPickerView, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height) * 4
-		
+
 		picker.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		view.addSubview(picker)
 	}
-	
+
+	func AddButton(_ button: Button, view: UIView, object: ScreenObject) {
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		
+		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		if object.clicked != nil {
+			button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		}
+		button.initView()
+		view.addSubview(button)
+	}
+
 	func AddButton(_ button: UIButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -203,7 +218,7 @@ class ObjectManager {
 		}
 		view.addSubview(button)
 	}
-	
+
 	func AddBackground(_ background: UILabel, view: UIView, object: ScreenObject, alpha:Double = 1.0) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -219,13 +234,13 @@ class ObjectManager {
 		}
 		view.addSubview(background)
 	}
-	
+
 	func AddTextBox(_ textBox: TextBox, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		textBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		textBox.SetText(object.text)
 		textBox.SetFont(object.font, size: object.size)
@@ -233,50 +248,50 @@ class ObjectManager {
 		textBox.SetHeight(object.height)
 		textBox.SetBackground(object.icon)
 		textBox.initView()
-		
+
 		view.addSubview(textBox)
 	}
-	
+
 	func AddComboBox(_ comboBox: ComboBox, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		comboBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		//textBox.SetText(object.text)
 		comboBox.SetFont(object.font, size: object.size)
 		comboBox.SetWidth(object.width)
 		comboBox.SetHeight(object.height)
 		comboBox.initView()
-		
+
 		view.addSubview(comboBox)
 	}
-	
+
 	func AddTextField(_ textField: UITextField, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		textField.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		textField.font = UIFont(name: object.font, size: object.size)
 		textField.text = object.text
-		
+
 		let color = Color()
 		textField.textColor = color.UIColorFromHex(object.color, alpha: 1.0)
 		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
 		textField.textAlignment = NSTextAlignment.center
 		view.addSubview(textField)
 	}
-	
+
 	func AddNewButton(_ button : NewButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
+
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.SetController(controller)
 		button.title.text = object.text
@@ -284,28 +299,28 @@ class ObjectManager {
 		button.initView()
 		view.addSubview(button)
 	}
-	
+
 	func AddBackButton(_ button : BackButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
+
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.SetController(controller)
 		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		button.initView()
 		view.addSubview(button)
 	}
-	
+
 	func AddMainButton(_ button : MainButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
+
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.icon.image = object.icon
 		button.title.text = object.text
@@ -314,25 +329,25 @@ class ObjectManager {
 		button.initView(controller)
 		view.addSubview(button)
 	}
-	
+
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
+
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		button.initView()
 		view.addSubview(button)
 	}
-	
+
 	func AddRoundSecondsGroup(group: RoundSecondsGroup, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
+
 		group.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		group.SetTitle(object.text)
 		group.SetImage(object.icon)
