@@ -65,8 +65,8 @@ class DetailsCell: UIScrollView {
 			default: break
 			}
 		}
-		//isScrollEnabled = true
-		alwaysBounceVertical = true
+
+		contentSize = CGSize(width: frame.width, height: 2500)
 	}
 
 	func AddLabel(_ object: ScreenObject) {
