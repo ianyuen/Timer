@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsCell: UIScrollView {
+class DetailsCell: ScrollView {
 	let objectManager = ObjectManager()
 
 	let totalBack = UILabel()
@@ -41,11 +41,7 @@ class DetailsCell: UIScrollView {
 		DismissKeyboard()
 	}
 
-	func DismissKeyboard() {
-		endEditing(true)
-	}
-
-	func initView() {
+	override func initView() {
 		objectManager.parent = self
 		objectManager.Parse("DetailsCell")
 		for object in objectManager.GetObjects() {

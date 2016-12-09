@@ -15,6 +15,7 @@
 		1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D72E1DF0C96100C0FF63 /* NewButton.swift */; };
 		1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1043D7301DF0CAF700C0FF63 /* NewButton.xml */; };
 		1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */; };
+		1044153E1DFAFF7600978FD5 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044153D1DFAFF7600978FD5 /* ScrollView.swift */; };
 		10443BF91DF3A42C00FAECA0 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */; };
 		10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */; };
 		1044DCA91DD20880006B6582 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044DCA81DD20880006B6582 /* Application.swift */; };
@@ -54,6 +55,7 @@
 		1043D72E1DF0C96100C0FF63 /* NewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewButton.swift; path = source/NewButton.swift; sourceTree = "<group>"; };
 		1043D7301DF0CAF700C0FF63 /* NewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewButton.xml; path = XML/NewButton.xml; sourceTree = "<group>"; };
 		1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutCell.swift; path = source/WorkoutCell.swift; sourceTree = "<group>"; };
+		1044153D1DFAFF7600978FD5 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = source/ScrollView.swift; sourceTree = "<group>"; };
 		10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsCell.swift; path = source/DetailsCell.swift; sourceTree = "<group>"; };
 		10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = DetailsCell.xml; path = XML/DetailsCell.xml; sourceTree = "<group>"; };
 		1044DCA81DD20880006B6582 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = source/Application.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */,
 				10E288F11DE33C1B00A5C80B /* ScreenObject.swift */,
 				10E288F31DE33C7B00A5C80B /* ScreenSize.swift */,
+				1044153D1DFAFF7600978FD5 /* ScrollView.swift */,
 				1003C0C31DF58DD900112FFC /* TextBox.swift */,
 				1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */,
 			);
@@ -283,6 +286,7 @@
 				10E288F21DE33C1B00A5C80B /* ScreenObject.swift in Sources */,
 				10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */,
 				10ADCD651DE5CE420078D587 /* MainButton.swift in Sources */,
+				1044153E1DFAFF7600978FD5 /* ScrollView.swift in Sources */,
 				1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */,
 				10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,

@@ -52,7 +52,7 @@ class Details: UIViewController {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "scrollView":
-				objectManager.AddDetailContent(content, view: view, object: object)
+				objectManager.AddScrollView(content, view: view, object: object)
 			case "label":
 				DrawLabel(object)
 			case "background":

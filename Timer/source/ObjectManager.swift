@@ -114,7 +114,7 @@ class ObjectManager {
 		view.addSubview(textView)
 	}
 	
-	func AddDetailContent(_ content: DetailsCell, view: UIView, object: ScreenObject) {
+	func AddScrollView(_ content: ScrollView, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
