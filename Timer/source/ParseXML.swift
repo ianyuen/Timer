@@ -106,6 +106,14 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.text = string
 			case "font":
 				object.font = string
+			case "posXRaw":
+				object.posXRaw = string
+			case "posYRaw":
+				object.posYRaw = string
+			case "widthRaw":
+				object.widthRaw = string
+			case "heightRaw":
+				object.heightRaw = string
 
 			case "size":
 				object.size = CGFloat(NumberFormatter().number(from: string)!)
@@ -124,12 +132,15 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.icon = UIImage(named: string)!
 			case "line":
 				object.line = Int(string, radix: 10)!
-			case "color":
-				object.color = UInt32(string, radix: 16)!
 			case "round":
 				object.round = StringToBool(string)
 			case "clicked":
 				object.clicked = NSSelectorFromString(string + ":")
+
+			case "backColor":
+				object.backColor = UInt32(string, radix: 16)!
+			case "textColor":
+				object.textColor = UInt32(string, radix: 16)!
 
 			default: return
 			}

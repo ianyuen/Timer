@@ -99,17 +99,18 @@ class ObjectManager {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
-		textView.isEditable = false
 		textView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+
 		textView.text = object.text
 		textView.font = UIFont(name: object.font, size: object.size)
+		textView.isEditable = false
 		textView.isScrollEnabled = false
 		let color = Color()
 		textView.textColor = color.UIColorFromHex(0xffffff)
-		if object.color == 0x373639 {
+		if object.backColor == 0x373639 {
 			textView.backgroundColor = UIColor.clear
 		} else {
-			textView.backgroundColor = color.UIColorFromHex(object.color)
+			textView.backgroundColor = color.UIColorFromHex(object.backColor)
 		}
 		view.addSubview(textView)
 	}
@@ -134,7 +135,7 @@ class ObjectManager {
 		}
 
 		label.font = UIFont(name: object.font, size: object.size)
-		label.textColor = color.UIColorFromHex(object.color, alpha: alpha)
+		label.textColor = color.UIColorFromHex(object.textColor, alpha: alpha)
 		label.numberOfLines = object.line
 		if object.width != 0 {
 			let width = ScreenSize.instance.GetItemWidth(object.width)
@@ -227,7 +228,7 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		
 		background.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		background.backgroundColor = color.UIColorFromHex(object.color, alpha: alpha)
+		background.backgroundColor = color.UIColorFromHex(object.backColor, alpha: alpha)
 		if object.round {
 			background.layer.masksToBounds = true
 			background.layer.cornerRadius = 8
@@ -246,7 +247,7 @@ class ObjectManager {
 		textBox.SetFont(object.font, size: object.size)
 		textBox.SetWidth(object.width)
 		textBox.SetHeight(object.height)
-		textBox.SetBackground(object.icon)
+		textBox.SetBackColor(object.backColor)
 		textBox.initView()
 
 		view.addSubview(textBox)
@@ -279,7 +280,7 @@ class ObjectManager {
 		textField.text = object.text
 
 		let color = Color()
-		textField.textColor = color.UIColorFromHex(object.color, alpha: 1.0)
+		textField.textColor = color.UIColorFromHex(object.textColor, alpha: 1.0)
 		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
 		textField.textAlignment = NSTextAlignment.center
 		view.addSubview(textField)

@@ -7,7 +7,7 @@
 		<height>screenHeight</height>
 		<posX>0</posX>
 		<posY>0</posY>
-		<color>f9aa43</color>
+		<backColor>f9aa43</backColor>
 	</object>
 
 	<object>
@@ -52,7 +52,7 @@
 		<text>ROUND   15/15</text>
 		<font>LiberationSans</font>
 		<size>30</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>
@@ -62,7 +62,7 @@
 		<height>180</height>
 		<posX>0</posX>
 		<posY>467</posY>
-		<color>ce7336</color>
+		<backColor>ce7336</backColor>
 	</object>
 
 	<object>

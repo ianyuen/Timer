@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<view>
-	<object>
-		<type>background</type>
-		<name>background</name>
-		<width>1142</width>
-		<height>128</height>
-		<color>ed9b3f</color>
-		<round>true</round>
-	</object>
-	
+<view>	
 	<object>
 		<type>textView</type>
 		<width>1142</width>
 		<height>128</height>
-		<font>LiberationSans</font>
 		<size>22</size>
+		<font>LiberationSans</font>
+		<backColor>f6992c</backColor>
 	</object>
 </view>

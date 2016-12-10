@@ -3,7 +3,7 @@
 	<object>
 		<type>background</type>
 		<name>background</name>
-		<color>ed9b3f</color>
+		<backColor>ed9b3f</backColor>
 	</object>
 
 	<object>
@@ -14,7 +14,7 @@
 	<object>
 		<type>textField</type>
 		<name>textBox</name>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>

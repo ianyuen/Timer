@@ -7,7 +7,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>0</posY>
-		<color>fce578</color>
+		<backColor>fce578</backColor>
 	</object>
 
 	<object>
@@ -18,7 +18,7 @@
 		<text>Profile Name</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<color>ce7336</color>
+		<textColor>ce7336</textColor>
 	</object>
 
 	<object>
@@ -42,7 +42,7 @@
 		<text>Rounds</text>
 		<font>LiberationSans</font>
 		<size>22</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>
@@ -97,7 +97,7 @@
 		<text>Training Time</text>
 		<font>LiberationSans</font>
 		<size>26</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>
@@ -107,7 +107,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>1396</posY>
-		<color>ed9b3f</color>
+		<textColor>ed9b3f</textColor>
 	</object>
 	
 	<object>
@@ -118,7 +118,7 @@
 		<text>8 Minutes and 10 Seconds</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>
@@ -173,7 +173,7 @@
 		<text>Exercise</text>
 		<font>LiberationSans</font>
 		<size>26</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>
@@ -187,23 +187,15 @@
 	</object>
 
 	<object>
-		<type>background</type>
-		<name>round1Back</name>
+		<type>textBox</type>
+		<name>roundsNumber</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>0</posX>
 		<posY>2038 + 146 + 150 + 100</posY>
-		<color>ed9b3f</color>
-	</object>
-	
-	<object>
-		<type>label</type>
-		<name>round1Text</name>
-		<posX>70</posX>
-		<posY>2038 + 146 + 150 + 100 + 10</posY>
 		<text>Mountain Climbers</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<color>ffffff</color>
+		<backColor>f6992c</backColor>
 	</object>
 </view>

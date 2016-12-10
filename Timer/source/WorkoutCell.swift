@@ -37,6 +37,7 @@ class WorkoutCell: ScrollView {
 		switch object.name {
 		case "insane":
 			insane.name = workoutName[1]
+			insane.round = object.round
 			objectManager.AddButton(insane, view: self, object: object)
 			if insane.lines > 1 {
 				object.height = 250
@@ -45,10 +46,12 @@ class WorkoutCell: ScrollView {
 			}
 		case "barbell":
 			barbell.name = workoutName[2]
+			barbell.round = object.round
 			objectManager.AddButton(barbell, view: self, object: object)
 			barbell.frame.origin.y = insane.frame.origin.y + insane.frame.height + space
 		case "profile":
 			profile.name = workoutName[0]
+			profile.round = object.round
 			objectManager.AddButton(profile, view: self, object: object)
 		default: break
 		}

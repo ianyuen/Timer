@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>image</type>
+		<type>background</type>
 		<name>background</name>
+		<round>true</round>
 	</object>
 
 	<object>
 		<type>textField</type>
 		<name>textField</name>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 </view>

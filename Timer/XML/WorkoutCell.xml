@@ -7,6 +7,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>0</posY>
+		<round>true</round>
 	</object>
 
 	<object>
@@ -16,6 +17,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>128 + 10</posY>
+		<round>true</round>
 	</object>
 
 	<object>
@@ -25,5 +27,6 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>138 + 128 + 10</posY>
+		<round>true</round>
 	</object>
 </view>

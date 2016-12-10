@@ -12,11 +12,11 @@ class WorkoutButton: Button {
 	let objectManager = ObjectManager()
 	
 	var name = ""
+	var round = false
 	var lines: CGFloat = 0
 	var height: CGFloat = 0
 
 	let textView = UITextView()
-	let background = UILabel()
 	
 	override func initView() {
 		objectManager.parent = self
@@ -30,14 +30,16 @@ class WorkoutButton: Button {
 				object.text = name
 				objectManager.AddTextView(textView, view: self, object: object)
 				lines = GetLinesNumber(textView)
-			case "background":
-				objectManager.AddBackground(background, view: self, object: object)
 			default: break
 			}
 		}
 
-		let color = Color()
-		backgroundColor = color.UIColorFromHex(0xf9aa43)
+		if round {
+			layer.masksToBounds = true
+			layer.cornerRadius = 8
+		}
+		//let color = Color()
+		//backgroundColor = color.UIColorFromHex(0xf9aa43)
 	}
 
 	func GetLinesNumber(_ textView: UITextView) -> CGFloat {

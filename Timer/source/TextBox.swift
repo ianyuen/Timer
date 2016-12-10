@@ -17,10 +17,12 @@ class TextBox: UIView {
 	private var height: CGFloat = 0
 	private var fontName = ""
 	private var fontSize: CGFloat = 0
+
+	private var backColor: UInt32 = 0
 	private var textColor: UInt32 = 0
 
 	let textField = UITextField()
-	let background = UIImageView()
+	let background = UILabel()
 
 	func initView() {
 		objectManager.parent = self
@@ -29,14 +31,14 @@ class TextBox: UIView {
 			object.width = width
 			object.height = height
 			switch object.type {
-			case "image":
-				object.icon = image
-				objectManager.AddImage(background, view: self, object: object)
 			case "textField":
 				object.text = text
 				object.font = fontName
 				object.size = fontSize
 				objectManager.AddTextField(textField, view: self, object: object)
+			case "background":
+				object.backColor = backColor
+				objectManager.AddBackground(background, view: self, object: object)
 			default: break
 			}
 		}
@@ -57,6 +59,10 @@ class TextBox: UIView {
 
 	func SetHeight(_ value: CGFloat) {
 		height = value
+	}
+
+	func SetBackColor(_ value: UInt32) {
+		backColor = value
 	}
 
 	func SetTextColor(_ value: UInt32) {

@@ -16,7 +16,7 @@
 		<posY>70</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 
 	<object>
@@ -29,7 +29,7 @@
 		<text>30</text>
 		<font>LiberationSans</font>
 		<size>16</size>
-		<icon>secondsText</icon>
+		<backColor>D86E29</backColor>
 	</object>
 
 	<object>
@@ -40,6 +40,6 @@
 		<text>Seconds</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<color>ffffff</color>
+		<textColor>ffffff</textColor>
 	</object>
 </view>

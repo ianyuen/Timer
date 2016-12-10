@@ -7,7 +7,7 @@
 		<height>screenHeight</height>
 		<posX>0</posX>
 		<posY>0</posY>
-		<color>f9aa43</color>
+		<backColor>f9aa43</backColor>
 	</object>
 
 	<object>
@@ -17,7 +17,7 @@
 		<height>140</height>
 		<posX>0</posX>
 		<posY>80</posY>
-		<color>ce7336</color>
+		<backColor>ce7336</backColor>
 	</object>
 
 	<object>
@@ -45,7 +45,7 @@
 		<posY>280</posY>
 		<width>1142</width>
 		<height>1147</height>
-		<color>f9aa43</color>
+		<backColor>f9aa43</backColor>
 	</object>
 
 	<object>
