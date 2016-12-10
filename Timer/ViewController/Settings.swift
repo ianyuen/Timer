@@ -57,11 +57,14 @@ class Settings: UIViewController {
 				}
 			case "newButton":
 				if object.name == "newButton" {
-					objectManager.AddNewButton(newButton, view: view, object: object)
+					newButton.SetText(object.text)
+					objectManager.AddButton(newButton, view: view, object: object)
 				} else if object.name == "editButton" {
-					objectManager.AddNewButton(editButton, view: view, object: object)
+					editButton.SetText(object.text)
+					objectManager.AddButton(editButton, view: view, object: object)
 				} else if object.name == "weightButton" {
-					objectManager.AddNewButton(weightButton, view: view, object: object)
+					weightButton.SetText(object.text)
+					objectManager.AddButton(weightButton, view: view, object: object)
 				}
 			case "backButton":
 				objectManager.AddBackButton(backButton, view: view, object: object)

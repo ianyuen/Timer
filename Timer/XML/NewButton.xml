@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>image</type>
+		<type>background</type>
 		<name>background</name>
+		<round>true</round>
 		<width>434</width>
 		<height>145</height>
-		<posX>0</posX>
-		<posY>0</posY>
-		<icon>newButton</icon>
+		<backColor>D86E29</backColor>
 	</object>
 
 	<object>

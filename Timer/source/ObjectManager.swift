@@ -78,8 +78,6 @@ class ObjectManager {
 					} else {
 						result = result - object.frame.width
 					}
-					print("width: \(object.frame.width)")
-					print("result: \(result)")
 					isWidth = true
 				case "height":
 					if isAdd {
@@ -95,8 +93,6 @@ class ObjectManager {
 					} else {
 						result = result - parent.frame.width
 					}
-					print("parentWidth: \(parent.frame.width)")
-					print("result: \(result)")
 					isWidth = true
 				case "parentHeight":
 					if isAdd {
@@ -111,21 +107,18 @@ class ObjectManager {
 					var convert: CGFloat = 0
 					if isWidth {
 						convert = ScreenSize.instance.GetItemWidth(number)
-						print("convert: \(convert)")
 					} else {
 						convert = ScreenSize.instance.GetItemHeight(number)
 					}
 					if isAdd {
 						result = result + convert
-						print("result +: \(result)")
 					} else {
 						result = result - convert
-						print("result -: \(result)")
 					}
 				}
 			}
 		}
-		print("result: \(result)")
+
 		return result
 	}
 
@@ -324,21 +317,6 @@ class ObjectManager {
 		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
 		textField.textAlignment = NSTextAlignment.center
 		view.addSubview(textField)
-	}
-
-	func AddNewButton(_ button : NewButton, view: UIView, object: ScreenObject) {
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-
-		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.SetController(controller)
-		button.title.text = object.text
-		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
-		button.initView()
-		view.addSubview(button)
 	}
 
 	func AddBackButton(_ button : BackButton, view: UIView, object: ScreenObject) {

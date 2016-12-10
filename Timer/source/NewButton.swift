@@ -8,19 +8,34 @@
 
 import UIKit
 
-class NewButton: UIButton {
-	let title = UILabel()
-	let background = UIImageView()
+class NewButton: Button {
 	let objectManager = ObjectManager()
 
-	func initView() {
+	private var text = ""
+
+	let title = UILabel()
+	let background = UILabel()
+
+	override func initView() {
 		objectManager.parent = self
 		objectManager.Parse("NewButton")
-		objectManager.DrawObject(background, type: "image", name: "background")
-		objectManager.DrawObject(title, type: "label", name: "title", angle: 0, spec: title.text!)
+		for object in objectManager.GetObjects() {
+			switch object.type {
+			case "label":
+				object.text = text
+				objectManager.AddLabel(title, view: self, object: object)
+			case "background":
+				objectManager.AddBackground(background, view: self, object: object)
+			default: break
+			}
+		}
 	}
 
 	func SetController(_ viewController: UIViewController) {
 		objectManager.controller = viewController
+	}
+
+	func SetText(_ value: String) {
+		text = value
 	}
 }
