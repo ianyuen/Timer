@@ -108,7 +108,7 @@ class ComboBox: UIView, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
 	//UITextFieldDelegate
 	func textFieldDidBeginEditing(_ textField: UITextField) {
 		if textField == self.textBox {
-			dropDown.isHidden = false
+			dropDown.isHidden = !dropDown.isHidden
 			textField.endEditing(true)
 		}
 	}

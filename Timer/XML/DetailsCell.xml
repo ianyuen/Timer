@@ -5,8 +5,7 @@
 		<name>profileBack</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
-		<posX>0</posX>
-		<posY>0</posY>
+		<round>true</round>
 		<backColor>fce578</backColor>
 	</object>
 
@@ -107,6 +106,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>1396</posY>
+		<round>true</round>
 		<backColor>ed9b3f</backColor>
 	</object>
 	
@@ -213,7 +213,7 @@
 		<type>label</type>
 		<name>exercise</name>
 		<posX>centerWidth</posX>
-		<posY>2038 + 128 + 30</posY>
+		<posY>2038 + 128 + 146</posY>
 		<text>Exercise</text>
 		<font>LiberationSans</font>
 		<size>26</size>
@@ -224,7 +224,7 @@
 		<type>label</type>
 		<name>round1Title</name>
 		<posX>0</posX>
-		<posY>2038 + 146 + 150</posY>
+		<posY>2038 + 146 + 150 + 116</posY>
 		<text>Round 1</text>
 		<font>LiberationSans</font>
 		<size>20</size>
@@ -236,7 +236,7 @@
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>0</posX>
-		<posY>2038 + 146 + 150 + 100</posY>
+		<posY>2038 + 146 + 150 + 100 + 116</posY>
 		<text>Mountain Climbers</text>
 		<font>LiberationSans</font>
 		<size>20</size>
@@ -247,7 +247,7 @@
 		<type>label</type>
 		<name>round2Title</name>
 		<posX>0</posX>
-		<posY>2434 + 150</posY>
+		<posY>2434 + 150 + 116</posY>
 		<text>Round 2</text>
 		<font>LiberationSans</font>
 		<size>20</size>
@@ -259,10 +259,36 @@
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>0</posX>
-		<posY>2434 + 150 + 100</posY>
+		<posY>2434 + 150 + 100 + 116</posY>
 		<text>Pushups</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 		<backColor>f6992c</backColor>
+	</object>
+
+	<object>
+		<type>newButton</type>
+		<name>saveButton</name>
+		<width>472</width>
+		<height>145</height>
+		<posX>83</posX>
+		<posY>2912 + 116</posY>
+		<text>SAVE</text>
+		<!--
+		<clicked>btnNewClicked</clicked>
+		 -->
+	</object>
+	
+	<object>
+		<type>newButton</type>
+		<name>deleteButton</name>
+		<width>472</width>
+		<height>145</height>
+		<posX>647</posX>
+		<posY>2912 + 116</posY>
+		<text>DELETE</text>
+		<!--
+		<clicked>btnEditClicked</clicked>
+		 -->
 	</object>
 </view>

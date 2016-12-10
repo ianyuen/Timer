@@ -39,6 +39,7 @@ class Settings: UIViewController {
 	}
 
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		return
 	}
 
 	func initView() {
@@ -58,12 +59,18 @@ class Settings: UIViewController {
 			case "newButton":
 				if object.name == "newButton" {
 					newButton.SetText(object.text)
+					newButton.SetWidth(object.width)
+					newButton.SetHeight(object.height)
 					objectManager.AddButton(newButton, view: view, object: object)
 				} else if object.name == "editButton" {
 					editButton.SetText(object.text)
+					editButton.SetWidth(object.width)
+					editButton.SetHeight(object.height)
 					objectManager.AddButton(editButton, view: view, object: object)
 				} else if object.name == "weightButton" {
 					weightButton.SetText(object.text)
+					weightButton.SetWidth(object.width)
+					weightButton.SetHeight(object.height)
 					objectManager.AddButton(weightButton, view: view, object: object)
 				}
 			case "backButton":

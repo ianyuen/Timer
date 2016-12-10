@@ -3,49 +3,49 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "TimeFit20x2.png",
+      "filename" : "Timefit040.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "TimeFit20x3.png",
+      "filename" : "Timefit060.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "TimeFit29x2.png",
+      "filename" : "Timefit058.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "TimeFit29x3.png",
+      "filename" : "Timefit087.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "TimeFit40x2.png",
+      "filename" : "Timefit080.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "TimeFit40x3.png",
+      "filename" : "Timefit120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "TimeFit60x2.png",
+      "filename" : "Timefit120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "TimeFit60x3.png",
+      "filename" : "Timefit180x180.png",
       "scale" : "3x"
     }
   ],

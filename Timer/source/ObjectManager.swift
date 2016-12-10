@@ -180,6 +180,12 @@ class ObjectManager {
 		if object.xPosition == -1 {
 			let width = label.frame.width
 			label.frame.origin.x = (parent.frame.width - width) / 2
+			if label.text == "SAVE" || label.text == "DELETE"{
+				print("text: \(label.text)")
+				print("label width: \(label.frame.width)")
+				print("frame width: \(parent.frame.width)")
+				print("x: \(label.frame.origin.x)")
+			}
 		} else {
 			label.frame.origin.x = ScreenSize.instance.GetPositionX(object.xPosition)
 		}
@@ -264,7 +270,15 @@ class ObjectManager {
 		background.backgroundColor = color.UIColorFromHex(object.backColor, alpha: alpha)
 		if object.round {
 			background.layer.masksToBounds = true
-			background.layer.cornerRadius = 8
+			if background.frame.width < 50 {
+				background.layer.cornerRadius = 4
+			} else if background.frame.width < 100 {
+				background.layer.cornerRadius = 6
+			} else if background.frame.width < 150 {
+				background.layer.cornerRadius = 8
+			} else {
+				background.layer.cornerRadius = 8
+			}
 		}
 		view.addSubview(background)
 	}

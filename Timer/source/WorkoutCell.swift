@@ -29,6 +29,7 @@ class WorkoutCell: ScrollView {
 			}
 		}
 
+		contentSize = CGSize(width: frame.width, height: 2500)
 		let color = Color()
 		backgroundColor = color.UIColorFromHex(0xf9aa43)
 	}

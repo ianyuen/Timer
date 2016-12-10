@@ -46,6 +46,9 @@ class DetailsCell: ScrollView {
 	let round2Text = TextBox()
 	let round2Title = UILabel()
 
+	let saveButton = NewButton()
+	let deleteButton = NewButton()
+
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
 	}
@@ -59,6 +62,8 @@ class DetailsCell: ScrollView {
 				AddLabel(object)
 			case "image":
 				AddImage(object)
+			case "newButton":
+				AddButton(object)
 			case "textBox":
 				AddTextBox(object)
 			case "comboBox":
@@ -159,6 +164,22 @@ class DetailsCell: ScrollView {
 			objectManager.AddRoundSecondsGroup(group: warmUpTime, view: self, object: object)
 		case "coolDownTime":
 			objectManager.AddRoundSecondsGroup(group: coolDownTime, view: self, object: object)
+		default: break
+		}
+	}
+
+	func AddButton(_ object: ScreenObject) {
+		switch object.name {
+		case "saveButton":
+			saveButton.SetText(object.text)
+			saveButton.SetWidth(object.width)
+			saveButton.SetHeight(object.height)
+			objectManager.AddButton(saveButton, view: self, object: object)
+		case "deleteButton":
+			deleteButton.SetText(object.text)
+			deleteButton.SetWidth(object.width)
+			deleteButton.SetHeight(object.height)
+			objectManager.AddButton(deleteButton, view: self, object: object)
 		default: break
 		}
 	}
