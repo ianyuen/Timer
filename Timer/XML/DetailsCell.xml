@@ -31,7 +31,7 @@
 		<text>16</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<icon>roundsText</icon>
+		<backColor>D86E29</backColor>
 	</object>
 
 	<object>
@@ -188,12 +188,35 @@
 
 	<object>
 		<type>textBox</type>
-		<name>roundsNumber</name>
+		<name>round1Text</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>0</posX>
 		<posY>2038 + 146 + 150 + 100</posY>
 		<text>Mountain Climbers</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<backColor>f6992c</backColor>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>round2Title</name>
+		<posX>0</posX>
+		<posY>2434 + 150</posY>
+		<text>Round 2</text>
+		<font>LiberationSans</font>
+		<size>20</size>
+	</object>
+	
+	<object>
+		<type>textBox</type>
+		<name>round2Text</name>
+		<width>screenWidth - 100</width>
+		<height>128</height>
+		<posX>0</posX>
+		<posY>2434 + 150 + 100</posY>
+		<text>Pushups</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 		<backColor>f6992c</backColor>

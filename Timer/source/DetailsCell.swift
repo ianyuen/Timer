@@ -33,9 +33,11 @@ class DetailsCell: ScrollView {
 
 	let exercise = UILabel()
 
-	let round1Back = UILabel()
-	let round1Text = UILabel()
+	let round1Text = TextBox()
 	let round1Title = UILabel()
+
+	let round2Text = TextBox()
+	let round2Title = UILabel()
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
@@ -75,16 +77,16 @@ class DetailsCell: ScrollView {
 			objectManager.AddLabel(totalText, view: self, object: object)
 		case "roundsTitle":
 			objectManager.AddLabel(roundsTitle, view: self, object: object)
-		case "profileText":
-			objectManager.AddLabel(profileText, view: self, object: object)
-		case "trainingTime":
-			objectManager.AddLabel(trainingTime, view: self, object: object)
-		case "exercise":
-			objectManager.AddLabel(exercise, view: self, object: object)
-		case "round1Text":
-			objectManager.AddLabel(round1Text, view: self, object: object)
 		case "round1Title":
 			objectManager.AddLabel(round1Title, view: self, object: object)
+		case "round2Title":
+			objectManager.AddLabel(round2Title, view: self, object: object)
+		case "profileText":
+			objectManager.AddLabel(profileText, view: self, object: object)
+		case "exercise":
+			objectManager.AddLabel(exercise, view: self, object: object)
+		case "trainingTime":
+			objectManager.AddLabel(trainingTime, view: self, object: object)
 
 		default: break
 		}
@@ -98,6 +100,10 @@ class DetailsCell: ScrollView {
 
 	func AddTextBox(_ object: ScreenObject) {
 		switch object.name {
+		case "round1Text":
+			objectManager.AddTextBox(round1Text, view: self, object: object)
+		case "round2Text":
+			objectManager.AddTextBox(round2Text, view: self, object: object)
 		case "roundsNumber":
 			objectManager.AddTextBox(roundsNumber, view: self, object: object)
 		default: break
@@ -124,8 +130,6 @@ class DetailsCell: ScrollView {
 			objectManager.AddBackground(totalBack, view: self, object: object)
 		case "profileBack":
 			objectManager.AddBackground(profileBack, view: self, object: object)
-		case "round1Back":
-			objectManager.AddBackground(round1Back, view: self, object: object)
 		default: break
 		}
 	}
