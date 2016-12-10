@@ -63,6 +63,10 @@ class DetailsCell: ScrollView {
 		}
 
 		contentSize = CGSize(width: frame.width, height: 2500)
+		bringSubview(toFront: sound)
+		bringSubview(toFront: vibrate)
+		bringSubview(toFront: routine)
+		bringSubview(toFront: motivation)
 	}
 
 	func AddLabel(_ object: ScreenObject) {

@@ -62,6 +62,7 @@ class ComboBox: UIView, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
 			}
 		}
 		dropDown.isHidden = true
+		bringSubview(toFront: dropDown)
 	}
 
 	func SetText(_ value: String) {
