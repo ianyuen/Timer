@@ -13,7 +13,6 @@
 		<type>textView</type>
 		<width>1142</width>
 		<height>128</height>
-		<posY>centerHeight</posY>
 		<font>LiberationSans</font>
 		<size>22</size>
 	</object>
