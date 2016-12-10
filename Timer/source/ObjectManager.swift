@@ -56,15 +56,16 @@ class ObjectManager {
 		}
 	}
 
-	func CGFloatFromString(_ value: String, xPosition: CGFloat = 0, yPosition: CGFloat = 0) -> CGFloat {
+	func CGFloatFromString(_ source: String, object: UIView) -> CGFloat {
 		var isAdd = true
+		var isWidth = true
 		var result: CGFloat = 0
-		let valueArray = value.characters.split{$0 == " "}.map(String.init)
+		let valueArray = source.characters.split{$0 == " "}.map(String.init)
 		for value in valueArray {
 			if value == "centerWidth" {
-				result = (ScreenSize.instance.GetCurrentWidth() - xPosition) / 2
+				result = (ScreenSize.instance.GetCurrentWidth() - object.frame.width) / 2
 			} else if value == "centerHeight" {
-				result = (ScreenSize.instance.GetCurrentHeight() - yPosition) / 2
+				result = (ScreenSize.instance.GetCurrentHeight() - object.frame.height) / 2
 			} else {
 				switch value {
 				case "+":
@@ -72,24 +73,59 @@ class ObjectManager {
 				case "-":
 					isAdd = false
 				case "width":
-					result = result + parent.frame.width
+					if isAdd {
+						result = result + object.frame.width
+					} else {
+						result = result - object.frame.width
+					}
+					print("width: \(object.frame.width)")
+					print("result: \(result)")
+					isWidth = true
 				case "height":
-					result = result + parent.frame.height
-				case "screenWidth":
-					result = result + ScreenSize.instance.defaultWidth
-				case "screenHeight":
-					result = result + ScreenSize.instance.defaultHeight
+					if isAdd {
+						result = result + object.frame.height
+					} else {
+						result = result + object.frame.height
+					}
+					isWidth = false
+
+				case "parentWidth":
+					if isAdd {
+						result = result + parent.frame.width
+					} else {
+						result = result - parent.frame.width
+					}
+					print("parentWidth: \(parent.frame.width)")
+					print("result: \(result)")
+					isWidth = true
+				case "parentHeight":
+					if isAdd {
+						result = result + parent.frame.height
+					} else {
+						result = result - parent.frame.height
+					}
+					isWidth = false
+
 				default:
 					let number = StringToCGFloat(value)
-					if isAdd {
-						result = result + number
+					var convert: CGFloat = 0
+					if isWidth {
+						convert = ScreenSize.instance.GetItemWidth(number)
+						print("convert: \(convert)")
 					} else {
-						result = result - number
+						convert = ScreenSize.instance.GetItemHeight(number)
+					}
+					if isAdd {
+						result = result + convert
+						print("result +: \(result)")
+					} else {
+						result = result - convert
+						print("result -: \(result)")
 					}
 				}
 			}
 		}
-
+		print("result: \(result)")
 		return result
 	}
 
@@ -160,6 +196,10 @@ class ObjectManager {
 		} else {
 			label.frame.origin.y = ScreenSize.instance.GetPositionY(object.yPosition)
 		}
+		if object.posXRaw != "" {
+			label.frame.origin.x = CGFloatFromString(object.posXRaw, object: label)
+		}
+
 		view.addSubview(label)
 	}
 

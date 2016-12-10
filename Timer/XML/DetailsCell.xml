@@ -107,7 +107,7 @@
 		<height>128</height>
 		<posX>0</posX>
 		<posY>1396</posY>
-		<textColor>ed9b3f</textColor>
+		<backColor>ed9b3f</backColor>
 	</object>
 	
 	<object>
@@ -122,6 +122,17 @@
 	</object>
 
 	<object>
+		<type>label</type>
+		<name>soundText</name>
+		<posY>1396 + 100 + 40 + 28</posY>
+		<posXRaw>parentWidth - width - 500</posXRaw>
+		<text>Sound</text>
+		<font>LiberationSans</font>
+		<size>22</size>
+		<textColor>D86E29</textColor>
+	</object>
+
+	<object>
 		<type>comboBox</type>
 		<name>sound</name>
 		<width>400</width>
@@ -130,6 +141,17 @@
 		<posY>1396 + 100 + 40 + 28</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>vibrateText</name>
+		<posY>1564 + 128 + 30</posY>
+		<posXRaw>parentWidth - width - 500</posXRaw>
+		<text>Vibrate</text>
+		<font>LiberationSans</font>
+		<size>22</size>
+		<textColor>D86E29</textColor>
 	</object>
 
 	<object>
@@ -144,6 +166,17 @@
 	</object>
 
 	<object>
+		<type>label</type>
+		<name>routineText</name>
+		<posY>1722 + 128 + 30</posY>
+		<posXRaw>parentWidth - width - 500</posXRaw>
+		<text>Routine</text>
+		<font>LiberationSans</font>
+		<size>22</size>
+		<textColor>D86E29</textColor>
+	</object>
+
+	<object>
 		<type>comboBox</type>
 		<name>routine</name>
 		<width>400</width>
@@ -152,6 +185,17 @@
 		<posY>1722 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>motivationText</name>
+		<posY>1880 + 128 + 30</posY>
+		<posXRaw>parentWidth - width - 500</posXRaw>
+		<text>Motivation</text>
+		<font>LiberationSans</font>
+		<size>22</size>
+		<textColor>D86E29</textColor>
 	</object>
 
 	<object>

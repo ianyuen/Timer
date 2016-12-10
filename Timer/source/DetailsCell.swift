@@ -27,9 +27,16 @@ class DetailsCell: ScrollView {
 	let coolDownTime = RoundSecondsGroup()
 
 	let sound = ComboBox()
+	let soundText = UILabel()
+
 	let vibrate = ComboBox()
+	let vibrateText = UILabel()
+
 	let routine = ComboBox()
+	let routineText = UILabel()
+
 	let motivation = ComboBox()
+	let motivationText = UILabel()
 
 	let exercise = UILabel()
 
@@ -75,6 +82,14 @@ class DetailsCell: ScrollView {
 		switch object.name {
 		case "totalText":
 			objectManager.AddLabel(totalText, view: self, object: object)
+		case "soundText":
+			objectManager.AddLabel(soundText, view: self, object: object)
+		case "vibrateText":
+			objectManager.AddLabel(vibrateText, view: self, object: object)
+		case "routineText":
+			objectManager.AddLabel(routineText, view: self, object: object)
+		case "motivationText":
+			objectManager.AddLabel(motivationText, view: self, object: object)
 		case "roundsTitle":
 			objectManager.AddLabel(roundsTitle, view: self, object: object)
 		case "round1Title":
