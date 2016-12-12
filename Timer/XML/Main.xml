@@ -34,7 +34,7 @@
 
 	<object>
 		<type>label</type>
-		<name>title</name>
+		<name>screenTitle</name>
 		<posX>centerWidth</posX>
 		<posY>80</posY>
 		<width>515</width>
@@ -103,7 +103,7 @@
 		<height>145</height>
 		<posX>100</posX>
 		<posY>1893</posY>
-		<image>start</image>
+		<icon>start</icon>
 		<text>START</text>
 		<clicked>btnStartClicked</clicked>
 	</object>
@@ -115,7 +115,7 @@
 		<height>145</height>
 		<posX>692</posX>
 		<posY>1893</posY>
-		<image>reset</image>
+		<icon>reset</icon>
 		<text>RESET</text>
 		<clicked>btnResetClicked</clicked>
 	</object>

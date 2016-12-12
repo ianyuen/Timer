@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoundButton: UIButton {
+class RoundButton: Button {
 	let endTime = UILabel()
 	let background1 = UIImageView()
 	let background2 = UIImageView()
@@ -21,7 +21,7 @@ class RoundButton: UIButton {
 
 	private var controller = UIViewController()
 
-	func initView () {
+	override func initView () {
 		objectManager.parent = self
 		objectManager.controller = controller
 		objectManager.Parse("RoundButton")

@@ -8,21 +8,50 @@
 
 import UIKit
 
-class MainButton: UIButton {
-	let icon = UIImageView()
-	let title = UILabel()
-	var image = ""
-	let background = UIImageView()
+class MainButton: Button {
 	let objectManager = ObjectManager()
+
+	private var icon = UIImageView()
+	private let title = UILabel()
+	private let background = UIImageView()
 
 	var parent = UIViewController()
 
-	func initView(_ controller: UIViewController) {
+	override func initView() {
 		objectManager.parent = self
-		objectManager.controller = controller
 		objectManager.Parse("MainButton")
-		objectManager.DrawObject(background, type: "image", name: "background")
-		objectManager.DrawObject(icon, type: "image", name: "icon", image: image)
-		objectManager.DrawObject(title, type: "label", name: "title", angle: 0, spec: title.text!)
+		for object in objectManager.GetObjects() {
+			switch object.type {
+			case "image":
+				DrawImage(object)
+			case "label":
+				object.text = title.text!
+				objectManager.AddLabel(title, view: self, object: object)
+			default: break
+			}
+		}
+	}
+
+	func SetIcon(_ value: UIImage) {
+		icon.image = value
+	}
+
+	func SetTitle(_ value: String) {
+		title.text = value
+	}
+
+	func SizeToFit() {
+		title.sizeToFit()
+	}
+
+	func DrawImage(_ object: ScreenObject) {
+		switch object.name {
+		case "icon":
+			object.icon = icon.image!
+			objectManager.AddImage(icon, view: self, object: object)
+		case "background":
+			objectManager.AddImage(background, view: self, object: object)
+		default: break
+		}
 	}
 }

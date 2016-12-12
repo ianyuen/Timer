@@ -7,4 +7,34 @@
 		<height>screenHeight</height>
 		<backColor>f9aa43</backColor>
 	</object>
+
+	<object>
+		<type>backButton</type>
+		<name>backButton</name>
+		<width>200</width>
+		<height>90</height>
+		<posX>50</posX>
+		<posY>105</posY>
+		<clicked>btnBackClicked</clicked>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>titleText</name>
+		<posX>centerWidth</posX>
+		<posY>90</posY>
+		<text>Training Log</text>
+		<font>LiberationSans</font>
+		<size>26</size>
+	</object>
+
+	<object>
+		<type>newButton</type>
+		<name>weightButton</name>
+		<width>592</width>
+		<height>145</height>
+		<posX>325</posX>
+		<posY>screenHeight - 460 + 157</posY>
+		<text>WEIGHT</text>
+	</object>
 </view>

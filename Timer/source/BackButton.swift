@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BackButton: UIButton {
+class BackButton: Button {
 	private var controller = UIViewController()
 
 	let image = UIImageView()
 	let title = UILabel()
 
-	func initView() {
+	override func initView() {
 		let objectManager = ObjectManager()
 		objectManager.parent = self
 		objectManager.controller = controller

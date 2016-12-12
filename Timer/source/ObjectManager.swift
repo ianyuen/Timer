@@ -34,11 +34,9 @@ class ObjectManager {
 				case "image":
 					AddImage(object as! UIImageView, view: parent, object: screenObject, angle: angle, image: image)
 				case "button":
-					AddButton(object as! UIButton, view: parent, object: screenObject)
+					AddButton(object as! Button, view: parent, object: screenObject)
 				case "background":
 					AddBackground(object as! UILabel , view: parent, object: screenObject)
-				case "mainButton":
-					AddMainButton(object as! MainButton, view: parent, object: screenObject)
 				case "roundButton":
 					AddRoundButton(object as! RoundButton, view: parent, object: screenObject)
 				default: break
@@ -180,12 +178,6 @@ class ObjectManager {
 		if object.xPosition == -1 {
 			let width = label.frame.width
 			label.frame.origin.x = (parent.frame.width - width) / 2
-			if label.text == "SAVE" || label.text == "DELETE"{
-				print("text: \(label.text)")
-				print("label width: \(label.frame.width)")
-				print("frame width: \(parent.frame.width)")
-				print("x: \(label.frame.origin.x)")
-			}
 		} else {
 			label.frame.origin.x = ScreenSize.instance.GetPositionX(object.xPosition)
 		}
@@ -243,7 +235,7 @@ class ObjectManager {
 		button.initView()
 		view.addSubview(button)
 	}
-
+/*
 	func AddButton(_ button: UIButton, view: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -258,7 +250,7 @@ class ObjectManager {
 		}
 		view.addSubview(button)
 	}
-
+*/
 	func AddBackground(_ background: UILabel, view: UIView, object: ScreenObject, alpha:Double = 1.0) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -331,36 +323,6 @@ class ObjectManager {
 		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
 		textField.textAlignment = NSTextAlignment.center
 		view.addSubview(textField)
-	}
-
-	func AddBackButton(_ button : BackButton, view: UIView, object: ScreenObject) {
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-
-		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.SetController(controller)
-		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
-		button.initView()
-		view.addSubview(button)
-	}
-
-	func AddMainButton(_ button : MainButton, view: UIView, object: ScreenObject) {
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-
-		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.icon.image = object.icon
-		button.title.text = object.text
-		button.image = object.image
-		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
-		button.initView(controller)
-		view.addSubview(button)
 	}
 
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {

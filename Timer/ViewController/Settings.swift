@@ -51,35 +51,39 @@ class Settings: UIViewController {
 			case "label":
 				objectManager.AddLabel(titleText, view: view, object: object)
 			case "background":
-				if object.name == "titleBack" {
-					objectManager.AddBackground(titleBack, view: view, object: object)
-				} else if object.name == "background" {
-					objectManager.AddBackground(background, view: view, object: object)
-				}
+				DrawBackground(object)
 			case "newButton":
 				if object.name == "newButton" {
-					newButton.SetText(object.text)
-					newButton.SetWidth(object.width)
-					newButton.SetHeight(object.height)
-					objectManager.AddButton(newButton, view: view, object: object)
+					DrawNewButton(newButton, object: object)
 				} else if object.name == "editButton" {
-					editButton.SetText(object.text)
-					editButton.SetWidth(object.width)
-					editButton.SetHeight(object.height)
-					objectManager.AddButton(editButton, view: view, object: object)
+					DrawNewButton(editButton, object: object)
 				} else if object.name == "weightButton" {
-					weightButton.SetText(object.text)
-					weightButton.SetWidth(object.width)
-					weightButton.SetHeight(object.height)
-					objectManager.AddButton(weightButton, view: view, object: object)
+					DrawNewButton(weightButton, object: object)
 				}
 			case "backButton":
-				objectManager.AddBackButton(backButton, view: view, object: object)
+				objectManager.AddButton(backButton, view: view, object: object)
 			case "scrollView":
 				objectManager.AddScrollView(content, view: view, object: object)
 			default: break
 			}
 		}
+	}
+
+	func DrawBackground(_ object: ScreenObject) {
+		switch object.name {
+		case "titleBack":
+			objectManager.AddBackground(titleBack, view: view, object: object)
+		case "background":
+			objectManager.AddBackground(background, view: view, object: object)
+		default: break
+		}
+	}
+
+	func DrawNewButton(_ button: NewButton, object: ScreenObject) {
+		button.SetText(object.text)
+		button.SetWidth(object.width)
+		button.SetHeight(object.height)
+		objectManager.AddButton(button, view: view, object: object)
 	}
 
 	func btnBackClicked(_ sender:UIButton!) {

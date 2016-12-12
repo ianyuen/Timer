@@ -51,14 +51,14 @@ class Details: UIViewController {
 		objectManager.Parse("Details")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "scrollView":
-				objectManager.AddScrollView(content, view: view, object: object)
 			case "label":
 				DrawLabel(object)
+			case "backButton":
+				objectManager.AddButton(backButton, view: view, object: object)
+			case "scrollView":
+				objectManager.AddScrollView(content, view: view, object: object)
 			case "background":
 				DrawBackground(object)
-			case "backButton":
-				objectManager.AddBackButton(backButton, view: view, object: object)
 			default: break
 			}
 		}

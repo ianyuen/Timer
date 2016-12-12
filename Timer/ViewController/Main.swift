@@ -19,8 +19,8 @@ class Main: UIViewController {
 	let roundButton = RoundButton()
 	let screenTitle = UILabel()
 	let objectManager = ObjectManager()
-	let historyButton = UIButton()
-	let settingsButton = UIButton()
+	let historyButton = Button()
+	let settingsButton = Button()
 	let titleBackground = UILabel()
 
 	var angle: CGFloat = 0.0
@@ -55,20 +55,71 @@ class Main: UIViewController {
 		objectManager.parent = view
 		objectManager.controller = self
 		objectManager.Parse("Main")
-		objectManager.DrawObject(background, type: "background", name: "background")
-		objectManager.DrawObject(round, type: "label", name: "round")
-		objectManager.DrawObject(screenTitle, type: "label", name: "title")
-		objectManager.DrawObject(historyButton, type: "button", name: "historyButton")
-		objectManager.DrawObject(settingsButton, type: "button", name: "settingsButton")
+		for object in objectManager.GetObjects() {
+			switch object.type {
+			case "label":
+				DrawLabel(object)
+			case "button":
+				DrawButton(object)
+			case "background":
+				DrawBackground(object)
+			case "mainButton":
+				DrawMainButton(object)
+			case "roundButton":
+				objectManager.AddButton(roundButton, view: view, object: object)
+			default: break
+			}
+		}
+	}
 
-		objectManager.DrawObject(titleBackground, type: "background", name: "titleBackground")
-		objectManager.DrawObject(endTime, type: "label", name: "endTime")
-		objectManager.DrawObject(endClock, type: "label", name: "endClock")
+	func DrawLabel(_ object: ScreenObject) {
+		switch object.name {
+		case "round":
+			objectManager.AddLabel(round, view: view, object: object)
+		case "endTime":
+			objectManager.AddLabel(endTime, view: view, object: object)
+		case "endClock":
+			objectManager.AddLabel(endClock, view: view, object: object)
+		case "screenTitle":
+			objectManager.AddLabel(screenTitle, view: view, object: object)
+		default: break
+		}
+	}
 
-		objectManager.DrawObject(roundButton, type: "roundButton", name: "roundButton")
+	func DrawButton(_ object: ScreenObject) {
+		switch object.name {
+		case "historyButton":
+			historyButton.setImage(object.icon, for: UIControlState.normal)
+			objectManager.AddButton(historyButton, view: view, object: object)
+		case "settingsButton":
+			settingsButton.setImage(object.icon, for: UIControlState.normal)
+			objectManager.AddButton(settingsButton, view: view, object: object)
+		default: break
+		}
+	}
 
-		objectManager.DrawObject(startButton, type: "mainButton", name: "startButton")
-		objectManager.DrawObject(resetButton, type: "mainButton", name: "resetButton")
+	func DrawMainButton(_ object: ScreenObject) {
+		switch object.name {
+		case "startButton":
+			startButton.SetIcon(object.icon)
+			startButton.SetTitle(object.text)
+			objectManager.AddButton(startButton, view: view, object: object)
+		case "resetButton":
+			resetButton.SetIcon(object.icon)
+			resetButton.SetTitle(object.text)
+			objectManager.AddButton(resetButton, view: view, object: object)
+		default: break
+		}
+	}
+
+	func DrawBackground(_ object: ScreenObject) {
+		switch object.name {
+		case "background":
+			objectManager.AddBackground(background, view: view, object: object)
+		case "titleBackground":
+			objectManager.AddBackground(titleBackground, view: view, object: object)
+		default: break
+		}
 	}
 
 	func btnResetClicked(_ sender:UIButton!) {
@@ -117,8 +168,8 @@ class Main: UIViewController {
 	func update() {
 		if (counting) {
 			let image = UIImage(named: "stop")
-			startButton.icon.image = image
-			startButton.title.text = "PAUSE"
+			startButton.SetIcon(image!)
+			startButton.SetTitle("PAUSE")
 
 			roundButton.DrawCircle(angle)
 			angle = angle + CGFloat.pi / 30
@@ -142,10 +193,11 @@ class Main: UIViewController {
 			endClock.text = ConvertToClock(totalSecond)
 		} else {
 			let image = UIImage(named: "start")
-			startButton.icon.image = image
-			startButton.title.text = "START"
+			startButton.SetIcon(image!)
+			startButton.SetTitle("START")
 		}
-		startButton.title.sizeToFit()
+		startButton.SizeToFit()
+		resetButton.SetTitle("RESET")
 	}
 
 	func PrintFontNames() {
