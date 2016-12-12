@@ -91,6 +91,10 @@ class Main: UIViewController {
 		counting = !counting
 	}
 
+	func btnHistoryClicked(_ sender:UIButton!) {
+		self.performSegue(withIdentifier: "showHistory", sender: self)
+	}
+
 	func btnSettingsClicked(_ sender:UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}

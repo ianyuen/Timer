@@ -40,6 +40,8 @@
 		10E9525A1DF2AD4800F6EE01 /* WorkoutCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */; };
 		10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525B1DF2AE7500F6EE01 /* Details.swift */; };
 		10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E9525D1DF2AEB200F6EE01 /* Details.xml */; };
+		10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10F7DDB61DFEBDD900BF5D36 /* History.xml */; };
+		10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F7DDB81DFEBE1A00BF5D36 /* History.swift */; };
 		10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */; };
 		10FB24DE1DD0D3EE00A47755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DD1DD0D3EE00A47755 /* ViewController.swift */; };
 		10FB24E11DD0D3EE00A47755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24DF1DD0D3EE00A47755 /* Main.storyboard */; };
@@ -83,6 +85,8 @@
 		10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = WorkoutCell.xml; path = XML/WorkoutCell.xml; sourceTree = "<group>"; };
 		10E9525B1DF2AE7500F6EE01 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Details.swift; path = ViewController/Details.swift; sourceTree = "<group>"; };
 		10E9525D1DF2AEB200F6EE01 /* Details.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Details.xml; path = XML/Details.xml; sourceTree = "<group>"; };
+		10F7DDB61DFEBDD900BF5D36 /* History.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = History.xml; path = XML/History.xml; sourceTree = "<group>"; };
+		10F7DDB81DFEBE1A00BF5D36 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = ViewController/History.swift; sourceTree = "<group>"; };
 		10FB24D81DD0D3EE00A47755 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FB24DD1DD0D3EE00A47755 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				10E9525B1DF2AE7500F6EE01 /* Details.swift */,
 				10E288EB1DE3347E00A5C80B /* Main.swift */,
 				10A8C9561DEF17E7004C5211 /* Settings.swift */,
+				10F7DDB81DFEBE1A00BF5D36 /* History.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				1003C0C51DF58E0200112FFC /* TextBox.xml */,
 				10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */,
 				104415431DFB153900978FD5 /* WorkoutButton.xml */,
+				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
 			);
 			name = XML;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 				1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */,
 				10A8C9591DEF18E5004C5211 /* Settings.xml in Resources */,
 				1035D5BD1DE4B84D000C6BFD /* LiberationSans.ttf in Resources */,
+				10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */,
 				107675CF1DEF3AE800CEDAC7 /* BackButton.xml in Resources */,
 				10FB24E31DD0D3EE00A47755 /* Assets.xcassets in Resources */,
 				10E9525A1DF2AD4800F6EE01 /* WorkoutCell.xml in Resources */,
@@ -306,6 +313,7 @@
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
+				10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,
 				10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */,

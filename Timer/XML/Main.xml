@@ -29,6 +29,7 @@
 		<icon>history</icon>
 		<posX>screenWidth - 50 - 145</posX>
 		<posY>80</posY>
+		<clicked>btnHistoryClicked</clicked>
 	</object>
 
 	<object>

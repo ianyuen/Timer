@@ -9,6 +9,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--History-->
+        <scene sceneID="cpa-D1-xVm">
+            <objects>
+                <viewController id="8D5-iw-6dh" customClass="History" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bIZ-Y4-Ovx"/>
+                        <viewControllerLayoutGuide type="bottom" id="L7X-ge-aKW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3uG-FF-XxX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMain" id="ijE-a6-uKq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxh-al-6dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134" y="788"/>
+        </scene>
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,10 +45,12 @@
                     </view>
                     <connections>
                         <segue destination="Mcp-Vz-lr5" kind="show" identifier="showSettings" id="Sa2-KR-eNp"/>
+                        <segue destination="8D5-iw-6dh" kind="show" identifier="showHistory" id="5oF-MD-cZe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135" y="105"/>
         </scene>
         <!--Settings-->
         <scene sceneID="M5P-qp-WyO">
@@ -74,6 +97,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xlu-5E-f0I"/>
+        <segue reference="Sa2-KR-eNp"/>
+        <segue reference="ijE-a6-uKq"/>
     </inferredMetricsTieBreakers>
 </document>
