@@ -15,8 +15,6 @@
 		1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D72E1DF0C96100C0FF63 /* NewButton.swift */; };
 		1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1043D7301DF0CAF700C0FF63 /* NewButton.xml */; };
 		1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */; };
-		1044153E1DFAFF7600978FD5 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044153D1DFAFF7600978FD5 /* ScrollView.swift */; };
-		104415401DFB139A00978FD5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044153F1DFB139A00978FD5 /* Button.swift */; };
 		104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104415411DFB147F00978FD5 /* WorkoutButton.swift */; };
 		104415441DFB153900978FD5 /* WorkoutButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 104415431DFB153900978FD5 /* WorkoutButton.xml */; };
 		10443BF91DF3A42C00FAECA0 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */; };
@@ -40,10 +38,11 @@
 		10E9525A1DF2AD4800F6EE01 /* WorkoutCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */; };
 		10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525B1DF2AE7500F6EE01 /* Details.swift */; };
 		10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E9525D1DF2AEB200F6EE01 /* Details.xml */; };
+		10ECC8011E0035E4000D2E7C /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8001E0035E4000D2E7C /* Button.swift */; };
+		10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8041E003670000D2E7C /* ScrollView.swift */; };
 		10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10F7DDB61DFEBDD900BF5D36 /* History.xml */; };
 		10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F7DDB81DFEBE1A00BF5D36 /* History.swift */; };
 		10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */; };
-		10FB24DE1DD0D3EE00A47755 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DD1DD0D3EE00A47755 /* ViewController.swift */; };
 		10FB24E11DD0D3EE00A47755 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24DF1DD0D3EE00A47755 /* Main.storyboard */; };
 		10FB24E31DD0D3EE00A47755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24E21DD0D3EE00A47755 /* Assets.xcassets */; };
 		10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24E41DD0D3EE00A47755 /* LaunchScreen.storyboard */; };
@@ -60,8 +59,6 @@
 		1043D72E1DF0C96100C0FF63 /* NewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewButton.swift; path = source/NewButton.swift; sourceTree = "<group>"; };
 		1043D7301DF0CAF700C0FF63 /* NewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewButton.xml; path = XML/NewButton.xml; sourceTree = "<group>"; };
 		1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutCell.swift; path = source/WorkoutCell.swift; sourceTree = "<group>"; };
-		1044153D1DFAFF7600978FD5 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = source/ScrollView.swift; sourceTree = "<group>"; };
-		1044153F1DFB139A00978FD5 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = source/Button.swift; sourceTree = "<group>"; };
 		104415411DFB147F00978FD5 /* WorkoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutButton.swift; path = source/WorkoutButton.swift; sourceTree = "<group>"; };
 		104415431DFB153900978FD5 /* WorkoutButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = WorkoutButton.xml; path = XML/WorkoutButton.xml; sourceTree = "<group>"; };
 		10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsCell.swift; path = source/DetailsCell.swift; sourceTree = "<group>"; };
@@ -85,11 +82,12 @@
 		10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = WorkoutCell.xml; path = XML/WorkoutCell.xml; sourceTree = "<group>"; };
 		10E9525B1DF2AE7500F6EE01 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Details.swift; path = ViewController/Details.swift; sourceTree = "<group>"; };
 		10E9525D1DF2AEB200F6EE01 /* Details.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Details.xml; path = XML/Details.xml; sourceTree = "<group>"; };
+		10ECC8001E0035E4000D2E7C /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = BaseObject/Button.swift; sourceTree = "<group>"; };
+		10ECC8041E003670000D2E7C /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = BaseObject/ScrollView.swift; sourceTree = "<group>"; };
 		10F7DDB61DFEBDD900BF5D36 /* History.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = History.xml; path = XML/History.xml; sourceTree = "<group>"; };
 		10F7DDB81DFEBE1A00BF5D36 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = ViewController/History.swift; sourceTree = "<group>"; };
 		10FB24D81DD0D3EE00A47755 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10FB24DD1DD0D3EE00A47755 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10FB24E01DD0D3EE00A47755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10FB24E21DD0D3EE00A47755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10FB24E51DD0D3EE00A47755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -117,12 +115,11 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
-		1044DCA71DD20811006B6582 /* source */ = {
+		1044DCA71DD20811006B6582 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				1044DCA81DD20880006B6582 /* Application.swift */,
 				107675D01DEF3DCC00CEDAC7 /* BackButton.swift */,
-				1044153F1DFB139A00978FD5 /* Button.swift */,
 				10E288F81DE35D8000A5C80B /* Color.swift */,
 				1003C0C71DF5F1A800112FFC /* ComboBox.swift */,
 				10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */,
@@ -134,12 +131,11 @@
 				10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */,
 				10E288F11DE33C1B00A5C80B /* ScreenObject.swift */,
 				10E288F31DE33C7B00A5C80B /* ScreenSize.swift */,
-				1044153D1DFAFF7600978FD5 /* ScrollView.swift */,
 				1003C0C31DF58DD900112FFC /* TextBox.swift */,
 				104415411DFB147F00978FD5 /* WorkoutButton.swift */,
 				1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */,
 			);
-			name = source;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		10E288EA1DE3331700A5C80B /* ViewController */ = {
@@ -174,6 +170,24 @@
 			name = XML;
 			sourceTree = "<group>";
 		};
+		10ECC7FE1E003359000D2E7C /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				10FB24E41DD0D3EE00A47755 /* LaunchScreen.storyboard */,
+				10FB24DF1DD0D3EE00A47755 /* Main.storyboard */,
+			);
+			name = storyboard;
+			sourceTree = "<group>";
+		};
+		10ECC7FF1E003569000D2E7C /* BaseObject */ = {
+			isa = PBXGroup;
+			children = (
+				10ECC8001E0035E4000D2E7C /* Button.swift */,
+				10ECC8041E003670000D2E7C /* ScrollView.swift */,
+			);
+			name = BaseObject;
+			sourceTree = "<group>";
+		};
 		10FB24CF1DD0D3EE00A47755 = {
 			isa = PBXGroup;
 			children = (
@@ -193,15 +207,14 @@
 		10FB24DA1DD0D3EE00A47755 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				1035D5BB1DE4B83D000C6BFD /* Font */,
 				10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */,
 				10FB24E21DD0D3EE00A47755 /* Assets.xcassets */,
+				10ECC7FF1E003569000D2E7C /* BaseObject */,
+				1035D5BB1DE4B83D000C6BFD /* Font */,
 				10FB24E71DD0D3EE00A47755 /* Info.plist */,
-				10FB24E41DD0D3EE00A47755 /* LaunchScreen.storyboard */,
-				10FB24DF1DD0D3EE00A47755 /* Main.storyboard */,
-				1044DCA71DD20811006B6582 /* source */,
+				1044DCA71DD20811006B6582 /* Source */,
+				10ECC7FE1E003359000D2E7C /* storyboard */,
 				10E288EA1DE3331700A5C80B /* ViewController */,
-				10FB24DD1DD0D3EE00A47755 /* ViewController.swift */,
 				10E288F51DE33C9000A5C80B /* XML */,
 			);
 			path = Timer;
@@ -296,17 +309,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				10E288F01DE338C400A5C80B /* ObjectManager.swift in Sources */,
+				10ECC8011E0035E4000D2E7C /* Button.swift in Sources */,
 				1044DCA91DD20880006B6582 /* Application.swift in Sources */,
-				10FB24DE1DD0D3EE00A47755 /* ViewController.swift in Sources */,
 				10ADCD671DE5F7C20078D587 /* RoundButton.swift in Sources */,
 				10443BF91DF3A42C00FAECA0 /* DetailsCell.swift in Sources */,
 				10E288F21DE33C1B00A5C80B /* ScreenObject.swift in Sources */,
 				10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */,
 				10ADCD651DE5CE420078D587 /* MainButton.swift in Sources */,
-				1044153E1DFAFF7600978FD5 /* ScrollView.swift in Sources */,
 				1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */,
 				10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,
+				10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */,
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
 				104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
@@ -318,7 +331,6 @@
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,
 				10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */,
 				10E288F91DE35D8000A5C80B /* Color.swift in Sources */,
-				104415401DFB139A00978FD5 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
