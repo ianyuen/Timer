@@ -29,6 +29,8 @@
 		10ADCD671DE5F7C20078D587 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADCD661DE5F7C20078D587 /* RoundButton.swift */; };
 		10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ADCD681DE5F9030078D587 /* RoundButton.xml */; };
 		10DD97571E0173CA009DC796 /* SingleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD97561E0173C9009DC796 /* SingleLine.swift */; };
+		10DD97591E0182C8009DC796 /* HistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD97581E0182C8009DC796 /* HistoryDetail.swift */; };
+		10DD975B1E01837E009DC796 /* HistoryDetail.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10DD975A1E01837E009DC796 /* HistoryDetail.xml */; };
 		10E288EC1DE3347E00A5C80B /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288EB1DE3347E00A5C80B /* Main.swift */; };
 		10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288ED1DE337FB00A5C80B /* ParseXML.swift */; };
 		10E288F01DE338C400A5C80B /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288EF1DE338C400A5C80B /* ObjectManager.swift */; };
@@ -79,6 +81,8 @@
 		10ADCD661DE5F7C20078D587 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = source/RoundButton.swift; sourceTree = "<group>"; };
 		10ADCD681DE5F9030078D587 /* RoundButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RoundButton.xml; path = XML/RoundButton.xml; sourceTree = "<group>"; };
 		10DD97561E0173C9009DC796 /* SingleLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleLine.swift; path = BaseObject/SingleLine.swift; sourceTree = "<group>"; };
+		10DD97581E0182C8009DC796 /* HistoryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetail.swift; path = source/HistoryDetail.swift; sourceTree = "<group>"; };
+		10DD975A1E01837E009DC796 /* HistoryDetail.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetail.xml; path = XML/HistoryDetail.xml; sourceTree = "<group>"; };
 		10E288EB1DE3347E00A5C80B /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Main.swift; path = ViewController/Main.swift; sourceTree = "<group>"; };
 		10E288ED1DE337FB00A5C80B /* ParseXML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseXML.swift; path = source/ParseXML.swift; sourceTree = "<group>"; };
 		10E288EF1DE338C400A5C80B /* ObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectManager.swift; path = source/ObjectManager.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				1003C0C71DF5F1A800112FFC /* ComboBox.swift */,
 				10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */,
 				10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */,
+				10DD97581E0182C8009DC796 /* HistoryDetail.swift */,
 				10ECC8081E0047AF000D2E7C /* HistoryScroll.swift */,
 				10ADCD641DE5CE420078D587 /* MainButton.swift */,
 				1043D72E1DF0C96100C0FF63 /* NewButton.swift */,
@@ -173,6 +178,7 @@
 				10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */,
 				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
 				10ECC8061E0046EB000D2E7C /* HistoryCell.xml */,
+				10DD975A1E01837E009DC796 /* HistoryDetail.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
 				10ADCD621DE5CCAA0078D587 /* MainButton.xml */,
 				1043D7301DF0CAF700C0FF63 /* NewButton.xml */,
@@ -311,6 +317,7 @@
 				1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */,
 				10A8C9591DEF18E5004C5211 /* Settings.xml in Resources */,
 				1035D5BD1DE4B84D000C6BFD /* LiberationSans.ttf in Resources */,
+				10DD975B1E01837E009DC796 /* HistoryDetail.xml in Resources */,
 				10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */,
 				107675CF1DEF3AE800CEDAC7 /* BackButton.xml in Resources */,
 				10FB24E31DD0D3EE00A47755 /* Assets.xcassets in Resources */,
@@ -350,6 +357,7 @@
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
+				10DD97591E0182C8009DC796 /* HistoryDetail.swift in Sources */,
 				10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,

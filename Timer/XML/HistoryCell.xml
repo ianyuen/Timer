@@ -10,6 +10,15 @@
 	</object>
 
 	<object>
+		<type>historyDetail</type>
+		<name>training</name>
+		<round>true</round>
+		<width>screenWidth - 50 - 50</width>
+		<height>120</height>
+		<text>Training:</text>
+	</object>
+
+	<object>
 		<type>line</type>
 		<name>line1</name>
 		<posX>0</posX>
@@ -20,6 +29,16 @@
 	</object>
 
 	<object>
+		<type>historyDetail</type>
+		<name>date</name>
+		<round>true</round>
+		<width>screenWidth - 50 - 50</width>
+		<height>120</height>
+		<posY>125</posY>
+		<text>Date:</text>
+	</object>
+
+	<object>
 		<type>line</type>
 		<name>line2</name>
 		<posX>0</posX>
@@ -27,6 +46,16 @@
 		<width>screenWidth - 50 - 50</width>
 		<height>5</height>
 		<backColor>F6992C</backColor>
+	</object>
+
+	<object>
+		<type>historyDetail</type>
+		<name>time</name>
+		<round>true</round>
+		<width>screenWidth - 50 - 50</width>
+		<height>120</height>
+		<posY>125 + 125</posY>
+		<text>Time:</text>
 	</object>
 
 	<object>

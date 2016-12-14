@@ -63,7 +63,7 @@ class ObjectManager {
 			if value == "centerWidth" {
 				result = (ScreenSize.instance.GetCurrentWidth() - object.frame.width) / 2
 			} else if value == "centerHeight" {
-				result = (ScreenSize.instance.GetCurrentHeight() - object.frame.height) / 2
+				result = (parent.frame.height - object.frame.height) / 2
 			} else {
 				switch value {
 				case "+":
@@ -180,6 +180,9 @@ class ObjectManager {
 		}
 		if object.posXRaw != "" {
 			label.frame.origin.x = CGFloatFromString(object.posXRaw, object: label)
+		}
+		if object.posYRaw != "" {
+			label.frame.origin.y = CGFloatFromString(object.posYRaw, object: label)
 		}
 
 		view.addSubview(label)

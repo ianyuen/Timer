@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>label</type>
+		<name>title</name>
+		<posX>50</posX>
+		<posYRaw>centerHeight</posYRaw>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<textColor>373639</textColor>
+	</object>
+</view>

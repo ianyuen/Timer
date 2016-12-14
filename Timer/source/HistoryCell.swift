@@ -11,12 +11,12 @@ import UIKit
 class HistoryCell: View {
 	let objectManager = ObjectManager()
 
-	let date = UILabel()
-	let time = UILabel()
+	let date = HistoryDetail()
+	let time = HistoryDetail()
 	let line1 = SingleLine()
 	let line2 = SingleLine()
 	let line3 = SingleLine()
-	let training = UILabel()
+	let training = HistoryDetail()
 	let background = UILabel()
 
 	override func initView() {
@@ -26,10 +26,10 @@ class HistoryCell: View {
 			switch object.type {
 			case "line":
 				AddLine(object)
-			case "label":
-				AddLabel(object)
 			case "background":
 				objectManager.AddBackground(background, view: self, object: object)
+			case "historyDetail":
+				AddHistoryDetail(object)
 			default: break
 			}
 		}
@@ -47,14 +47,17 @@ class HistoryCell: View {
 		}
 	}
 
-	func AddLabel(_ object: ScreenObject) {
+	func AddHistoryDetail(_ object: ScreenObject) {
 		switch object.name {
 		case "date":
-			objectManager.AddLabel(date, view: self, object: object)
+			date.SetTitle(object.text)
+			objectManager.AddView(date, parent: self, object: object)
 		case "time":
-			objectManager.AddLabel(time, view: self, object: object)
+			time.SetTitle(object.text)
+			objectManager.AddView(time, parent: self, object: object)
 		case "training":
-			objectManager.AddLabel(training, view: self, object: object)
+			training.SetTitle(object.text)
+			objectManager.AddView(training, parent: self, object: object)
 		default: break
 		}
 	}
