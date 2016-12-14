@@ -10,6 +10,15 @@
 	</object>
 
 	<object>
+		<type>viewButton</type>
+		<name>viewButton</name>
+		<width>200</width>
+		<height>84</height>
+		<posX>30</posX>
+		<posY>14</posY>
+	</object>
+
+	<object>
 		<type>button</type>
 		<name>deleteButton</name>
 		<posXRaw>parentWidth - width - 30</posXRaw>

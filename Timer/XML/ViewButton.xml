@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>image</type>
+		<width>84</width>
+		<height>84</height>
+		<icon>view</icon>
+	</object>
+	
+	<object>
+		<type>label</type>
+		<posX>120</posX>
+		<posY>centerHeight</posY>
+		<text>View</text>
+		<font>LiberationSans</font>
+		<size>15</size>
+	</object>
+</view>

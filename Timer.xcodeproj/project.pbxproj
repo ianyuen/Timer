@@ -24,6 +24,8 @@
 		107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107675D01DEF3DCC00CEDAC7 /* BackButton.swift */; };
 		107A287A1E01BBF9005F0A8B /* HistoryButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107A28791E01BBF9005F0A8B /* HistoryButton.xml */; };
 		107A287D1E01BD63005F0A8B /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A287C1E01BD63005F0A8B /* HistoryButton.swift */; };
+		107A287F1E01CA39005F0A8B /* ViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A287E1E01CA39005F0A8B /* ViewButton.swift */; };
+		107A28811E01CB28005F0A8B /* ViewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107A28801E01CB28005F0A8B /* ViewButton.xml */; };
 		10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8C9561DEF17E7004C5211 /* Settings.swift */; };
 		10A8C9591DEF18E5004C5211 /* Settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10A8C9581DEF18E5004C5211 /* Settings.xml */; };
 		10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ADCD621DE5CCAA0078D587 /* MainButton.xml */; };
@@ -78,6 +80,8 @@
 		107675D01DEF3DCC00CEDAC7 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackButton.swift; path = source/BackButton.swift; sourceTree = "<group>"; };
 		107A28791E01BBF9005F0A8B /* HistoryButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryButton.xml; path = XML/HistoryButton.xml; sourceTree = "<group>"; };
 		107A287C1E01BD63005F0A8B /* HistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryButton.swift; path = Timer/CustomObject/HistoryButton.swift; sourceTree = "<group>"; };
+		107A287E1E01CA39005F0A8B /* ViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewButton.swift; path = Timer/CustomObject/ViewButton.swift; sourceTree = "<group>"; };
+		107A28801E01CB28005F0A8B /* ViewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewButton.xml; path = XML/ViewButton.xml; sourceTree = "<group>"; };
 		10A8C9561DEF17E7004C5211 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ViewController/Settings.swift; sourceTree = "<group>"; };
 		10A8C9581DEF18E5004C5211 /* Settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Settings.xml; path = XML/Settings.xml; sourceTree = "<group>"; };
 		10ADCD621DE5CCAA0078D587 /* MainButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MainButton.xml; path = XML/MainButton.xml; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
+				107A287E1E01CA39005F0A8B /* ViewButton.swift */,
 			);
 			name = CustomObject;
 			path = ..;
@@ -200,6 +205,7 @@
 				10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */,
 				10A8C9581DEF18E5004C5211 /* Settings.xml */,
 				1003C0C51DF58E0200112FFC /* TextBox.xml */,
+				107A28801E01CB28005F0A8B /* ViewButton.xml */,
 				104415431DFB153900978FD5 /* WorkoutButton.xml */,
 				10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */,
 			);
@@ -327,6 +333,7 @@
 				1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */,
 				10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */,
 				10ECC8071E0046EB000D2E7C /* HistoryCell.xml in Resources */,
+				107A28811E01CB28005F0A8B /* ViewButton.xml in Resources */,
 				10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */,
 				10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */,
 				1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */,
@@ -380,6 +387,7 @@
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,
 				10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */,
 				10E288F91DE35D8000A5C80B /* Color.swift in Sources */,
+				107A287F1E01CA39005F0A8B /* ViewButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

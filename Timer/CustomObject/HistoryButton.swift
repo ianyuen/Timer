@@ -11,8 +11,9 @@ import UIKit
 class HistoryButton: View {
 	let objectManager = ObjectManager()
 
-	let deleteButton = Button()
 	let background = UILabel()
+	let viewButton = ViewButton()
+	let deleteButton = Button()
 
 	override func initView() {
 		objectManager.parent = self
@@ -20,19 +21,13 @@ class HistoryButton: View {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "button":
-				AddButton(object)
+				objectManager.AddButton(deleteButton, view: self, object: object)
+			case "viewButton":
+				objectManager.AddButton(viewButton, view: self, object: object)
 			case "background":
 				objectManager.AddBackground(background, view: self, object: object)
 			default: break
 			}
-		}
-	}
-
-	func AddButton(_ object: ScreenObject) {
-		switch object.name {
-		case "deleteButton":
-			objectManager.AddButton(deleteButton, view: self, object: object)
-		default: break
 		}
 	}
 }
