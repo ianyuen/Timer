@@ -28,6 +28,7 @@
 		10ADCD651DE5CE420078D587 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADCD641DE5CE420078D587 /* MainButton.swift */; };
 		10ADCD671DE5F7C20078D587 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADCD661DE5F7C20078D587 /* RoundButton.swift */; };
 		10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ADCD681DE5F9030078D587 /* RoundButton.xml */; };
+		10DD97571E0173CA009DC796 /* SingleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD97561E0173C9009DC796 /* SingleLine.swift */; };
 		10E288EC1DE3347E00A5C80B /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288EB1DE3347E00A5C80B /* Main.swift */; };
 		10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288ED1DE337FB00A5C80B /* ParseXML.swift */; };
 		10E288F01DE338C400A5C80B /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E288EF1DE338C400A5C80B /* ObjectManager.swift */; };
@@ -40,6 +41,11 @@
 		10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10E9525D1DF2AEB200F6EE01 /* Details.xml */; };
 		10ECC8011E0035E4000D2E7C /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8001E0035E4000D2E7C /* Button.swift */; };
 		10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8041E003670000D2E7C /* ScrollView.swift */; };
+		10ECC8071E0046EB000D2E7C /* HistoryCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ECC8061E0046EB000D2E7C /* HistoryCell.xml */; };
+		10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8081E0047AF000D2E7C /* HistoryScroll.swift */; };
+		10ECC80B1E005298000D2E7C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC80A1E005298000D2E7C /* Session.swift */; };
+		10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */; };
+		10ECC80F1E005587000D2E7C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC80E1E005587000D2E7C /* View.swift */; };
 		10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10F7DDB61DFEBDD900BF5D36 /* History.xml */; };
 		10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F7DDB81DFEBE1A00BF5D36 /* History.swift */; };
 		10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */; };
@@ -72,6 +78,7 @@
 		10ADCD641DE5CE420078D587 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainButton.swift; path = source/MainButton.swift; sourceTree = "<group>"; };
 		10ADCD661DE5F7C20078D587 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = source/RoundButton.swift; sourceTree = "<group>"; };
 		10ADCD681DE5F9030078D587 /* RoundButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RoundButton.xml; path = XML/RoundButton.xml; sourceTree = "<group>"; };
+		10DD97561E0173C9009DC796 /* SingleLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleLine.swift; path = BaseObject/SingleLine.swift; sourceTree = "<group>"; };
 		10E288EB1DE3347E00A5C80B /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Main.swift; path = ViewController/Main.swift; sourceTree = "<group>"; };
 		10E288ED1DE337FB00A5C80B /* ParseXML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseXML.swift; path = source/ParseXML.swift; sourceTree = "<group>"; };
 		10E288EF1DE338C400A5C80B /* ObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectManager.swift; path = source/ObjectManager.swift; sourceTree = "<group>"; };
@@ -84,6 +91,11 @@
 		10E9525D1DF2AEB200F6EE01 /* Details.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Details.xml; path = XML/Details.xml; sourceTree = "<group>"; };
 		10ECC8001E0035E4000D2E7C /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = BaseObject/Button.swift; sourceTree = "<group>"; };
 		10ECC8041E003670000D2E7C /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = BaseObject/ScrollView.swift; sourceTree = "<group>"; };
+		10ECC8061E0046EB000D2E7C /* HistoryCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryCell.xml; path = XML/HistoryCell.xml; sourceTree = "<group>"; };
+		10ECC8081E0047AF000D2E7C /* HistoryScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryScroll.swift; path = source/HistoryScroll.swift; sourceTree = "<group>"; };
+		10ECC80A1E005298000D2E7C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = source/Session.swift; sourceTree = "<group>"; };
+		10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = source/HistoryCell.swift; sourceTree = "<group>"; };
+		10ECC80E1E005587000D2E7C /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = View.swift; path = BaseObject/View.swift; sourceTree = "<group>"; };
 		10F7DDB61DFEBDD900BF5D36 /* History.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = History.xml; path = XML/History.xml; sourceTree = "<group>"; };
 		10F7DDB81DFEBE1A00BF5D36 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = ViewController/History.swift; sourceTree = "<group>"; };
 		10FB24D81DD0D3EE00A47755 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +135,8 @@
 				10E288F81DE35D8000A5C80B /* Color.swift */,
 				1003C0C71DF5F1A800112FFC /* ComboBox.swift */,
 				10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */,
+				10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */,
+				10ECC8081E0047AF000D2E7C /* HistoryScroll.swift */,
 				10ADCD641DE5CE420078D587 /* MainButton.swift */,
 				1043D72E1DF0C96100C0FF63 /* NewButton.swift */,
 				10E288EF1DE338C400A5C80B /* ObjectManager.swift */,
@@ -131,6 +145,7 @@
 				10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */,
 				10E288F11DE33C1B00A5C80B /* ScreenObject.swift */,
 				10E288F31DE33C7B00A5C80B /* ScreenSize.swift */,
+				10ECC80A1E005298000D2E7C /* Session.swift */,
 				1003C0C31DF58DD900112FFC /* TextBox.swift */,
 				104415411DFB147F00978FD5 /* WorkoutButton.swift */,
 				1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */,
@@ -142,9 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				10E9525B1DF2AE7500F6EE01 /* Details.swift */,
+				10F7DDB81DFEBE1A00BF5D36 /* History.swift */,
 				10E288EB1DE3347E00A5C80B /* Main.swift */,
 				10A8C9561DEF17E7004C5211 /* Settings.swift */,
-				10F7DDB81DFEBE1A00BF5D36 /* History.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -156,6 +171,8 @@
 				1003C0C91DF5F8BC00112FFC /* ComboBox.xml */,
 				10E9525D1DF2AEB200F6EE01 /* Details.xml */,
 				10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */,
+				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
+				10ECC8061E0046EB000D2E7C /* HistoryCell.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
 				10ADCD621DE5CCAA0078D587 /* MainButton.xml */,
 				1043D7301DF0CAF700C0FF63 /* NewButton.xml */,
@@ -163,9 +180,8 @@
 				10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */,
 				10A8C9581DEF18E5004C5211 /* Settings.xml */,
 				1003C0C51DF58E0200112FFC /* TextBox.xml */,
-				10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */,
 				104415431DFB153900978FD5 /* WorkoutButton.xml */,
-				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
+				10E952591DF2AD4800F6EE01 /* WorkoutCell.xml */,
 			);
 			name = XML;
 			sourceTree = "<group>";
@@ -184,6 +200,8 @@
 			children = (
 				10ECC8001E0035E4000D2E7C /* Button.swift */,
 				10ECC8041E003670000D2E7C /* ScrollView.swift */,
+				10ECC80E1E005587000D2E7C /* View.swift */,
+				10DD97561E0173C9009DC796 /* SingleLine.swift */,
 			);
 			name = BaseObject;
 			sourceTree = "<group>";
@@ -287,6 +305,7 @@
 				104415441DFB153900978FD5 /* WorkoutButton.xml in Resources */,
 				1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */,
 				10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */,
+				10ECC8071E0046EB000D2E7C /* HistoryCell.xml in Resources */,
 				10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */,
 				10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */,
 				1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */,
@@ -317,12 +336,17 @@
 				10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */,
 				10ADCD651DE5CE420078D587 /* MainButton.swift in Sources */,
 				1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */,
+				10DD97571E0173CA009DC796 /* SingleLine.swift in Sources */,
 				10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */,
+				10ECC80B1E005298000D2E7C /* Session.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,
 				10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */,
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
+				10ECC80F1E005587000D2E7C /* View.swift in Sources */,
 				104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
+				10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */,
+				10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,

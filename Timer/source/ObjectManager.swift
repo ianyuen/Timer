@@ -120,37 +120,28 @@ class ObjectManager {
 		return result
 	}
 
-	func AddTextView(_ textView: UITextView, view: UIView, object: ScreenObject) {
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+	func AddLine(_ line: SingleLine, parent: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
-		textView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-
-		textView.text = object.text
-		textView.font = UIFont(name: object.font, size: object.size)
-		textView.isEditable = false
-		textView.isScrollEnabled = false
-		let color = Color()
-		textView.textColor = color.UIColorFromHex(0xffffff)
-		if object.backColor == 0x373639 {
-			textView.backgroundColor = UIColor.clear
-		} else {
-			textView.backgroundColor = color.UIColorFromHex(object.backColor)
-		}
-		view.addSubview(textView)
+		line.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		line.setNeedsDisplay()
+		parent.addSubview(line)
 	}
 
-	func AddScrollView(_ content: ScrollView, view: UIView, object: ScreenObject) {
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+	func AddView(_ view: View, parent: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
-		content.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		content.initView()
-		view.addSubview(content)
+		
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		
+		view.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		view.initView()
+		parent.addSubview(view)
 	}
 
 	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
@@ -235,22 +226,7 @@ class ObjectManager {
 		button.initView()
 		view.addSubview(button)
 	}
-/*
-	func AddButton(_ button: UIButton, view: UIView, object: ScreenObject) {
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		
-		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.setImage(object.icon, for: UIControlState())
-		if object.clicked != nil {
-			button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
-		}
-		view.addSubview(button)
-	}
-*/
+
 	func AddBackground(_ background: UILabel, view: UIView, object: ScreenObject, alpha:Double = 1.0) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
@@ -292,6 +268,45 @@ class ObjectManager {
 		view.addSubview(textBox)
 	}
 
+	func AddTextView(_ textView: UITextView, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		textView.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		
+		textView.text = object.text
+		textView.font = UIFont(name: object.font, size: object.size)
+		textView.isEditable = false
+		textView.isScrollEnabled = false
+		let color = Color()
+		textView.textColor = color.UIColorFromHex(0xffffff)
+		if object.backColor == 0x373639 {
+			textView.backgroundColor = UIColor.clear
+		} else {
+			textView.backgroundColor = color.UIColorFromHex(object.backColor)
+		}
+		view.addSubview(textView)
+	}
+
+	func AddTextField(_ textField: UITextField, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		textField.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		textField.font = UIFont(name: object.font, size: object.size)
+		textField.text = object.text
+		
+		let color = Color()
+		textField.textColor = color.UIColorFromHex(object.textColor, alpha: 1.0)
+		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
+		textField.textAlignment = NSTextAlignment.center
+		view.addSubview(textField)
+	}
+
 	func AddComboBox(_ comboBox: ComboBox, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
@@ -308,21 +323,15 @@ class ObjectManager {
 		view.addSubview(comboBox)
 	}
 
-	func AddTextField(_ textField: UITextField, view: UIView, object: ScreenObject) {
+	func AddScrollView(_ content: ScrollView, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
-		textField.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		textField.font = UIFont(name: object.font, size: object.size)
-		textField.text = object.text
-
-		let color = Color()
-		textField.textColor = color.UIColorFromHex(object.textColor, alpha: 1.0)
-		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
-		textField.textAlignment = NSTextAlignment.center
-		view.addSubview(textField)
+		
+		content.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		content.initView()
+		view.addSubview(content)
 	}
 
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {

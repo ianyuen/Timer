@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>background</type>
+		<name>background</name>
+		<round>true</round>
+		<width>screenWidth - 50 - 50</width>
+		<height>495</height>
+		<backColor>F6992C</backColor>
+	</object>
+
+	<object>
+		<type>line</type>
+		<name>line1</name>
+		<posX>0</posX>
+		<posY>120</posY>
+		<width>screenWidth - 50 - 50</width>
+		<height>5</height>
+		<backColor>F6992C</backColor>
+	</object>
+
+	<object>
+		<type>line</type>
+		<name>line2</name>
+		<posX>0</posX>
+		<posY>120 + 5 + 120</posY>
+		<width>screenWidth - 50 - 50</width>
+		<height>5</height>
+		<backColor>F6992C</backColor>
+	</object>
+
+	<object>
+		<type>line</type>
+		<name>line3</name>
+		<posX>0</posX>
+		<posY>120 + 5 + 120 + 5 + 120</posY>
+		<width>screenWidth - 50 - 50</width>
+		<height>5</height>
+		<backColor>F6992C</backColor>
+	</object>
+</view>

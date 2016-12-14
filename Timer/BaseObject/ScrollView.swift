@@ -9,7 +9,6 @@
 import UIKit
 
 class ScrollView: UIScrollView {
-
 	func initView() {}
 
 	func DismissKeyboard() {

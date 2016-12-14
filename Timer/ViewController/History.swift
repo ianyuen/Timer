@@ -11,6 +11,7 @@ import UIKit
 class History: UIViewController {
 	let objectManager = ObjectManager()
 
+	let content = HistoryScroll()
 	let titleText = UILabel()
 	let backButton = BackButton()
 	let background = UILabel()
@@ -48,6 +49,8 @@ class History: UIViewController {
 				objectManager.AddLabel(titleText, view: view, object: object)
 			case "backButton":
 				DrawButton(object)
+			case "scrollView":
+				objectManager.AddScrollView(content, view: view, object: object)
 			case "background":
 				DrawBackground(object)
 			case "newButton":
