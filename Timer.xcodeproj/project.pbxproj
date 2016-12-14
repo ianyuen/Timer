@@ -22,6 +22,8 @@
 		1044DCA91DD20880006B6582 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1044DCA81DD20880006B6582 /* Application.swift */; };
 		107675CF1DEF3AE800CEDAC7 /* BackButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107675CE1DEF3AE800CEDAC7 /* BackButton.xml */; };
 		107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107675D01DEF3DCC00CEDAC7 /* BackButton.swift */; };
+		107A287A1E01BBF9005F0A8B /* HistoryButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107A28791E01BBF9005F0A8B /* HistoryButton.xml */; };
+		107A287D1E01BD63005F0A8B /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A287C1E01BD63005F0A8B /* HistoryButton.swift */; };
 		10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8C9561DEF17E7004C5211 /* Settings.swift */; };
 		10A8C9591DEF18E5004C5211 /* Settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10A8C9581DEF18E5004C5211 /* Settings.xml */; };
 		10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ADCD621DE5CCAA0078D587 /* MainButton.xml */; };
@@ -74,6 +76,8 @@
 		1044DCA81DD20880006B6582 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = source/Application.swift; sourceTree = "<group>"; };
 		107675CE1DEF3AE800CEDAC7 /* BackButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BackButton.xml; path = XML/BackButton.xml; sourceTree = "<group>"; };
 		107675D01DEF3DCC00CEDAC7 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackButton.swift; path = source/BackButton.swift; sourceTree = "<group>"; };
+		107A28791E01BBF9005F0A8B /* HistoryButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryButton.xml; path = XML/HistoryButton.xml; sourceTree = "<group>"; };
+		107A287C1E01BD63005F0A8B /* HistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryButton.swift; path = Timer/CustomObject/HistoryButton.swift; sourceTree = "<group>"; };
 		10A8C9561DEF17E7004C5211 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ViewController/Settings.swift; sourceTree = "<group>"; };
 		10A8C9581DEF18E5004C5211 /* Settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Settings.xml; path = XML/Settings.xml; sourceTree = "<group>"; };
 		10ADCD621DE5CCAA0078D587 /* MainButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MainButton.xml; path = XML/MainButton.xml; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		107A287B1E01BD03005F0A8B /* CustomObject */ = {
+			isa = PBXGroup;
+			children = (
+				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
+			);
+			name = CustomObject;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		10E288EA1DE3331700A5C80B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 				10E9525D1DF2AEB200F6EE01 /* Details.xml */,
 				10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */,
 				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
+				107A28791E01BBF9005F0A8B /* HistoryButton.xml */,
 				10ECC8061E0046EB000D2E7C /* HistoryCell.xml */,
 				10DD975A1E01837E009DC796 /* HistoryDetail.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
@@ -215,8 +229,8 @@
 		10FB24CF1DD0D3EE00A47755 = {
 			isa = PBXGroup;
 			children = (
-				10FB24DA1DD0D3EE00A47755 /* Timer */,
 				10FB24D91DD0D3EE00A47755 /* Products */,
+				10FB24DA1DD0D3EE00A47755 /* Timer */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +248,7 @@
 				10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */,
 				10FB24E21DD0D3EE00A47755 /* Assets.xcassets */,
 				10ECC7FF1E003569000D2E7C /* BaseObject */,
+				107A287B1E01BD03005F0A8B /* CustomObject */,
 				1035D5BB1DE4B83D000C6BFD /* Font */,
 				10FB24E71DD0D3EE00A47755 /* Info.plist */,
 				1044DCA71DD20811006B6582 /* Source */,
@@ -319,6 +334,7 @@
 				1035D5BD1DE4B84D000C6BFD /* LiberationSans.ttf in Resources */,
 				10DD975B1E01837E009DC796 /* HistoryDetail.xml in Resources */,
 				10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */,
+				107A287A1E01BBF9005F0A8B /* HistoryButton.xml in Resources */,
 				107675CF1DEF3AE800CEDAC7 /* BackButton.xml in Resources */,
 				10FB24E31DD0D3EE00A47755 /* Assets.xcassets in Resources */,
 				10E9525A1DF2AD4800F6EE01 /* WorkoutCell.xml in Resources */,
@@ -340,6 +356,7 @@
 				10ADCD671DE5F7C20078D587 /* RoundButton.swift in Sources */,
 				10443BF91DF3A42C00FAECA0 /* DetailsCell.swift in Sources */,
 				10E288F21DE33C1B00A5C80B /* ScreenObject.swift in Sources */,
+				107A287D1E01BD63005F0A8B /* HistoryButton.swift in Sources */,
 				10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */,
 				10ADCD651DE5CE420078D587 /* MainButton.swift in Sources */,
 				1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */,

@@ -227,6 +227,17 @@ class ObjectManager {
 			button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		}
 		button.initView()
+		if object.title != "" {
+			button.setTitle(object.title, for: UIControlState.normal)
+			button.setTitleColor(color.UIColorFromHex(object.textColor), for: UIControlState.normal)
+			button.sizeToFit()
+		}
+		if object.posXRaw != "" {
+			button.frame.origin.x = CGFloatFromString(object.posXRaw, object: button)
+		}
+		if object.posYRaw != "" {
+			button.frame.origin.y = CGFloatFromString(object.posYRaw, object: button)
+		}
 		view.addSubview(button)
 	}
 

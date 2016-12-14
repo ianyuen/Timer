@@ -100,12 +100,14 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.type = string
 			case "name":
 				object.name = string
-			case "image":
-				object.image = string
 			case "text":
 				object.text = string
 			case "font":
 				object.font = string
+			case "image":
+				object.image = string
+			case "title":
+				object.title = string
 			case "posXRaw":
 				object.posXRaw = string
 			case "posYRaw":

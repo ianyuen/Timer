@@ -18,6 +18,7 @@ class HistoryCell: View {
 	let line3 = SingleLine()
 	let training = HistoryDetail()
 	let background = UILabel()
+	let historyButton = HistoryButton()
 
 	override func initView() {
 		objectManager.parent = self
@@ -30,6 +31,8 @@ class HistoryCell: View {
 				objectManager.AddBackground(background, view: self, object: object)
 			case "historyDetail":
 				AddHistoryDetail(object)
+			case "historyButton":
+				objectManager.AddView(historyButton, parent: self, object: object)
 			default: break
 			}
 		}

@@ -67,4 +67,13 @@
 		<height>5</height>
 		<backColor>F6992C</backColor>
 	</object>
+
+	<object>
+		<type>historyButton</type>
+		<name>historyButton</name>
+		<posX>47</posX>
+		<posY>120 + 120 + 120 + 15 + 15</posY>
+		<width>1048</width>
+		<height>112</height>
+	</object>
 </view>

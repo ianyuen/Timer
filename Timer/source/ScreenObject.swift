@@ -15,6 +15,7 @@ class ScreenObject {
 	var text = ""
 	var font = ""
 	var image = ""
+	var title = ""
 	var posXRaw = ""
 	var posYRaw = ""
 	var widthRaw = ""

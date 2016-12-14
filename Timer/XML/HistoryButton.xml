@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view>
+	<object>
+		<type>background</type>
+		<name>background</name>
+		<round>true</round>
+		<width>1048</width>
+		<height>112</height>
+		<backColor>FBEA6B</backColor>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>deleteButton</name>
+		<posXRaw>parentWidth - width - 30</posXRaw>
+		<posYRaw>centerHeight</posYRaw>
+		<title>Delete</title>
+		<textColor>373639</textColor>
+	</object>
+</view>
