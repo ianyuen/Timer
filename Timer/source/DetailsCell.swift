@@ -26,16 +26,16 @@ class DetailsCell: ScrollView {
 	let warmUpTime = RoundSecondsGroup()
 	let coolDownTime = RoundSecondsGroup()
 
-	let sound = ComboBox()
+	let sound = ComboButton()
 	let soundText = UILabel()
 
-	let vibrate = ComboBox()
+	let vibrate = ComboButton()
 	let vibrateText = UILabel()
 
-	let routine = ComboBox()
+	let routine = ComboButton()
 	let routineText = UILabel()
 
-	let motivation = ComboBox()
+	let motivation = ComboButton()
 	let motivationText = UILabel()
 
 	let exercise = UILabel()
@@ -133,13 +133,13 @@ class DetailsCell: ScrollView {
 	func AddComboBox(_ object: ScreenObject) {
 		switch object.name {
 		case "sound":
-			objectManager.AddComboBox(sound, view: self, object: object)
+			objectManager.AddComboButton(sound, view: self, object: object)
 		case "vibrate":
-			objectManager.AddComboBox(vibrate, view: self, object: object)
+			objectManager.AddComboButton(vibrate, view: self, object: object)
 		case "routine":
-			objectManager.AddComboBox(routine, view: self, object: object)
+			objectManager.AddComboButton(routine, view: self, object: object)
 		case "motivation":
-			objectManager.AddComboBox(motivation, view: self, object: object)
+			objectManager.AddComboButton(motivation, view: self, object: object)
 		default: break
 		}
 	}

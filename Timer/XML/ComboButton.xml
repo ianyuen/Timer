@@ -8,13 +8,8 @@
 	</object>
 
 	<object>
-		<type>picker</type>
-		<name>dropDown</name>
-	</object>
-
-	<object>
-		<type>textField</type>
-		<name>textBox</name>
+		<type>label</type>
+		<name>label</name>
 		<textColor>ffffff</textColor>
 	</object>
 

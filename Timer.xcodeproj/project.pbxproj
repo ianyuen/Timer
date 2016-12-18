@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1003C0C31DF58DD900112FFC /* TextBox.swift */; };
 		1003C0C61DF58E0200112FFC /* TextBox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1003C0C51DF58E0200112FFC /* TextBox.xml */; };
-		1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1003C0C71DF5F1A800112FFC /* ComboBox.swift */; };
-		1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1003C0C91DF5F8BC00112FFC /* ComboBox.xml */; };
 		1035D5BD1DE4B84D000C6BFD /* LiberationSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1035D5BC1DE4B84D000C6BFD /* LiberationSans.ttf */; };
 		1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D72E1DF0C96100C0FF63 /* NewButton.swift */; };
 		1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1043D7301DF0CAF700C0FF63 /* NewButton.xml */; };
@@ -26,6 +24,8 @@
 		107A287D1E01BD63005F0A8B /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A287C1E01BD63005F0A8B /* HistoryButton.swift */; };
 		107A287F1E01CA39005F0A8B /* ViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A287E1E01CA39005F0A8B /* ViewButton.swift */; };
 		107A28811E01CB28005F0A8B /* ViewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107A28801E01CB28005F0A8B /* ViewButton.xml */; };
+		107E5DBF1E06DCF70047EFCF /* ComboButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107E5DBE1E06DCF70047EFCF /* ComboButton.swift */; };
+		107E5DC11E06E4C10047EFCF /* ComboButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107E5DC01E06E4C10047EFCF /* ComboButton.xml */; };
 		10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8C9561DEF17E7004C5211 /* Settings.swift */; };
 		10A8C9591DEF18E5004C5211 /* Settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10A8C9581DEF18E5004C5211 /* Settings.xml */; };
 		10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ADCD621DE5CCAA0078D587 /* MainButton.xml */; };
@@ -65,8 +65,6 @@
 /* Begin PBXFileReference section */
 		1003C0C31DF58DD900112FFC /* TextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextBox.swift; path = source/TextBox.swift; sourceTree = "<group>"; };
 		1003C0C51DF58E0200112FFC /* TextBox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TextBox.xml; path = XML/TextBox.xml; sourceTree = "<group>"; };
-		1003C0C71DF5F1A800112FFC /* ComboBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComboBox.swift; path = source/ComboBox.swift; sourceTree = "<group>"; };
-		1003C0C91DF5F8BC00112FFC /* ComboBox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ComboBox.xml; path = XML/ComboBox.xml; sourceTree = "<group>"; };
 		1035D5BC1DE4B84D000C6BFD /* LiberationSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = LiberationSans.ttf; path = Font/LiberationSans.ttf; sourceTree = "<group>"; };
 		1043D72E1DF0C96100C0FF63 /* NewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewButton.swift; path = source/NewButton.swift; sourceTree = "<group>"; };
 		1043D7301DF0CAF700C0FF63 /* NewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewButton.xml; path = XML/NewButton.xml; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		107A287C1E01BD63005F0A8B /* HistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryButton.swift; path = Timer/CustomObject/HistoryButton.swift; sourceTree = "<group>"; };
 		107A287E1E01CA39005F0A8B /* ViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewButton.swift; path = Timer/CustomObject/ViewButton.swift; sourceTree = "<group>"; };
 		107A28801E01CB28005F0A8B /* ViewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewButton.xml; path = XML/ViewButton.xml; sourceTree = "<group>"; };
+		107E5DBE1E06DCF70047EFCF /* ComboButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComboButton.swift; path = Timer/CustomObject/ComboButton.swift; sourceTree = "<group>"; };
+		107E5DC01E06E4C10047EFCF /* ComboButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ComboButton.xml; path = XML/ComboButton.xml; sourceTree = "<group>"; };
 		10A8C9561DEF17E7004C5211 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ViewController/Settings.swift; sourceTree = "<group>"; };
 		10A8C9581DEF18E5004C5211 /* Settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Settings.xml; path = XML/Settings.xml; sourceTree = "<group>"; };
 		10ADCD621DE5CCAA0078D587 /* MainButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MainButton.xml; path = XML/MainButton.xml; sourceTree = "<group>"; };
@@ -145,7 +145,6 @@
 				1044DCA81DD20880006B6582 /* Application.swift */,
 				107675D01DEF3DCC00CEDAC7 /* BackButton.swift */,
 				10E288F81DE35D8000A5C80B /* Color.swift */,
-				1003C0C71DF5F1A800112FFC /* ComboBox.swift */,
 				10443BF81DF3A42C00FAECA0 /* DetailsCell.swift */,
 				10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */,
 				10DD97581E0182C8009DC796 /* HistoryDetail.swift */,
@@ -169,6 +168,7 @@
 		107A287B1E01BD03005F0A8B /* CustomObject */ = {
 			isa = PBXGroup;
 			children = (
+				107E5DBE1E06DCF70047EFCF /* ComboButton.swift */,
 				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
 				107A287E1E01CA39005F0A8B /* ViewButton.swift */,
 			);
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				107675CE1DEF3AE800CEDAC7 /* BackButton.xml */,
-				1003C0C91DF5F8BC00112FFC /* ComboBox.xml */,
+				107E5DC01E06E4C10047EFCF /* ComboButton.xml */,
 				10E9525D1DF2AEB200F6EE01 /* Details.xml */,
 				10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */,
 				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
@@ -292,7 +292,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ian;
 				TargetAttributes = {
 					10FB24D71DD0D3EE00A47755 = {
@@ -330,10 +330,10 @@
 				10E288F71DE33CD200A5C80B /* Main.xml in Resources */,
 				10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */,
 				104415441DFB153900978FD5 /* WorkoutButton.xml in Resources */,
-				1003C0CA1DF5F8BC00112FFC /* ComboBox.xml in Resources */,
 				10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */,
 				10ECC8071E0046EB000D2E7C /* HistoryCell.xml in Resources */,
 				107A28811E01CB28005F0A8B /* ViewButton.xml in Resources */,
+				107E5DC11E06E4C10047EFCF /* ComboButton.xml in Resources */,
 				10443BFB1DF3A59D00FAECA0 /* DetailsCell.xml in Resources */,
 				10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */,
 				1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */,
@@ -379,8 +379,8 @@
 				10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */,
 				10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
-				1003C0C81DF5F1A900112FFC /* ComboBox.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
+				107E5DBF1E06DCF70047EFCF /* ComboButton.swift in Sources */,
 				10DD97591E0182C8009DC796 /* HistoryDetail.swift in Sources */,
 				10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
@@ -431,6 +431,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -480,6 +481,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

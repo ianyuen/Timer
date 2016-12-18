@@ -321,22 +321,6 @@ class ObjectManager {
 		view.addSubview(textField)
 	}
 
-	func AddComboBox(_ comboBox: ComboBox, view: UIView, object: ScreenObject) {
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-
-		comboBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		//textBox.SetText(object.text)
-		comboBox.SetFont(object.font, size: object.size)
-		comboBox.SetWidth(object.width)
-		comboBox.SetHeight(object.height)
-		comboBox.initView()
-
-		view.addSubview(comboBox)
-	}
-
 	func AddScrollView(_ content: ScrollView, view: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
@@ -346,6 +330,22 @@ class ObjectManager {
 		content.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		content.initView()
 		view.addSubview(content)
+	}
+
+	func AddComboButton(_ comboBox: ComboButton, view: UIView, object: ScreenObject) {
+		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
+		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
+		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
+		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
+		
+		comboBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		//textBox.SetText(object.text)
+		comboBox.SetFont(object.font, size: object.size)
+		comboBox.SetWidth(object.width)
+		comboBox.SetHeight(object.height)
+		comboBox.initView()
+		
+		view.addSubview(comboBox)
 	}
 
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {
