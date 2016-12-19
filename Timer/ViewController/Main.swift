@@ -28,13 +28,27 @@ class Main: UIViewController {
 	var roundNumber = 15
 	var totalSecond = 900
 
+	override var shouldAutorotate: Bool {
+		return false
+	}
+
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		return UIInterfaceOrientationMask.portrait
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
-		_ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true);
+
+		let selector = #selector(update)
+		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: selector, userInfo: nil, repeats: true);
 		initView()
 		//PrintFontNames()
 	}
@@ -42,10 +56,6 @@ class Main: UIViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-	}
-
-	override var prefersStatusBarHidden: Bool {
-		return true
 	}
 
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

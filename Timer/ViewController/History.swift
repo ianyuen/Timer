@@ -17,6 +17,18 @@ class History: UIViewController {
 	let background = UILabel()
 	let weightButton = NewButton()
 
+	override var shouldAutorotate: Bool {
+		return false
+	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+	
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		return UIInterfaceOrientationMask.portrait
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,10 +41,6 @@ class History: UIViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-	}
-
-	override var prefersStatusBarHidden: Bool {
-		return true
 	}
 
 	func btnBackClicked(_ sender:UIButton!) {

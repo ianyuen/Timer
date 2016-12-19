@@ -17,6 +17,18 @@ class Details: UIViewController {
 	let background = UILabel()
 	let backButton = BackButton()
 
+	override var shouldAutorotate: Bool {
+		return false
+	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+	
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		return UIInterfaceOrientationMask.portrait
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,10 +41,6 @@ class Details: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()

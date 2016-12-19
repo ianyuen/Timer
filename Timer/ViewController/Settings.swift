@@ -20,6 +20,18 @@ class Settings: UIViewController {
 	let backButton = BackButton()
 	let weightButton = NewButton()
 
+	override var shouldAutorotate: Bool {
+		return false
+	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+	
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		return UIInterfaceOrientationMask.portrait
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -33,10 +45,6 @@ class Settings: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
     }
-
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
 
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		return
