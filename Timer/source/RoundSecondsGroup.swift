@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoundSecondsGroup: UIView {
+class RoundSecondsGroup: View {
 	var controller = UIViewController()
 	let objectManager = ObjectManager()
 
@@ -20,7 +20,7 @@ class RoundSecondsGroup: UIView {
 	let textBox = TextBox()
 	let seconds = UILabel()
 
-	func initView() {
+	override func initView() {
 		objectManager.parent = self
 		objectManager.controller = controller
 		objectManager.Parse("RoundSecondGroup")

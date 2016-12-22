@@ -32,13 +32,9 @@
 	<object>
 		<type>scrollView</type>
 		<name>content</name>
-		<posX>50</posX>
 		<posY>210</posY>
-		<width>screenWidth - 50 - 50</width>
+		<width>screenWidth</width>
 		<height>screenHeight - 210 - 460</height>
-		<!--
-		<backColor>f9aa43</backColor>
-		 -->
 	</object>
 
 	<object>

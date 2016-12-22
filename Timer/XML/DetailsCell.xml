@@ -6,13 +6,14 @@
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<round>true</round>
+		<posX>50</posX>
 		<backColor>fce578</backColor>
 	</object>
 
 	<object>
 		<type>label</type>
 		<name>profileText</name>
-		<posX>50</posX>
+		<posX>centerWidth</posX>
 		<posY>10</posY>
 		<text>Profile Name</text>
 		<font>LiberationSans</font>
@@ -47,7 +48,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>roundTime</name>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>128 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
@@ -58,7 +59,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>redTime</name>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>128 + 206 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
@@ -69,7 +70,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>warmUpTime</name>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>128 + 206 + 206 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
@@ -80,7 +81,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>coolDownTime</name>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>128 + 206 + 206 + 206 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
@@ -104,7 +105,7 @@
 		<name>totalBack</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>1396</posY>
 		<round>true</round>
 		<backColor>ed9b3f</backColor>
@@ -137,10 +138,15 @@
 		<name>sound</name>
 		<width>400</width>
 		<height>128</height>
-		<posX>screenWidth - 400 - 100</posX>
+		<posX>screenWidth - 400 - 50</posX>
 		<posY>1396 + 100 + 40 + 28</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+		<child>Digital</child>
+		<child>Boxing</child>
+		<child>Human</child>
+		<child>Gym</child>
+		<child>No</child>
 	</object>
 
 	<object>
@@ -159,10 +165,12 @@
 		<name>vibrate</name>
 		<width>400</width>
 		<height>128</height>
-		<posX>screenWidth - 400 - 100</posX>
+		<posX>screenWidth - 400 - 50</posX>
 		<posY>1564 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+		<child>Yes</child>
+		<child>No</child>
 	</object>
 
 	<object>
@@ -181,10 +189,12 @@
 		<name>routine</name>
 		<width>400</width>
 		<height>128</height>
-		<posX>screenWidth - 400 - 100</posX>
+		<posX>screenWidth - 400 - 50</posX>
 		<posY>1722 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+		<child>Yes</child>
+		<child>No</child>
 	</object>
 
 	<object>
@@ -203,10 +213,12 @@
 		<name>motivation</name>
 		<width>400</width>
 		<height>128</height>
-		<posX>screenWidth - 400 - 100</posX>
+		<posX>screenWidth - 400 - 50</posX>
 		<posY>1880 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+		<child>Yes</child>
+		<child>No</child>
 	</object>
 
 	<object>
@@ -223,7 +235,7 @@
 	<object>
 		<type>label</type>
 		<name>round1Title</name>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>2038 + 146 + 150 + 116</posY>
 		<text>Round 1</text>
 		<font>LiberationSans</font>
@@ -235,7 +247,7 @@
 		<name>round1Text</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>2038 + 146 + 150 + 100 + 116</posY>
 		<text>Mountain Climbers</text>
 		<font>LiberationSans</font>
@@ -246,7 +258,7 @@
 	<object>
 		<type>label</type>
 		<name>round2Title</name>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>2434 + 150 + 116</posY>
 		<text>Round 2</text>
 		<font>LiberationSans</font>
@@ -258,7 +270,7 @@
 		<name>round2Text</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>2434 + 150 + 100 + 116</posY>
 		<text>Pushups</text>
 		<font>LiberationSans</font>

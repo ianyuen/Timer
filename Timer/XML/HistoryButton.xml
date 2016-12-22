@@ -21,9 +21,11 @@
 	<object>
 		<type>button</type>
 		<name>deleteButton</name>
-		<posXRaw>parentWidth - width - 30</posXRaw>
+		<posXRaw>parentWidth - width - 50</posXRaw>
 		<posYRaw>centerHeight</posYRaw>
 		<title>Delete</title>
+		<size>20</size>
+		<font>LiberationSans</font>
 		<textColor>373639</textColor>
 	</object>
 </view>

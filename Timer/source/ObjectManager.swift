@@ -230,6 +230,7 @@ class ObjectManager {
 		if object.title != "" {
 			button.setTitle(object.title, for: UIControlState.normal)
 			button.setTitleColor(color.UIColorFromHex(object.textColor), for: UIControlState.normal)
+			button.titleLabel!.font =  UIFont(name: object.font, size: object.size)
 			button.sizeToFit()
 		}
 		if object.posXRaw != "" {
@@ -294,6 +295,7 @@ class ObjectManager {
 		textView.font = UIFont(name: object.font, size: object.size)
 		textView.isEditable = false
 		textView.isScrollEnabled = false
+		textView.textAlignment = NSTextAlignment.init(rawValue: 50)!
 		let color = Color()
 		textView.textColor = color.UIColorFromHex(0xffffff)
 		if object.backColor == 0x373639 {

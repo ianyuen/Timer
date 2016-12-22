@@ -108,6 +108,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.image = string
 			case "title":
 				object.title = string
+			case "child":
+				object.children.append(string)
 			case "posXRaw":
 				object.posXRaw = string
 			case "posYRaw":

@@ -5,8 +5,7 @@
 		<name>profile</name>
 		<width>1142</width>
 		<height>128</height>
-		<posX>0</posX>
-		<posY>0</posY>
+		<posX>50</posX>
 		<round>true</round>
 	</object>
 
@@ -15,7 +14,7 @@
 		<name>insane</name>
 		<width>1142</width>
 		<height>128</height>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>128 + 10</posY>
 		<round>true</round>
 	</object>
@@ -25,7 +24,7 @@
 		<name>barbell</name>
 		<width>1142</width>
 		<height>128</height>
-		<posX>0</posX>
+		<posX>50</posX>
 		<posY>138 + 128 + 10</posY>
 		<round>true</round>
 	</object>

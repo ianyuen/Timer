@@ -133,12 +133,16 @@ class DetailsCell: ScrollView {
 	func AddComboBox(_ object: ScreenObject) {
 		switch object.name {
 		case "sound":
+			sound.SetChildren(object.children)
 			objectManager.AddComboButton(sound, view: self, object: object)
 		case "vibrate":
+			vibrate.SetChildren(object.children)
 			objectManager.AddComboButton(vibrate, view: self, object: object)
 		case "routine":
+			routine.SetChildren(object.children)
 			objectManager.AddComboButton(routine, view: self, object: object)
 		case "motivation":
+			motivation.SetChildren(object.children)
 			objectManager.AddComboButton(motivation, view: self, object: object)
 		default: break
 		}

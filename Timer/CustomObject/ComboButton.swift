@@ -15,11 +15,12 @@ class ComboButton: Button {
 	private var width: CGFloat = 0
 	private var height: CGFloat = 0
 	private var fontName = ""
+	private var children = [String]()
 	private var fontSize: CGFloat = 0
 	private var textColor: UInt32 = 0
 
 	let icon = UIImageView()
-	let textBox = UILabel()
+	let label = UILabel()
 	let background = UILabel()
 
 	override func initView() {
@@ -27,6 +28,9 @@ class ComboButton: Button {
 		objectManager.Parse("ComboButton")
 		for object in objectManager.GetObjects() {
 			switch object.type {
+			case "label":
+				object.text = children[0]
+				objectManager.AddLabel(label, view: self, object: object)
 			case "image":
 				objectManager.AddImage(icon, view: self, object: object)
 			case "background":
@@ -54,5 +58,11 @@ class ComboButton: Button {
 	
 	func SetHeight(_ value: CGFloat) {
 		height = value
+	}
+
+	func SetChildren(_ values: [String]) {
+		for value in values {
+			children.append(value)
+		}
 	}
 }

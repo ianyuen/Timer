@@ -41,9 +41,9 @@
 
 	<object>
 		<type>scrollView</type>
-		<posX>50</posX>
+		<posX>0</posX>
 		<posY>280</posY>
-		<width>1142</width>
+		<width>1242</width>
 		<height>1147</height>
 		<backColor>f9aa43</backColor>
 	</object>
