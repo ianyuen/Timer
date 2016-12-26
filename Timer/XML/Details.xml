@@ -7,17 +7,7 @@
 		<height>screenHeight</height>
 		<backColor>f9aa43</backColor>
 	</object>
-<!--
-	<object>
-		<type>background</type>
-		<name>titleBack</name>
-		<width>screenWidth</width>
-		<height>140</height>
-		<posX>0</posX>
-		<posY>80</posY>
-		<backColor>ce7336</backColor>
-	</object>
--->
+
 	<object>
 		<type>backButton</type>
 		<name>backButton</name>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1003C0C31DF58DD900112FFC /* TextBox.swift */; };
 		1003C0C61DF58E0200112FFC /* TextBox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1003C0C51DF58E0200112FFC /* TextBox.xml */; };
+		102327001E1149E30012D550 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102326FF1E1149E30012D550 /* ViewController.swift */; };
 		1035D5BD1DE4B84D000C6BFD /* LiberationSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1035D5BC1DE4B84D000C6BFD /* LiberationSans.ttf */; };
 		1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043D72E1DF0C96100C0FF63 /* NewButton.swift */; };
 		1043D7311DF0CAF700C0FF63 /* NewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1043D7301DF0CAF700C0FF63 /* NewButton.xml */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		1003C0C31DF58DD900112FFC /* TextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextBox.swift; path = source/TextBox.swift; sourceTree = "<group>"; };
 		1003C0C51DF58E0200112FFC /* TextBox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TextBox.xml; path = XML/TextBox.xml; sourceTree = "<group>"; };
+		102326FF1E1149E30012D550 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = BaseObject/ViewController.swift; sourceTree = "<group>"; };
 		1035D5BC1DE4B84D000C6BFD /* LiberationSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = LiberationSans.ttf; path = Font/LiberationSans.ttf; sourceTree = "<group>"; };
 		1043D72E1DF0C96100C0FF63 /* NewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewButton.swift; path = source/NewButton.swift; sourceTree = "<group>"; };
 		1043D7301DF0CAF700C0FF63 /* NewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewButton.xml; path = XML/NewButton.xml; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				10ECC8041E003670000D2E7C /* ScrollView.swift */,
 				10ECC80E1E005587000D2E7C /* View.swift */,
 				10DD97561E0173C9009DC796 /* SingleLine.swift */,
+				102326FF1E1149E30012D550 /* ViewController.swift */,
 			);
 			name = BaseObject;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */,
 				10ECC80B1E005298000D2E7C /* Session.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,
+				102327001E1149E30012D550 /* ViewController.swift in Sources */,
 				10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */,
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
 				10ECC80F1E005587000D2E7C /* View.swift in Sources */,

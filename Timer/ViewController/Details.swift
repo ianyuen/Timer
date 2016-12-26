@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Details: UIViewController {
+class Details: ViewController {
 	let objectManager = ObjectManager()
 
 	let content = DetailsCell()
@@ -17,36 +17,21 @@ class Details: UIViewController {
 	let background = UILabel()
 	let backButton = BackButton()
 
-	override var shouldAutorotate: Bool {
-		return false
-	}
-	
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
-	
-	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-		return UIInterfaceOrientationMask.portrait
-	}
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
 		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
 		initView()
-    }
+	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+	}
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
-	}
-
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 	}
 
 	func DismissKeyboard() {

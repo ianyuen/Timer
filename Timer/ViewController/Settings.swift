@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Settings: UIViewController {
+class Settings: ViewController {
 	let objectManager = ObjectManager()
 
 	let content = WorkoutCell()
@@ -19,18 +19,6 @@ class Settings: UIViewController {
 	let editButton = NewButton()
 	let backButton = BackButton()
 	let weightButton = NewButton()
-
-	override var shouldAutorotate: Bool {
-		return false
-	}
-	
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
-	
-	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-		return UIInterfaceOrientationMask.portrait
-	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -45,10 +33,6 @@ class Settings: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
     }
-
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-		return
-	}
 
 	func initView() {
 		objectManager.parent = view

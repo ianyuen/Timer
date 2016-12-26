@@ -8,7 +8,7 @@
 
 import UIKit
 
-class History: UIViewController {
+class History: ViewController {
 	let objectManager = ObjectManager()
 
 	let content = HistoryScroll()
@@ -16,18 +16,6 @@ class History: UIViewController {
 	let backButton = BackButton()
 	let background = UILabel()
 	let weightButton = NewButton()
-
-	override var shouldAutorotate: Bool {
-		return false
-	}
-	
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
-	
-	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-		return UIInterfaceOrientationMask.portrait
-	}
 
     override func viewDidLoad() {
         super.viewDidLoad()

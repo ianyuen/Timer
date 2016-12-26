@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Main: UIViewController {
+class Main: ViewController {
 	var counting = false
 	let round = UILabel()
 	let endTime = UILabel()
@@ -28,18 +28,6 @@ class Main: UIViewController {
 	var roundNumber = 15
 	var totalSecond = 900
 
-	override var shouldAutorotate: Bool {
-		return false
-	}
-
-	override var prefersStatusBarHidden: Bool {
-		return true
-	}
-
-	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-		return UIInterfaceOrientationMask.portrait
-	}
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -56,9 +44,6 @@ class Main: UIViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-	}
-
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 	}
 
 	func initView() {
