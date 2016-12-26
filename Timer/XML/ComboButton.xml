@@ -10,6 +10,10 @@
 	<object>
 		<type>label</type>
 		<name>label</name>
+		<posX>49</posX>
+		<posY>30</posY>
+		<size>15</size>
+		<font>LiberationSans</font>
 		<textColor>ffffff</textColor>
 	</object>
 
