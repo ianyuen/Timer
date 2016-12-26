@@ -26,4 +26,11 @@
 		<height>30</height>
 		<icon>downIcon</icon>
 	</object>
+
+	<object>
+		<type>background</type>
+		<name>expand</name>
+		<round>true</round>
+		<backColor>ed9b3f</backColor>
+	</object>
 </view>

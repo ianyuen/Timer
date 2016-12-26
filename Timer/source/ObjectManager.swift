@@ -341,10 +341,12 @@ class ObjectManager {
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		
 		comboBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		//textBox.SetText(object.text)
 		comboBox.SetFont(object.font, size: object.size)
 		comboBox.SetWidth(object.width)
 		comboBox.SetHeight(object.height)
+		comboBox.SetChildren(object.children)
+		let clicked = #selector(comboBox.comboButtonClicked(_:))
+		comboBox.addTarget(comboBox, action: clicked, for: UIControlEvents.touchUpInside)
 		comboBox.initView()
 		
 		view.addSubview(comboBox)
