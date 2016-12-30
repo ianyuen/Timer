@@ -38,8 +38,6 @@ class WorkoutButton: Button {
 			layer.masksToBounds = true
 			layer.cornerRadius = 8
 		}
-		//let color = Color()
-		//backgroundColor = color.UIColorFromHex(0xf9aa43)
 	}
 
 	func GetLinesNumber(_ textView: UITextView) -> CGFloat {

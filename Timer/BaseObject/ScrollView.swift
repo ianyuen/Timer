@@ -14,4 +14,15 @@ class ScrollView: UIScrollView {
 	func DismissKeyboard() {
 		endEditing(true)
 	}
+
+	func fitContentHeight() -> CGFloat {
+		var contentHeight: CGFloat = 0
+		for view in subviews {
+			let viewHeight = view.frame.origin.y + view.frame.size.height
+			print("height: \(view.frame.height)")
+			print("viewHeight: \(viewHeight)")
+			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
+		}
+		return contentHeight
+	}
 }

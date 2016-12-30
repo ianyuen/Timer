@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>background</type>
-		<name>profileBack</name>
+		<type>textBox</type>
+		<name>profileText</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
-		<round>true</round>
 		<posX>50</posX>
-		<backColor>fce578</backColor>
-	</object>
-
-	<object>
-		<type>label</type>
-		<name>profileText</name>
-		<posX>centerWidth</posX>
-		<posY>10</posY>
 		<text>Profile Name</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<textColor>ce7336</textColor>
+		<backColor>fce578</backColor>
 	</object>
 
 	<object>
@@ -101,25 +92,16 @@
 	</object>
 
 	<object>
-		<type>background</type>
-		<name>totalBack</name>
+		<type>textBox</type>
+		<name>totalText</name>
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>50</posX>
 		<posY>1396</posY>
-		<round>true</round>
-		<backColor>ed9b3f</backColor>
-	</object>
-	
-	<object>
-		<type>label</type>
-		<name>totalText</name>
-		<posX>centerWidth</posX>
-		<posY>128 + 206 + 206 + 206 + 206 + 206 + 208 + 40</posY>
 		<text>8 Minutes and 10 Seconds</text>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<textColor>ffffff</textColor>
+		<backColor>f6992c</backColor>
 	</object>
 
 	<object>
@@ -147,6 +129,7 @@
 		<child>Human</child>
 		<child>Gym</child>
 		<child>No</child>
+		<clicked>btnSoundClicked</clicked>
 	</object>
 
 	<object>
@@ -171,6 +154,7 @@
 		<size>20</size>
 		<child>Yes</child>
 		<child>No</child>
+		<clicked>btnVibrateClicked</clicked>
 	</object>
 
 	<object>
@@ -195,6 +179,7 @@
 		<size>20</size>
 		<child>Yes</child>
 		<child>No</child>
+		<clicked>btnRoutineClicked</clicked>
 	</object>
 
 	<object>
@@ -219,6 +204,7 @@
 		<size>20</size>
 		<child>Yes</child>
 		<child>No</child>
+		<clicked>btnMotivationClicked</clicked>
 	</object>
 
 	<object>
@@ -276,6 +262,15 @@
 		<font>LiberationSans</font>
 		<size>20</size>
 		<backColor>f6992c</backColor>
+	</object>
+
+	<object>
+		<type>comboExpand</type>
+		<name>soundExpand</name>
+		<posX>395</posX>
+		<posY>850</posY>
+		<width>400</width>
+		<height>640</height>
 	</object>
 
 	<object>

@@ -6,6 +6,8 @@
 		<height>128</height>
 		<size>22</size>
 		<font>LiberationSans</font>
+		<posXRaw>-50</posXRaw>
+		<posYRaw>5</posYRaw>
 		<backColor>f6992c</backColor>
 	</object>
 </view>

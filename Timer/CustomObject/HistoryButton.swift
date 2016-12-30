@@ -29,5 +29,7 @@ class HistoryButton: View {
 			default: break
 			}
 		}
+		layer.masksToBounds = true
+		layer.cornerRadius = 8
 	}
 }

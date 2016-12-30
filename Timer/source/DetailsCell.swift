@@ -11,11 +11,8 @@ import UIKit
 class DetailsCell: ScrollView {
 	let objectManager = ObjectManager()
 
-	let totalBack = UILabel()
-	let totalText = UILabel()
-
-	let profileBack = UILabel()
-	let profileText = UILabel()
+	let totalText = TextBox()
+	let profileText = TextBox()
 
 	let roundsTitle = UILabel()
 	let roundsNumber = TextBox()
@@ -28,6 +25,7 @@ class DetailsCell: ScrollView {
 
 	let sound = ComboButton()
 	let soundText = UILabel()
+	let soundExpand = ComboExpand()
 
 	let vibrate = ComboButton()
 	let vibrateText = UILabel()
@@ -60,33 +58,34 @@ class DetailsCell: ScrollView {
 			switch object.type {
 			case "label":
 				AddLabel(object)
-			case "image":
-				AddImage(object)
-			case "newButton":
-				AddButton(object)
 			case "textBox":
 				AddTextBox(object)
 			case "comboBox":
 				AddComboBox(object)
-			case "background":
-				AddBackground(object)
+			case "newButton":
+				AddButton(object)
+			case "comboExpand":
+				AddComboExpand(object)
 			case "roundSecondsGroup":
 				AddRoundSecondsGroup(object)
 			default: break
 			}
 		}
+		soundExpand.isHidden = true
+		soundExpand.background.frame = soundExpand.frame
+		soundExpand.DrawLine(1)
+		soundExpand.DrawChildren(sound.GetChildrens())
 
-		contentSize = CGSize(width: frame.width, height: 2500)
-		bringSubview(toFront: sound)
-		bringSubview(toFront: vibrate)
-		bringSubview(toFront: routine)
-		bringSubview(toFront: motivation)
+		var contentHeight: CGFloat = 0
+		for view in subviews {
+			let viewHeight = view.frame.origin.y + view.frame.height
+			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
+		}
+		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 
 	func AddLabel(_ object: ScreenObject) {
 		switch object.name {
-		case "totalText":
-			objectManager.AddLabel(totalText, view: self, object: object)
 		case "soundText":
 			objectManager.AddLabel(soundText, view: self, object: object)
 		case "vibrateText":
@@ -101,8 +100,6 @@ class DetailsCell: ScrollView {
 			objectManager.AddLabel(round1Title, view: self, object: object)
 		case "round2Title":
 			objectManager.AddLabel(round2Title, view: self, object: object)
-		case "profileText":
-			objectManager.AddLabel(profileText, view: self, object: object)
 		case "exercise":
 			objectManager.AddLabel(exercise, view: self, object: object)
 		case "trainingTime":
@@ -112,18 +109,16 @@ class DetailsCell: ScrollView {
 		}
 	}
 
-	func AddImage(_ object: ScreenObject) {
-		switch object.name {
-		default: break
-		}
-	}
-
 	func AddTextBox(_ object: ScreenObject) {
 		switch object.name {
+		case "totalText":
+			objectManager.AddTextBox(totalText, view: self, object: object)
 		case "round1Text":
 			objectManager.AddTextBox(round1Text, view: self, object: object)
 		case "round2Text":
 			objectManager.AddTextBox(round2Text, view: self, object: object)
+		case "profileText":
+			objectManager.AddTextBox(profileText, view: self, object: object)
 		case "roundsNumber":
 			objectManager.AddTextBox(roundsNumber, view: self, object: object)
 		default: break
@@ -133,23 +128,21 @@ class DetailsCell: ScrollView {
 	func AddComboBox(_ object: ScreenObject) {
 		switch object.name {
 		case "sound":
-			objectManager.AddComboButton(sound, view: self, object: object)
+			objectManager.AddComboButton(sound, parent: self, object: object)
 		case "vibrate":
-			objectManager.AddComboButton(vibrate, view: self, object: object)
+			objectManager.AddComboButton(vibrate, parent: self, object: object)
 		case "routine":
-			objectManager.AddComboButton(routine, view: self, object: object)
+			objectManager.AddComboButton(routine, parent: self, object: object)
 		case "motivation":
-			objectManager.AddComboButton(motivation, view: self, object: object)
+			objectManager.AddComboButton(motivation, parent: self, object: object)
 		default: break
 		}
 	}
 
-	func AddBackground(_ object: ScreenObject) {
+	func AddComboExpand(_ object: ScreenObject) {
 		switch object.name {
-		case "totalBack":
-			objectManager.AddBackground(totalBack, view: self, object: object)
-		case "profileBack":
-			objectManager.AddBackground(profileBack, view: self, object: object)
+		case "soundExpand":
+			objectManager.AddView(soundExpand, parent: self, object: object)
 		default: break
 		}
 	}
@@ -182,5 +175,18 @@ class DetailsCell: ScrollView {
 			objectManager.AddButton(deleteButton, view: self, object: object)
 		default: break
 		}
+	}
+
+	func btnSoundClicked(_ sender:UIButton!) {
+		soundExpand.isHidden = !soundExpand.isHidden
+	}
+
+	func btnVibrateClicked(_ sender:UIButton!) {
+	}
+
+	func btnRoutineClicked(_ sender:UIButton!) {
+	}
+
+	func btnMotivationClicked(_ sender:UIButton!) {
 	}
 }

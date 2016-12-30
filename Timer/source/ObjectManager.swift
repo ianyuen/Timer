@@ -127,6 +127,7 @@ class ObjectManager {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
+		//print("itemHeight: \(itemHeight)")
 		line.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		line.setNeedsDisplay()
 		parent.addSubview(line)
@@ -295,13 +296,17 @@ class ObjectManager {
 		textView.font = UIFont(name: object.font, size: object.size)
 		textView.isEditable = false
 		textView.isScrollEnabled = false
-		textView.textAlignment = NSTextAlignment.init(rawValue: 50)!
 		let color = Color()
 		textView.textColor = color.UIColorFromHex(0xffffff)
 		if object.backColor == 0x373639 {
 			textView.backgroundColor = UIColor.clear
 		} else {
 			textView.backgroundColor = color.UIColorFromHex(object.backColor)
+		}
+		if object.posXRaw != "" {
+			//let x = CGFloatFromString(object.posXRaw, object: textView)
+			//let y = CGFloatFromString(object.posYRaw, object: textView)
+			textView.contentOffset = CGPoint(x: -10, y: 5)
 		}
 		view.addSubview(textView)
 	}
@@ -334,7 +339,7 @@ class ObjectManager {
 		view.addSubview(content)
 	}
 
-	func AddComboButton(_ comboBox: ComboButton, view: UIView, object: ScreenObject) {
+	func AddComboButton(_ comboBox: ComboButton, parent: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
@@ -344,12 +349,11 @@ class ObjectManager {
 		comboBox.SetFont(object.font, size: object.size)
 		comboBox.SetWidth(object.width)
 		comboBox.SetHeight(object.height)
-		comboBox.SetChildren(object.children)
-		let clicked = #selector(comboBox.comboButtonClicked(_:))
-		comboBox.addTarget(comboBox, action: clicked, for: UIControlEvents.touchUpInside)
+		comboBox.SetChildrens(object.children)
+		comboBox.addTarget(parent, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		comboBox.initView()
 		
-		view.addSubview(comboBox)
+		parent.addSubview(comboBox)
 	}
 
 	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {

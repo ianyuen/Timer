@@ -3,7 +3,6 @@
 	<object>
 		<type>background</type>
 		<name>background</name>
-		<round>true</round>
 		<width>screenWidth - 50 - 50</width>
 		<height>495</height>
 		<posX>50</posX>
@@ -26,7 +25,7 @@
 		<posX>0</posX>
 		<posY>120</posY>
 		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
+		<height>15</height>
 		<posX>50</posX>
 		<backColor>F6992C</backColor>
 	</object>

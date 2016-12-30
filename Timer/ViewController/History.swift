@@ -26,6 +26,10 @@ class History: ViewController {
 		initView()
     }
 
+	override func viewDidAppear(_ animated: Bool) {
+		content.view1.layer.cornerRadius = 10;
+		content.view1.layer.masksToBounds = true
+	}
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.

@@ -14,8 +14,11 @@ class HistoryScroll: ScrollView {
 	let view1 = HistoryCell()
 	let view2 = HistoryCell()
 	let view3 = HistoryCell()
+	let view4 = HistoryCell()
 
 	override func initView() {
+		layoutIfNeeded()
+
 		objectManager.parent = self
 
 		let object = ScreenObject()
@@ -27,6 +30,14 @@ class HistoryScroll: ScrollView {
 		object.yPosition = (CGFloat(495 + 50 + 495 + 50))
 		objectManager.AddView(view3, parent: self, object: object)
 
-		contentSize = CGSize(width: frame.width, height: 2500)
+		object.yPosition = (CGFloat(495 + 50 + 495 + 50 + 495 + 50))
+		objectManager.AddView(view4, parent: self, object: object)
+
+		var contentHeight: CGFloat = 0
+		for view in subviews {
+			let viewHeight = view.frame.origin.y + ScreenSize.instance.GetItemHeight(495)
+			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
+		}
+		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 }

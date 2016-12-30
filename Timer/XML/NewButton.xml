@@ -3,7 +3,6 @@
 	<object>
 		<type>background</type>
 		<name>background</name>
-		<round>true</round>
 		<backColor>D86E29</backColor>
 	</object>
 

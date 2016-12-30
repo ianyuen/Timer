@@ -18,13 +18,9 @@ class SingleLine: UIView {
 	}
 
 	override func draw(_ rect: CGRect) {
-		let aPath = UIBezierPath()
-		aPath.move(to: CGPoint(x: 0, y: 100))
-		aPath.addLine(to: CGPoint(x: 100, y: 100))
-		aPath.close()
-		
-		UIColor.blue.set()
-		aPath.stroke()
-		aPath.fill()
+		let path = UIBezierPath(rect: rect)
+		let color = Color().UIColorFromHex(0xf9aa43)
+		color.setFill()
+		path.fill()
 	}
 }

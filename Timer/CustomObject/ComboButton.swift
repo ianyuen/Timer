@@ -15,14 +15,13 @@ class ComboButton: Button {
 	private var width: CGFloat = 0
 	private var height: CGFloat = 0
 	private var fontName = ""
-	private var children = [String]()
+	private var childrens = [String]()
 	private var fontSize: CGFloat = 0
 	private var textColor: UInt32 = 0
 	private var expandHeight: CGFloat = 0
 
 	let icon = UIImageView()
 	let label = UILabel()
-	let expand = UILabel()
 	let background = UILabel()
 
 	override func initView() {
@@ -31,7 +30,7 @@ class ComboButton: Button {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "label":
-				object.text = children[0]
+				object.text = childrens[0]
 				objectManager.AddLabel(label, view: self, object: object)
 			case "image":
 				objectManager.AddImage(icon, view: self, object: object)
@@ -40,16 +39,12 @@ class ComboButton: Button {
 			default: break
 			}
 		}
-		expand.isHidden = true
+		layer.masksToBounds = true
+		layer.cornerRadius = 8
 	}
 
 	func DrawBackground(object: ScreenObject) {
 		switch object.name {
-		case "expand":
-			object.yPosition = height + 10
-			object.width = width
-			object.height = expandHeight
-			objectManager.AddBackground(expand, view: self, object: object)
 		case "background":
 			object.width = width
 			object.height = height
@@ -76,15 +71,13 @@ class ComboButton: Button {
 		height = value
 	}
 
-	func SetChildren(_ values: [String]) {
+	func SetChildrens(_ values: [String]) {
 		for value in values {
-			children.append(value)
+			childrens.append(value)
 		}
-
-		expandHeight = height * CGFloat(children.count)
 	}
 
-	func comboButtonClicked(_ sender:UIButton!) {
-		expand.isHidden = !expand.isHidden
+	func GetChildrens() -> [String] {
+		return childrens
 	}
 }

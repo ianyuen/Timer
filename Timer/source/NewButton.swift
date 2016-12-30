@@ -33,6 +33,8 @@ class NewButton: Button {
 			default: break
 			}
 		}
+		layer.masksToBounds = true
+		layer.cornerRadius = 8
 	}
 
 	func SetController(_ viewController: UIViewController) {

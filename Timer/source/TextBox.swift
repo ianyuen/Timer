@@ -42,6 +42,16 @@ class TextBox: UIView {
 			default: break
 			}
 		}
+		layer.masksToBounds = true
+		if frame.width < 50 {
+			layer.cornerRadius = 4
+		} else if frame.width < 100 {
+			layer.cornerRadius = 6
+		} else if frame.width < 150 {
+			layer.cornerRadius = 8
+		} else {
+			layer.cornerRadius = 8
+		}
 	}
 
 	func SetText(_ value: String) {
