@@ -24,7 +24,7 @@ class BackButton: Button {
 			case "image":
 				objectManager.AddImage(image, view: self, object: object)
 			case "label":
-				objectManager.AddLabel(title, view: self, object: object)
+				objectManager.AddLabel(title, parent: self, object: object)
 			default: break
 			}
 		}

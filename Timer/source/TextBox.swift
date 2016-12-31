@@ -38,7 +38,7 @@ class TextBox: UIView {
 				objectManager.AddTextField(textField, view: self, object: object)
 			case "background":
 				object.backColor = backColor
-				objectManager.AddBackground(background, view: self, object: object)
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}

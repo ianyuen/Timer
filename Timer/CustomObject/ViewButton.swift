@@ -22,7 +22,7 @@ class ViewButton: Button {
 			case "image":
 				objectManager.AddImage(image, view: self, object: object)
 			case "label":
-				objectManager.AddLabel(label, view: self, object: object)
+				objectManager.AddLabel(label, parent: self, object: object)
 			default: break
 			}
 		}

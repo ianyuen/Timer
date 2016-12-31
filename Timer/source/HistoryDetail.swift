@@ -33,7 +33,7 @@ class HistoryDetail: View {
 		switch object.name {
 		case "title":
 			object.text = titleText
-			objectManager.AddLabel(title, view: self, object: object)
+			objectManager.AddLabel(title, parent: self, object: object)
 		default: break
 		}
 	}

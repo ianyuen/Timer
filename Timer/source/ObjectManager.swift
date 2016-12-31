@@ -30,13 +30,13 @@ class ObjectManager {
 			if screenObject.name == name {
 				switch type {
 				case "label":
-					AddLabel(object as! UILabel, view: parent, object: screenObject, spec: spec)
+					AddLabel(object as! UILabel, parent: parent, object: screenObject, spec: spec)
 				case "image":
 					AddImage(object as! UIImageView, view: parent, object: screenObject, angle: angle, image: image)
 				case "button":
 					AddButton(object as! Button, view: parent, object: screenObject)
 				case "background":
-					AddBackground(object as! UILabel , view: parent, object: screenObject)
+					AddBackground(object as! UILabel , parent: parent, object: screenObject)
 				case "roundButton":
 					AddRoundButton(object as! RoundButton, view: parent, object: screenObject)
 				default: break
@@ -127,7 +127,6 @@ class ObjectManager {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
-		//print("itemHeight: \(itemHeight)")
 		line.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		line.setNeedsDisplay()
 		parent.addSubview(line)
@@ -145,7 +144,7 @@ class ObjectManager {
 		parent.addSubview(view)
 	}
 
-	func AddLabel(_ label: UILabel, view: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
+	func AddLabel(_ label: UILabel, parent: UIView, object: ScreenObject, spec: String = "", alpha:Double = 1.0) {
 		label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 		if spec == "" {
 			label.text = object.text
@@ -186,7 +185,7 @@ class ObjectManager {
 			label.frame.origin.y = CGFloatFromString(object.posYRaw, object: label)
 		}
 
-		view.addSubview(label)
+		parent.addSubview(label)
 	}
 
 	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat = 0, image: String = "") {
@@ -243,7 +242,7 @@ class ObjectManager {
 		view.addSubview(button)
 	}
 
-	func AddBackground(_ background: UILabel, view: UIView, object: ScreenObject, alpha:Double = 1.0) {
+	func AddBackground(_ background: UILabel, parent: UIView, object: ScreenObject, alpha:Double = 1.0) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		
@@ -264,7 +263,7 @@ class ObjectManager {
 				background.layer.cornerRadius = 8
 			}
 		}
-		view.addSubview(background)
+		parent.addSubview(background)
 	}
 
 	func AddTextBox(_ textBox: TextBox, view: UIView, object: ScreenObject) {

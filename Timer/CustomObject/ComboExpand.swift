@@ -9,7 +9,7 @@
 import UIKit
 
 class ComboExpand: View {
-	let objectManager = ObjectManager()
+	private let objectManager = ObjectManager()
 
 	let background = UILabel()
 
@@ -19,7 +19,7 @@ class ComboExpand: View {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "background":
-				objectManager.AddBackground(background, view: self, object: object)
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}
@@ -28,22 +28,24 @@ class ComboExpand: View {
 	}
 
 	func DrawChildren(_ childrens: [String]) {
-		//var textView = UILabel[childrens.count]()
 		let object = ScreenObject()
 		object.size = 15
 		object.font = "LiberationSans"
+		object.clicked = #selector(ComboExpand.clicked(_:))
 		object.textColor = 0x373639
 		object.xPosition = 500
+		object.width = 400
+		object.height = 128
 
 		var index: Int = 0
 		for children in childrens {
-			object.text = children
+			object.title = children
 			object.yPosition = CGFloat(870 + (128 * index))
 			index = index + 1
 
-			let label = UILabel()
-			label.isUserInteractionEnabled = true
-			objectManager.AddLabel(label, view: self, object: object)
+			let button = Button()
+			objectManager.AddButton(button, view: self, object: object)
+			button.addTarget(self, action: object.clicked!, for: .touchUpInside)
 		}
 	}
 
@@ -55,5 +57,9 @@ class ComboExpand: View {
 		object.width = 400
 		object.height = 5
 		objectManager.AddLine(line, parent: self, object: object)
+	}
+
+	func clicked(_ sender: Button) {
+		print("click")
 	}
 }

@@ -46,7 +46,7 @@ class History: ViewController {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "label":
-				objectManager.AddLabel(titleText, view: view, object: object)
+				objectManager.AddLabel(titleText, parent: view, object: object)
 			case "backButton":
 				DrawButton(object)
 			case "scrollView":
@@ -74,7 +74,7 @@ class History: ViewController {
 	func DrawBackground(_ object: ScreenObject) {
 		switch object.name {
 		case "background":
-			objectManager.AddBackground(background, view: view, object: object)
+			objectManager.AddBackground(background, parent: view, object: object)
 		default: break
 		}
 	}

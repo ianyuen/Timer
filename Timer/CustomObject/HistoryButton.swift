@@ -25,7 +25,7 @@ class HistoryButton: View {
 			case "viewButton":
 				objectManager.AddButton(viewButton, view: self, object: object)
 			case "background":
-				objectManager.AddBackground(background, view: self, object: object)
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}

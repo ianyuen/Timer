@@ -28,7 +28,7 @@ class HistoryCell: View {
 			case "line":
 				AddLine(object)
 			case "background":
-				objectManager.AddBackground(background, view: self, object: object)
+				objectManager.AddBackground(background, parent: self, object: object)
 			case "historyDetail":
 				AddHistoryDetail(object)
 			case "historyButton":

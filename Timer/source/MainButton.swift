@@ -26,7 +26,7 @@ class MainButton: Button {
 				DrawImage(object)
 			case "label":
 				object.text = title.text!
-				objectManager.AddLabel(title, view: self, object: object)
+				objectManager.AddLabel(title, parent: self, object: object)
 			default: break
 			}
 		}

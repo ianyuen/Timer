@@ -41,7 +41,7 @@ class Settings: ViewController {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "label":
-				objectManager.AddLabel(titleText, view: view, object: object)
+				objectManager.AddLabel(titleText, parent: view, object: object)
 			case "background":
 				DrawBackground(object)
 			case "newButton":
@@ -64,9 +64,9 @@ class Settings: ViewController {
 	func DrawBackground(_ object: ScreenObject) {
 		switch object.name {
 		case "titleBack":
-			objectManager.AddBackground(titleBack, view: view, object: object)
+			objectManager.AddBackground(titleBack, parent: view, object: object)
 		case "background":
-			objectManager.AddBackground(background, view: view, object: object)
+			objectManager.AddBackground(background, parent: view, object: object)
 		default: break
 		}
 	}

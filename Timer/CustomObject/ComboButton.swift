@@ -20,9 +20,9 @@ class ComboButton: Button {
 	private var textColor: UInt32 = 0
 	private var expandHeight: CGFloat = 0
 
-	let icon = UIImageView()
-	let label = UILabel()
-	let background = UILabel()
+	private let icon = UIImageView()
+	private let label = UILabel()
+	private let background = UILabel()
 
 	override func initView() {
 		objectManager.parent = self
@@ -31,7 +31,7 @@ class ComboButton: Button {
 			switch object.type {
 			case "label":
 				object.text = childrens[0]
-				objectManager.AddLabel(label, view: self, object: object)
+				objectManager.AddLabel(label, parent: self, object: object)
 			case "image":
 				objectManager.AddImage(icon, view: self, object: object)
 			case "background":
@@ -48,7 +48,7 @@ class ComboButton: Button {
 		case "background":
 			object.width = width
 			object.height = height
-			objectManager.AddBackground(background, view: self, object: object)
+			objectManager.AddBackground(background, parent: self, object: object)
 		default: break
 		}
 	}

@@ -25,11 +25,11 @@ class NewButton: Button {
 			switch object.type {
 			case "label":
 				object.text = text
-				objectManager.AddLabel(title, view: self, object: object)
+				objectManager.AddLabel(title, parent: self, object: object)
 			case "background":
 				object.width = width
 				object.height = height
-				objectManager.AddBackground(background, view: self, object: object)
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}

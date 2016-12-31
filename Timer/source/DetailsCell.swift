@@ -71,10 +71,7 @@ class DetailsCell: ScrollView {
 			default: break
 			}
 		}
-		soundExpand.isHidden = true
-		soundExpand.background.frame = soundExpand.frame
-		soundExpand.DrawLine(1)
-		soundExpand.DrawChildren(sound.GetChildrens())
+		GenerateExpand(soundExpand, childrens: sound.GetChildrens())
 
 		var contentHeight: CGFloat = 0
 		for view in subviews {
@@ -87,23 +84,23 @@ class DetailsCell: ScrollView {
 	func AddLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "soundText":
-			objectManager.AddLabel(soundText, view: self, object: object)
+			objectManager.AddLabel(soundText, parent: self, object: object)
 		case "vibrateText":
-			objectManager.AddLabel(vibrateText, view: self, object: object)
+			objectManager.AddLabel(vibrateText, parent: self, object: object)
 		case "routineText":
-			objectManager.AddLabel(routineText, view: self, object: object)
+			objectManager.AddLabel(routineText, parent: self, object: object)
 		case "motivationText":
-			objectManager.AddLabel(motivationText, view: self, object: object)
+			objectManager.AddLabel(motivationText, parent: self, object: object)
 		case "roundsTitle":
-			objectManager.AddLabel(roundsTitle, view: self, object: object)
+			objectManager.AddLabel(roundsTitle, parent: self, object: object)
 		case "round1Title":
-			objectManager.AddLabel(round1Title, view: self, object: object)
+			objectManager.AddLabel(round1Title, parent: self, object: object)
 		case "round2Title":
-			objectManager.AddLabel(round2Title, view: self, object: object)
+			objectManager.AddLabel(round2Title, parent: self, object: object)
 		case "exercise":
-			objectManager.AddLabel(exercise, view: self, object: object)
+			objectManager.AddLabel(exercise, parent: self, object: object)
 		case "trainingTime":
-			objectManager.AddLabel(trainingTime, view: self, object: object)
+			objectManager.AddLabel(trainingTime, parent: self, object: object)
 
 		default: break
 		}
@@ -177,6 +174,13 @@ class DetailsCell: ScrollView {
 		}
 	}
 
+	func GenerateExpand(_ expand: ComboExpand, childrens: [String]) {
+		expand.isHidden = true
+		expand.background.frame = expand.frame
+		expand.DrawLine(1)
+		expand.DrawChildren(childrens)
+	}
+
 	func btnSoundClicked(_ sender:UIButton!) {
 		soundExpand.isHidden = !soundExpand.isHidden
 	}
@@ -188,5 +192,9 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnMotivationClicked(_ sender:UIButton!) {
+	}
+
+	func childrenButtonClicked(_ sender: Button) {
+		print("click")
 	}
 }

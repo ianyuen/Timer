@@ -70,13 +70,13 @@ class Main: ViewController {
 	func DrawLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "round":
-			objectManager.AddLabel(round, view: view, object: object)
+			objectManager.AddLabel(round, parent: view, object: object)
 		case "endTime":
-			objectManager.AddLabel(endTime, view: view, object: object)
+			objectManager.AddLabel(endTime, parent: view, object: object)
 		case "endClock":
-			objectManager.AddLabel(endClock, view: view, object: object)
+			objectManager.AddLabel(endClock, parent: view, object: object)
 		case "screenTitle":
-			objectManager.AddLabel(screenTitle, view: view, object: object)
+			objectManager.AddLabel(screenTitle, parent: view, object: object)
 		default: break
 		}
 	}
@@ -110,9 +110,9 @@ class Main: ViewController {
 	func DrawBackground(_ object: ScreenObject) {
 		switch object.name {
 		case "background":
-			objectManager.AddBackground(background, view: view, object: object)
+			objectManager.AddBackground(background, parent: view, object: object)
 		case "titleBackground":
-			objectManager.AddBackground(titleBackground, view: view, object: object)
+			objectManager.AddBackground(titleBackground, parent: view, object: object)
 		default: break
 		}
 	}

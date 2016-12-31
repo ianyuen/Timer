@@ -54,9 +54,9 @@ class RoundSecondsGroup: View {
 		switch object.name {
 		case "title":
 			object.text = text
-			objectManager.AddLabel(title, view: self, object: object)
+			objectManager.AddLabel(title, parent: self, object: object)
 		case "seconds":
-			objectManager.AddLabel(seconds, view: self, object: object)
+			objectManager.AddLabel(seconds, parent: self, object: object)
 		default: break
 		}
 	}
