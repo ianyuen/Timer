@@ -35,12 +35,21 @@ class DetailsCell: ScrollView {
 
 	let vibrate = ComboButton()
 	let vibrateText = UILabel()
+	let vibrateExpand = UILabel()
+	let vibrateNo = Button()
+	let vibrateYes = Button()
 
 	let routine = ComboButton()
 	let routineText = UILabel()
+	let routineExpand = UILabel()
+	let routineNo = Button()
+	let routineYes = Button()
 
 	let motivation = ComboButton()
 	let motivationText = UILabel()
+	let motivationExpand = UILabel()
+	let motivationNo = Button()
+	let motivationYes = Button()
 
 	let exercise = UILabel()
 
@@ -80,12 +89,10 @@ class DetailsCell: ScrollView {
 			}
 		}
 
-		soundExpand.isHidden = true
-		soundNo.isHidden = true
-		soundGym.isHidden = true
-		soundHuman.isHidden = true
-		soundBoxing.isHidden = true
-		soundDigital.isHidden = true
+		HideSoundExpand(true)
+		HideVibrateExpand(true)
+		HideRoutineExpand(true)
+		HideMotivationExpand(true)
 
 		var contentHeight: CGFloat = 0
 		for view in subviews {
@@ -154,6 +161,12 @@ class DetailsCell: ScrollView {
 		switch object.name {
 		case "soundExpand":
 			objectManager.AddBackground(soundExpand, parent: self, object: object)
+		case "vibrateExpand":
+			objectManager.AddBackground(vibrateExpand, parent: self, object: object)
+		case "routineExpand":
+			objectManager.AddBackground(routineExpand, parent: self, object: object)
+		case "motivationExpand":
+			objectManager.AddBackground(motivationExpand, parent: self, object: object)
 		default: break
 		}
 	}
@@ -184,6 +197,7 @@ class DetailsCell: ScrollView {
 			deleteButton.SetWidth(object.width)
 			deleteButton.SetHeight(object.height)
 			objectManager.AddButton(deleteButton, parent: self, object: object)
+
 		case "soundNo":
 			objectManager.AddButton(soundNo, parent: self, object: object, target: self)
 		case "soundGym":
@@ -194,6 +208,22 @@ class DetailsCell: ScrollView {
 			objectManager.AddButton(soundBoxing, parent: self, object: object, target: self)
 		case "soundDigital":
 			objectManager.AddButton(soundDigital, parent: self, object: object, target: self)
+
+		case "vibrateNo":
+			objectManager.AddButton(vibrateNo, parent: self, object: object, target: self)
+		case "vibrateYes":
+			objectManager.AddButton(vibrateYes, parent: self, object: object, target: self)
+
+		case "routineNo":
+			objectManager.AddButton(routineNo, parent: self, object: object, target: self)
+		case "routineYes":
+			objectManager.AddButton(routineYes, parent: self, object: object, target: self)
+
+		case "motivationNo":
+			objectManager.AddButton(motivationNo, parent: self, object: object, target: self)
+		case "motivationYes":
+			objectManager.AddButton(motivationYes, parent: self, object: object, target: self)
+
 		default: break
 		}
 	}
@@ -208,12 +238,21 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnVibrateClicked(_ sender:UIButton!) {
+		vibrateExpand.isHidden = !vibrateExpand.isHidden
+		vibrateNo.isHidden = !vibrateNo.isHidden
+		vibrateYes.isHidden = !vibrateYes.isHidden
 	}
 
 	func btnRoutineClicked(_ sender:UIButton!) {
+		routineExpand.isHidden = !routineExpand.isHidden
+		routineNo.isHidden = !routineNo.isHidden
+		routineYes.isHidden = !routineYes.isHidden
 	}
 
 	func btnMotivationClicked(_ sender:UIButton!) {
+		motivationExpand.isHidden = !motivationExpand.isHidden
+		motivationNo.isHidden = !motivationNo.isHidden
+		motivationYes.isHidden = !motivationYes.isHidden
 	}
 
 	func HideSoundExpand(_ hidden: Bool) {
@@ -224,6 +263,25 @@ class DetailsCell: ScrollView {
 		soundBoxing.isHidden = hidden
 		soundDigital.isHidden = hidden
 	}
+
+	func HideVibrateExpand(_ hidden: Bool) {
+		vibrateExpand.isHidden = hidden
+		vibrateNo.isHidden = hidden
+		vibrateYes.isHidden = hidden
+	}
+
+	func HideRoutineExpand(_ hidden: Bool) {
+		routineExpand.isHidden = hidden
+		routineNo.isHidden = hidden
+		routineYes.isHidden = hidden
+	}
+
+	func HideMotivationExpand(_ hidden: Bool) {
+		motivationExpand.isHidden = hidden
+		motivationNo.isHidden = hidden
+		motivationYes.isHidden = hidden
+	}
+
 	func soundNoClicked(_ sender: Button) {
 		HideSoundExpand(true)
 		sound.SetTitle("No")
@@ -249,7 +307,33 @@ class DetailsCell: ScrollView {
 		sound.SetTitle("Digital")
 	}
 
-	func childrenButtonClicked(_ sender: UIButton) {
-		HideSoundExpand(true)
+	func vibrateNoClicked(_ sender: Button) {
+		HideVibrateExpand(true)
+		vibrate.SetTitle("No")
+	}
+
+	func vibrateYesClicked(_ sender: Button) {
+		HideVibrateExpand(true)
+		vibrate.SetTitle("Yes")
+	}
+
+	func routineNoClicked(_ sender: Button) {
+		HideRoutineExpand(true)
+		routine.SetTitle("No")
+	}
+
+	func routineYesClicked(_ sender: Button) {
+		HideRoutineExpand(true)
+		routine.SetTitle("Yes")
+	}
+
+	func motivationNoClicked(_ sender: Button) {
+		HideMotivationExpand(true)
+		motivation.SetTitle("No")
+	}
+	
+	func motivationYesClicked(_ sender: Button) {
+		HideMotivationExpand(true)
+		motivation.SetTitle("Yes")
 	}
 }

@@ -256,7 +256,7 @@
 		<size>20</size>
 		<backColor>f6992c</backColor>
 	</object>
-<!-- ********************************** -->
+<!-- ********************************************** -->
 	<object>
 		<type>background</type>
 		<name>soundExpand</name>
@@ -335,7 +335,118 @@
 		<textColor>373639</textColor>
 		<clicked>soundNoClicked</clicked>
 	</object>
-<!-- ********************************** -->
+<!-- ********************************************** -->
+	<object>
+		<type>background</type>
+		<name>vibrateExpand</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1722 + 138</posY>
+		<width>400</width>
+		<height>128 + 5 + 128</height>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>vibrateYes</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1722 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Yes</title>
+		<textColor>373639</textColor>
+		<clicked>motivationYesClicked</clicked>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>vibrateNo</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1722 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>No</title>
+		<textColor>373639</textColor>
+		<clicked>motivationNoClicked</clicked>
+	</object>
+<!-- ********************************************** -->
+	<object>
+		<type>background</type>
+		<name>routineExpand</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1880 + 138</posY>
+		<width>400</width>
+		<height>128 + 5 + 128</height>
+	</object>
+	
+	<object>
+		<type>button</type>
+		<name>routineYes</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1880 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Yes</title>
+		<textColor>373639</textColor>
+		<clicked>routineYesClicked</clicked>
+	</object>
+	
+	<object>
+		<type>button</type>
+		<name>routineNo</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1880 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>No</title>
+		<textColor>373639</textColor>
+		<clicked>routineNoClicked</clicked>
+	</object>
+<!-- ********************************************** -->
+	<object>
+		<type>background</type>
+		<name>motivationExpand</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>2048 + 138</posY>
+		<width>400</width>
+		<height>128 + 5 + 128</height>
+	</object>
+	
+	<object>
+		<type>button</type>
+		<name>motivationYes</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>2048 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Yes</title>
+		<textColor>373639</textColor>
+		<clicked>routineYesClicked</clicked>
+	</object>
+	
+	<object>
+		<type>button</type>
+		<name>motivationNo</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>2048 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>No</title>
+		<textColor>373639</textColor>
+		<clicked>routineNoClicked</clicked>
+	</object>
+<!-- ********************************************** -->
 	<object>
 		<type>newButton</type>
 		<name>saveButton</name>
