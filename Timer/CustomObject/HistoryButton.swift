@@ -21,9 +21,9 @@ class HistoryButton: View {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "button":
-				objectManager.AddButton(deleteButton, view: self, object: object)
+				objectManager.AddButton(deleteButton, parent: self, object: object)
 			case "viewButton":
-				objectManager.AddButton(viewButton, view: self, object: object)
+				objectManager.AddButton(viewButton, parent: self, object: object)
 			case "background":
 				objectManager.AddBackground(background, parent: self, object: object)
 			default: break

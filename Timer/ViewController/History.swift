@@ -57,7 +57,7 @@ class History: ViewController {
 				weightButton.SetText(object.text)
 				weightButton.SetWidth(object.width)
 				weightButton.SetHeight(object.height)
-				objectManager.AddButton(weightButton, view: view, object: object)
+				objectManager.AddButton(weightButton, parent: view, object: object)
 			default: break
 			}
 		}
@@ -66,7 +66,7 @@ class History: ViewController {
 	func DrawButton(_ object: ScreenObject) {
 		switch object.name {
 		case "backButton":
-			objectManager.AddButton(backButton, view: view, object: object)
+			objectManager.AddButton(backButton, parent: view, object: object)
 		default: break
 		}
 	}

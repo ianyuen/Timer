@@ -124,11 +124,7 @@
 		<posY>1396 + 100 + 40 + 28</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<child>Digital</child>
-		<child>Boxing</child>
-		<child>Human</child>
-		<child>Gym</child>
-		<child>No</child>
+		<title>Digital</title>
 		<clicked>btnSoundClicked</clicked>
 	</object>
 
@@ -152,8 +148,7 @@
 		<posY>1564 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<child>Yes</child>
-		<child>No</child>
+		<title>Yes</title>
 		<clicked>btnVibrateClicked</clicked>
 	</object>
 
@@ -177,8 +172,7 @@
 		<posY>1722 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<child>Yes</child>
-		<child>No</child>
+		<title>Yes</title>
 		<clicked>btnRoutineClicked</clicked>
 	</object>
 
@@ -202,8 +196,7 @@
 		<posY>1880 + 128 + 30</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<child>Yes</child>
-		<child>No</child>
+		<title>Yes</title>
 		<clicked>btnMotivationClicked</clicked>
 	</object>
 
@@ -263,16 +256,86 @@
 		<size>20</size>
 		<backColor>f6992c</backColor>
 	</object>
-
+<!-- ********************************** -->
 	<object>
-		<type>comboExpand</type>
+		<type>background</type>
 		<name>soundExpand</name>
-		<posX>395</posX>
-		<posY>850</posY>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138</posY>
 		<width>400</width>
 		<height>640</height>
 	</object>
 
+	<object>
+		<type>button</type>
+		<name>soundDigital</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Digital</title>
+		<textColor>373639</textColor>
+		<clicked>soundDigitalClicked</clicked>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>soundBoxing</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Boxing</title>
+		<textColor>373639</textColor>
+		<clicked>soundBoxingClicked</clicked>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>soundHuman</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Human</title>
+		<textColor>373639</textColor>
+		<clicked>soundHumanClicked</clicked>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>soundGym</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138 + 138 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>Gym</title>
+		<textColor>373639</textColor>
+		<clicked>soundGymClicked</clicked>
+	</object>
+
+	<object>
+		<type>button</type>
+		<name>soundNo</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138 + 138 + 138 + 138 + 138</posY>
+		<width>400</width>
+		<height>128</height>
+		<size>15</size>
+		<font>LiberationSans</font>
+		<title>No</title>
+		<textColor>373639</textColor>
+		<clicked>soundNoClicked</clicked>
+	</object>
+<!-- ********************************** -->
 	<object>
 		<type>newButton</type>
 		<name>saveButton</name>

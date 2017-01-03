@@ -27,7 +27,6 @@
 		107A28811E01CB28005F0A8B /* ViewButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107A28801E01CB28005F0A8B /* ViewButton.xml */; };
 		107E5DBF1E06DCF70047EFCF /* ComboButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107E5DBE1E06DCF70047EFCF /* ComboButton.swift */; };
 		107E5DC11E06E4C10047EFCF /* ComboButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = 107E5DC01E06E4C10047EFCF /* ComboButton.xml */; };
-		1093C4701E12ED0E00B9912E /* ComboExpand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093C46F1E12ED0E00B9912E /* ComboExpand.swift */; };
 		1093C4721E12ED5600B9912E /* ComboExpand.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1093C4711E12ED5600B9912E /* ComboExpand.xml */; };
 		10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8C9561DEF17E7004C5211 /* Settings.swift */; };
 		10A8C9591DEF18E5004C5211 /* Settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10A8C9581DEF18E5004C5211 /* Settings.xml */; };
@@ -86,7 +85,6 @@
 		107A28801E01CB28005F0A8B /* ViewButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewButton.xml; path = XML/ViewButton.xml; sourceTree = "<group>"; };
 		107E5DBE1E06DCF70047EFCF /* ComboButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComboButton.swift; path = Timer/CustomObject/ComboButton.swift; sourceTree = "<group>"; };
 		107E5DC01E06E4C10047EFCF /* ComboButton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ComboButton.xml; path = XML/ComboButton.xml; sourceTree = "<group>"; };
-		1093C46F1E12ED0E00B9912E /* ComboExpand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComboExpand.swift; path = Timer/CustomObject/ComboExpand.swift; sourceTree = "<group>"; };
 		1093C4711E12ED5600B9912E /* ComboExpand.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ComboExpand.xml; path = XML/ComboExpand.xml; sourceTree = "<group>"; };
 		10A8C9561DEF17E7004C5211 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ViewController/Settings.swift; sourceTree = "<group>"; };
 		10A8C9581DEF18E5004C5211 /* Settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Settings.xml; path = XML/Settings.xml; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				107E5DBE1E06DCF70047EFCF /* ComboButton.swift */,
-				1093C46F1E12ED0E00B9912E /* ComboExpand.swift */,
 				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
 				107A287E1E01CA39005F0A8B /* ViewButton.swift */,
 			);
@@ -367,7 +364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1093C4701E12ED0E00B9912E /* ComboExpand.swift in Sources */,
 				10E288F01DE338C400A5C80B /* ObjectManager.swift in Sources */,
 				10ECC8011E0035E4000D2E7C /* Button.swift in Sources */,
 				1044DCA91DD20880006B6582 /* Application.swift in Sources */,

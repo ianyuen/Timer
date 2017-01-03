@@ -21,8 +21,6 @@ class ScreenObject {
 	var widthRaw = ""
 	var heightRaw = ""
 
-	var children = [String]()
-
 	var size: CGFloat = 0
 	var width: CGFloat = 0
 	var height: CGFloat = 0

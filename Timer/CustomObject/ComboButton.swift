@@ -15,7 +15,6 @@ class ComboButton: Button {
 	private var width: CGFloat = 0
 	private var height: CGFloat = 0
 	private var fontName = ""
-	private var childrens = [String]()
 	private var fontSize: CGFloat = 0
 	private var textColor: UInt32 = 0
 	private var expandHeight: CGFloat = 0
@@ -30,7 +29,7 @@ class ComboButton: Button {
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "label":
-				object.text = childrens[0]
+				object.text = text
 				objectManager.AddLabel(label, parent: self, object: object)
 			case "image":
 				objectManager.AddImage(icon, view: self, object: object)
@@ -52,32 +51,30 @@ class ComboButton: Button {
 		default: break
 		}
 	}
-
-	func SetText(_ string: String, color: UInt32) {
-		text = string
-		textColor = color
-	}
 	
 	func SetFont(_ name: String, size: CGFloat) {
 		fontName = name
 		fontSize = size
 	}
-	
+
+	func SetText(_ string: String) {
+		text = string
+	}
+
+	func SetTextColor(_ color: UInt32) {
+		textColor = color
+	}
+
+	func SetTitle(_ value: String) {
+		label.text = value
+		label.sizeToFit()
+	}
+
 	func SetWidth(_ value: CGFloat) {
 		width = value
 	}
 	
 	func SetHeight(_ value: CGFloat) {
 		height = value
-	}
-
-	func SetChildrens(_ values: [String]) {
-		for value in values {
-			childrens.append(value)
-		}
-	}
-
-	func GetChildrens() -> [String] {
-		return childrens
 	}
 }

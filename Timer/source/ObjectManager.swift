@@ -34,7 +34,7 @@ class ObjectManager {
 				case "image":
 					AddImage(object as! UIImageView, view: parent, object: screenObject, angle: angle, image: image)
 				case "button":
-					AddButton(object as! Button, view: parent, object: screenObject)
+					AddButton(object as! Button, parent: parent, object: screenObject)
 				case "background":
 					AddBackground(object as! UILabel , parent: parent, object: screenObject)
 				case "roundButton":
@@ -205,17 +205,7 @@ class ObjectManager {
 		view.addSubview(imageView)
 	}
 
-	func AddPicker(_ picker: UIPickerView, view: UIView, object: ScreenObject) {
-		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
-		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
-		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
-		let itemHeight = ScreenSize.instance.GetItemHeight(object.height) * 4
-
-		picker.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		view.addSubview(picker)
-	}
-
-	func AddButton(_ button: Button, view: UIView, object: ScreenObject) {
+	func AddButton(_ button: Button, parent: UIView, object: ScreenObject, target: Any! = nil) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		
@@ -224,7 +214,11 @@ class ObjectManager {
 		
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		if object.clicked != nil {
-			button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+			if target != nil {
+				button.addTarget(target, action: object.clicked!, for: UIControlEvents.touchUpInside)
+			} else {
+				button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+			}
 		}
 		button.initView()
 		if object.title != "" {
@@ -239,7 +233,7 @@ class ObjectManager {
 		if object.posYRaw != "" {
 			button.frame.origin.y = CGFloatFromString(object.posYRaw, object: button)
 		}
-		view.addSubview(button)
+		parent.addSubview(button)
 	}
 
 	func AddBackground(_ background: UILabel, parent: UIView, object: ScreenObject, alpha:Double = 1.0) {
@@ -303,8 +297,6 @@ class ObjectManager {
 			textView.backgroundColor = color.UIColorFromHex(object.backColor)
 		}
 		if object.posXRaw != "" {
-			//let x = CGFloatFromString(object.posXRaw, object: textView)
-			//let y = CGFloatFromString(object.posYRaw, object: textView)
 			textView.contentOffset = CGPoint(x: -10, y: 5)
 		}
 		view.addSubview(textView)
@@ -345,10 +337,10 @@ class ObjectManager {
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		
 		comboBox.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		comboBox.SetText(object.title)
 		comboBox.SetFont(object.font, size: object.size)
 		comboBox.SetWidth(object.width)
 		comboBox.SetHeight(object.height)
-		comboBox.SetChildrens(object.children)
 		comboBox.addTarget(parent, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		comboBox.initView()
 		

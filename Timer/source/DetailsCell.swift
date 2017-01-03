@@ -25,7 +25,13 @@ class DetailsCell: ScrollView {
 
 	let sound = ComboButton()
 	let soundText = UILabel()
-	let soundExpand = ComboExpand()
+	let soundExpand = UILabel()
+	
+	let soundNo = Button()
+	let soundGym = Button()
+	let soundHuman = Button()
+	let soundBoxing = Button()
+	let soundDigital = Button()
 
 	let vibrate = ComboButton()
 	let vibrateText = UILabel()
@@ -58,20 +64,28 @@ class DetailsCell: ScrollView {
 			switch object.type {
 			case "label":
 				AddLabel(object)
+			case "button":
+				AddButton(object)
 			case "textBox":
 				AddTextBox(object)
 			case "comboBox":
 				AddComboBox(object)
 			case "newButton":
 				AddButton(object)
-			case "comboExpand":
-				AddComboExpand(object)
+			case "background":
+				AddBackground(object)
 			case "roundSecondsGroup":
 				AddRoundSecondsGroup(object)
 			default: break
 			}
 		}
-		GenerateExpand(soundExpand, childrens: sound.GetChildrens())
+
+		soundExpand.isHidden = true
+		soundNo.isHidden = true
+		soundGym.isHidden = true
+		soundHuman.isHidden = true
+		soundBoxing.isHidden = true
+		soundDigital.isHidden = true
 
 		var contentHeight: CGFloat = 0
 		for view in subviews {
@@ -136,10 +150,10 @@ class DetailsCell: ScrollView {
 		}
 	}
 
-	func AddComboExpand(_ object: ScreenObject) {
+	func AddBackground(_ object: ScreenObject) {
 		switch object.name {
 		case "soundExpand":
-			objectManager.AddView(soundExpand, parent: self, object: object)
+			objectManager.AddBackground(soundExpand, parent: self, object: object)
 		default: break
 		}
 	}
@@ -164,25 +178,33 @@ class DetailsCell: ScrollView {
 			saveButton.SetText(object.text)
 			saveButton.SetWidth(object.width)
 			saveButton.SetHeight(object.height)
-			objectManager.AddButton(saveButton, view: self, object: object)
+			objectManager.AddButton(saveButton, parent: self, object: object)
 		case "deleteButton":
 			deleteButton.SetText(object.text)
 			deleteButton.SetWidth(object.width)
 			deleteButton.SetHeight(object.height)
-			objectManager.AddButton(deleteButton, view: self, object: object)
+			objectManager.AddButton(deleteButton, parent: self, object: object)
+		case "soundNo":
+			objectManager.AddButton(soundNo, parent: self, object: object, target: self)
+		case "soundGym":
+			objectManager.AddButton(soundGym, parent: self, object: object, target: self)
+		case "soundHuman":
+			objectManager.AddButton(soundHuman, parent: self, object: object, target: self)
+		case "soundBoxing":
+			objectManager.AddButton(soundBoxing, parent: self, object: object, target: self)
+		case "soundDigital":
+			objectManager.AddButton(soundDigital, parent: self, object: object, target: self)
 		default: break
 		}
 	}
 
-	func GenerateExpand(_ expand: ComboExpand, childrens: [String]) {
-		expand.isHidden = true
-		expand.background.frame = expand.frame
-		expand.DrawLine(1)
-		expand.DrawChildren(childrens)
-	}
-
 	func btnSoundClicked(_ sender:UIButton!) {
 		soundExpand.isHidden = !soundExpand.isHidden
+		soundNo.isHidden = !soundNo.isHidden
+		soundGym.isHidden = !soundGym.isHidden
+		soundHuman.isHidden = !soundHuman.isHidden
+		soundBoxing.isHidden = !soundBoxing.isHidden
+		soundDigital.isHidden = !soundDigital.isHidden
 	}
 
 	func btnVibrateClicked(_ sender:UIButton!) {
@@ -194,7 +216,40 @@ class DetailsCell: ScrollView {
 	func btnMotivationClicked(_ sender:UIButton!) {
 	}
 
-	func childrenButtonClicked(_ sender: Button) {
-		print("click")
+	func HideSoundExpand(_ hidden: Bool) {
+		soundExpand.isHidden = hidden
+		soundNo.isHidden = hidden
+		soundGym.isHidden = hidden
+		soundHuman.isHidden = hidden
+		soundBoxing.isHidden = hidden
+		soundDigital.isHidden = hidden
+	}
+	func soundNoClicked(_ sender: Button) {
+		HideSoundExpand(true)
+		sound.SetTitle("No")
+	}
+
+	func soundGymClicked(_ sender: Button) {
+		HideSoundExpand(true)
+		sound.SetTitle("Gym")
+	}
+
+	func soundHumanClicked(_ sender: Button) {
+		HideSoundExpand(true)
+		sound.SetTitle("Human")
+	}
+
+	func soundBoxingClicked(_ sender: Button) {
+		HideSoundExpand(true)
+		sound.SetTitle("Boxing")
+	}
+
+	func soundDigitalClicked(_ sender: Button) {
+		HideSoundExpand(true)
+		sound.SetTitle("Digital")
+	}
+
+	func childrenButtonClicked(_ sender: UIButton) {
+		HideSoundExpand(true)
 	}
 }

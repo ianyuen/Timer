@@ -47,7 +47,7 @@ class Details: ViewController {
 			case "label":
 				DrawLabel(object)
 			case "backButton":
-				objectManager.AddButton(backButton, view: view, object: object)
+				objectManager.AddButton(backButton, parent: view, object: object)
 			case "scrollView":
 				objectManager.AddScrollView(content, view: view, object: object)
 			case "background":

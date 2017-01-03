@@ -61,7 +61,7 @@ class Main: ViewController {
 			case "mainButton":
 				DrawMainButton(object)
 			case "roundButton":
-				objectManager.AddButton(roundButton, view: view, object: object)
+				objectManager.AddButton(roundButton, parent: view, object: object)
 			default: break
 			}
 		}
@@ -85,10 +85,10 @@ class Main: ViewController {
 		switch object.name {
 		case "historyButton":
 			historyButton.setImage(object.icon, for: UIControlState.normal)
-			objectManager.AddButton(historyButton, view: view, object: object)
+			objectManager.AddButton(historyButton, parent: view, object: object)
 		case "settingsButton":
 			settingsButton.setImage(object.icon, for: UIControlState.normal)
-			objectManager.AddButton(settingsButton, view: view, object: object)
+			objectManager.AddButton(settingsButton, parent: view, object: object)
 		default: break
 		}
 	}
@@ -98,11 +98,11 @@ class Main: ViewController {
 		case "startButton":
 			startButton.SetIcon(object.icon)
 			startButton.SetTitle(object.text)
-			objectManager.AddButton(startButton, view: view, object: object)
+			objectManager.AddButton(startButton, parent: view, object: object)
 		case "resetButton":
 			resetButton.SetIcon(object.icon)
 			resetButton.SetTitle(object.text)
-			objectManager.AddButton(resetButton, view: view, object: object)
+			objectManager.AddButton(resetButton, parent: view, object: object)
 		default: break
 		}
 	}
