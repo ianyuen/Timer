@@ -62,6 +62,8 @@
 		10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24E41DD0D3EE00A47755 /* LaunchScreen.storyboard */; };
 		10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */; };
 		10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */; };
+		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
+		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		10FB24E71DD0D3EE00A47755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundSecondsGroup.swift; path = source/RoundSecondsGroup.swift; sourceTree = "<group>"; };
 		10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RoundSecondGroup.xml; path = XML/RoundSecondGroup.xml; sourceTree = "<group>"; };
+		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
+		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 			children = (
 				10E9525B1DF2AE7500F6EE01 /* Details.swift */,
 				10F7DDB81DFEBE1A00BF5D36 /* History.swift */,
+				3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */,
 				10E288EB1DE3347E00A5C80B /* Main.swift */,
 				10A8C9561DEF17E7004C5211 /* Settings.swift */,
 			);
@@ -203,6 +208,7 @@
 				107A28791E01BBF9005F0A8B /* HistoryButton.xml */,
 				10ECC8061E0046EB000D2E7C /* HistoryCell.xml */,
 				10DD975A1E01837E009DC796 /* HistoryDetail.xml */,
+				3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
 				10ADCD621DE5CCAA0078D587 /* MainButton.xml */,
 				1043D7301DF0CAF700C0FF63 /* NewButton.xml */,
@@ -332,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */,
+				3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */,
 				10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */,
 				10E288F71DE33CD200A5C80B /* Main.xml in Resources */,
 				10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */,
@@ -388,6 +395,7 @@
 				10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
+				3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */,
 				107E5DBF1E06DCF70047EFCF /* ComboButton.swift in Sources */,
 				10DD97591E0182C8009DC796 /* HistoryDetail.swift in Sources */,
 				10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */,

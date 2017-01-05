@@ -27,16 +27,18 @@ class History: ViewController {
     }
 
 	override func viewDidAppear(_ animated: Bool) {
-		content.view1.layer.cornerRadius = 10;
-		content.view1.layer.masksToBounds = true
 	}
+
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 
 	func btnBackClicked(_ sender:UIButton!) {
 		self.performSegue(withIdentifier: "showMain", sender: self)
+	}
+
+	func btnViewClicked(_ sender: Button!) {
+		self.performSegue(withIdentifier: "showDetails", sender: self)
 	}
 
 	func initView() {

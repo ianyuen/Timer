@@ -15,6 +15,7 @@
 		<height>84</height>
 		<posX>30</posX>
 		<posY>14</posY>
+		<clicked>btnViewClicked</clicked>
 	</object>
 
 	<object>
