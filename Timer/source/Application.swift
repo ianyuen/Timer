@@ -18,4 +18,12 @@ class Application {
     func SetMessage(_ value: String) {
         message = value
     }
+
+	private var currentWorkout = ""
+	func GetCurrentWorkout() -> String {
+		return currentWorkout
+	}
+	func SetCurrentWorkout(_ value: String) {
+		currentWorkout = value
+	}
 }

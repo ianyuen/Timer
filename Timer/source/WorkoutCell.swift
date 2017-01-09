@@ -9,57 +9,50 @@
 import UIKit
 
 class WorkoutCell: ScrollView {
+	var controller = UIViewController()
 	let objectManager = ObjectManager()
 
 	let space = ScreenSize.instance.GetItemHeight(10)
-	let workoutName = ["Profile Name", "Insane Fat Blasting BootCamp", "Barbell Tabata Workout"]
+	var workouts = [Workout]()
+	let workoutName = [String]()
 
-	let insane = WorkoutButton()
-	let barbell = WorkoutButton()
-	let profile = WorkoutButton()
+	let workoutButtons = [WorkoutButton]()
 
 	override func initView() {
 		objectManager.parent = self
-		objectManager.Parse("WorkoutCell")
-		for object in objectManager.GetObjects() {
-			switch object.type {
-			case "workoutButton":
-				AddButton(object)
-			default: break
-			}
-		}
+		objectManager.controller = controller
 
-		var contentHeight: CGFloat = 0
-		for view in subviews {
-			let viewHeight = view.frame.origin.y + view.frame.height
-			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
-		}
+		let contentHeight = fitContentHeight()
 		contentSize = CGSize(width: frame.width, height: contentHeight)
+
 		let color = Color()
 		backgroundColor = color.UIColorFromHex(0xf9aa43)
+
+		workouts = SaveManager.instance.ReadWorkouts("workouts")
+		if workouts.count == 0 {
+			workouts.append(Workout())
+		}
+
+		let object = ScreenObject()
+		object.round = true
+		object.width = 1142
+		object.height = 128
+		object.clicked = #selector(btnWorkoutClicked(_:))
+		object.xPosition = 50
+
+		for workout in workouts {
+			let button = WorkoutButton()
+			object.text = workout.name
+			button.SetText(object.text)
+			button.SetWidth(object.width)
+			button.SetHeight(object.height)
+			objectManager.AddButton(button, parent: self, object: object, target: self)
+			object.yPosition = object.height + 10
+		}
 	}
 
-	func AddButton(_ object: ScreenObject) {
-		switch object.name {
-		case "insane":
-			insane.name = workoutName[1]
-			insane.round = object.round
-			objectManager.AddButton(insane, parent: self, object: object)
-			if insane.lines > 1 {
-				object.height = 250
-				insane.height = 250
-				objectManager.AddButton(insane, parent: self, object: object)
-			}
-		case "barbell":
-			barbell.name = workoutName[2]
-			barbell.round = object.round
-			objectManager.AddButton(barbell, parent: self, object: object)
-			barbell.frame.origin.y = insane.frame.origin.y + insane.frame.height + space
-		case "profile":
-			profile.name = workoutName[0]
-			profile.round = object.round
-			objectManager.AddButton(profile, parent: self, object: object)
-		default: break
-		}
+	func btnWorkoutClicked(_ sender: WorkoutButton!) {
+		print("\(#function)")
+		Application.instance.SetCurrentWorkout(sender.title.text)
 	}
 }

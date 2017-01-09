@@ -10,14 +10,14 @@ import UIKit
 
 class WorkoutButton: Button {
 	let objectManager = ObjectManager()
-	
-	var name = ""
-	var round = false
-	var lines: CGFloat = 0
-	var height: CGFloat = 0
 
-	let textView = UITextView()
-	
+	private var text = ""
+	private var width: CGFloat = 0
+	private var height: CGFloat = 0
+
+	let title = UILabel()
+	let background = UILabel()
+
 	override func initView() {
 		objectManager.parent = self
 		objectManager.Parse("WorkoutButton")
@@ -26,18 +26,31 @@ class WorkoutButton: Button {
 				object.height = height
 			}
 			switch object.type {
-			case "textView":
-				object.text = name
-				objectManager.AddTextView(textView, view: self, object: object)
-				lines = GetLinesNumber(textView)
+			case "label":
+				object.text = text
+				objectManager.AddLabel(title, parent: self, object: object)
+			case "background":
+				object.width = width
+				object.height = height
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}
 
-		if round {
-			layer.masksToBounds = true
-			layer.cornerRadius = 8
-		}
+		layer.masksToBounds = true
+		layer.cornerRadius = 8
+	}
+
+	func SetText(_ value: String) {
+		text = value
+	}
+	
+	func SetWidth(_ value: CGFloat) {
+		width = value
+	}
+	
+	func SetHeight(_ value: CGFloat) {
+		height = value
 	}
 
 	func GetLinesNumber(_ textView: UITextView) -> CGFloat {

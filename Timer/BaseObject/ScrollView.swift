@@ -18,7 +18,7 @@ class ScrollView: UIScrollView {
 	func fitContentHeight() -> CGFloat {
 		var contentHeight: CGFloat = 0
 		for view in subviews {
-			let viewHeight = view.frame.origin.y + view.frame.size.height
+			let viewHeight = view.frame.origin.y + view.frame.height
 			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
 		}
 		return contentHeight

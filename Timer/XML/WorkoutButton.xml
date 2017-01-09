@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<view>	
+<view>
 	<object>
-		<type>textView</type>
-		<width>1142</width>
-		<height>128</height>
-		<size>22</size>
+		<type>background</type>
+		<name>background</name>
+		<backColor>F6992C</backColor>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>title</name>
+		<posX>50</posX>
+		<posY>centerHeight</posY>
 		<font>LiberationSans</font>
-		<posXRaw>-50</posXRaw>
-		<posYRaw>5</posYRaw>
-		<backColor>f6992c</backColor>
+		<size>20</size>
 	</object>
 </view>

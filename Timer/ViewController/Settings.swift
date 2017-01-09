@@ -9,7 +9,7 @@
 import UIKit
 
 class Settings: ViewController {
-	let objectManager = ObjectManager()
+	var objectManager = ObjectManager()
 
 	let content = WorkoutCell()
 	let titleBack = UILabel()

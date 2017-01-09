@@ -215,7 +215,7 @@ class ObjectManager {
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		if object.clicked != nil {
 			if target != nil {
-				button.addTarget(target, action: object.clicked!, for: UIControlEvents.touchUpInside)
+				button.addTarget(parent, action: object.clicked!, for: UIControlEvents.touchUpInside)
 			} else {
 				button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
 			}
@@ -324,8 +324,12 @@ class ObjectManager {
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
-		
+
 		content.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
+		content.isExclusiveTouch = true
+		content.delaysContentTouches = true
+		content.canCancelContentTouches = true
+		content.isUserInteractionEnabled = true
 		content.initView()
 		view.addSubview(content)
 	}

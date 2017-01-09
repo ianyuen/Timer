@@ -62,6 +62,8 @@
 		10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB24E41DD0D3EE00A47755 /* LaunchScreen.storyboard */; };
 		10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */; };
 		10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */; };
+		3CB204B51E1FF0F100433581 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB204B41E1FF0F100433581 /* Workout.swift */; };
+		3CB204B71E1FF1A500433581 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB204B61E1FF1A500433581 /* SaveManager.swift */; };
 		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
 		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,8 @@
 		10FB24E71DD0D3EE00A47755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundSecondsGroup.swift; path = source/RoundSecondsGroup.swift; sourceTree = "<group>"; };
 		10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RoundSecondGroup.xml; path = XML/RoundSecondGroup.xml; sourceTree = "<group>"; };
+		3CB204B41E1FF0F100433581 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Database/Workout.swift; sourceTree = "<group>"; };
+		3CB204B61E1FF1A500433581 /* SaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveManager.swift; path = Source/SaveManager.swift; sourceTree = "<group>"; };
 		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
 		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +167,7 @@
 				10E288ED1DE337FB00A5C80B /* ParseXML.swift */,
 				10ADCD661DE5F7C20078D587 /* RoundButton.swift */,
 				10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */,
+				3CB204B61E1FF1A500433581 /* SaveManager.swift */,
 				10E288F11DE33C1B00A5C80B /* ScreenObject.swift */,
 				10E288F31DE33C7B00A5C80B /* ScreenSize.swift */,
 				10ECC80A1E005298000D2E7C /* Session.swift */,
@@ -263,6 +268,7 @@
 		10FB24DA1DD0D3EE00A47755 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				3CB204B31E1FE9C200433581 /* Database */,
 				10FB24DB1DD0D3EE00A47755 /* AppDelegate.swift */,
 				10FB24E21DD0D3EE00A47755 /* Assets.xcassets */,
 				10ECC7FF1E003569000D2E7C /* BaseObject */,
@@ -275,6 +281,14 @@
 				10E288F51DE33C9000A5C80B /* XML */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		3CB204B31E1FE9C200433581 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3CB204B41E1FF0F100433581 /* Workout.swift */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +400,7 @@
 				10ECC80B1E005298000D2E7C /* Session.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,
 				102327001E1149E30012D550 /* ViewController.swift in Sources */,
+				3CB204B51E1FF0F100433581 /* Workout.swift in Sources */,
 				10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */,
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
 				10ECC80F1E005587000D2E7C /* View.swift in Sources */,
@@ -394,6 +409,7 @@
 				10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */,
 				10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
+				3CB204B71E1FF1A500433581 /* SaveManager.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
 				3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */,
 				107E5DBF1E06DCF70047EFCF /* ComboButton.swift in Sources */,

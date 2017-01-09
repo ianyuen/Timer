@@ -32,4 +32,8 @@ class HistoryButton: View {
 		layer.masksToBounds = true
 		layer.cornerRadius = 8
 	}
+
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		
+	}
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class History: ViewController {
+class History: ViewController, UIScrollViewDelegate {
 	let objectManager = ObjectManager()
 
 	let content = HistoryScroll()
@@ -52,6 +52,7 @@ class History: ViewController {
 			case "backButton":
 				DrawButton(object)
 			case "scrollView":
+				content.delegate = self
 				objectManager.AddScrollView(content, view: view, object: object)
 			case "background":
 				DrawBackground(object)
