@@ -21,15 +21,15 @@ class SaveManager {
 	}
 
 	func SaveWorkouts(_ key: String, object: [Workout]) {
-		let defaults = Foundation.UserDefaults.standard
-		defaults.set(object, forKey: key)
+		let data = NSKeyedArchiver.archivedData(withRootObject: object)
+		let defaults = UserDefaults.standard
+		defaults.set(data, forKey: key)
 	}
 
 	func ReadWorkouts(_ key: String) -> [Workout] {
 		var object = [Workout]()
-		let defaults = Foundation.UserDefaults.standard
-		if HaveObject(key) == true {
-			object = defaults.object(forKey: key) as! [Workout]
+		if let data = UserDefaults.standard.object(forKey: key) as? NSData {
+			object = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Workout]
 		}
 		return object
 	}

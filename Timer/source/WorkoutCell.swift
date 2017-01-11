@@ -30,7 +30,9 @@ class WorkoutCell: ScrollView {
 
 		workouts = SaveManager.instance.ReadWorkouts("workouts")
 		if workouts.count == 0 {
-			workouts.append(Workout())
+			let coder = NSCoder()
+			workouts.append(Workout(coder: coder)!)
+			SaveManager.instance.SaveWorkouts("workouts", object: workouts)
 		}
 
 		let object = ScreenObject()
@@ -53,6 +55,6 @@ class WorkoutCell: ScrollView {
 
 	func btnWorkoutClicked(_ sender: WorkoutButton!) {
 		print("\(#function)")
-		Application.instance.SetCurrentWorkout(sender.title.text)
+		Application.instance.SetCurrentWorkout(sender.title.text!)
 	}
 }

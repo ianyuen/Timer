@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailsCell: ScrollView {
+	var workouts = [Workout]()
 	let objectManager = ObjectManager()
 
 	let totalText = TextBox()
@@ -88,6 +89,7 @@ class DetailsCell: ScrollView {
 			default: break
 			}
 		}
+		workouts = SaveManager.instance.ReadWorkouts("workouts")
 
 		HideSoundExpand(true)
 		HideVibrateExpand(true)
