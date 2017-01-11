@@ -30,8 +30,7 @@ class WorkoutCell: ScrollView {
 
 		workouts = SaveManager.instance.ReadWorkouts("workouts")
 		if workouts.count == 0 {
-			let coder = NSCoder()
-			workouts.append(Workout(coder: coder)!)
+			workouts.append(Workout(coder: NSCoder())!)
 			SaveManager.instance.SaveWorkouts("workouts", object: workouts)
 		}
 

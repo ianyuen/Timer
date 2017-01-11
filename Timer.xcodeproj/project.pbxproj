@@ -66,6 +66,7 @@
 		3CB204B71E1FF1A500433581 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB204B61E1FF1A500433581 /* SaveManager.swift */; };
 		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
 		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
+		3CFDA93E1E2687C000E9655A /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDA93D1E2687C000E9655A /* Coding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		3CB204B61E1FF1A500433581 /* SaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveManager.swift; path = Source/SaveManager.swift; sourceTree = "<group>"; };
 		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
 		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
+		3CFDA93D1E2687C000E9655A /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = Database/Coding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 		3CB204B31E1FE9C200433581 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				3CFDA93D1E2687C000E9655A /* Coding.swift */,
 				3CB204B41E1FF0F100433581 /* Workout.swift */,
 			);
 			name = Database;
@@ -388,6 +391,7 @@
 				10E288F01DE338C400A5C80B /* ObjectManager.swift in Sources */,
 				10ECC8011E0035E4000D2E7C /* Button.swift in Sources */,
 				1044DCA91DD20880006B6582 /* Application.swift in Sources */,
+				3CFDA93E1E2687C000E9655A /* Coding.swift in Sources */,
 				10ADCD671DE5F7C20078D587 /* RoundButton.swift in Sources */,
 				10443BF91DF3A42C00FAECA0 /* DetailsCell.swift in Sources */,
 				10E288F21DE33C1B00A5C80B /* ScreenObject.swift in Sources */,
