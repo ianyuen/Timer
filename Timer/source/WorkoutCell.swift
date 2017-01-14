@@ -26,7 +26,7 @@ class WorkoutCell: ScrollView {
 
 		workouts = Database.instance.ReadWorkouts("workouts")
 		if workouts.count == 0 {
-			workouts.append(Workout(coder: NSCoder())!)
+			workouts.append(Workout())
 			Database.instance.SaveWorkouts("workouts", object: workouts)
 		}
 
@@ -38,12 +38,15 @@ class WorkoutCell: ScrollView {
 		object.xPosition = 50
 
 		for workout in workouts {
+			var index = 0
 			let button = WorkoutButton()
 			object.text = workout.name
+			button.Index(index)
 			button.SetText(object.text)
 			button.SetWidth(object.width)
 			button.SetHeight(object.height)
 			objectManager.AddButton(button, parent: self, object: object)
+			index = index + 1
 			object.yPosition = object.yPosition + object.height + 10
 		}
 		SetCurrentWorkout(workouts[0].name)
@@ -58,7 +61,6 @@ class WorkoutCell: ScrollView {
 	}
 
 	func btnWorkoutClicked(_ sender: WorkoutButton!) {
-		print("\(#function): \(sender.title.text!)")
-		Application.instance.SetCurrentWorkout(sender.title.text!)
+		Application.instance.WorkoutIndex(sender.Index())
 	}
 }

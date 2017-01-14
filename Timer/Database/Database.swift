@@ -11,6 +11,14 @@ import Foundation
 class Database {
 	static let instance = Database()
 
+	func HaveData(_ key: String) -> Bool {
+		if UserDefaults.standard.data(forKey: key) != nil {
+			return true
+		} else {
+			return false
+		}
+	}
+
 	func SaveString(_ key: String, data: String) {
 		UserDefaults.standard.set(data, forKey: key)
 	}
@@ -29,8 +37,8 @@ class Database {
 	}
 
 	func ReadWorkouts(_ key: String) -> [Workout] {
-		if let data = UserDefaults.standard.object(forKey: key) as? NSData {
-			return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Workout]
+		if let data = UserDefaults.standard.data(forKey: key) {
+			return NSKeyedUnarchiver.unarchiveObject(with: data ) as! [Workout]
 		} else {
 			return [Workout]()
 		}

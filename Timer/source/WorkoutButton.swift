@@ -12,6 +12,7 @@ class WorkoutButton: Button {
 	let objectManager = ObjectManager()
 
 	private var text = ""
+	private var index: Int = 0
 	private var width: CGFloat = 0
 	private var height: CGFloat = 0
 
@@ -44,7 +45,10 @@ class WorkoutButton: Button {
 	func SetText(_ value: String) {
 		text = value
 	}
-	
+
+	func Index() -> Int { return index }
+	func Index(_ value: Int) { index = value }
+
 	func SetWidth(_ value: CGFloat) {
 		width = value
 	}

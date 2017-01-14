@@ -39,9 +39,11 @@ class Main: ViewController {
 		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: selector, userInfo: nil, repeats: true);
 		initView()
 
-		var workouts = [Workout]()
-		workouts.append(Workout(coder: NSCoder())!)
-		Database.instance.SaveWorkouts("defaultWorkout", object: workouts)
+		if Database.instance.HaveData("defaultWorkout") == false {
+			var workouts = [Workout]()
+			workouts.append(Workout())
+			Database.instance.SaveWorkouts("defaultWorkout", object: workouts)
+		}
 
 		//PrintFontNames()
 	}

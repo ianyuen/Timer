@@ -19,13 +19,9 @@ class Application {
 		message = value
 	}
 
-	private var currentWorkout = ""
-	func GetCurrentWorkout() -> String {
-		return currentWorkout
-	}
-	func SetCurrentWorkout(_ value: String) {
-		currentWorkout = value
-	}
+	private var workoutIndex = 0
+	func WorkoutIndex() -> Int { return workoutIndex }
+	func WorkoutIndex(_ index: Int) { workoutIndex = index }
 
 	enum WorkoutTask {
 		case new

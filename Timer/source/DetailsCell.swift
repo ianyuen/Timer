@@ -114,18 +114,16 @@ class DetailsCell: ScrollView {
 			profileText.textField.text = workouts[0].name
 			roundsNumber.textField.text = String(workouts[0].rounds)
 		case Application.WorkoutTask.edit:
-			let workoutName = GetCurrentWorkout()
-			for workout in Database.instance.ReadWorkouts("workouts") {
-				if workoutName == workout.name {
-					redTime.textBox.textField.text = String(workout.red)
-					roundTime.textBox.textField.text = String(workout.roundTime)
-					warmUpTime.textBox.textField.text = String(workout.warmUp)
-					coolDownTime.textBox.textField.text = String(workout.coolDown)
+			let workoutIndex = Application.instance.WorkoutIndex()
+			let workouts = Database.instance.ReadWorkouts("workouts")
 
-					profileText.textField.text = workout.name
-					roundsNumber.textField.text = String(workout.rounds)
-				}
-			}
+			redTime.textBox.textField.text = String(workouts[workoutIndex].red)
+			roundTime.textBox.textField.text = String(workouts[workoutIndex].roundTime)
+			warmUpTime.textBox.textField.text = String(workouts[workoutIndex].warmUp)
+			coolDownTime.textBox.textField.text = String(workouts[workoutIndex].coolDown)
+
+			profileText.textField.text = workouts[workoutIndex].name
+			roundsNumber.textField.text = String(workouts[workoutIndex].rounds)
 		}
 	}
 
@@ -257,10 +255,6 @@ class DetailsCell: ScrollView {
 		}
 	}
 
-	func GetCurrentWorkout() -> String {
-		return Database.instance.ReadString("currentWorkout")
-	}
-
 	func HideVibrateExpand(_ hidden: Bool) {
 		vibrateExpand.isHidden = hidden
 		vibrateNo.isHidden = hidden
@@ -289,34 +283,28 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnSaveClicked(_ sender: Button) {
-		let workout = Workout(coder: NSCoder())
-		workout?.name = profileText.textField.text!
-		workout?.rounds = Int(roundsNumber.textField.text!)!
-		workout?.red = Int(redTime.textBox.textField.text!)!
-		workout?.roundTime = Int(roundTime.textBox.textField.text!)!
-		workout?.warmUp = Int(warmUpTime.textBox.textField.text!)!
-		workout?.coolDown = Int(coolDownTime.textBox.textField.text!)!
+		let workout = Workout()
+		workout.name = profileText.textField.text!
+		workout.rounds = Int(roundsNumber.textField.text!)!
+		workout.red = Int(redTime.textBox.textField.text!)!
+		workout.roundTime = Int(roundTime.textBox.textField.text!)!
+		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
+		workout.coolDown = Int(coolDownTime.textBox.textField.text!)!
 
 		var workouts = Database.instance.ReadWorkouts("workouts")
 		switch Application.instance.GetWorkoutTask() {
 		case Application.WorkoutTask.new:
 			var canAdd = true
 			for temp in workouts {
-				if temp.name == profileText.textField.text {
+				if temp.name == profileText.GetText() {
 					canAdd = false
 				}
 			}
 			if canAdd {
-				workouts.append(workout!)
+				workouts.append(workout)
 			}
 		case Application.WorkoutTask.edit:
-			var i = 0
-			for temp in workouts {
-				if temp.name == profileText.textField.text {
-					workouts[i] = temp
-				}
-				i = i + 1
-			}
+			workouts[Application.instance.WorkoutIndex()] = workout
 		}
 		Database.instance.SaveWorkouts("workouts", object: workouts)
 		controller.PerformSegue("showSettings")

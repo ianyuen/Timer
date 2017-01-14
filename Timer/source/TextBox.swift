@@ -36,6 +36,8 @@ class TextBox: UIView {
 				object.font = fontName
 				object.size = fontSize
 				objectManager.AddTextField(textField, view: self, object: object)
+				let selector = #selector(textFieldDidChange(_:))
+				textField.addTarget(self, action: selector, for: .editingChanged)
 			case "background":
 				object.backColor = backColor
 				objectManager.AddBackground(background, parent: self, object: object)
@@ -56,6 +58,10 @@ class TextBox: UIView {
 
 	func SetText(_ value: String) {
 		text = value
+	}
+
+	func GetText() -> String {
+		return text
 	}
 
 	func SetFont(_ name: String, size: CGFloat) {
@@ -81,5 +87,9 @@ class TextBox: UIView {
 
 	func SetBackground(_ value: UIImage) {
 		image = value
+	}
+
+	func textFieldDidChange(_ sender: UITextField) {
+		text = sender.text!
 	}
 }
