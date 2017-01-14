@@ -12,7 +12,6 @@ import Foundation
 class ObjectManager {
 	let color = Color()
 	var parent = UIView()
-	//var controller = UIViewController()
 
 	private var screenObjects = [ScreenObject]()
 

@@ -289,7 +289,37 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnSaveClicked(_ sender: Button) {
-		print("\(#function)")
+		let workout = Workout(coder: NSCoder())
+		workout?.name = profileText.textField.text!
+		workout?.rounds = Int(roundsNumber.textField.text!)!
+		workout?.red = Int(redTime.textBox.textField.text!)!
+		workout?.roundTime = Int(roundTime.textBox.textField.text!)!
+		workout?.warmUp = Int(warmUpTime.textBox.textField.text!)!
+		workout?.coolDown = Int(coolDownTime.textBox.textField.text!)!
+
+		var workouts = Database.instance.ReadWorkouts("workouts")
+		switch Application.instance.GetWorkoutTask() {
+		case Application.WorkoutTask.new:
+			var canAdd = true
+			for temp in workouts {
+				if temp.name == profileText.textField.text {
+					canAdd = false
+				}
+			}
+			if canAdd {
+				workouts.append(workout!)
+			}
+		case Application.WorkoutTask.edit:
+			var i = 0
+			for temp in workouts {
+				if temp.name == profileText.textField.text {
+					workouts[i] = temp
+				}
+				i = i + 1
+			}
+		}
+		Database.instance.SaveWorkouts("workouts", object: workouts)
+		//controller.BackToSettings()
 	}
 
 	func btnDeleteClicked(_ sender: Button) {

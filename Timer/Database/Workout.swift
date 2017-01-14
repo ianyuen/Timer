@@ -9,16 +9,16 @@
 import Foundation
 
 class Workout: Coding {
-	let name = "Workout"
-	let rounds = 2
+	var name = "Workout"
+	var rounds = 2
 
 	var red = 30
 	var warmUp = 30
 	var coolDown = 30
 	var roundTime = 30
 
-	let sound = "Digital"
-	let vibrate = true
-	let routine = true
-	let motivation = true
+	var sound = "Digital"
+	var vibrate = true
+	var routine = true
+	var motivation = true
 }

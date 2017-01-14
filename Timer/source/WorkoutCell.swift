@@ -21,9 +21,6 @@ class WorkoutCell: ScrollView {
 	override func initView() {
 		objectManager.parent = self
 
-		let contentHeight = fitContentHeight()
-		contentSize = CGSize(width: frame.width, height: contentHeight)
-
 		let color = Color()
 		backgroundColor = color.UIColorFromHex(0xf9aa43)
 
@@ -47,9 +44,13 @@ class WorkoutCell: ScrollView {
 			button.SetWidth(object.width)
 			button.SetHeight(object.height)
 			objectManager.AddButton(button, parent: self, object: object)
-			object.yPosition = object.height + 10
+			object.yPosition = object.yPosition + object.height + 10
 		}
 		SetCurrentWorkout(workouts[0].name)
+
+		let height: CGFloat = CGFloat((workouts.count * 128) + ((workouts.count - 1) * 10))
+		let contentHeight = ScreenSize.instance.GetItemHeight(height)
+		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 
 	func SetCurrentWorkout(_ data: String) {
@@ -57,6 +58,7 @@ class WorkoutCell: ScrollView {
 	}
 
 	func btnWorkoutClicked(_ sender: WorkoutButton!) {
+		print("\(#function): \(sender.title.text!)")
 		Application.instance.SetCurrentWorkout(sender.title.text!)
 	}
 }
