@@ -37,8 +37,8 @@ class WorkoutCell: ScrollView {
 		object.clicked = #selector(btnWorkoutClicked(_:))
 		object.xPosition = 50
 
+		var index = 0
 		for workout in workouts {
-			var index = 0
 			let button = WorkoutButton()
 			object.text = workout.name
 			button.Index(index)
