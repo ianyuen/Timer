@@ -225,7 +225,7 @@ class DetailsCell: ScrollView {
 			deleteButton.SetText(object.text)
 			deleteButton.SetWidth(object.width)
 			deleteButton.SetHeight(object.height)
-			objectManager.AddButton(deleteButton, parent: self, object: object)
+			objectManager.AddButton(deleteButton, parent: self, object: object, target: self)
 
 		case "soundNo":
 			objectManager.AddButton(soundNo, parent: self, object: object)
@@ -286,6 +286,14 @@ class DetailsCell: ScrollView {
 		soundHuman.isHidden = hidden
 		soundBoxing.isHidden = hidden
 		soundDigital.isHidden = hidden
+	}
+
+	func btnSaveClicked(_ sender: Button) {
+		print("\(#function)")
+	}
+
+	func btnDeleteClicked(_ sender: Button) {
+		print("\(#function)")
 	}
 
 	func btnSoundClicked(_ sender:UIButton!) {

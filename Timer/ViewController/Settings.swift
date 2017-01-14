@@ -92,6 +92,6 @@ class Settings: ViewController {
 	}
 
 	func btnWeightClicked(_ sender:UIButton!) {
-		self.performSegue(withIdentifier: "showDetails", sender: self)
+		//self.performSegue(withIdentifier: "showDetails", sender: self)
 	}
 }

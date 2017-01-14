@@ -453,7 +453,7 @@
 		<posX>83</posX>
 		<posY>2912 + 116</posY>
 		<text>SAVE</text>
-		<clicked>btnNewClicked</clicked>
+		<clicked>btnSaveClicked</clicked>
 	</object>
 	
 	<object>
@@ -464,8 +464,6 @@
 		<posX>647</posX>
 		<posY>2912 + 116</posY>
 		<text>DELETE</text>
-		<!--
-		<clicked>btnEditClicked</clicked>
-		 -->
+		<clicked>btnDeleteClicked</clicked>
 	</object>
 </view>
