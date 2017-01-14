@@ -75,10 +75,6 @@ class Details: ViewController {
 		}
 	}
 
-	func BackToSettings() {
-		self.performSegue(withIdentifier: "showSettings", sender: self)
-	}
-
 	func btnBackClicked(_ sender:UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}

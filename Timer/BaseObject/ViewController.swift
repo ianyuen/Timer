@@ -21,13 +21,8 @@ class ViewController: UIViewController {
 	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 		return UIInterfaceOrientationMask.portrait
 	}
-/*
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
+	func PerformSegue(_ identifier: String) {
+		performSegue(withIdentifier: identifier, sender: self)
 	}
-*/
 }

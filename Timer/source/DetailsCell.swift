@@ -319,7 +319,7 @@ class DetailsCell: ScrollView {
 			}
 		}
 		Database.instance.SaveWorkouts("workouts", object: workouts)
-		//controller.BackToSettings()
+		controller.PerformSegue("showSettings")
 	}
 
 	func btnDeleteClicked(_ sender: Button) {
