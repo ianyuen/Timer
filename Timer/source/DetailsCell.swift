@@ -9,7 +9,6 @@
 import UIKit
 
 class DetailsCell: ScrollView {
-	var workouts = [Workout]()
 	let objectManager = ObjectManager()
 
 	let totalText = TextBox()
@@ -89,7 +88,6 @@ class DetailsCell: ScrollView {
 			default: break
 			}
 		}
-		workouts = SaveManager.instance.ReadWorkouts("workouts")
 
 		HideSoundExpand(true)
 		HideVibrateExpand(true)
@@ -102,6 +100,15 @@ class DetailsCell: ScrollView {
 			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
 		}
 		contentSize = CGSize(width: frame.width, height: contentHeight)
+
+		let currentWorkout = GetCurrentWorkout()
+		let workouts = Database.instance.ReadWorkouts("workouts")
+		for workout in workouts {
+			if currentWorkout == workout.name {
+				profileText.textField.text = workout.name
+				roundsNumber.textField.text = String(workout.rounds)
+			}
+		}
 	}
 
 	func AddLabel(_ object: ScreenObject) {
@@ -138,8 +145,10 @@ class DetailsCell: ScrollView {
 		case "round2Text":
 			objectManager.AddTextBox(round2Text, view: self, object: object)
 		case "profileText":
+			object.text = profileText.textField.text!
 			objectManager.AddTextBox(profileText, view: self, object: object)
 		case "roundsNumber":
+			object.text = roundsNumber.textField.text!
 			objectManager.AddTextBox(roundsNumber, view: self, object: object)
 		default: break
 		}
@@ -230,40 +239,8 @@ class DetailsCell: ScrollView {
 		}
 	}
 
-	func btnSoundClicked(_ sender:UIButton!) {
-		soundExpand.isHidden = !soundExpand.isHidden
-		soundNo.isHidden = !soundNo.isHidden
-		soundGym.isHidden = !soundGym.isHidden
-		soundHuman.isHidden = !soundHuman.isHidden
-		soundBoxing.isHidden = !soundBoxing.isHidden
-		soundDigital.isHidden = !soundDigital.isHidden
-	}
-
-	func btnVibrateClicked(_ sender:UIButton!) {
-		vibrateExpand.isHidden = !vibrateExpand.isHidden
-		vibrateNo.isHidden = !vibrateNo.isHidden
-		vibrateYes.isHidden = !vibrateYes.isHidden
-	}
-
-	func btnRoutineClicked(_ sender:UIButton!) {
-		routineExpand.isHidden = !routineExpand.isHidden
-		routineNo.isHidden = !routineNo.isHidden
-		routineYes.isHidden = !routineYes.isHidden
-	}
-
-	func btnMotivationClicked(_ sender:UIButton!) {
-		motivationExpand.isHidden = !motivationExpand.isHidden
-		motivationNo.isHidden = !motivationNo.isHidden
-		motivationYes.isHidden = !motivationYes.isHidden
-	}
-
-	func HideSoundExpand(_ hidden: Bool) {
-		soundExpand.isHidden = hidden
-		soundNo.isHidden = hidden
-		soundGym.isHidden = hidden
-		soundHuman.isHidden = hidden
-		soundBoxing.isHidden = hidden
-		soundDigital.isHidden = hidden
+	func GetCurrentWorkout() -> String {
+		return Database.instance.ReadString("currentWorkout")
 	}
 
 	func HideVibrateExpand(_ hidden: Bool) {
@@ -282,6 +259,42 @@ class DetailsCell: ScrollView {
 		motivationExpand.isHidden = hidden
 		motivationNo.isHidden = hidden
 		motivationYes.isHidden = hidden
+	}
+
+	func HideSoundExpand(_ hidden: Bool) {
+		soundExpand.isHidden = hidden
+		soundNo.isHidden = hidden
+		soundGym.isHidden = hidden
+		soundHuman.isHidden = hidden
+		soundBoxing.isHidden = hidden
+		soundDigital.isHidden = hidden
+	}
+
+	func btnSoundClicked(_ sender:UIButton!) {
+		soundExpand.isHidden = !soundExpand.isHidden
+		soundNo.isHidden = !soundNo.isHidden
+		soundGym.isHidden = !soundGym.isHidden
+		soundHuman.isHidden = !soundHuman.isHidden
+		soundBoxing.isHidden = !soundBoxing.isHidden
+		soundDigital.isHidden = !soundDigital.isHidden
+	}
+	
+	func btnVibrateClicked(_ sender:UIButton!) {
+		vibrateExpand.isHidden = !vibrateExpand.isHidden
+		vibrateNo.isHidden = !vibrateNo.isHidden
+		vibrateYes.isHidden = !vibrateYes.isHidden
+	}
+	
+	func btnRoutineClicked(_ sender:UIButton!) {
+		routineExpand.isHidden = !routineExpand.isHidden
+		routineNo.isHidden = !routineNo.isHidden
+		routineYes.isHidden = !routineYes.isHidden
+	}
+	
+	func btnMotivationClicked(_ sender:UIButton!) {
+		motivationExpand.isHidden = !motivationExpand.isHidden
+		motivationNo.isHidden = !motivationNo.isHidden
+		motivationYes.isHidden = !motivationYes.isHidden
 	}
 
 	func soundNoClicked(_ sender: Button) {

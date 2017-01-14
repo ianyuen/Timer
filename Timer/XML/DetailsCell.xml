@@ -6,7 +6,6 @@
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>50</posX>
-		<text>Profile Name</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 		<backColor>fce578</backColor>
@@ -19,7 +18,6 @@
 		<height>128</height>
 		<posX>330</posX>
 		<posY>178</posY>
-		<text>16</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 		<backColor>D86E29</backColor>

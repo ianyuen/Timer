@@ -28,10 +28,10 @@ class WorkoutCell: ScrollView {
 		let color = Color()
 		backgroundColor = color.UIColorFromHex(0xf9aa43)
 
-		workouts = SaveManager.instance.ReadWorkouts("workouts")
+		workouts = Database.instance.ReadWorkouts("workouts")
 		if workouts.count == 0 {
 			workouts.append(Workout(coder: NSCoder())!)
-			SaveManager.instance.SaveWorkouts("workouts", object: workouts)
+			Database.instance.SaveWorkouts("workouts", object: workouts)
 		}
 
 		let object = ScreenObject()
@@ -50,10 +50,14 @@ class WorkoutCell: ScrollView {
 			objectManager.AddButton(button, parent: self, object: object, target: self)
 			object.yPosition = object.height + 10
 		}
+		SetCurrentWorkout(workouts[0].name)
+	}
+
+	func SetCurrentWorkout(_ data: String) {
+		Database.instance.SaveString("currentWorkout", data: data)
 	}
 
 	func btnWorkoutClicked(_ sender: WorkoutButton!) {
-		print("\(#function)")
 		Application.instance.SetCurrentWorkout(sender.title.text!)
 	}
 }
