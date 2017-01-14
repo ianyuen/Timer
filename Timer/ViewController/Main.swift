@@ -53,7 +53,6 @@ class Main: ViewController {
 
 	func initView() {
 		objectManager.parent = view
-		objectManager.controller = self
 		objectManager.Parse("Main")
 		for object in objectManager.GetObjects() {
 			switch object.type {
@@ -66,7 +65,7 @@ class Main: ViewController {
 			case "mainButton":
 				DrawMainButton(object)
 			case "roundButton":
-				objectManager.AddButton(roundButton, parent: view, object: object)
+				objectManager.AddButton(roundButton, parent: view, object: object, target: self)
 			default: break
 			}
 		}
@@ -90,10 +89,10 @@ class Main: ViewController {
 		switch object.name {
 		case "historyButton":
 			historyButton.setImage(object.icon, for: UIControlState.normal)
-			objectManager.AddButton(historyButton, parent: view, object: object)
+			objectManager.AddButton(historyButton, parent: view, object: object, target: self)
 		case "settingsButton":
 			settingsButton.setImage(object.icon, for: UIControlState.normal)
-			objectManager.AddButton(settingsButton, parent: view, object: object)
+			objectManager.AddButton(settingsButton, parent: view, object: object, target: self)
 		default: break
 		}
 	}
@@ -103,11 +102,11 @@ class Main: ViewController {
 		case "startButton":
 			startButton.SetIcon(object.icon)
 			startButton.SetTitle(object.text)
-			objectManager.AddButton(startButton, parent: view, object: object)
+			objectManager.AddButton(startButton, parent: view, object: object, target: self)
 		case "resetButton":
 			resetButton.SetIcon(object.icon)
 			resetButton.SetTitle(object.text)
-			objectManager.AddButton(resetButton, parent: view, object: object)
+			objectManager.AddButton(resetButton, parent: view, object: object, target: self)
 		default: break
 		}
 	}
@@ -122,7 +121,7 @@ class Main: ViewController {
 		}
 	}
 
-	func btnResetClicked(_ sender:UIButton!) {
+	func btnResetClicked(_ sender: UIButton!) {
 		angle = 0
 		counting = false
 		endSecond = 60
@@ -132,22 +131,6 @@ class Main: ViewController {
 		roundNumber = 15
 		round.text = "ROUND   " + String(roundNumber) + "/15"
 		roundButton.initView()
-	}
-
-	func btnStartClicked(_ sender:UIButton!) {
-		counting = !counting
-	}
-
-	func btnRoundClicked(_ sender:UIButton!) {
-		counting = !counting
-	}
-
-	func btnHistoryClicked(_ sender:UIButton!) {
-		self.performSegue(withIdentifier: "showHistory", sender: self)
-	}
-
-	func btnSettingsClicked(_ sender:UIButton!) {
-		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}
 
 	func ConvertToClock(_ value: Int) -> String{
@@ -208,5 +191,21 @@ class Main: ViewController {
 			let names = UIFont.fontNames(forFamilyName: familyName)
 			print("Font Names = [\(names)]")
 		}
+	}
+
+	func btnStartClicked(_ sender: UIButton!) {
+		counting = !counting
+	}
+	
+	func btnRoundClicked(_ sender: UIButton!) {
+		counting = !counting
+	}
+	
+	func btnHistoryClicked(_ sender: UIButton!) {
+		self.performSegue(withIdentifier: "showHistory", sender: self)
+	}
+	
+	func btnSettingsClicked(_ sender: UIButton!) {
+		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}
 }

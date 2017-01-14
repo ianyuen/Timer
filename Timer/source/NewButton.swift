@@ -37,10 +37,6 @@ class NewButton: Button {
 		layer.cornerRadius = 8
 	}
 
-	func SetController(_ viewController: UIViewController) {
-		objectManager.controller = viewController
-	}
-
 	func SetText(_ value: String) {
 		text = value
 	}

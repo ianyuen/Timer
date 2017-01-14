@@ -43,7 +43,6 @@ class History: ViewController, UIScrollViewDelegate {
 
 	func initView() {
 		objectManager.parent = view
-		objectManager.controller = self
 		objectManager.Parse("History")
 		for object in objectManager.GetObjects() {
 			switch object.type {
@@ -69,7 +68,7 @@ class History: ViewController, UIScrollViewDelegate {
 	func DrawButton(_ object: ScreenObject) {
 		switch object.name {
 		case "backButton":
-			objectManager.AddButton(backButton, parent: view, object: object)
+			objectManager.AddButton(backButton, parent: view, object: object, target: self)
 		default: break
 		}
 	}

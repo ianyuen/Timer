@@ -36,7 +36,6 @@ class Settings: ViewController {
 
 	func initView() {
 		objectManager.parent = view
-		objectManager.controller = self
 		objectManager.Parse("Settings")
 		for object in objectManager.GetObjects() {
 			switch object.type {
@@ -53,7 +52,7 @@ class Settings: ViewController {
 					DrawNewButton(weightButton, object: object)
 				}
 			case "backButton":
-				objectManager.AddButton(backButton, parent: view, object: object)
+				objectManager.AddButton(backButton, parent: view, object: object, target: self)
 			case "scrollView":
 				objectManager.AddScrollView(content, view: view, object: object)
 			default: break
@@ -75,7 +74,7 @@ class Settings: ViewController {
 		button.SetText(object.text)
 		button.SetWidth(object.width)
 		button.SetHeight(object.height)
-		objectManager.AddButton(button, parent: view, object: object)
+		objectManager.AddButton(button, parent: view, object: object, target: self)
 	}
 
 	func btnBackClicked(_ sender:UIButton!) {

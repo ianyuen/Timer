@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailsCell: ScrollView {
+	var controller = ViewController()
 	let objectManager = ObjectManager()
 
 	let totalText = TextBox()
@@ -101,25 +102,26 @@ class DetailsCell: ScrollView {
 		}
 		contentSize = CGSize(width: frame.width, height: contentHeight)
 
-		//var currentWorkout = Workout(coder: NSCoder())
-		if Application.instance.GetWorkoutTask() == Application.WorkoutTask.edit {
-			let workoutName = GetCurrentWorkout()
-			for workout in Database.instance.ReadWorkouts("workouts") {
-				if workoutName == workout.name {
-					profileText.textField.text = workout.name
-					roundsNumber.textField.text = String(workout.rounds)
-				}
-			}
-		}
 		switch Application.instance.GetWorkoutTask() {
 		case Application.WorkoutTask.new:
 			let workouts = Database.instance.ReadWorkouts("defaultWorkout")
+
+			redTime.textBox.textField.text = String(workouts[0].red)
+			roundTime.textBox.textField.text = String(workouts[0].roundTime)
+			warmUpTime.textBox.textField.text = String(workouts[0].warmUp)
+			coolDownTime.textBox.textField.text = String(workouts[0].coolDown)
+
 			profileText.textField.text = workouts[0].name
 			roundsNumber.textField.text = String(workouts[0].rounds)
 		case Application.WorkoutTask.edit:
 			let workoutName = GetCurrentWorkout()
 			for workout in Database.instance.ReadWorkouts("workouts") {
 				if workoutName == workout.name {
+					redTime.textBox.textField.text = String(workout.red)
+					roundTime.textBox.textField.text = String(workout.roundTime)
+					warmUpTime.textBox.textField.text = String(workout.warmUp)
+					coolDownTime.textBox.textField.text = String(workout.coolDown)
+
 					profileText.textField.text = workout.name
 					roundsNumber.textField.text = String(workout.rounds)
 				}
@@ -218,7 +220,7 @@ class DetailsCell: ScrollView {
 			saveButton.SetText(object.text)
 			saveButton.SetWidth(object.width)
 			saveButton.SetHeight(object.height)
-			objectManager.AddButton(saveButton, parent: self, object: object)
+			objectManager.AddButton(saveButton, parent: self, object: object, target: self)
 		case "deleteButton":
 			deleteButton.SetText(object.text)
 			deleteButton.SetWidth(object.width)
@@ -226,30 +228,30 @@ class DetailsCell: ScrollView {
 			objectManager.AddButton(deleteButton, parent: self, object: object)
 
 		case "soundNo":
-			objectManager.AddButton(soundNo, parent: self, object: object, target: self)
+			objectManager.AddButton(soundNo, parent: self, object: object)
 		case "soundGym":
-			objectManager.AddButton(soundGym, parent: self, object: object, target: self)
+			objectManager.AddButton(soundGym, parent: self, object: object)
 		case "soundHuman":
-			objectManager.AddButton(soundHuman, parent: self, object: object, target: self)
+			objectManager.AddButton(soundHuman, parent: self, object: object)
 		case "soundBoxing":
-			objectManager.AddButton(soundBoxing, parent: self, object: object, target: self)
+			objectManager.AddButton(soundBoxing, parent: self, object: object)
 		case "soundDigital":
-			objectManager.AddButton(soundDigital, parent: self, object: object, target: self)
+			objectManager.AddButton(soundDigital, parent: self, object: object)
 
 		case "vibrateNo":
-			objectManager.AddButton(vibrateNo, parent: self, object: object, target: self)
+			objectManager.AddButton(vibrateNo, parent: self, object: object)
 		case "vibrateYes":
-			objectManager.AddButton(vibrateYes, parent: self, object: object, target: self)
+			objectManager.AddButton(vibrateYes, parent: self, object: object)
 
 		case "routineNo":
-			objectManager.AddButton(routineNo, parent: self, object: object, target: self)
+			objectManager.AddButton(routineNo, parent: self, object: object)
 		case "routineYes":
-			objectManager.AddButton(routineYes, parent: self, object: object, target: self)
+			objectManager.AddButton(routineYes, parent: self, object: object)
 
 		case "motivationNo":
-			objectManager.AddButton(motivationNo, parent: self, object: object, target: self)
+			objectManager.AddButton(motivationNo, parent: self, object: object)
 		case "motivationYes":
-			objectManager.AddButton(motivationYes, parent: self, object: object, target: self)
+			objectManager.AddButton(motivationYes, parent: self, object: object)
 
 		default: break
 		}

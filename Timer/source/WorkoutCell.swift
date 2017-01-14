@@ -20,7 +20,6 @@ class WorkoutCell: ScrollView {
 
 	override func initView() {
 		objectManager.parent = self
-		objectManager.controller = controller
 
 		let contentHeight = fitContentHeight()
 		contentSize = CGSize(width: frame.width, height: contentHeight)
@@ -47,7 +46,7 @@ class WorkoutCell: ScrollView {
 			button.SetText(object.text)
 			button.SetWidth(object.width)
 			button.SetHeight(object.height)
-			objectManager.AddButton(button, parent: self, object: object, target: self)
+			objectManager.AddButton(button, parent: self, object: object)
 			object.yPosition = object.height + 10
 		}
 		SetCurrentWorkout(workouts[0].name)

@@ -12,7 +12,7 @@ import Foundation
 class ObjectManager {
 	let color = Color()
 	var parent = UIView()
-	var controller = UIViewController()
+	//var controller = UIViewController()
 
 	private var screenObjects = [ScreenObject]()
 
@@ -32,13 +32,13 @@ class ObjectManager {
 				case "label":
 					AddLabel(object as! UILabel, parent: parent, object: screenObject, spec: spec)
 				case "image":
-					AddImage(object as! UIImageView, view: parent, object: screenObject, angle: angle, image: image)
+					AddImage(object as! UIImageView, parent: parent, object: screenObject, angle: angle, image: image)
 				case "button":
 					AddButton(object as! Button, parent: parent, object: screenObject)
 				case "background":
 					AddBackground(object as! UILabel , parent: parent, object: screenObject)
 				case "roundButton":
-					AddRoundButton(object as! RoundButton, view: parent, object: screenObject)
+					AddRoundButton(object as! RoundButton, parent: parent, object: screenObject)
 				default: break
 				}
 			}
@@ -188,7 +188,7 @@ class ObjectManager {
 		parent.addSubview(label)
 	}
 
-	func AddImage(_ imageView: UIImageView, view: UIView, object: ScreenObject, angle: CGFloat = 0, image: String = "") {
+	func AddImage(_ imageView: UIImageView, parent: UIView, object: ScreenObject, angle: CGFloat = 0, image: String = "") {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 
@@ -202,7 +202,7 @@ class ObjectManager {
 			imageView.image = UIImage(named: image)
 		}
 		imageView.transform = CGAffineTransform(rotationAngle: angle)
-		view.addSubview(imageView)
+		parent.addSubview(imageView)
 	}
 
 	func AddButton(_ button: Button, parent: UIView, object: ScreenObject, target: Any! = nil) {
@@ -214,10 +214,10 @@ class ObjectManager {
 		
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
 		if object.clicked != nil {
-			if target != nil {
+			if target == nil {
 				button.addTarget(parent, action: object.clicked!, for: UIControlEvents.touchUpInside)
 			} else {
-				button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+				button.addTarget(target, action: object.clicked!, for: UIControlEvents.touchUpInside)
 			}
 		}
 		button.initView()
@@ -351,16 +351,16 @@ class ObjectManager {
 		parent.addSubview(comboBox)
 	}
 
-	func AddRoundButton(_ button : RoundButton, view: UIView, object: ScreenObject) {
+	func AddRoundButton(_ button : RoundButton, parent: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		button.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		button.addTarget(controller, action: object.clicked!, for: UIControlEvents.touchUpInside)
+		button.addTarget(parent, action: object.clicked!, for: UIControlEvents.touchUpInside)
 		button.initView()
-		view.addSubview(button)
+		parent.addSubview(button)
 	}
 
 	func AddRoundSecondsGroup(group: RoundSecondsGroup, view: UIView, object: ScreenObject) {

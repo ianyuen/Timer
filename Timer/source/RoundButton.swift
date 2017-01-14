@@ -23,7 +23,6 @@ class RoundButton: Button {
 
 	override func initView () {
 		objectManager.parent = self
-		objectManager.controller = controller
 		objectManager.Parse("RoundButton")
 		objectManager.DrawObject(background1, type: "image", name: "background1")
 		objectManager.DrawObject(background2, type: "image", name: "background2")

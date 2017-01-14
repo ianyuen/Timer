@@ -17,12 +17,11 @@ class BackButton: Button {
 	override func initView() {
 		let objectManager = ObjectManager()
 		objectManager.parent = self
-		objectManager.controller = controller
 		objectManager.Parse("BackButton")
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "image":
-				objectManager.AddImage(image, view: self, object: object)
+				objectManager.AddImage(image, parent: self, object: object)
 			case "label":
 				objectManager.AddLabel(title, parent: self, object: object)
 			default: break

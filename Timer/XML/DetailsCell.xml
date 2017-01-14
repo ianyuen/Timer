@@ -453,9 +453,7 @@
 		<posX>83</posX>
 		<posY>2912 + 116</posY>
 		<text>SAVE</text>
-		<!--
 		<clicked>btnNewClicked</clicked>
-		 -->
 	</object>
 	
 	<object>

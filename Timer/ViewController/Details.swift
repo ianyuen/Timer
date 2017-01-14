@@ -40,15 +40,15 @@ class Details: ViewController {
 
 	func initView() {
 		objectManager.parent = view
-		objectManager.controller = self
 		objectManager.Parse("Details")
 		for object in objectManager.GetObjects() {
 			switch object.type {
 			case "label":
 				DrawLabel(object)
 			case "backButton":
-				objectManager.AddButton(backButton, parent: view, object: object)
+				objectManager.AddButton(backButton, parent: view, object: object, target: self)
 			case "scrollView":
+				content.controller = self
 				objectManager.AddScrollView(content, view: view, object: object)
 			case "background":
 				DrawBackground(object)
@@ -73,6 +73,10 @@ class Details: ViewController {
 			objectManager.AddBackground(background, parent: view, object: object)
 		default: break
 		}
+	}
+
+	func btnNewClicked(_ sender: Button) {
+		print("\(#function)")
 	}
 
 	func btnBackClicked(_ sender:UIButton!) {

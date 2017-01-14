@@ -21,7 +21,7 @@ class TextBox: UIView {
 	private var backColor: UInt32 = 0
 	private var textColor: UInt32 = 0
 
-	let textField = UITextField()
+	var textField = UITextField()
 	let background = UILabel()
 
 	func initView() {

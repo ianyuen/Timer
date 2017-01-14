@@ -48,9 +48,9 @@ class MainButton: Button {
 		switch object.name {
 		case "icon":
 			object.icon = icon.image!
-			objectManager.AddImage(icon, view: self, object: object)
+			objectManager.AddImage(icon, parent: self, object: object)
 		case "background":
-			objectManager.AddImage(background, view: self, object: object)
+			objectManager.AddImage(background, parent: self, object: object)
 		default: break
 		}
 	}

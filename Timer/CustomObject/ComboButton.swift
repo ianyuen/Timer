@@ -32,7 +32,7 @@ class ComboButton: Button {
 				object.text = text
 				objectManager.AddLabel(label, parent: self, object: object)
 			case "image":
-				objectManager.AddImage(icon, view: self, object: object)
+				objectManager.AddImage(icon, parent: self, object: object)
 			case "background":
 				DrawBackground(object: object)
 			default: break

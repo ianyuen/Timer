@@ -17,7 +17,6 @@ class HistoryDetails: ViewController {
 		super.viewDidLoad()
 
 		objectManager.parent = view
-		objectManager.controller = self
 		objectManager.Parse("Main")
 		for object in objectManager.GetObjects() {
 			switch object.type {

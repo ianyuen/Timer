@@ -23,7 +23,7 @@ class HistoryButton: View {
 			case "button":
 				objectManager.AddButton(deleteButton, parent: self, object: object)
 			case "viewButton":
-				objectManager.AddButton(viewButton, parent: self, object: object, target: History())
+				objectManager.AddButton(viewButton, parent: self, object: object)
 			case "background":
 				objectManager.AddBackground(background, parent: self, object: object)
 			default: break

@@ -17,12 +17,11 @@ class RoundSecondsGroup: View {
 
 	let icon = UIImageView()
 	let title = UILabel()
-	let textBox = TextBox()
+	var textBox = TextBox()
 	let seconds = UILabel()
 
 	override func initView() {
 		objectManager.parent = self
-		objectManager.controller = controller
 		objectManager.Parse("RoundSecondGroup")
 		for object in objectManager.GetObjects() {
 			switch object.type {
@@ -30,8 +29,9 @@ class RoundSecondsGroup: View {
 				DrawLabel(object)
 			case "image":
 				object.icon = image
-				objectManager.AddImage(icon, view: self, object: object)
+				objectManager.AddImage(icon, parent: self, object: object)
 			case "textBox":
+				object.text = textBox.textField.text!
 				objectManager.AddTextBox(textBox, view: self, object: object)
 			default: break
 			}
