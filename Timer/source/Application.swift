@@ -11,13 +11,13 @@ import Foundation
 class Application {
     static let instance = Application()
 
-    var message = ""
-    func GetMessage() -> String {
-        return message
-    }
-    func SetMessage(_ value: String) {
-        message = value
-    }
+	private var message = ""
+	func GetMessage() -> String {
+		return message
+	}
+	func SetMessage(_ value: String) {
+		message = value
+	}
 
 	private var currentWorkout = ""
 	func GetCurrentWorkout() -> String {
@@ -25,5 +25,17 @@ class Application {
 	}
 	func SetCurrentWorkout(_ value: String) {
 		currentWorkout = value
+	}
+
+	enum WorkoutTask {
+		case new
+		case edit
+	}
+	private var workoutTask = WorkoutTask.new
+	func GetWorkoutTask() -> WorkoutTask {
+		return workoutTask
+	}
+	func SetWorkoutTask(_ task: WorkoutTask) {
+		workoutTask = task
 	}
 }

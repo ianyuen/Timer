@@ -101,12 +101,28 @@ class DetailsCell: ScrollView {
 		}
 		contentSize = CGSize(width: frame.width, height: contentHeight)
 
-		let currentWorkout = GetCurrentWorkout()
-		let workouts = Database.instance.ReadWorkouts("workouts")
-		for workout in workouts {
-			if currentWorkout == workout.name {
-				profileText.textField.text = workout.name
-				roundsNumber.textField.text = String(workout.rounds)
+		//var currentWorkout = Workout(coder: NSCoder())
+		if Application.instance.GetWorkoutTask() == Application.WorkoutTask.edit {
+			let workoutName = GetCurrentWorkout()
+			for workout in Database.instance.ReadWorkouts("workouts") {
+				if workoutName == workout.name {
+					profileText.textField.text = workout.name
+					roundsNumber.textField.text = String(workout.rounds)
+				}
+			}
+		}
+		switch Application.instance.GetWorkoutTask() {
+		case Application.WorkoutTask.new:
+			let workouts = Database.instance.ReadWorkouts("defaultWorkout")
+			profileText.textField.text = workouts[0].name
+			roundsNumber.textField.text = String(workouts[0].rounds)
+		case Application.WorkoutTask.edit:
+			let workoutName = GetCurrentWorkout()
+			for workout in Database.instance.ReadWorkouts("workouts") {
+				if workoutName == workout.name {
+					profileText.textField.text = workout.name
+					roundsNumber.textField.text = String(workout.rounds)
+				}
 			}
 		}
 	}

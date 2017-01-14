@@ -83,10 +83,12 @@ class Settings: ViewController {
 	}
 
 	func btnNewClicked(_ sender:UIButton!) {
+		Application.instance.SetWorkoutTask(Application.WorkoutTask.new)
 		self.performSegue(withIdentifier: "showDetails", sender: self)
 	}
 
 	func btnEditClicked(_ sender:UIButton!) {
+		Application.instance.SetWorkoutTask(Application.WorkoutTask.edit)
 		self.performSegue(withIdentifier: "showDetails", sender: self)
 	}
 
