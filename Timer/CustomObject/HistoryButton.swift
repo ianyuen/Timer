@@ -9,22 +9,23 @@
 import UIKit
 
 class HistoryButton: View {
-	var parent = UIView()
 	let objectManager = ObjectManager()
 
 	let background = UILabel()
-	let viewButton = ViewButton()
-	let deleteButton = Button()
+	//let viewButton = ViewButton()
+	//let deleteButton = Button()
 
 	override func initView() {
 		objectManager.parent = self
 		objectManager.Parse("HistoryButton")
 		for object in objectManager.GetObjects() {
 			switch object.type {
+			/*
 			case "button":
-				objectManager.AddButton(deleteButton, parent: self, object: object, target: parent)
+				objectManager.AddButton(deleteButton, parent: self, object: object)
 			case "viewButton":
-				objectManager.AddButton(viewButton, parent: self, object: object, target: parent)
+				objectManager.AddButton(viewButton, parent: self, object: object)
+			*/
 			case "background":
 				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
@@ -32,9 +33,5 @@ class HistoryButton: View {
 		}
 		layer.masksToBounds = true
 		layer.cornerRadius = 8
-	}
-
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		
 	}
 }

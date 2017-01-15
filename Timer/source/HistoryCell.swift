@@ -37,7 +37,6 @@ class HistoryCell: View {
 			case "historyDetail":
 				AddHistoryDetail(object)
 			case "historyButton":
-				historyButton.parent = parent
 				objectManager.AddView(historyButton, parent: self, object: object)
 			default: break
 			}

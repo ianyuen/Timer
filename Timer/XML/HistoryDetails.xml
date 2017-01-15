@@ -7,4 +7,33 @@
 		<height>screenHeight</height>
 		<backColor>f9aa43</backColor>
 	</object>
+
+	<object>
+		<type>backButton</type>
+		<name>backButton</name>
+		<width>200</width>
+		<height>90</height>
+		<posX>50</posX>
+		<posY>105</posY>
+		<clicked>btnBackClicked</clicked>
+	</object>
+
+	<object>
+		<type>label</type>
+		<name>titleText</name>
+		<posX>centerWidth</posX>
+		<posY>90</posY>
+		<text>Training Session</text>
+		<font>LiberationSans</font>
+		<size>26</size>
+		<textColor>373639</textColor>
+	</object>
+
+	<object>
+		<type>scrollView</type>
+		<name>content</name>
+		<posY>210</posY>
+		<width>screenWidth</width>
+		<height>screenHeight - 210 - 460</height>
+	</object>
 </view>

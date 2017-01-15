@@ -65,6 +65,8 @@
 		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
 		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
 		3CF32F221E2B18C60099CC9D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF32F211E2B18C60099CC9D /* Session.swift */; };
+		3CF95D951E2B4E5B00D95318 /* HistoryDetailsScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */; };
+		3CF95D971E2B4F0A00D95318 /* HistoryDetailsScroll.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CF95D961E2B4F0A00D95318 /* HistoryDetailsScroll.xml */; };
 		3CFDA93E1E2687C000E9655A /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDA93D1E2687C000E9655A /* Coding.swift */; };
 		3CFED4C81E29D89F0094E725 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFED4C71E29D89F0094E725 /* Database.swift */; };
 /* End PBXBuildFile section */
@@ -130,6 +132,8 @@
 		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
 		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
 		3CF32F211E2B18C60099CC9D /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Database/Session.swift; sourceTree = "<group>"; };
+		3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetailsScroll.swift; path = Timer/CustomObject/HistoryDetailsScroll.swift; sourceTree = "<group>"; };
+		3CF95D961E2B4F0A00D95318 /* HistoryDetailsScroll.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetailsScroll.xml; path = XML/HistoryDetailsScroll.xml; sourceTree = "<group>"; };
 		3CFDA93D1E2687C000E9655A /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = Database/Coding.swift; sourceTree = "<group>"; };
 		3CFED4C71E29D89F0094E725 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Database/Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +187,7 @@
 			children = (
 				107E5DBE1E06DCF70047EFCF /* ComboButton.swift */,
 				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
+				3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */,
 				107A287E1E01CA39005F0A8B /* ViewButton.swift */,
 			);
 			name = CustomObject;
@@ -214,6 +219,7 @@
 				10ECC8061E0046EB000D2E7C /* HistoryCell.xml */,
 				10DD975A1E01837E009DC796 /* HistoryDetail.xml */,
 				3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */,
+				3CF95D961E2B4F0A00D95318 /* HistoryDetailsScroll.xml */,
 				10E288F61DE33CD200A5C80B /* Main.xml */,
 				10ADCD621DE5CCAA0078D587 /* MainButton.xml */,
 				1043D7301DF0CAF700C0FF63 /* NewButton.xml */,
@@ -354,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CF95D971E2B4F0A00D95318 /* HistoryDetailsScroll.xml in Resources */,
 				10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */,
 				3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */,
 				10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */,
@@ -408,6 +415,7 @@
 				10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */,
 				1043D72F1DF0C96100C0FF63 /* NewButton.swift in Sources */,
 				10ECC80F1E005587000D2E7C /* View.swift in Sources */,
+				3CF95D951E2B4E5B00D95318 /* HistoryDetailsScroll.swift in Sources */,
 				104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
 				10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */,
