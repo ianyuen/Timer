@@ -7,7 +7,7 @@
 		<height>112</height>
 		<backColor>FBEA6B</backColor>
 	</object>
-
+<!--
 	<object>
 		<type>viewButton</type>
 		<name>viewButton</name>
@@ -28,4 +28,5 @@
 		<font>LiberationSans</font>
 		<textColor>373639</textColor>
 	</object>
+ -->
 </view>

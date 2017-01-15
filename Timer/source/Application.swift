@@ -19,6 +19,10 @@ class Application {
 		message = value
 	}
 
+	private var sessionIndex = 0
+	func SessionIndex() -> Int { return sessionIndex }
+	func SessionIndex(_ index: Int) { sessionIndex = index }
+
 	private var workoutIndex = 0
 	func WorkoutIndex() -> Int { return workoutIndex }
 	func WorkoutIndex(_ index: Int) { workoutIndex = index }

@@ -13,7 +13,9 @@ class ViewButton: Button {
 
 	let label = UILabel()
 	let image = UIImageView()
-	
+
+	private var index: Int = 0
+
 	override func initView() {
 		objectManager.parent = self
 		objectManager.Parse("ViewButton")
@@ -27,4 +29,7 @@ class ViewButton: Button {
 			}
 		}
 	}
+
+	func Index(_ value: Int) { index = value }
+	func Index() -> Int { return index }
 }

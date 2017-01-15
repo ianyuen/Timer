@@ -52,6 +52,7 @@ class History: ViewController, UIScrollViewDelegate {
 				DrawButton(object)
 			case "scrollView":
 				content.delegate = self
+				content.controller = self
 				objectManager.AddScrollView(content, view: view, object: object)
 			case "background":
 				DrawBackground(object)

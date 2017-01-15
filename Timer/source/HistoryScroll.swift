@@ -9,6 +9,7 @@
 import UIKit
 
 class HistoryScroll: ScrollView {
+	var controller = ViewController()
 	let objectManager = ObjectManager()
 
 	override func initView() {
@@ -23,8 +24,27 @@ class HistoryScroll: ScrollView {
 
 		var index = sessions.count - 1
 		let object = ScreenObject()
+		let objectView = ScreenObject()
+		objectView.width = 200
+		objectView.height = 84
+		objectView.clicked = #selector(btnViewClicked(_:))
+		objectView.xPosition = 97 + 30
+		objectView.yPosition = 390 + 14
+
+		let objectDelete = ScreenObject()
+		objectDelete.size = 20
+		objectDelete.font = "LiberationSans"
+		objectDelete.title = "Delete"
+		objectDelete.clicked = #selector(btnDeleteClicked(_:))
+		objectDelete.posXRaw = "parentWidth - width - 100"
+		objectDelete.yPosition = 390
+		objectDelete.textColor = 0x373639
+
 		while index >= 0 {
 			let view = HistoryCell()
+			let viewButton = ViewButton()
+			let deleteButton = Button()
+
 			view.parent = self
 
 			let date = NSDate(timeIntervalSince1970: sessions[index].epoch)
@@ -38,8 +58,15 @@ class HistoryScroll: ScrollView {
 
 			view.SetTrainingContent(sessions[index].training)
 			objectManager.AddView(view, parent: self, object: object)
+
+			viewButton.Index(index)
+			objectManager.AddButton(viewButton, parent: self, object: objectView)
+			objectManager.AddButton(deleteButton, parent: self, object: objectDelete)
+
 			index = index - 1
 			object.yPosition = object.yPosition + object.height + 50
+			objectView.yPosition = objectView.yPosition + object.height + 50
+			objectDelete.yPosition = objectView.yPosition
 		}
 
 		var contentHeight: CGFloat = 0
@@ -50,30 +77,12 @@ class HistoryScroll: ScrollView {
 		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		testTouches(touches)
+	func btnViewClicked(_ sender: ViewButton) {
+		Application.instance.SessionIndex(sender.Index())
+		controller.PerformSegue("showDetails")
 	}
 
-	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-		testTouches(touches)
-	}
-
-	func testTouches(_ touches: Set<UITouch>) {
-		// Get the first touch and its location in this view controller's view coordinate system
-		let touch = touches.first! as UITouch
-		let touchLocation = touch.location(in: self)
-		
-		for subview in subviews {
-			// Convert the location of the obstacle view to this view controller's view coordinate system
-			let subviewFrame = self.convert(subview.frame, from: subview.superview)
-			
-			// Check if the touch is inside the obstacle view
-			if subviewFrame.contains(touchLocation) {
-				print("Game over!")
-			}
-		}
-	}
-
-	func btnViewClicked(_ sender: Button) {
+	func btnDeleteClicked(_ sender: ViewButton) {
+		print("\(#function)")
 	}
 }
