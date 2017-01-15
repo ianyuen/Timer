@@ -9,4 +9,14 @@
 		<size>20</size>
 		<textColor>373639</textColor>
 	</object>
+
+	<object>
+		<type>label</type>
+		<name>content</name>
+		<posXRaw>parentWidth - width - 50</posXRaw>
+		<posYRaw>centerHeight</posYRaw>
+		<font>LiberationSans</font>
+		<size>20</size>
+		<textColor>373639</textColor>
+	</object>
 </view>

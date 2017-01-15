@@ -34,11 +34,18 @@ class HistoryDetail: View {
 		case "title":
 			object.text = titleText
 			objectManager.AddLabel(title, parent: self, object: object)
+		case "content":
+			object.text = contentText
+			objectManager.AddLabel(content, parent: self, object: object)
 		default: break
 		}
 	}
 
 	func SetTitle(_ value: String) {
 		titleText = value
+	}
+
+	func SetContent(_ value: String) {
+		contentText = value
 	}
 }

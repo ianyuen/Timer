@@ -9,7 +9,7 @@
 import UIKit
 
 class BackButton: Button {
-	private var controller = UIViewController()
+	//private var controller = UIViewController()
 
 	let image = UIImageView()
 	let title = UILabel()
@@ -28,8 +28,9 @@ class BackButton: Button {
 			}
 		}
 	}
-
+/*
 	func SetController(_ viewController: UIViewController) {
 		controller = viewController
 	}
+*/
 }

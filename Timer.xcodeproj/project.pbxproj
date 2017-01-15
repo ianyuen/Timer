@@ -51,7 +51,6 @@
 		10ECC8051E003670000D2E7C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8041E003670000D2E7C /* ScrollView.swift */; };
 		10ECC8071E0046EB000D2E7C /* HistoryCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10ECC8061E0046EB000D2E7C /* HistoryCell.xml */; };
 		10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC8081E0047AF000D2E7C /* HistoryScroll.swift */; };
-		10ECC80B1E005298000D2E7C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC80A1E005298000D2E7C /* Session.swift */; };
 		10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */; };
 		10ECC80F1E005587000D2E7C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECC80E1E005587000D2E7C /* View.swift */; };
 		10F7DDB71DFEBDD900BF5D36 /* History.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10F7DDB61DFEBDD900BF5D36 /* History.xml */; };
@@ -65,6 +64,7 @@
 		3CB204B51E1FF0F100433581 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB204B41E1FF0F100433581 /* Workout.swift */; };
 		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
 		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
+		3CF32F221E2B18C60099CC9D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF32F211E2B18C60099CC9D /* Session.swift */; };
 		3CFDA93E1E2687C000E9655A /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDA93D1E2687C000E9655A /* Coding.swift */; };
 		3CFED4C81E29D89F0094E725 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFED4C71E29D89F0094E725 /* Database.swift */; };
 /* End PBXBuildFile section */
@@ -114,7 +114,6 @@
 		10ECC8041E003670000D2E7C /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = BaseObject/ScrollView.swift; sourceTree = "<group>"; };
 		10ECC8061E0046EB000D2E7C /* HistoryCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryCell.xml; path = XML/HistoryCell.xml; sourceTree = "<group>"; };
 		10ECC8081E0047AF000D2E7C /* HistoryScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryScroll.swift; path = source/HistoryScroll.swift; sourceTree = "<group>"; };
-		10ECC80A1E005298000D2E7C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = source/Session.swift; sourceTree = "<group>"; };
 		10ECC80C1E0054A9000D2E7C /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = source/HistoryCell.swift; sourceTree = "<group>"; };
 		10ECC80E1E005587000D2E7C /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = View.swift; path = BaseObject/View.swift; sourceTree = "<group>"; };
 		10F7DDB61DFEBDD900BF5D36 /* History.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = History.xml; path = XML/History.xml; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		3CB204B41E1FF0F100433581 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Database/Workout.swift; sourceTree = "<group>"; };
 		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
 		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
+		3CF32F211E2B18C60099CC9D /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Database/Session.swift; sourceTree = "<group>"; };
 		3CFDA93D1E2687C000E9655A /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = Database/Coding.swift; sourceTree = "<group>"; };
 		3CFED4C71E29D89F0094E725 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = Database/Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +171,6 @@
 				10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */,
 				10E288F11DE33C1B00A5C80B /* ScreenObject.swift */,
 				10E288F31DE33C7B00A5C80B /* ScreenSize.swift */,
-				10ECC80A1E005298000D2E7C /* Session.swift */,
 				1003C0C31DF58DD900112FFC /* TextBox.swift */,
 				104415411DFB147F00978FD5 /* WorkoutButton.swift */,
 				1043D7321DF0E24900C0FF63 /* WorkoutCell.swift */,
@@ -287,8 +286,9 @@
 		3CB204B31E1FE9C200433581 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				3CFED4C71E29D89F0094E725 /* Database.swift */,
 				3CFDA93D1E2687C000E9655A /* Coding.swift */,
+				3CFED4C71E29D89F0094E725 /* Database.swift */,
+				3CF32F211E2B18C60099CC9D /* Session.swift */,
 				3CB204B41E1FF0F100433581 /* Workout.swift */,
 			);
 			name = Database;
@@ -402,7 +402,6 @@
 				1043D7331DF0E24900C0FF63 /* WorkoutCell.swift in Sources */,
 				10DD97571E0173CA009DC796 /* SingleLine.swift in Sources */,
 				10A8C9571DEF17E7004C5211 /* Settings.swift in Sources */,
-				10ECC80B1E005298000D2E7C /* Session.swift in Sources */,
 				10E288EE1DE337FB00A5C80B /* ParseXML.swift in Sources */,
 				102327001E1149E30012D550 /* ViewController.swift in Sources */,
 				3CB204B51E1FF0F100433581 /* Workout.swift in Sources */,
@@ -416,6 +415,7 @@
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,
 				1003C0C41DF58DD900112FFC /* TextBox.swift in Sources */,
 				3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */,
+				3CF32F221E2B18C60099CC9D /* Session.swift in Sources */,
 				107E5DBF1E06DCF70047EFCF /* ComboButton.swift in Sources */,
 				10DD97591E0182C8009DC796 /* HistoryDetail.swift in Sources */,
 				10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */,

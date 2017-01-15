@@ -9,6 +9,7 @@
 import UIKit
 
 class HistoryCell: View {
+	var parent = UIView()
 	let objectManager = ObjectManager()
 
 	let date = HistoryDetail()
@@ -19,6 +20,10 @@ class HistoryCell: View {
 	let training = HistoryDetail()
 	let background = UILabel()
 	let historyButton = HistoryButton()
+
+	private var dateContent = ""
+	private var timeContent = ""
+	private var trainingContent = ""
 
 	override func initView() {
 		objectManager.parent = self
@@ -32,6 +37,7 @@ class HistoryCell: View {
 			case "historyDetail":
 				AddHistoryDetail(object)
 			case "historyButton":
+				historyButton.parent = parent
 				objectManager.AddView(historyButton, parent: self, object: object)
 			default: break
 			}
@@ -54,14 +60,29 @@ class HistoryCell: View {
 		switch object.name {
 		case "date":
 			date.SetTitle(object.text)
+			date.SetContent(dateContent)
 			objectManager.AddView(date, parent: self, object: object)
 		case "time":
 			time.SetTitle(object.text)
+			time.SetContent(timeContent)
 			objectManager.AddView(time, parent: self, object: object)
 		case "training":
 			training.SetTitle(object.text)
+			training.SetContent(trainingContent)
 			objectManager.AddView(training, parent: self, object: object)
 		default: break
 		}
+	}
+
+	func SetDateContent(_ content: String) {
+		dateContent = content
+	}
+
+	func SetTimeContent(_ content: String) {
+		timeContent = content
+	}
+
+	func SetTrainingContent(_ content: String) {
+		trainingContent = content
 	}
 }

@@ -31,6 +31,19 @@ class Database {
 		}
 	}
 
+	func SaveSessions(_ key: String, object: [Session]) {
+		let data = NSKeyedArchiver.archivedData(withRootObject: object)
+		UserDefaults.standard.set(data, forKey: key)
+	}
+	
+	func ReadSessions(_ key: String) -> [Session] {
+		if let data = UserDefaults.standard.data(forKey: key) {
+			return NSKeyedUnarchiver.unarchiveObject(with: data ) as! [Session]
+		} else {
+			return [Session]()
+		}
+	}
+
 	func SaveWorkouts(_ key: String, object: [Workout]) {
 		let data = NSKeyedArchiver.archivedData(withRootObject: object)
 		UserDefaults.standard.set(data, forKey: key)
