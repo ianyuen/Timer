@@ -36,6 +36,7 @@ class WorkoutCell: ScrollView {
 		object.height = 128
 		object.clicked = #selector(btnWorkoutClicked(_:))
 		object.xPosition = 50
+		object.textColor = 0x000000
 
 		var index = 0
 		for workout in workouts {
@@ -45,6 +46,7 @@ class WorkoutCell: ScrollView {
 			button.SetText(object.text)
 			button.SetWidth(object.width)
 			button.SetHeight(object.height)
+			button.title.textColor = color.UIColorFromHex(0xffffff)
 			objectManager.AddButton(button, parent: self, object: object)
 			index = index + 1
 			object.yPosition = object.yPosition + object.height + 10

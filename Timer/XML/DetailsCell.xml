@@ -8,7 +8,8 @@
 		<posX>50</posX>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<backColor>fce578</backColor>
+		<backColor>FCE578</backColor>
+		<textColor>CE7336</textColor>
 	</object>
 
 	<object>
@@ -20,7 +21,7 @@
 		<posY>178</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<backColor>D86E29</backColor>
+		<backColor>CE7336</backColor>
 	</object>
 
 	<object>
@@ -53,7 +54,7 @@
 		<width>screenWidth</width>
 		<height>206</height>
 		<icon>redIcon</icon>
-		<text>Red</text>
+		<text>Rest</text>
 	</object>
 
 	<object>
@@ -261,77 +262,88 @@
 		<posX>screenWidth - 400 - 50</posX>
 		<posY>1564 + 138</posY>
 		<width>400</width>
-		<height>640</height>
+		<height>520</height>
+		<backColor>FCE578</backColor>
 	</object>
 
 	<object>
 		<type>button</type>
 		<name>soundDigital</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 345</posX>
 		<posY>1564 + 138</posY>
 		<width>400</width>
-		<height>128</height>
+		<height>100</height>
 		<size>15</size>
 		<font>LiberationSans</font>
 		<title>Digital</title>
 		<textColor>373639</textColor>
-		<clicked>soundDigitalClicked</clicked>
+		<clicked>soundChildrentClicked</clicked>
 	</object>
-
+<!--
+	<object>
+		<type>line</type>
+		<name>soundLine1</name>
+		<posX>screenWidth - 400 - 50</posX>
+		<posY>1564 + 138</posY>
+		<width>400</width>
+		<height>5</height>
+		<backColor>F6992C</backColor>
+	</object>
+-->
 	<object>
 		<type>button</type>
 		<name>soundBoxing</name>
-		<posX>screenWidth - 400 - 50</posX>
-		<posY>1564 + 138 + 138</posY>
+		<posX>screenWidth - 340</posX>
+		<posY>1564 + 138 + 105</posY>
 		<width>400</width>
-		<height>128</height>
+		<height>100</height>
 		<size>15</size>
 		<font>LiberationSans</font>
 		<title>Boxing</title>
 		<textColor>373639</textColor>
-		<clicked>soundBoxingClicked</clicked>
+		<clicked>soundChildrentClicked</clicked>
 	</object>
 
 	<object>
 		<type>button</type>
 		<name>soundHuman</name>
-		<posX>screenWidth - 400 - 50</posX>
-		<posY>1564 + 138 + 138 + 138</posY>
+		<posX>screenWidth - 345</posX>
+		<posY>1564 + 138 + 105 + 105</posY>
 		<width>400</width>
-		<height>128</height>
+		<height>100</height>
 		<size>15</size>
 		<font>LiberationSans</font>
 		<title>Human</title>
 		<textColor>373639</textColor>
-		<clicked>soundHumanClicked</clicked>
+		<clicked>soundChildrentClicked</clicked>
 	</object>
 
 	<object>
 		<type>button</type>
 		<name>soundGym</name>
-		<posX>screenWidth - 400 - 50</posX>
-		<posY>1564 + 138 + 138 + 138 + 138</posY>
+		<posX>screenWidth - 345</posX>
+		<posY>1564 + 138 + 105 + 105 + 105</posY>
 		<width>400</width>
-		<height>128</height>
+		<height>100</height>
 		<size>15</size>
 		<font>LiberationSans</font>
 		<title>Gym</title>
 		<textColor>373639</textColor>
-		<clicked>soundGymClicked</clicked>
+		<clicked>soundChildrentClicked</clicked>
 	</object>
 
 	<object>
 		<type>button</type>
 		<name>soundNo</name>
-		<posX>screenWidth - 400 - 50</posX>
-		<posY>1564 + 138 + 138 + 138 + 138 + 138</posY>
+		<posX>screenWidth - 350</posX>
+		<posY>1564 + 138 + 105 + 105 + 105 + 105</posY>
 		<width>400</width>
-		<height>128</height>
+		<height>100</height>
 		<size>15</size>
 		<font>LiberationSans</font>
 		<title>No</title>
 		<textColor>373639</textColor>
-		<clicked>soundNoClicked</clicked>
+		<clicked>soundChildrentClicked</clicked>
 	</object>
 <!-- ********************************************** -->
 	<object>
@@ -341,12 +353,13 @@
 		<posY>1722 + 138</posY>
 		<width>400</width>
 		<height>128 + 5 + 128</height>
+		<backColor>FCE578</backColor>
 	</object>
 
 	<object>
 		<type>button</type>
 		<name>vibrateYes</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 350</posX>
 		<posY>1722 + 138</posY>
 		<width>400</width>
 		<height>128</height>
@@ -354,13 +367,13 @@
 		<font>LiberationSans</font>
 		<title>Yes</title>
 		<textColor>373639</textColor>
-		<clicked>motivationYesClicked</clicked>
+		<clicked>vibrateChilrentClicked</clicked>
 	</object>
 
 	<object>
 		<type>button</type>
 		<name>vibrateNo</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 350</posX>
 		<posY>1722 + 138 + 138</posY>
 		<width>400</width>
 		<height>128</height>
@@ -368,7 +381,7 @@
 		<font>LiberationSans</font>
 		<title>No</title>
 		<textColor>373639</textColor>
-		<clicked>motivationNoClicked</clicked>
+		<clicked>vibrateChilrentClicked</clicked>
 	</object>
 <!-- ********************************************** -->
 	<object>
@@ -378,12 +391,13 @@
 		<posY>1880 + 138</posY>
 		<width>400</width>
 		<height>128 + 5 + 128</height>
+		<backColor>FCE578</backColor>
 	</object>
 	
 	<object>
 		<type>button</type>
 		<name>routineYes</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 350</posX>
 		<posY>1880 + 138</posY>
 		<width>400</width>
 		<height>128</height>
@@ -391,13 +405,13 @@
 		<font>LiberationSans</font>
 		<title>Yes</title>
 		<textColor>373639</textColor>
-		<clicked>routineYesClicked</clicked>
+		<clicked>routineChildrentClicked</clicked>
 	</object>
 	
 	<object>
 		<type>button</type>
 		<name>routineNo</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 355</posX>
 		<posY>1880 + 138 + 138</posY>
 		<width>400</width>
 		<height>128</height>
@@ -405,7 +419,7 @@
 		<font>LiberationSans</font>
 		<title>No</title>
 		<textColor>373639</textColor>
-		<clicked>routineNoClicked</clicked>
+		<clicked>routineChildrentClicked</clicked>
 	</object>
 <!-- ********************************************** -->
 	<object>
@@ -415,12 +429,13 @@
 		<posY>2048 + 138</posY>
 		<width>400</width>
 		<height>128 + 5 + 128</height>
+		<backColor>FCE578</backColor>
 	</object>
 	
 	<object>
 		<type>button</type>
 		<name>motivationYes</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 350</posX>
 		<posY>2048 + 138</posY>
 		<width>400</width>
 		<height>128</height>
@@ -428,13 +443,13 @@
 		<font>LiberationSans</font>
 		<title>Yes</title>
 		<textColor>373639</textColor>
-		<clicked>routineYesClicked</clicked>
+		<clicked>motivationChildrentClicked</clicked>
 	</object>
 	
 	<object>
 		<type>button</type>
 		<name>motivationNo</name>
-		<posX>screenWidth - 400 - 50</posX>
+		<posX>screenWidth - 350</posX>
 		<posY>2048 + 138 + 138</posY>
 		<width>400</width>
 		<height>128</height>
@@ -442,7 +457,7 @@
 		<font>LiberationSans</font>
 		<title>No</title>
 		<textColor>373639</textColor>
-		<clicked>routineNoClicked</clicked>
+		<clicked>motivationChildrentClicked</clicked>
 	</object>
 <!-- ********************************************** -->
 	<object>

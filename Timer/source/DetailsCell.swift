@@ -33,6 +33,7 @@ class DetailsCell: ScrollView {
 	let soundHuman = Button()
 	let soundBoxing = Button()
 	let soundDigital = Button()
+	let soundLine1 = SingleLine()
 
 	let vibrate = ComboButton()
 	let vibrateText = UILabel()
@@ -82,6 +83,8 @@ class DetailsCell: ScrollView {
 				AddComboBox(object)
 			case "newButton":
 				AddButton(object)
+			case "line":
+				AddLine(object)
 			case "background":
 				AddBackground(object)
 			case "roundSecondsGroup":
@@ -127,6 +130,14 @@ class DetailsCell: ScrollView {
 		}
 	}
 
+	func AddLine(_ object: ScreenObject) {
+		switch object.name {
+		case "soundLine1":
+			objectManager.AddLine(soundLine1, parent: self, object: object)
+		default: break
+		}
+	}
+
 	func AddLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "soundText":
@@ -162,6 +173,7 @@ class DetailsCell: ScrollView {
 			objectManager.AddTextBox(round2Text, view: self, object: object)
 		case "profileText":
 			object.text = profileText.textField.text!
+			profileText.SetTextColor(object.textColor)
 			objectManager.AddTextBox(profileText, view: self, object: object)
 		case "roundsNumber":
 			object.text = roundsNumber.textField.text!
@@ -280,6 +292,7 @@ class DetailsCell: ScrollView {
 		soundHuman.isHidden = hidden
 		soundBoxing.isHidden = hidden
 		soundDigital.isHidden = hidden
+		soundLine1.isHidden = hidden
 	}
 
 	func btnSaveClicked(_ sender: Button) {
@@ -315,84 +328,74 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnSoundClicked(_ sender:UIButton!) {
+		/*
 		soundExpand.isHidden = !soundExpand.isHidden
 		soundNo.isHidden = !soundNo.isHidden
 		soundGym.isHidden = !soundGym.isHidden
 		soundHuman.isHidden = !soundHuman.isHidden
 		soundBoxing.isHidden = !soundBoxing.isHidden
 		soundDigital.isHidden = !soundDigital.isHidden
+		soundLine1.isHidden = !soundLine1.isHidden
+		*/
+		HideSoundExpand(!soundExpand.isHidden)
+		HideVibrateExpand(true)
+		HideRoutineExpand(true)
+		HideMotivationExpand(true)
 	}
 	
 	func btnVibrateClicked(_ sender:UIButton!) {
+		/*
 		vibrateExpand.isHidden = !vibrateExpand.isHidden
 		vibrateNo.isHidden = !vibrateNo.isHidden
 		vibrateYes.isHidden = !vibrateYes.isHidden
+		*/
+		HideSoundExpand(true)
+		HideVibrateExpand(!vibrateExpand.isHidden)
+		HideRoutineExpand(true)
+		HideMotivationExpand(true)
 	}
 	
 	func btnRoutineClicked(_ sender:UIButton!) {
+		/*
 		routineExpand.isHidden = !routineExpand.isHidden
 		routineNo.isHidden = !routineNo.isHidden
 		routineYes.isHidden = !routineYes.isHidden
+		*/
+		HideSoundExpand(true)
+		HideVibrateExpand(true)
+		HideRoutineExpand(!routineExpand.isHidden)
+		HideMotivationExpand(true)
 	}
 	
 	func btnMotivationClicked(_ sender:UIButton!) {
+		/*
 		motivationExpand.isHidden = !motivationExpand.isHidden
 		motivationNo.isHidden = !motivationNo.isHidden
 		motivationYes.isHidden = !motivationYes.isHidden
-	}
-
-	func soundNoClicked(_ sender: Button) {
+		*/
 		HideSoundExpand(true)
-		sound.SetTitle("No")
-	}
-
-	func soundGymClicked(_ sender: Button) {
-		HideSoundExpand(true)
-		sound.SetTitle("Gym")
-	}
-
-	func soundHumanClicked(_ sender: Button) {
-		HideSoundExpand(true)
-		sound.SetTitle("Human")
-	}
-
-	func soundBoxingClicked(_ sender: Button) {
-		HideSoundExpand(true)
-		sound.SetTitle("Boxing")
-	}
-
-	func soundDigitalClicked(_ sender: Button) {
-		HideSoundExpand(true)
-		sound.SetTitle("Digital")
-	}
-
-	func vibrateNoClicked(_ sender: Button) {
 		HideVibrateExpand(true)
-		vibrate.SetTitle("No")
+		HideRoutineExpand(true)
+		HideMotivationExpand(!motivationExpand.isHidden)
 	}
 
-	func vibrateYesClicked(_ sender: Button) {
+	func soundChildrentClicked(_ sender: Button) {
+		HideSoundExpand(true)
+		sound.SetTitle((sender.titleLabel?.text)!)
+	}
+
+	func vibrateChilrentClicked(_ sender: Button) {
 		HideVibrateExpand(true)
-		vibrate.SetTitle("Yes")
+		vibrate.SetTitle((sender.titleLabel?.text)!)
 	}
 
-	func routineNoClicked(_ sender: Button) {
+	func routineChildrentClicked(_ sender: Button) {
 		HideRoutineExpand(true)
-		routine.SetTitle("No")
+		routine.SetTitle((sender.titleLabel?.text)!)
 	}
 
-	func routineYesClicked(_ sender: Button) {
-		HideRoutineExpand(true)
-		routine.SetTitle("Yes")
-	}
-
-	func motivationNoClicked(_ sender: Button) {
+	func motivationChildrentClicked(_ sender: Button) {
 		HideMotivationExpand(true)
-		motivation.SetTitle("No")
-	}
-	
-	func motivationYesClicked(_ sender: Button) {
-		HideMotivationExpand(true)
-		motivation.SetTitle("Yes")
+		motivation.SetTitle((sender.titleLabel?.text)!)
 	}
 }

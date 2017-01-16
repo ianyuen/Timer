@@ -13,5 +13,6 @@
 		<posY>centerHeight</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
+		<textColor>ffffff</textColor>
 	</object>
 </view>

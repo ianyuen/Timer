@@ -35,6 +35,9 @@ class TextBox: UIView {
 				object.text = text
 				object.font = fontName
 				object.size = fontSize
+				if textColor != 0 {
+					object.textColor = textColor
+				}
 				objectManager.AddTextField(textField, view: self, object: object)
 				let selector = #selector(textFieldDidChange(_:))
 				textField.addTarget(self, action: selector, for: .editingChanged)

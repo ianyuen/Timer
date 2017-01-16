@@ -29,16 +29,15 @@ class HistoryScroll: ScrollView {
 		objectView.height = 84
 		objectView.clicked = #selector(btnViewClicked(_:))
 		objectView.xPosition = 97 + 30
-		objectView.yPosition = 390 + 14
+		objectView.yPosition = CGFloat(390 + 14 + 50)
 
 		let objectDelete = ScreenObject()
 		objectDelete.size = 20
 		objectDelete.font = "LiberationSans"
 		objectDelete.title = "Delete"
 		objectDelete.clicked = #selector(btnDeleteClicked(_:))
-		objectDelete.posXRaw = "parentWidth - width - 100"
-		objectDelete.yPosition = 390
-		objectDelete.textColor = 0x373639
+		objectDelete.posXRaw = "parentWidth - width - 125"
+		objectDelete.yPosition = 420
 
 		while index >= 0 {
 			let view = HistoryCell()
