@@ -324,7 +324,19 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnDeleteClicked(_ sender: Button) {
-		print("\(#function)")
+		let alertController = UIAlertController(title: nil, message: "Delete?", preferredStyle: .actionSheet)
+
+		let noAction = UIAlertAction(title: "No", style: .cancel) { action in
+			print(action)
+		}
+		alertController.addAction(noAction)
+
+		let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+			print(action)
+		}
+		alertController.addAction(yesAction)
+
+		controller.present(alertController, animated: true, completion: nil)
 	}
 
 	func btnSoundClicked(_ sender:UIButton!) {

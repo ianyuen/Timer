@@ -279,17 +279,7 @@
 		<textColor>373639</textColor>
 		<clicked>soundChildrentClicked</clicked>
 	</object>
-<!--
-	<object>
-		<type>line</type>
-		<name>soundLine1</name>
-		<posX>screenWidth - 400 - 50</posX>
-		<posY>1564 + 138</posY>
-		<width>400</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
--->
+
 	<object>
 		<type>button</type>
 		<name>soundBoxing</name>
