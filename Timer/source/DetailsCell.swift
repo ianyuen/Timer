@@ -360,11 +360,22 @@ class DetailsCell: ScrollView {
 		vibrateExpand.isHidden = !vibrateExpand.isHidden
 		vibrateNo.isHidden = !vibrateNo.isHidden
 		vibrateYes.isHidden = !vibrateYes.isHidden
-		*/
 		HideSoundExpand(true)
 		HideVibrateExpand(!vibrateExpand.isHidden)
 		HideRoutineExpand(true)
 		HideMotivationExpand(true)
+		*/
+		let noAction = UIAlertAction(title: "No", style: .default) { _ in
+			self.vibrate.SetTitle("No")
+		}
+		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+			self.vibrate.SetTitle("Yes")
+		}
+
+		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alertController.addAction(yesAction)
+		alertController.addAction(noAction)
+		controller.present(alertController, animated: true, completion: nil)
 	}
 	
 	func btnRoutineClicked(_ sender:UIButton!) {
