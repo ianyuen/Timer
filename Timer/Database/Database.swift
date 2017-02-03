@@ -31,6 +31,18 @@ class Database {
 		}
 	}
 
+	func SaveWorkoutIndex(_ key: String, index: Int) {
+		UserDefaults.standard.set(index, forKey: key)
+	}
+	
+	func ReadWorkoutIndex(_ key: String) -> Int {
+		if let data = UserDefaults.standard.object(forKey: key) as? Int {
+			return data
+		} else {
+			return 0
+		}
+	}
+
 	func SaveSessions(_ key: String, object: [Session]) {
 		let data = NSKeyedArchiver.archivedData(withRootObject: object)
 		UserDefaults.standard.set(data, forKey: key)

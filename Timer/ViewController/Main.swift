@@ -25,7 +25,8 @@ class Main: ViewController {
 
 	var angle: CGFloat = 0.0
 	var endSecond = 60
-	var roundNumber = 15
+	var leftRound = 0
+	var totalRound = 0
 	var totalSecond = 900
 
 	override func viewDidLoad() {
@@ -34,6 +35,11 @@ class Main: ViewController {
 		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
+
+		let index = Database.instance.ReadWorkoutIndex("workoutIndex")
+		let workouts = Database.instance.ReadWorkouts("workouts")
+		leftRound = workouts[index].rounds
+		totalRound = workouts[index].rounds
 
 		let selector = #selector(update)
 		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: selector, userInfo: nil, repeats: true);
@@ -76,6 +82,7 @@ class Main: ViewController {
 	func DrawLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "round":
+			object.text = "ROUND   " + NumberToString(totalRound) + "/" + NumberToString(totalRound)
 			objectManager.AddLabel(round, parent: view, object: object)
 		case "endTime":
 			objectManager.AddLabel(endTime, parent: view, object: object)
@@ -130,24 +137,12 @@ class Main: ViewController {
 		roundButton.endTime.text = ConvertToClock(endSecond)
 		totalSecond = 900
 		endClock.text = ConvertToClock(totalSecond)
-		roundNumber = 15
-		round.text = "ROUND   " + String(roundNumber) + "/15"
-		roundButton.initView()
-	}
 
-	func ConvertToClock(_ value: Int) -> String{
-		var result = ""
-		let minute = value / 60
-		let second = value % 60
-		if minute < 10 {
-			result = result + "0"
-		}
-		result = result + String(minute) + ":"
-		if second < 10 {
-			result = result + "0"
-		}
-		result = result + String(second)
-		return result
+		let index = Database.instance.ReadWorkoutIndex("workoutIndex")
+		let workouts = Database.instance.ReadWorkouts("workouts")
+		totalRound = workouts[index].rounds
+		round.text = "ROUND   " + NumberToString(totalRound) + "/" + NumberToString(totalRound)
+		roundButton.initView()
 	}
 
 	func update() {
@@ -164,12 +159,8 @@ class Main: ViewController {
 				angle = 0
 				roundButton.initView()
 				endSecond = 60
-				roundNumber = roundNumber - 1
-				if roundNumber < 10 {
-					round.text = "ROUND   0" + String(roundNumber) + "/15"
-				} else {
-					round.text = "ROUND   " + String(roundNumber) + "/15"
-				}
+				leftRound = leftRound - 1
+				round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
 			}
 
 			roundButton.endTime.text = ConvertToClock(endSecond)
@@ -183,16 +174,6 @@ class Main: ViewController {
 		}
 		startButton.SizeToFit()
 		resetButton.SetTitle("RESET")
-	}
-
-	func PrintFontNames() {
-		let fontFamilyNames = UIFont.familyNames
-		for familyName in fontFamilyNames {
-			print("------------------------------")
-			print("Font Family Name = [\(familyName)]")
-			let names = UIFont.fontNames(forFamilyName: familyName)
-			print("Font Names = [\(names)]")
-		}
 	}
 
 	func btnStartClicked(_ sender: UIButton!) {
@@ -209,5 +190,38 @@ class Main: ViewController {
 	
 	func btnSettingsClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
+	}
+
+	func NumberToString(_ value: Int) -> String {
+		var result = ""
+		if value < 10 {
+			result = result + "0"
+		}
+		result = result + String(value)
+		return result
+	}
+
+	func ConvertToClock(_ value: Int) -> String {
+		var result = ""
+		let minute = value / 60
+		let second = value % 60
+		if minute < 10 {
+			result = result + "0"
+		}
+		result = result + String(minute) + ":"
+		if second < 10 {
+			result = result + "0"
+		}
+		result = result + String(second)
+		return result
+	}
+
+	func PrintFontNames() {
+		let fontFamilyNames = UIFont.familyNames
+		for familyName in fontFamilyNames {
+			print("Font Family Name = [\(familyName)]")
+			let names = UIFont.fontNames(forFamilyName: familyName)
+			print("Font Names = [\(names)]")
+		}
 	}
 }

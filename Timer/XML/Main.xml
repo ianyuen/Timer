@@ -50,7 +50,7 @@
 		<name>round</name>
 		<posX>centerWidth</posX>
 		<posY>280</posY>
-		<text>ROUND   15/15</text>
+		<text>ROUND   </text>
 		<font>LiberationSans</font>
 		<size>30</size>
 		<textColor>ffffff</textColor>
