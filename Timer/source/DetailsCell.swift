@@ -70,6 +70,7 @@ class DetailsCell: ScrollView {
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
+		GetTotalTime()
 	}
 
 	override func initView() {
@@ -444,7 +445,11 @@ class DetailsCell: ScrollView {
 		let minute = value / 60
 		let second = value % 60
 
-		let result = IntToString(minute) + " Minutes and " + IntToString(second) + " Seconds"
+		var result = ""
+		if minute > 0 {
+			result = result + IntToString(minute) + " Minutes and "
+		}
+		result = result + IntToString(second) + " Seconds"
 		return result
 	}
 
