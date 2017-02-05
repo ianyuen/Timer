@@ -64,6 +64,10 @@ class DetailsCell: ScrollView {
 	let saveButton = NewButton()
 	let deleteButton = NewButton()
 
+	var timeRest = 0
+	var timeRound = 0
+	var timeTotal = 0
+
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
 	}
@@ -109,7 +113,7 @@ class DetailsCell: ScrollView {
 		case Application.WorkoutTask.new:
 			let workouts = Database.instance.ReadWorkouts("defaultWorkout")
 
-			redTime.textBox.textField.text = String(workouts[0].red)
+			redTime.textBox.textField.text = String(workouts[0].rest)
 			roundTime.textBox.textField.text = String(workouts[0].roundTime)
 			warmUpTime.textBox.textField.text = String(workouts[0].warmUp)
 			coolDownTime.textBox.textField.text = String(workouts[0].coolDown)
@@ -120,7 +124,7 @@ class DetailsCell: ScrollView {
 			let workoutIndex = Application.instance.WorkoutIndex()
 			let workouts = Database.instance.ReadWorkouts("workouts")
 
-			redTime.textBox.textField.text = String(workouts[workoutIndex].red)
+			redTime.textBox.textField.text = String(workouts[workoutIndex].rest)
 			roundTime.textBox.textField.text = String(workouts[workoutIndex].roundTime)
 			warmUpTime.textBox.textField.text = String(workouts[workoutIndex].warmUp)
 			coolDownTime.textBox.textField.text = String(workouts[workoutIndex].coolDown)
@@ -128,6 +132,7 @@ class DetailsCell: ScrollView {
 			profileText.textField.text = workouts[workoutIndex].name
 			roundsNumber.textField.text = String(workouts[workoutIndex].rounds)
 		}
+		GetTotalTime()
 	}
 
 	func AddLine(_ object: ScreenObject) {
@@ -213,13 +218,13 @@ class DetailsCell: ScrollView {
 	func AddRoundSecondsGroup(_ object: ScreenObject) {
 		switch object.name {
 		case "redTime":
-			objectManager.AddRoundSecondsGroup(group: redTime, view: self, object: object)
+			objectManager.AddRoundSecondsGroup(redTime, parent: self, object: object)
 		case "roundTime":
-			objectManager.AddRoundSecondsGroup(group: roundTime, view: self, object: object)
+			objectManager.AddRoundSecondsGroup(roundTime, parent: self, object: object)
 		case "warmUpTime":
-			objectManager.AddRoundSecondsGroup(group: warmUpTime, view: self, object: object)
+			objectManager.AddRoundSecondsGroup(warmUpTime, parent: self, object: object)
 		case "coolDownTime":
-			objectManager.AddRoundSecondsGroup(group: coolDownTime, view: self, object: object)
+			objectManager.AddRoundSecondsGroup(coolDownTime, parent: self, object: object)
 		default: break
 		}
 	}
@@ -299,7 +304,7 @@ class DetailsCell: ScrollView {
 		let workout = Workout()
 		workout.name = profileText.textField.text!
 		workout.rounds = Int(roundsNumber.textField.text!)!
-		workout.red = Int(redTime.textBox.textField.text!)!
+		workout.rest = Int(redTime.textBox.textField.text!)!
 		workout.roundTime = Int(roundTime.textBox.textField.text!)!
 		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
 		workout.coolDown = Int(coolDownTime.textBox.textField.text!)!
@@ -420,5 +425,36 @@ class DetailsCell: ScrollView {
 	func motivationChildrentClicked(_ sender: Button) {
 		HideMotivationExpand(true)
 		motivation.SetTitle((sender.titleLabel?.text)!)
+	}
+
+	func StringToInt(_ value: String) -> Int {
+		return Int(value)!
+	}
+
+	func IntToString(_ value: Int) -> String {
+		var result = ""
+		if value < 10 {
+			result = result + "0"
+		}
+		result = result + String(value)
+		return result
+	}
+
+	func SecondToString(_ value: Int) -> String {
+		let minute = value / 60
+		let second = value % 60
+
+		let result = IntToString(minute) + " Minutes and " + IntToString(second) + " Seconds"
+		return result
+	}
+
+	func GetTotalTime() {
+		let rest = StringToInt(redTime.textBox.textField.text!)
+		let warm = StringToInt(warmUpTime.textBox.textField.text!)
+		let cool = StringToInt(coolDownTime.textBox.textField.text!)
+		let round = StringToInt(roundTime.textBox.textField.text!)
+		let rounds = StringToInt(roundsNumber.textField.text!)
+		let total = warm + cool + (rest * (rounds - 1)) + (round * rounds)
+		totalText.textField.text = SecondToString(total)
 	}
 }

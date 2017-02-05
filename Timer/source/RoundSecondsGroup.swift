@@ -38,7 +38,7 @@ class RoundSecondsGroup: View {
 		}
 	}
 
-	func SetTitle(_ value: String) {
+	func SetText(_ value: String) {
 		text = value
 	}
 

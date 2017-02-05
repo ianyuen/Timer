@@ -24,10 +24,11 @@ class Main: ViewController {
 	let titleBackground = UILabel()
 
 	var angle: CGFloat = 0.0
+	var workout = Workout()
 	var endSecond = 60
 	var leftRound = 0
 	var totalRound = 0
-	var totalSecond = 900
+	var totalSecond = 0
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,10 +37,18 @@ class Main: ViewController {
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
 
-		let index = Database.instance.ReadWorkoutIndex("workoutIndex")
-		let workouts = Database.instance.ReadWorkouts("workouts")
-		leftRound = workouts[index].rounds
-		totalRound = workouts[index].rounds
+		var index = Database.instance.ReadWorkoutIndex("workoutIndex")
+		var workouts = Database.instance.ReadWorkouts("workouts")
+		if workouts.count == 0 {
+			index = 0
+			workouts.append(Workout())
+			Database.instance.SaveWorkouts("workouts", object: workouts)
+		}
+
+		workout = workouts[index]
+		leftRound = workout.rounds
+		totalRound = workout.rounds
+		totalSecond = GetTotalTime()
 
 		let selector = #selector(update)
 		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: selector, userInfo: nil, repeats: true);
@@ -87,6 +96,7 @@ class Main: ViewController {
 		case "endTime":
 			objectManager.AddLabel(endTime, parent: view, object: object)
 		case "endClock":
+			object.text = ConvertToClock(totalSecond)
 			objectManager.AddLabel(endClock, parent: view, object: object)
 		case "screenTitle":
 			objectManager.AddLabel(screenTitle, parent: view, object: object)
@@ -134,13 +144,15 @@ class Main: ViewController {
 		angle = 0
 		counting = false
 		endSecond = 60
-		roundButton.endTime.text = ConvertToClock(endSecond)
-		totalSecond = 900
-		endClock.text = ConvertToClock(totalSecond)
 
 		let index = Database.instance.ReadWorkoutIndex("workoutIndex")
 		let workouts = Database.instance.ReadWorkouts("workouts")
 		totalRound = workouts[index].rounds
+		totalSecond = GetTotalTime()
+
+		roundButton.endTime.text = ConvertToClock(endSecond)
+		endClock.text = ConvertToClock(totalSecond)
+
 		round.text = "ROUND   " + NumberToString(totalRound) + "/" + NumberToString(totalRound)
 		roundButton.initView()
 	}
@@ -214,6 +226,15 @@ class Main: ViewController {
 		}
 		result = result + String(second)
 		return result
+	}
+
+	func GetTotalTime() -> Int {
+		let rest = workout.rest
+		let warmUp = workout.warmUp
+		let rounds = workout.rounds
+		let coolDown = workout.coolDown
+		let roundTime = workout.roundTime
+		return warmUp + coolDown + (rest * (rounds - 1)) + (roundTime * rounds)
 	}
 
 	func PrintFontNames() {

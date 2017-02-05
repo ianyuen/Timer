@@ -39,8 +39,8 @@ class TextBox: UIView {
 					object.textColor = textColor
 				}
 				objectManager.AddTextField(textField, view: self, object: object)
-				let selector = #selector(textFieldDidChange(_:))
-				textField.addTarget(self, action: selector, for: .editingChanged)
+				//let selector = #selector(textFieldDidChange(_:))
+				//textField.addTarget(self, action: selector, for: .editingChanged)
 			case "background":
 				object.backColor = backColor
 				objectManager.AddBackground(background, parent: self, object: object)

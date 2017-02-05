@@ -362,16 +362,16 @@ class ObjectManager {
 		parent.addSubview(button)
 	}
 
-	func AddRoundSecondsGroup(group: RoundSecondsGroup, view: UIView, object: ScreenObject) {
+	func AddRoundSecondsGroup(_ group: RoundSecondsGroup, parent: UIView, object: ScreenObject) {
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
 		let itemHeight = ScreenSize.instance.GetItemHeight(object.height)
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 
 		group.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
-		group.SetTitle(object.text)
+		group.SetText(object.text)
 		group.SetImage(object.icon)
 		group.initView()
-		view.addSubview(group)
+		parent.addSubview(group)
 	}
 }
