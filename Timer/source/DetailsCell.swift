@@ -183,6 +183,7 @@ class DetailsCell: ScrollView {
 	func AddComboBox(_ object: ScreenObject) {
 		switch object.name {
 		case "sound":
+			object.title = workout.sound
 			objectManager.AddComboButton(sound, parent: self, object: object)
 		case "vibrate":
 			object.title = workout.vibrate ? "Yes" : "No"

@@ -197,7 +197,8 @@
 		<title>Yes</title>
 		<clicked>btnMotivationClicked</clicked>
 	</object>
-
+<!-- ********************************************** -->
+<!--
 	<object>
 		<type>label</type>
 		<name>exercise</name>
@@ -254,6 +255,7 @@
 		<size>20</size>
 		<backColor>f6992c</backColor>
 	</object>
+-->
 <!-- ********************************************** -->
 	<object>
 		<type>background</type>
@@ -455,7 +457,7 @@
 		<width>472</width>
 		<height>145</height>
 		<posX>83</posX>
-		<posY>2912 + 116</posY>
+		<posY>2038 + 158</posY>
 		<text>SAVE</text>
 		<clicked>btnSaveClicked</clicked>
 	</object>
@@ -466,7 +468,7 @@
 		<width>472</width>
 		<height>145</height>
 		<posX>647</posX>
-		<posY>2912 + 116</posY>
+		<posY>2038 + 158</posY>
 		<text>DELETE</text>
 		<clicked>btnDeleteClicked</clicked>
 	</object>
