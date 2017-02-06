@@ -19,6 +19,18 @@ class Database {
 		}
 	}
 
+	func SaveInt(_ key: String, data: Int) {
+		UserDefaults.standard.set(data, forKey: key)
+	}
+	
+	func ReadInt(_ key: String) -> Int {
+		if let data = UserDefaults.standard.object(forKey: key) as? Int {
+			return data
+		} else {
+			return 0
+		}
+	}
+
 	func SaveString(_ key: String, data: String) {
 		UserDefaults.standard.set(data, forKey: key)
 	}
@@ -28,18 +40,6 @@ class Database {
 			return data
 		} else {
 			return ""
-		}
-	}
-
-	func SaveWorkoutIndex(_ key: String, index: Int) {
-		UserDefaults.standard.set(index, forKey: key)
-	}
-	
-	func ReadWorkoutIndex(_ key: String) -> Int {
-		if let data = UserDefaults.standard.object(forKey: key) as? Int {
-			return data
-		} else {
-			return 0
 		}
 	}
 

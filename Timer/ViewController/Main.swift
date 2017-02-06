@@ -37,7 +37,7 @@ class Main: ViewController {
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
 
-		var index = Database.instance.ReadWorkoutIndex("workoutIndex")
+		var index = Database.instance.ReadInt("workoutIndex")
 		var workouts = Database.instance.ReadWorkouts("workouts")
 		if workouts.count == 0 {
 			index = 0
@@ -146,7 +146,7 @@ class Main: ViewController {
 		counting = false
 		endSecond = 60
 
-		let index = Database.instance.ReadWorkoutIndex("workoutIndex")
+		let index = Database.instance.ReadInt("workoutIndex")
 		let workouts = Database.instance.ReadWorkouts("workouts")
 		totalRound = workouts[index].rounds
 		totalSecond = GetTotalTime()

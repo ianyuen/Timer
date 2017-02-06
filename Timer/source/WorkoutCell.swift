@@ -51,18 +51,18 @@ class WorkoutCell: ScrollView {
 			index = index + 1
 			object.yPosition = object.yPosition + object.height + 10
 		}
-		SetCurrentWorkout(workouts[0].name)
 
 		let height: CGFloat = CGFloat((workouts.count * 128) + ((workouts.count - 1) * 10))
 		let contentHeight = ScreenSize.instance.GetItemHeight(height)
 		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 
-	func SetCurrentWorkout(_ data: String) {
-		Database.instance.SaveString("currentWorkout", data: data)
+	func SetCurrentWorkout(_ data: Int) {
+		Database.instance.SaveInt("workoutIndex", data: data)
 	}
 
 	func btnWorkoutClicked(_ sender: WorkoutButton!) {
 		Application.instance.WorkoutIndex(sender.Index())
+		SetCurrentWorkout(sender.Index())
 	}
 }
