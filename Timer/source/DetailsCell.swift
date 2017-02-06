@@ -316,34 +316,54 @@ class DetailsCell: ScrollView {
 		case Application.WorkoutTask.new:
 			var canAdd = true
 			for temp in workouts {
-				if temp.name == profileText.GetText() {
+				if temp.name == profileText.textField.text {
 					canAdd = false
+					break
 				}
 			}
 			if canAdd {
 				workouts.append(workout)
+				Database.instance.SaveWorkouts("workouts", object: workouts)
+				controller.PerformSegue("showSettings")
+			} else {
+				let message = "Can't add exist profile"
+				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+				alert.addAction(okAction)
+				controller.present(alert, animated: true, completion: nil)
 			}
 		case Application.WorkoutTask.edit:
 			workouts[Application.instance.WorkoutIndex()] = workout
+			Database.instance.SaveWorkouts("workouts", object: workouts)
+			controller.PerformSegue("showSettings")
 		}
-		Database.instance.SaveWorkouts("workouts", object: workouts)
-		controller.PerformSegue("showSettings")
 	}
 
 	func btnDeleteClicked(_ sender: Button) {
-		let alertController = UIAlertController(title: nil, message: "Delete?", preferredStyle: .actionSheet)
-
-		let noAction = UIAlertAction(title: "No", style: .cancel) { action in
-			print(action)
+		var message = "Delete?"
+		if Application.instance.GetWorkoutTask() == Application.WorkoutTask.new {
+			message = "You can't delete when create profile"
 		}
-		alertController.addAction(noAction)
+		let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
 
-		let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
-			print(action)
+		switch Application.instance.GetWorkoutTask() {
+		case Application.WorkoutTask.new:
+			let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+			alert.addAction(okAction)
+		case Application.WorkoutTask.edit:
+			let noAction = UIAlertAction(title: "No", style: .cancel) { _ in }
+			let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+				var workouts = Database.instance.ReadWorkouts("workouts")
+				workouts.remove(at: Application.instance.WorkoutIndex())
+				Database.instance.SaveWorkouts("workouts", object: workouts)
+				self.controller.PerformSegue("showSettings")
+			}
+
+			alert.addAction(noAction)
+			alert.addAction(yesAction)
 		}
-		alertController.addAction(yesAction)
+		controller.present(alert, animated: true, completion: nil)
 
-		controller.present(alertController, animated: true, completion: nil)
 	}
 
 	func btnSoundClicked(_ sender:UIButton!) {
@@ -379,10 +399,10 @@ class DetailsCell: ScrollView {
 			self.vibrate.SetTitle("Yes")
 		}
 
-		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		alertController.addAction(yesAction)
-		alertController.addAction(noAction)
-		controller.present(alertController, animated: true, completion: nil)
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(yesAction)
+		alert.addAction(noAction)
+		controller.present(alert, animated: true, completion: nil)
 	}
 	
 	func btnRoutineClicked(_ sender:UIButton!) {
