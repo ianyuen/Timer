@@ -65,6 +65,10 @@ class ComboButton: Button {
 		textColor = color
 	}
 
+	func GetTitle() -> String {
+		return label.text!
+	}
+
 	func SetTitle(_ value: String) {
 		label.text = value
 		label.sizeToFit()

@@ -67,6 +67,7 @@ class DetailsCell: ScrollView {
 	var timeRest = 0
 	var timeRound = 0
 	var timeTotal = 0
+	var workout = Workout()
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
@@ -74,6 +75,12 @@ class DetailsCell: ScrollView {
 	}
 
 	override func initView() {
+		if Application.instance.GetWorkoutTask() == Application.WorkoutTask.edit {
+			let workoutIndex = Application.instance.WorkoutIndex()
+			let workouts = Database.instance.ReadWorkouts("workouts")
+			workout = workouts[workoutIndex]
+		}
+
 		objectManager.parent = self
 		objectManager.Parse("DetailsCell")
 		for object in objectManager.GetObjects() {
@@ -110,29 +117,14 @@ class DetailsCell: ScrollView {
 		}
 		contentSize = CGSize(width: frame.width, height: contentHeight)
 
-		switch Application.instance.GetWorkoutTask() {
-		case Application.WorkoutTask.new:
-			let workouts = Database.instance.ReadWorkouts("defaultWorkout")
+		redTime.textBox.textField.text = String(workout.rest)
+		roundTime.textBox.textField.text = String(workout.roundTime)
+		warmUpTime.textBox.textField.text = String(workout.warmUp)
+		coolDownTime.textBox.textField.text = String(workout.coolDown)
+		
+		profileText.textField.text = workout.name
+		roundsNumber.textField.text = String(workout.rounds)
 
-			redTime.textBox.textField.text = String(workouts[0].rest)
-			roundTime.textBox.textField.text = String(workouts[0].roundTime)
-			warmUpTime.textBox.textField.text = String(workouts[0].warmUp)
-			coolDownTime.textBox.textField.text = String(workouts[0].coolDown)
-
-			profileText.textField.text = workouts[0].name
-			roundsNumber.textField.text = String(workouts[0].rounds)
-		case Application.WorkoutTask.edit:
-			let workoutIndex = Application.instance.WorkoutIndex()
-			let workouts = Database.instance.ReadWorkouts("workouts")
-
-			redTime.textBox.textField.text = String(workouts[workoutIndex].rest)
-			roundTime.textBox.textField.text = String(workouts[workoutIndex].roundTime)
-			warmUpTime.textBox.textField.text = String(workouts[workoutIndex].warmUp)
-			coolDownTime.textBox.textField.text = String(workouts[workoutIndex].coolDown)
-
-			profileText.textField.text = workouts[workoutIndex].name
-			roundsNumber.textField.text = String(workouts[workoutIndex].rounds)
-		}
 		GetTotalTime()
 	}
 
@@ -193,10 +185,13 @@ class DetailsCell: ScrollView {
 		case "sound":
 			objectManager.AddComboButton(sound, parent: self, object: object)
 		case "vibrate":
+			object.title = workout.vibrate ? "Yes" : "No"
 			objectManager.AddComboButton(vibrate, parent: self, object: object)
 		case "routine":
+			object.title = workout.routine ? "Yes" : "No"
 			objectManager.AddComboButton(routine, parent: self, object: object)
 		case "motivation":
+			object.title = workout.motivation ? "Yes" : "No"
 			objectManager.AddComboButton(motivation, parent: self, object: object)
 		default: break
 		}
@@ -302,13 +297,18 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnSaveClicked(_ sender: Button) {
-		let workout = Workout()
 		workout.name = profileText.textField.text!
 		workout.rounds = Int(roundsNumber.textField.text!)!
+
 		workout.rest = Int(redTime.textBox.textField.text!)!
-		workout.roundTime = Int(roundTime.textBox.textField.text!)!
 		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
 		workout.coolDown = Int(coolDownTime.textBox.textField.text!)!
+		workout.roundTime = Int(roundTime.textBox.textField.text!)!
+
+		workout.sound = sound.GetTitle()
+		workout.vibrate = vibrate.GetTitle() == "Yes" ? true : false
+		workout.routine = routine.GetTitle() == "Yes" ? true : false
+		workout.motivation = motivation.GetTitle() == "Yes" ? true : false
 
 		var workouts = Database.instance.ReadWorkouts("workouts")
 		switch Application.instance.GetWorkoutTask() {
