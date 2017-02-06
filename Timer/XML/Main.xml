@@ -33,14 +33,12 @@
 	</object>
 
 	<object>
-		<type>label</type>
+		<type>textField</type>
 		<name>screenTitle</name>
-		<posX>centerWidth</posX>
+		<posX>363</posX>
 		<posY>80</posY>
-		<width>515</width>
+		<width>516</width>
 		<height>170</height>
-		<text>Barbell Tabata Workout</text>
-		<line>2</line>
 		<font>LiberationSans</font>
 		<size>19</size>
 	</object>

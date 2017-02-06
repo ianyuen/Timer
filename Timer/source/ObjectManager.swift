@@ -301,7 +301,7 @@ class ObjectManager {
 		view.addSubview(textView)
 	}
 
-	func AddTextField(_ textField: UITextField, view: UIView, object: ScreenObject) {
+	func AddTextField(_ textField: UITextField, parent: UIView, object: ScreenObject) {
 		let positionX = ScreenSize.instance.GetPositionX(object.xPosition)
 		let positionY = ScreenSize.instance.GetPositionY(object.yPosition)
 		let itemWidth = ScreenSize.instance.GetItemWidth(object.width)
@@ -313,9 +313,9 @@ class ObjectManager {
 		
 		let color = Color()
 		textField.textColor = color.UIColorFromHex(object.textColor, alpha: 1.0)
-		textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
+		//textField.backgroundColor = color.UIColorFromHex(0x373639, alpha: 0)
 		textField.textAlignment = NSTextAlignment.center
-		view.addSubview(textField)
+		parent.addSubview(textField)
 	}
 
 	func AddScrollView(_ content: ScrollView, view: UIView, object: ScreenObject) {

@@ -38,9 +38,7 @@ class TextBox: UIView {
 				if textColor != 0 {
 					object.textColor = textColor
 				}
-				objectManager.AddTextField(textField, view: self, object: object)
-				//let selector = #selector(textFieldDidChange(_:))
-				//textField.addTarget(self, action: selector, for: .editingChanged)
+				objectManager.AddTextField(textField, parent: self, object: object)
 			case "background":
 				object.backColor = backColor
 				objectManager.AddBackground(background, parent: self, object: object)
@@ -90,9 +88,5 @@ class TextBox: UIView {
 
 	func SetBackground(_ value: UIImage) {
 		image = value
-	}
-
-	func textFieldDidChange(_ sender: UITextField) {
-		text = sender.text!
 	}
 }

@@ -17,7 +17,7 @@ class Main: ViewController {
 	let resetButton = MainButton()
 	let startButton = MainButton()
 	let roundButton = RoundButton()
-	let screenTitle = UILabel()
+	let screenTitle = UITextField()
 	let objectManager = ObjectManager()
 	let historyButton = Button()
 	let settingsButton = Button()
@@ -46,7 +46,7 @@ class Main: ViewController {
 		}
 
 		workout = workouts[index]
-		leftRound = workout.rounds
+		leftRound = 0
 		totalRound = workout.rounds
 		totalSecond = GetTotalTime()
 
@@ -73,6 +73,9 @@ class Main: ViewController {
 		objectManager.Parse("Main")
 		for object in objectManager.GetObjects() {
 			switch object.type {
+			case "textField":
+				object.text = workout.name
+				objectManager.AddTextField(screenTitle, parent: view, object: object)
 			case "label":
 				DrawLabel(object)
 			case "button":
@@ -91,15 +94,13 @@ class Main: ViewController {
 	func DrawLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "round":
-			object.text = "ROUND   " + NumberToString(totalRound) + "/" + NumberToString(totalRound)
+			object.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
 			objectManager.AddLabel(round, parent: view, object: object)
 		case "endTime":
 			objectManager.AddLabel(endTime, parent: view, object: object)
 		case "endClock":
 			object.text = ConvertToClock(totalSecond)
 			objectManager.AddLabel(endClock, parent: view, object: object)
-		case "screenTitle":
-			objectManager.AddLabel(screenTitle, parent: view, object: object)
 		default: break
 		}
 	}
@@ -171,7 +172,7 @@ class Main: ViewController {
 				angle = 0
 				roundButton.initView()
 				endSecond = 60
-				leftRound = leftRound - 1
+				leftRound = leftRound + 1
 				round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
 			}
 

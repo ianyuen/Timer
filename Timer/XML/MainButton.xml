@@ -5,8 +5,6 @@
 		<name>background</name>
 		<width>450</width>
 		<height>145</height>
-		<posX>0</posX>
-		<posY>0</posY>
 		<icon>mainButton</icon>
 	</object>
 
