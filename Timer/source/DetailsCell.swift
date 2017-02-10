@@ -353,17 +353,13 @@ class DetailsCell: ScrollView {
 		case Application.WorkoutTask.edit:
 			let noAction = UIAlertAction(title: "No", style: .cancel) { _ in }
 			let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-				var workouts = Database.instance.ReadWorkouts("workouts")
-				workouts.remove(at: Application.instance.WorkoutIndex())
-				Database.instance.SaveWorkouts("workouts", object: workouts)
-				self.controller.PerformSegue("showSettings")
+				self.DeleteWorkout()
 			}
 
 			alert.addAction(noAction)
 			alert.addAction(yesAction)
 		}
 		controller.present(alert, animated: true, completion: nil)
-
 	}
 
 	func btnSoundClicked(_ sender:UIButton!) {
@@ -449,10 +445,6 @@ class DetailsCell: ScrollView {
 		motivation.SetTitle((sender.titleLabel?.text)!)
 	}
 
-	func StringToInt(_ value: String) -> Int {
-		return Int(value)!
-	}
-
 	func IntToString(_ value: Int) -> String {
 		var result = ""
 		if value < 10 {
@@ -460,6 +452,45 @@ class DetailsCell: ScrollView {
 		}
 		result = result + String(value)
 		return result
+	}
+
+	func GetTotalTime() {
+		let rest = StringToInt(redTime.textBox.textField.text!)
+		let warm = StringToInt(warmUpTime.textBox.textField.text!)
+		let cool = StringToInt(coolDownTime.textBox.textField.text!)
+		let round = StringToInt(roundTime.textBox.textField.text!)
+		let rounds = StringToInt(roundsNumber.textField.text!)
+		let total = warm + cool + (rest * (rounds - 1)) + (round * rounds)
+		totalText.textField.text = SecondToString(total)
+	}
+
+	func CanDelete() -> Bool {
+		let workouts = Database.instance.ReadWorkouts("workouts")
+		if workouts.count == 1 {
+			return false
+		}
+		return true
+	}
+
+	func DeleteWorkout() {
+		if CanDelete() {
+			let index = Application.instance.WorkoutIndex()
+			var workouts = Database.instance.ReadWorkouts("workouts")
+			workouts.remove(at: index)
+			Database.instance.SaveWorkouts("workouts", object: workouts)
+			Database.instance.SaveInt("workoutIndex", data: index - 1)
+			self.controller.PerformSegue("showSettings")
+		} else {
+			let message = "You can not delete this workout"
+			let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+			let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+			alert.addAction(okAction)
+			controller.present(alert, animated: true, completion: nil)
+		}
+	}
+
+	func StringToInt(_ value: String) -> Int {
+		return Int(value)!
 	}
 
 	func SecondToString(_ value: Int) -> String {
@@ -472,15 +503,5 @@ class DetailsCell: ScrollView {
 		}
 		result = result + IntToString(second) + " Seconds"
 		return result
-	}
-
-	func GetTotalTime() {
-		let rest = StringToInt(redTime.textBox.textField.text!)
-		let warm = StringToInt(warmUpTime.textBox.textField.text!)
-		let cool = StringToInt(coolDownTime.textBox.textField.text!)
-		let round = StringToInt(roundTime.textBox.textField.text!)
-		let rounds = StringToInt(roundsNumber.textField.text!)
-		let total = warm + cool + (rest * (rounds - 1)) + (round * rounds)
-		totalText.textField.text = SecondToString(total)
 	}
 }
