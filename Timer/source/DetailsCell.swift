@@ -175,6 +175,7 @@ class DetailsCell: ScrollView {
 			objectManager.AddTextBox(profileText, view: self, object: object)
 		case "roundsNumber":
 			object.text = roundsNumber.textField.text!
+			roundsNumber.textField.keyboardType = UIKeyboardType.numberPad
 			objectManager.AddTextBox(roundsNumber, view: self, object: object)
 		default: break
 		}
@@ -215,12 +216,16 @@ class DetailsCell: ScrollView {
 	func AddRoundSecondsGroup(_ object: ScreenObject) {
 		switch object.name {
 		case "redTime":
+			redTime.textBox.textField.keyboardType = UIKeyboardType.numberPad
 			objectManager.AddRoundSecondsGroup(redTime, parent: self, object: object)
 		case "roundTime":
+			roundTime.textBox.textField.keyboardType = UIKeyboardType.numberPad
 			objectManager.AddRoundSecondsGroup(roundTime, parent: self, object: object)
 		case "warmUpTime":
+			warmUpTime.textBox.textField.keyboardType = UIKeyboardType.numberPad
 			objectManager.AddRoundSecondsGroup(warmUpTime, parent: self, object: object)
 		case "coolDownTime":
+			coolDownTime.textBox.textField.keyboardType = UIKeyboardType.numberPad
 			objectManager.AddRoundSecondsGroup(coolDownTime, parent: self, object: object)
 		default: break
 		}
