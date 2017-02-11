@@ -164,6 +164,7 @@ class DetailsCell: ScrollView {
 	func AddTextBox(_ object: ScreenObject) {
 		switch object.name {
 		case "totalText":
+			totalText.textField.isUserInteractionEnabled = false
 			objectManager.AddTextBox(totalText, view: self, object: object)
 		case "round1Text":
 			objectManager.AddTextBox(round1Text, view: self, object: object)
