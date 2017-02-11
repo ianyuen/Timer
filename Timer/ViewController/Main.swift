@@ -86,6 +86,7 @@ class Main: ViewController {
 				DrawMainButton(object)
 			case "roundButton":
 				objectManager.AddButton(roundButton, parent: view, object: object, target: self)
+				roundButton.endTime.text = ConvertToClock(workout.warmUp)
 			default: break
 			}
 		}
