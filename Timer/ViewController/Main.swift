@@ -46,6 +46,7 @@ class Main: ViewController {
 		}
 
 		workout = workouts[index]
+		endSecond = workout.warmUp
 		leftRound = 0
 		totalRound = workout.rounds
 		totalSecond = GetTotalTime()
@@ -145,19 +146,17 @@ class Main: ViewController {
 	func btnResetClicked(_ sender: UIButton!) {
 		angle = 0
 		counting = false
-		endSecond = 60
+		endSecond = workout.warmUp
 
-		let index = Database.instance.ReadInt("workoutIndex")
-		let workouts = Database.instance.ReadWorkouts("workouts")
 		leftRound = 0
-		totalRound = workouts[index].rounds
+		totalRound = workout.rounds
 		totalSecond = GetTotalTime()
 
-		roundButton.endTime.text = ConvertToClock(endSecond)
+		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
 		endClock.text = ConvertToClock(totalSecond)
 
-		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
 		roundButton.initView()
+		roundButton.endTime.text = ConvertToClock(endSecond)
 	}
 
 	func update() {
