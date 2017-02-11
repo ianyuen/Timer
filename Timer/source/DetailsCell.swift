@@ -165,6 +165,7 @@ class DetailsCell: ScrollView {
 		switch object.name {
 		case "totalText":
 			totalText.textField.isUserInteractionEnabled = false
+			totalText.SetTextColor(object.textColor)
 			objectManager.AddTextBox(totalText, view: self, object: object)
 		case "round1Text":
 			objectManager.AddTextBox(round1Text, view: self, object: object)
@@ -480,11 +481,12 @@ class DetailsCell: ScrollView {
 
 	func DeleteWorkout() {
 		if CanDelete() {
-			let index = Application.instance.WorkoutIndex()
+			var index = Application.instance.WorkoutIndex()
 			var workouts = Database.instance.ReadWorkouts("workouts")
 			workouts.remove(at: index)
 			Database.instance.SaveWorkouts("workouts", object: workouts)
-			Database.instance.SaveInt("workoutIndex", data: index - 1)
+			index = index - 1 < 0 ? 0 : index
+			Database.instance.SaveInt("workoutIndex", data: index)
 			self.controller.PerformSegue("showSettings")
 		} else {
 			let message = "You can not delete this workout"

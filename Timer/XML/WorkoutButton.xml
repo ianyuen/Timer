@@ -3,7 +3,7 @@
 	<object>
 		<type>background</type>
 		<name>background</name>
-		<backColor>F6992C</backColor>
+		<backColor>C0F8FF</backColor>
 	</object>
 
 	<object>
@@ -13,6 +13,6 @@
 		<posY>centerHeight</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<textColor>ffffff</textColor>
+		<textColor>373639</textColor>
 	</object>
 </view>

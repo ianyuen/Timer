@@ -19,7 +19,7 @@ class SingleLine: UIView {
 
 	override func draw(_ rect: CGRect) {
 		let path = UIBezierPath(rect: rect)
-		let color = Color().UIColorFromHex(0xf9aa43)
+		let color = Color().UIColorFromHex(0xFFFFFF)
 		color.setFill()
 		path.fill()
 	}

@@ -8,8 +8,8 @@
 		<posX>50</posX>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<backColor>FCE578</backColor>
-		<textColor>CE7336</textColor>
+		<backColor>A6E1FD</backColor>
+		<textColor>3C99E0</textColor>
 	</object>
 
 	<object>
@@ -21,7 +21,7 @@
 		<posY>178</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<backColor>CE7336</backColor>
+		<backColor>4CC8FF</backColor>
 	</object>
 
 	<object>
@@ -87,7 +87,7 @@
 		<text>Training Time</text>
 		<font>LiberationSans</font>
 		<size>26</size>
-		<textColor>ffffff</textColor>
+		<textColor>00B0FF</textColor>
 	</object>
 
 	<object>
@@ -99,7 +99,8 @@
 		<posY>1396</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
-		<backColor>f6992c</backColor>
+		<backColor>A6E1FD</backColor>
+		<textColor>373639</textColor>
 	</object>
 
 	<object>
@@ -110,7 +111,7 @@
 		<text>Sound</text>
 		<font>LiberationSans</font>
 		<size>22</size>
-		<textColor>D86E29</textColor>
+		<textColor>4CC8FF</textColor>
 	</object>
 
 	<object>
@@ -134,7 +135,7 @@
 		<text>Vibrate</text>
 		<font>LiberationSans</font>
 		<size>22</size>
-		<textColor>D86E29</textColor>
+		<textColor>4CC8FF</textColor>
 	</object>
 
 	<object>
@@ -158,7 +159,7 @@
 		<text>Routine</text>
 		<font>LiberationSans</font>
 		<size>22</size>
-		<textColor>D86E29</textColor>
+		<textColor>4CC8FF</textColor>
 	</object>
 
 	<object>
@@ -182,7 +183,7 @@
 		<text>Motivation</text>
 		<font>LiberationSans</font>
 		<size>22</size>
-		<textColor>D86E29</textColor>
+		<textColor>4CC8FF</textColor>
 	</object>
 
 	<object>

@@ -22,7 +22,7 @@ class WorkoutCell: ScrollView {
 		objectManager.parent = self
 
 		let color = Color()
-		backgroundColor = color.UIColorFromHex(0xf9aa43)
+		//backgroundColor = color.UIColorFromHex(0xf9aa43)
 
 		workouts = Database.instance.ReadWorkouts("workouts")
 		if workouts.count == 0 {

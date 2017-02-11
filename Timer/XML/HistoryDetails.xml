@@ -5,7 +5,7 @@
 		<name>background</name>
 		<width>screenWidth</width>
 		<height>screenHeight</height>
-		<backColor>f9aa43</backColor>
+		<backColor>FFFFFF</backColor>
 	</object>
 
 	<object>

@@ -3,7 +3,7 @@
 	<object>
 		<type>background</type>
 		<name>background</name>
-		<backColor>ed9b3f</backColor>
+		<backColor>A6E1FD</backColor>
 	</object>
 
 	<object>
@@ -13,7 +13,7 @@
 		<posY>30</posY>
 		<size>15</size>
 		<font>LiberationSans</font>
-		<textColor>ffffff</textColor>
+		<textColor>373639</textColor>
 	</object>
 
 	<object>

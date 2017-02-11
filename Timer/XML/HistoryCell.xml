@@ -6,7 +6,7 @@
 		<width>screenWidth - 50 - 50</width>
 		<height>495</height>
 		<posX>50</posX>
-		<backColor>F6992C</backColor>
+		<backColor>A6E1FD</backColor>
 	</object>
 
 	<object>
@@ -27,7 +27,7 @@
 		<width>screenWidth - 50 - 50</width>
 		<height>5</height>
 		<posX>50</posX>
-		<backColor>F6992C</backColor>
+		<backColor>FFFFFF</backColor>
 	</object>
 
 	<object>
@@ -49,7 +49,7 @@
 		<width>screenWidth - 50 - 50</width>
 		<height>5</height>
 		<posX>50</posX>
-		<backColor>F6992C</backColor>
+		<backColor>FFFFFF</backColor>
 	</object>
 
 	<object>
@@ -70,7 +70,7 @@
 		<posY>120 + 5 + 120 + 5 + 120</posY>
 		<width>screenWidth - 50 - 50</width>
 		<height>5</height>
-		<backColor>F6992C</backColor>
+		<backColor>FFFFFF</backColor>
 	</object>
 
 	<object>
