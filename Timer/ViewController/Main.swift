@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 
 class Main: ViewController {
-	var counting = false
 	let round = UILabel()
 	let endTime = UILabel()
 	let endClock = UILabel()
@@ -26,8 +25,13 @@ class Main: ViewController {
 
 	var angle: CGFloat = 0.0
 	var workout = Workout()
-	var endSecond = 60
+	var counting = false
+
+	var endSecond = 0
+	var coolDown = false
+	var leftRest = 0
 	var leftRound = 0
+	var totalRest = 0
 	var totalRound = 0
 	var totalSecond = 0
 
@@ -50,7 +54,7 @@ class Main: ViewController {
 
 		workout = workouts[index]
 		endSecond = workout.warmUp
-		leftRound = 0
+		totalRest = workout.rounds - 1
 		totalRound = workout.rounds
 		totalSecond = GetTotalTime()
 
@@ -100,6 +104,7 @@ class Main: ViewController {
 		switch object.name {
 		case "round":
 			object.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
+			round.textAlignment = NSTextAlignment.center
 			objectManager.AddLabel(round, parent: view, object: object)
 		case "endTime":
 			objectManager.AddLabel(endTime, parent: view, object: object)
@@ -146,22 +151,6 @@ class Main: ViewController {
 		}
 	}
 
-	func btnResetClicked(_ sender: UIButton!) {
-		angle = 0
-		counting = false
-		endSecond = workout.warmUp
-
-		leftRound = 0
-		totalRound = workout.rounds
-		totalSecond = GetTotalTime()
-
-		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
-		endClock.text = ConvertToClock(totalSecond)
-
-		roundButton.initView()
-		roundButton.endTime.text = ConvertToClock(endSecond)
-	}
-
 	func update() {
 		if (counting) {
 			let image = UIImage(named: "stop")
@@ -174,16 +163,36 @@ class Main: ViewController {
 			endSecond = endSecond - 1
 			if endSecond < 0 {
 				angle = 0
+				if leftRound < totalRound {
+					if leftRest == leftRound {
+						endSecond = workout.roundTime
+						leftRound = leftRound + 1
+
+						let leftText = NumberToString(leftRound)
+						let totalText = NumberToString(totalRound)
+						round.text = "ROUND   " + leftText + "/" + totalText
+					} else {
+						endSecond = workout.rest
+						leftRest = leftRest + 1
+						round.text = "REST TIME"
+					}
+				} else {
+					if coolDown {
+						counting = false
+						let totalText = NumberToString(totalRound)
+						round.text = "ROUND   " + totalText + "/" + totalText
+					} else {
+						endSecond = workout.coolDown
+						coolDown = true
+						round.text = "COOL DOWN"
+					}
+				}
 				roundButton.initView()
-				endSecond = 60
-				leftRound = leftRound + 1
-				round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
+			} else {
+				totalSecond = totalSecond - 1
 			}
-
-			roundButton.endTime.text = ConvertToClock(endSecond)
-
-			totalSecond = totalSecond - 1
 			endClock.text = ConvertToClock(totalSecond)
+			roundButton.endTime.text = ConvertToClock(endSecond)
 		} else {
 			let image = UIImage(named: "start")
 			startButton.SetIcon(image!)
@@ -193,18 +202,29 @@ class Main: ViewController {
 		resetButton.SetTitle("RESET")
 	}
 
+	func btnResetClicked(_ sender: UIButton!) {
+		angle = 0
+		counting = false
+		endSecond = workout.warmUp
+
+		leftRest = 0
+		leftRound = 0
+		totalRound = workout.rounds
+		totalSecond = GetTotalTime()
+		
+		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
+		endClock.text = ConvertToClock(totalSecond)
+		
+		roundButton.initView()
+		roundButton.endTime.text = ConvertToClock(endSecond)
+	}
+
 	func btnStartClicked(_ sender: UIButton!) {
-		counting = !counting
-		if counting {
-			PlaySound()
-		}
+		Start()
 	}
 	
 	func btnRoundClicked(_ sender: UIButton!) {
-		counting = !counting
-		if counting {
-			PlaySound()
-		}
+		Start()
 	}
 	
 	func btnHistoryClicked(_ sender: UIButton!) {
@@ -215,8 +235,18 @@ class Main: ViewController {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}
 
-	func PlaySound() {
-		let url = Bundle.main.url(forResource: "Digital", withExtension: "mp3")!
+	func Start() {
+		counting = !counting
+		if counting {
+			if leftRound == 0 {
+				round.text = "WARM UP"
+				PlaySound("Digital")
+			}
+		}
+	}
+
+	func PlaySound(_ sound: String) {
+		let url = Bundle.main.url(forResource: sound, withExtension: "mp3")!
 		
 		do {
 			player = try AVAudioPlayer(contentsOf: url)

@@ -5,8 +5,6 @@
 		<name>background</name>
 		<width>screenWidth</width>
 		<height>screenHeight</height>
-		<posX>0</posX>
-		<posY>0</posY>
 		<backColor>00B0FF</backColor>
 	</object>
 
@@ -48,7 +46,6 @@
 		<name>round</name>
 		<posX>centerWidth</posX>
 		<posY>280</posY>
-		<text>ROUND   </text>
 		<font>LiberationSans</font>
 		<size>30</size>
 		<textColor>ffffff</textColor>
