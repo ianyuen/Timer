@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Main: ViewController {
 	var counting = false
@@ -29,6 +30,8 @@ class Main: ViewController {
 	var leftRound = 0
 	var totalRound = 0
 	var totalSecond = 0
+
+	var player: AVAudioPlayer?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -192,10 +195,16 @@ class Main: ViewController {
 
 	func btnStartClicked(_ sender: UIButton!) {
 		counting = !counting
+		if counting {
+			PlaySound()
+		}
 	}
 	
 	func btnRoundClicked(_ sender: UIButton!) {
 		counting = !counting
+		if counting {
+			PlaySound()
+		}
 	}
 	
 	func btnHistoryClicked(_ sender: UIButton!) {
@@ -204,6 +213,20 @@ class Main: ViewController {
 	
 	func btnSettingsClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
+	}
+
+	func PlaySound() {
+		let url = Bundle.main.url(forResource: "Digital", withExtension: "mp3")!
+		
+		do {
+			player = try AVAudioPlayer(contentsOf: url)
+			guard let player = player else { return }
+			
+			player.prepareToPlay()
+			player.play()
+		} catch let error {
+			print(error.localizedDescription)
+		}
 	}
 
 	func NumberToString(_ value: Int) -> String {
