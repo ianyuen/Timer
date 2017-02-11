@@ -148,13 +148,14 @@ class Main: ViewController {
 
 		let index = Database.instance.ReadInt("workoutIndex")
 		let workouts = Database.instance.ReadWorkouts("workouts")
+		leftRound = 0
 		totalRound = workouts[index].rounds
 		totalSecond = GetTotalTime()
 
 		roundButton.endTime.text = ConvertToClock(endSecond)
 		endClock.text = ConvertToClock(totalSecond)
 
-		round.text = "ROUND   " + NumberToString(totalRound) + "/" + NumberToString(totalRound)
+		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
 		roundButton.initView()
 	}
 
