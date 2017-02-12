@@ -26,32 +26,15 @@ class DetailsCell: ScrollView {
 
 	let sound = ComboButton()
 	let soundText = UILabel()
-	let soundExpand = UILabel()
-	
-	let soundNo = Button()
-	let soundGym = Button()
-	let soundHuman = Button()
-	let soundBoxing = Button()
-	let soundDigital = Button()
-	let soundLine1 = SingleLine()
 
 	let vibrate = ComboButton()
 	let vibrateText = UILabel()
-	let vibrateExpand = UILabel()
-	let vibrateNo = Button()
-	let vibrateYes = Button()
 
 	let routine = ComboButton()
 	let routineText = UILabel()
-	let routineExpand = UILabel()
-	let routineNo = Button()
-	let routineYes = Button()
 
 	let motivation = ComboButton()
 	let motivationText = UILabel()
-	let motivationExpand = UILabel()
-	let motivationNo = Button()
-	let motivationYes = Button()
 
 	let exercise = UILabel()
 
@@ -97,18 +80,11 @@ class DetailsCell: ScrollView {
 				AddButton(object)
 			case "line":
 				AddLine(object)
-			case "background":
-				AddBackground(object)
 			case "roundSecondsGroup":
 				AddRoundSecondsGroup(object)
 			default: break
 			}
 		}
-
-		HideSoundExpand(true)
-		HideVibrateExpand(true)
-		HideRoutineExpand(true)
-		HideMotivationExpand(true)
 
 		var contentHeight: CGFloat = 0
 		for view in subviews {
@@ -130,8 +106,6 @@ class DetailsCell: ScrollView {
 
 	func AddLine(_ object: ScreenObject) {
 		switch object.name {
-		case "soundLine1":
-			objectManager.AddLine(soundLine1, parent: self, object: object)
 		default: break
 		}
 	}
@@ -201,20 +175,6 @@ class DetailsCell: ScrollView {
 		}
 	}
 
-	func AddBackground(_ object: ScreenObject) {
-		switch object.name {
-		case "soundExpand":
-			objectManager.AddBackground(soundExpand, parent: self, object: object)
-		case "vibrateExpand":
-			objectManager.AddBackground(vibrateExpand, parent: self, object: object)
-		case "routineExpand":
-			objectManager.AddBackground(routineExpand, parent: self, object: object)
-		case "motivationExpand":
-			objectManager.AddBackground(motivationExpand, parent: self, object: object)
-		default: break
-		}
-	}
-
 	func AddRoundSecondsGroup(_ object: ScreenObject) {
 		switch object.name {
 		case "redTime":
@@ -245,63 +205,8 @@ class DetailsCell: ScrollView {
 			deleteButton.SetWidth(object.width)
 			deleteButton.SetHeight(object.height)
 			objectManager.AddButton(deleteButton, parent: self, object: object, target: self)
-
-		case "soundNo":
-			objectManager.AddButton(soundNo, parent: self, object: object)
-		case "soundGym":
-			objectManager.AddButton(soundGym, parent: self, object: object)
-		case "soundHuman":
-			objectManager.AddButton(soundHuman, parent: self, object: object)
-		case "soundBoxing":
-			objectManager.AddButton(soundBoxing, parent: self, object: object)
-		case "soundDigital":
-			objectManager.AddButton(soundDigital, parent: self, object: object)
-
-		case "vibrateNo":
-			objectManager.AddButton(vibrateNo, parent: self, object: object)
-		case "vibrateYes":
-			objectManager.AddButton(vibrateYes, parent: self, object: object)
-
-		case "routineNo":
-			objectManager.AddButton(routineNo, parent: self, object: object)
-		case "routineYes":
-			objectManager.AddButton(routineYes, parent: self, object: object)
-
-		case "motivationNo":
-			objectManager.AddButton(motivationNo, parent: self, object: object)
-		case "motivationYes":
-			objectManager.AddButton(motivationYes, parent: self, object: object)
-
 		default: break
 		}
-	}
-
-	func HideVibrateExpand(_ hidden: Bool) {
-		vibrateExpand.isHidden = hidden
-		vibrateNo.isHidden = hidden
-		vibrateYes.isHidden = hidden
-	}
-
-	func HideRoutineExpand(_ hidden: Bool) {
-		routineExpand.isHidden = hidden
-		routineNo.isHidden = hidden
-		routineYes.isHidden = hidden
-	}
-
-	func HideMotivationExpand(_ hidden: Bool) {
-		motivationExpand.isHidden = hidden
-		motivationNo.isHidden = hidden
-		motivationYes.isHidden = hidden
-	}
-
-	func HideSoundExpand(_ hidden: Bool) {
-		soundExpand.isHidden = hidden
-		soundNo.isHidden = hidden
-		soundGym.isHidden = hidden
-		soundHuman.isHidden = hidden
-		soundBoxing.isHidden = hidden
-		soundDigital.isHidden = hidden
-		soundLine1.isHidden = hidden
 	}
 
 	func btnSaveClicked(_ sender: Button) {
@@ -370,86 +275,91 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnSoundClicked(_ sender:UIButton!) {
-		/*
-		soundExpand.isHidden = !soundExpand.isHidden
-		soundNo.isHidden = !soundNo.isHidden
-		soundGym.isHidden = !soundGym.isHidden
-		soundHuman.isHidden = !soundHuman.isHidden
-		soundBoxing.isHidden = !soundBoxing.isHidden
-		soundDigital.isHidden = !soundDigital.isHidden
-		soundLine1.isHidden = !soundLine1.isHidden
-		*/
-		HideSoundExpand(!soundExpand.isHidden)
-		HideVibrateExpand(true)
-		HideRoutineExpand(true)
-		HideMotivationExpand(true)
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+		
+		let noAction = UIAlertAction(title: "No", style: .default) { _ in
+			self.sound.SetTitle("No")
+			self.workout.sound = "No"
+		}
+		let gymAction = UIAlertAction(title: "Gym", style: .default) { _ in
+			self.sound.SetTitle("Gym")
+			self.workout.sound = "Gym"
+		}
+		let humanAction = UIAlertAction(title: "Human", style: .default) { _ in
+			self.sound.SetTitle("Human")
+			self.workout.sound = "Human"
+		}
+		let boxingAction = UIAlertAction(title: "Boxing", style: .default) { _ in
+			self.sound.SetTitle("Boxing")
+			self.workout.sound = "Boxing"
+		}
+		let digitalAction = UIAlertAction(title: "Digital", style: .default) { _ in
+			self.sound.SetTitle("Digital")
+			self.workout.sound = "Digital"
+		}
+
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(digitalAction)
+		alert.addAction(boxingAction)
+		alert.addAction(humanAction)
+		alert.addAction(gymAction)
+		alert.addAction(noAction)
+		alert.addAction(cancelAction)
+		controller.present(alert, animated: true, completion: nil)
 	}
 	
 	func btnVibrateClicked(_ sender:UIButton!) {
-		/*
-		vibrateExpand.isHidden = !vibrateExpand.isHidden
-		vibrateNo.isHidden = !vibrateNo.isHidden
-		vibrateYes.isHidden = !vibrateYes.isHidden
-		HideSoundExpand(true)
-		HideVibrateExpand(!vibrateExpand.isHidden)
-		HideRoutineExpand(true)
-		HideMotivationExpand(true)
-		*/
 		let noAction = UIAlertAction(title: "No", style: .default) { _ in
 			self.vibrate.SetTitle("No")
+			self.workout.vibrate = false
 		}
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
 			self.vibrate.SetTitle("Yes")
+			self.workout.vibrate = true
 		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
 
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alert.addAction(yesAction)
 		alert.addAction(noAction)
+		alert.addAction(cancelAction)
 		controller.present(alert, animated: true, completion: nil)
 	}
 	
 	func btnRoutineClicked(_ sender:UIButton!) {
-		/*
-		routineExpand.isHidden = !routineExpand.isHidden
-		routineNo.isHidden = !routineNo.isHidden
-		routineYes.isHidden = !routineYes.isHidden
-		*/
-		HideSoundExpand(true)
-		HideVibrateExpand(true)
-		HideRoutineExpand(!routineExpand.isHidden)
-		HideMotivationExpand(true)
+		let noAction = UIAlertAction(title: "No", style: .default) { _ in
+			self.routine.SetTitle("No")
+			self.workout.routine = false
+		}
+		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+			self.routine.SetTitle("Yes")
+			self.workout.routine = true
+		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+		
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(yesAction)
+		alert.addAction(noAction)
+		alert.addAction(cancelAction)
+		controller.present(alert, animated: true, completion: nil)
 	}
 	
 	func btnMotivationClicked(_ sender:UIButton!) {
-		/*
-		motivationExpand.isHidden = !motivationExpand.isHidden
-		motivationNo.isHidden = !motivationNo.isHidden
-		motivationYes.isHidden = !motivationYes.isHidden
-		*/
-		HideSoundExpand(true)
-		HideVibrateExpand(true)
-		HideRoutineExpand(true)
-		HideMotivationExpand(!motivationExpand.isHidden)
-	}
-
-	func soundChildrentClicked(_ sender: Button) {
-		HideSoundExpand(true)
-		sound.SetTitle((sender.titleLabel?.text)!)
-	}
-
-	func vibrateChilrentClicked(_ sender: Button) {
-		HideVibrateExpand(true)
-		vibrate.SetTitle((sender.titleLabel?.text)!)
-	}
-
-	func routineChildrentClicked(_ sender: Button) {
-		HideRoutineExpand(true)
-		routine.SetTitle((sender.titleLabel?.text)!)
-	}
-
-	func motivationChildrentClicked(_ sender: Button) {
-		HideMotivationExpand(true)
-		motivation.SetTitle((sender.titleLabel?.text)!)
+		let noAction = UIAlertAction(title: "No", style: .default) { _ in
+			self.motivation.SetTitle("No")
+			self.workout.motivation = false
+		}
+		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+			self.motivation.SetTitle("Yes")
+			self.workout.motivation = true
+		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+		
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(yesAction)
+		alert.addAction(noAction)
+		alert.addAction(cancelAction)
+		controller.present(alert, animated: true, completion: nil)
 	}
 
 	func IntToString(_ value: Int) -> String {
