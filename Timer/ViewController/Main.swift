@@ -23,8 +23,10 @@ class Main: ViewController {
 	let settingsButton = Button()
 	let titleBackground = UILabel()
 
-	var angle: CGFloat = 0.0
+	var session = Session()
 	var workout = Workout()
+
+	var angle: CGFloat = 0.0
 	var counting = false
 
 	var endSecond = 0
@@ -181,6 +183,19 @@ class Main: ViewController {
 						counting = false
 						let totalText = NumberToString(totalRound)
 						round.text = "ROUND   " + totalText + "/" + totalText
+
+						session.epoch = Double(floor(NSDate().timeIntervalSince1970))
+						session.rounds = workout.rounds
+						session.restTime = workout.rest
+						session.roundTime = workout.roundTime
+						session.warmUpTime = workout.warmUp
+						session.coolDownTime = workout.coolDown
+						session.totalRounds = workout.rounds
+						session.totalTrainingTime = GetTotalTime()
+						session.training = workout.name
+						var sessions = Database.instance.ReadSessions("sessions")
+						sessions.append(session)
+						Database.instance.SaveSessions("sessions", object: sessions)
 					} else {
 						endSecond = workout.coolDown
 						coolDown = true

@@ -65,8 +65,6 @@ class Settings: ViewController, UITableViewDelegate, UITableViewDataSource {
 				}
 			case "backButton":
 				objectManager.AddButton(backButton, parent: view, object: object, target: self)
-			//case "scrollView":
-				//objectManager.AddScrollView(content, view: view, object: object)
 			default: break
 			}
 		}

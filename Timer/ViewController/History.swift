@@ -8,7 +8,7 @@
 
 import UIKit
 
-class History: ViewController, UIScrollViewDelegate {
+class History: ViewController, UITableViewDelegate, UITableViewDataSource {
 	let objectManager = ObjectManager()
 
 	let content = HistoryScroll()
@@ -80,5 +80,22 @@ class History: ViewController, UIScrollViewDelegate {
 			objectManager.AddBackground(background, parent: view, object: object)
 		default: break
 		}
+	}
+
+	//tableview delegate
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 	}
 }

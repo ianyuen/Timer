@@ -13,59 +13,54 @@ class HistoryScroll: ScrollView {
 	let objectManager = ObjectManager()
 
 	override func initView() {
-		layoutIfNeeded()
 		objectManager.parent = self
+		let sessions = Database.instance.ReadSessions("sessions")
+		if sessions.count > 0 {
+			var index = sessions.count - 1
+			let object = ScreenObject()
+			let objectView = ScreenObject()
+			objectView.width = 200
+			objectView.height = 84
+			objectView.clicked = #selector(btnViewClicked(_:))
+			objectView.xPosition = 97 + 30
+			objectView.yPosition = CGFloat(390 + 14 + 50)
 
-		var sessions = Database.instance.ReadSessions("sessions")
-		if sessions.count == 0 {
-			sessions.append(Session())
-			Database.instance.SaveSessions("sessions", object: sessions)
-		}
+			let objectDelete = ScreenObject()
+			objectDelete.size = 20
+			objectDelete.font = "LiberationSans"
+			objectDelete.title = "Delete"
+			objectDelete.clicked = #selector(btnDeleteClicked(_:))
+			objectDelete.posXRaw = "parentWidth - width - 125"
+			objectDelete.yPosition = 420
 
-		var index = sessions.count - 1
-		let object = ScreenObject()
-		let objectView = ScreenObject()
-		objectView.width = 200
-		objectView.height = 84
-		objectView.clicked = #selector(btnViewClicked(_:))
-		objectView.xPosition = 97 + 30
-		objectView.yPosition = CGFloat(390 + 14 + 50)
+			while index >= 0 {
+				let view = HistoryCell()
+				let viewButton = ViewButton()
+				let deleteButton = Button()
 
-		let objectDelete = ScreenObject()
-		objectDelete.size = 20
-		objectDelete.font = "LiberationSans"
-		objectDelete.title = "Delete"
-		objectDelete.clicked = #selector(btnDeleteClicked(_:))
-		objectDelete.posXRaw = "parentWidth - width - 125"
-		objectDelete.yPosition = 420
+				view.parent = self
 
-		while index >= 0 {
-			let view = HistoryCell()
-			let viewButton = ViewButton()
-			let deleteButton = Button()
+				let date = NSDate(timeIntervalSince1970: sessions[index].epoch)
+				let dateFormatter = DateFormatter()
 
-			view.parent = self
+				dateFormatter.dateFormat = "MMM/dd/YYYY"
+				view.SetDateContent(dateFormatter.string(from: date as Date))
 
-			let date = NSDate(timeIntervalSince1970: sessions[index].epoch)
-			let dateFormatter = DateFormatter()
+				dateFormatter.dateFormat = "hh:mm a"
+				view.SetTimeContent(dateFormatter.string(from: date as Date))
 
-			dateFormatter.dateFormat = "MMM/dd/YYYY"
-			view.SetDateContent(dateFormatter.string(from: date as Date))
+				view.SetTrainingContent(sessions[index].training)
+				objectManager.AddView(view, parent: self, object: object)
 
-			dateFormatter.dateFormat = "hh:mm a"
-			view.SetTimeContent(dateFormatter.string(from: date as Date))
+				viewButton.Index(index)
+				objectManager.AddButton(viewButton, parent: self, object: objectView)
+				objectManager.AddButton(deleteButton, parent: self, object: objectDelete)
 
-			view.SetTrainingContent(sessions[index].training)
-			objectManager.AddView(view, parent: self, object: object)
-
-			viewButton.Index(index)
-			objectManager.AddButton(viewButton, parent: self, object: objectView)
-			objectManager.AddButton(deleteButton, parent: self, object: objectDelete)
-
-			index = index - 1
-			object.yPosition = object.yPosition + object.height + 50
-			objectView.yPosition = objectView.yPosition + object.height + 50
-			objectDelete.yPosition = objectView.yPosition
+				index = index - 1
+				object.yPosition = object.yPosition + object.height + 50
+				objectView.yPosition = objectView.yPosition + object.height + 50
+				objectDelete.yPosition = objectView.yPosition
+			}
 		}
 
 		var contentHeight: CGFloat = 0
