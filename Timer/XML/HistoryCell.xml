@@ -4,7 +4,7 @@
 		<type>background</type>
 		<name>background</name>
 		<width>screenWidth - 50 - 50</width>
-		<height>495</height>
+		<height>370</height>
 		<posX>50</posX>
 		<backColor>A6E1FD</backColor>
 	</object>
@@ -61,24 +61,5 @@
 		<posX>50</posX>
 		<posY>125 + 125</posY>
 		<text>Time:</text>
-	</object>
-
-	<object>
-		<type>line</type>
-		<name>line3</name>
-		<posX>50</posX>
-		<posY>120 + 5 + 120 + 5 + 120</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>FFFFFF</backColor>
-	</object>
-
-	<object>
-		<type>historyButton</type>
-		<name>historyButton</name>
-		<posX>97</posX>
-		<posY>360 + 30 + 50</posY>
-		<width>1048</width>
-		<height>112</height>
 	</object>
 </view>

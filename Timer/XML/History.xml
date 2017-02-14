@@ -30,11 +30,14 @@
 	</object>
 
 	<object>
-		<type>scrollView</type>
-		<name>content</name>
+		<type>table</type>
 		<posY>210</posY>
-		<width>screenWidth</width>
+		<width>screenWidth - 100</width>
 		<height>screenHeight - 210 - 460</height>
+		<rowHeight>370</rowHeight>
+		<backColor>FFFFFF</backColor>
+		<lineColor>A6E1FD</lineColor>
+		<textColor>A6E1FD</textColor>
 	</object>
 
 	<object>

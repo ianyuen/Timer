@@ -62,6 +62,7 @@
 		10FB6C581DF538750076E3DB /* RoundSecondsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */; };
 		10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */; };
 		3C13DDBF1E4F09B800175144 /* Digital.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C13DDBE1E4F09B800175144 /* Digital.mp3 */; };
+		3C1783961E5346640044288B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1783951E5346640044288B /* TableViewCell.swift */; };
 		3CB204B51E1FF0F100433581 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB204B41E1FF0F100433581 /* Workout.swift */; };
 		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
 		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
@@ -130,6 +131,7 @@
 		10FB6C571DF538750076E3DB /* RoundSecondsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundSecondsGroup.swift; path = source/RoundSecondsGroup.swift; sourceTree = "<group>"; };
 		10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RoundSecondGroup.xml; path = XML/RoundSecondGroup.xml; sourceTree = "<group>"; };
 		3C13DDBE1E4F09B800175144 /* Digital.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Digital.mp3; path = Sounds/Digital.mp3; sourceTree = "<group>"; };
+		3C1783951E5346640044288B /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = Timer/CustomObject/TableViewCell.swift; sourceTree = "<group>"; };
 		3CB204B41E1FF0F100433581 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Database/Workout.swift; sourceTree = "<group>"; };
 		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
 		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				107E5DBE1E06DCF70047EFCF /* ComboButton.swift */,
 				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
 				3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */,
+				3C1783951E5346640044288B /* TableViewCell.swift */,
 				107A287E1E01CA39005F0A8B /* ViewButton.swift */,
 			);
 			name = CustomObject;
@@ -430,6 +433,7 @@
 				3CF95D951E2B4E5B00D95318 /* HistoryDetailsScroll.swift in Sources */,
 				104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
+				3C1783961E5346640044288B /* TableViewCell.swift in Sources */,
 				10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */,
 				10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */,
 				10E288F41DE33C7B00A5C80B /* ScreenSize.swift in Sources */,

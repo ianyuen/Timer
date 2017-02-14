@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryCell: View {
+class HistoryCell: TableViewCell {
 	var parent = UIView()
 	let objectManager = ObjectManager()
 

@@ -50,7 +50,7 @@ class HistoryScroll: ScrollView {
 				view.SetTimeContent(dateFormatter.string(from: date as Date))
 
 				view.SetTrainingContent(sessions[index].training)
-				objectManager.AddView(view, parent: self, object: object)
+				//objectManager.AddView(view, parent: self, object: object)
 
 				viewButton.Index(index)
 				objectManager.AddButton(viewButton, parent: self, object: objectView)
