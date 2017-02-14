@@ -34,5 +34,6 @@ class ScreenObject {
 	var clicked: Selector? = nil
 
 	var backColor: UInt32 = 0xf9aa43
+	var lineColor: UInt32 = 0xffffff
 	var textColor: UInt32 = 0x373639
 }

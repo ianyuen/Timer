@@ -395,7 +395,12 @@ class DetailsCell: ScrollView {
 			var workouts = Database.instance.ReadWorkouts("workouts")
 			workouts.remove(at: index)
 			Database.instance.SaveWorkouts("workouts", object: workouts)
-			index = index - 1 < 0 ? 0 : index
+
+			index = index - 1
+			if index < 0 {
+				index = 0
+			}
+			Application.instance.WorkoutIndex(index)
 			Database.instance.SaveInt("workoutIndex", data: index)
 			self.controller.PerformSegue("showSettings")
 		} else {

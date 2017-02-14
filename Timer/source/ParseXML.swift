@@ -141,6 +141,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 
 			case "backColor":
 				object.backColor = UInt32(string, radix: 16)!
+			case "lineColor":
+				object.lineColor = UInt32(string, radix: 16)!
 			case "textColor":
 				object.textColor = UInt32(string, radix: 16)!
 

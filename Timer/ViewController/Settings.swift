@@ -8,16 +8,19 @@
 
 import UIKit
 
-class Settings: ViewController {
+class Settings: ViewController, UITableViewDelegate, UITableViewDataSource {
+	var textColor = UIColor()
+	var workouts = [Workout]()
 	var objectManager = ObjectManager()
 
-	let content = WorkoutCell()
+	let backButton = BackButton()
+	var tableView = UITableView()
 	let titleBack = UILabel()
 	let titleText = UILabel()
 	let background = UILabel()
+
 	let newButton = NewButton()
 	let editButton = NewButton()
-	let backButton = BackButton()
 	let weightButton = NewButton()
 
 	override func viewDidLoad() {
@@ -26,6 +29,13 @@ class Settings: ViewController {
 		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
+
+		workouts = Database.instance.ReadWorkouts("workouts")
+		if workouts.count == 0 {
+			workouts.append(Workout())
+			Database.instance.SaveWorkouts("workouts", object: workouts)
+		}
+
 		initView()
     }
 
@@ -41,6 +51,8 @@ class Settings: ViewController {
 			switch object.type {
 			case "label":
 				objectManager.AddLabel(titleText, parent: view, object: object)
+			case "table":
+				AddTableView(object)
 			case "background":
 				DrawBackground(object)
 			case "newButton":
@@ -53,11 +65,33 @@ class Settings: ViewController {
 				}
 			case "backButton":
 				objectManager.AddButton(backButton, parent: view, object: object, target: self)
-			case "scrollView":
-				objectManager.AddScrollView(content, view: view, object: object)
+			//case "scrollView":
+				//objectManager.AddScrollView(content, view: view, object: object)
 			default: break
 			}
 		}
+	}
+
+	func AddTableView(_ object: ScreenObject) {
+		let x = ScreenSize.instance.GetPositionX(object.xPosition)
+		let y = ScreenSize.instance.GetPositionY(object.yPosition)
+		let width = ScreenSize.instance.GetItemWidth(object.width)
+		let height = ScreenSize.instance.GetItemHeight(object.height)
+
+		tableView.frame = CGRect(x: x, y: y, width: width, height: height)
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+		tableView.layoutMargins = UIEdgeInsets.zero
+		tableView.separatorInset = UIEdgeInsets.zero
+		tableView.tableFooterView = UIView()
+		let color = Color()
+		textColor = color.UIColorFromHex(object.textColor)
+		tableView.separatorColor = color.UIColorFromHex(object.lineColor)
+		tableView.backgroundColor = color.UIColorFromHex(object.backColor)
+
+		tableView.rowHeight = ScreenSize.instance.GetItemHeight(object.rowHeight)
+		self.view.addSubview(tableView)
 	}
 
 	func DrawBackground(_ object: ScreenObject) {
@@ -93,5 +127,26 @@ class Settings: ViewController {
 
 	func btnWeightClicked(_ sender:UIButton!) {
 		//self.performSegue(withIdentifier: "showDetails", sender: self)
+	}
+
+	//tableview delegate
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return workouts.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+		cell.textLabel?.text = workouts[indexPath.row].name
+		cell.textLabel?.textColor = textColor
+		return cell
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		Application.instance.WorkoutIndex(indexPath.row)
+		Database.instance.SaveInt("workoutIndex", data: indexPath.row)
 	}
 }
