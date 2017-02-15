@@ -36,4 +36,16 @@
 		<width>screenWidth</width>
 		<height>screenHeight - 210 - 460</height>
 	</object>
+
+	<object>
+		<type>newButton</type>
+		<name>deleteButton</name>
+		<width>472</width>
+		<height>145</height>
+		<posX>385</posX>
+		<posY>1898</posY>
+		<text>DELETE</text>
+		<round>8</round>
+		<clicked>btnDeleteClicked</clicked>
+	</object>
 </view>

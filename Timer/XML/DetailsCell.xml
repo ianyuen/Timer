@@ -207,9 +207,10 @@
 		<posX>83</posX>
 		<posY>2038 + 158</posY>
 		<text>SAVE</text>
+		<round>8</round>
 		<clicked>btnSaveClicked</clicked>
 	</object>
-	
+
 	<object>
 		<type>newButton</type>
 		<name>deleteButton</name>
@@ -218,6 +219,7 @@
 		<posX>647</posX>
 		<posY>2038 + 158</posY>
 		<text>DELETE</text>
+		<round>8</round>
 		<clicked>btnDeleteClicked</clicked>
 	</object>
 </view>

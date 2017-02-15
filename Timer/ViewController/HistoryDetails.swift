@@ -13,6 +13,7 @@ class HistoryDetails: ViewController {
 
 	let backButton = BackButton()
 	let titleText = UILabel()
+	let deleteButton = NewButton()
 	let content = HistoryDetailsScroll()
 	let background = UILabel()
 
@@ -26,6 +27,11 @@ class HistoryDetails: ViewController {
 			switch object.type {
 			case "label":
 				objectManager.AddLabel(titleText, parent: view, object: object)
+			case "newButton":
+				deleteButton.SetText(object.text)
+				deleteButton.SetWidth(object.width)
+				deleteButton.SetHeight(object.height)
+				objectManager.AddButton(deleteButton, parent: view, object: object, target: self)
 			case "backButton":
 				DrawButton(object)
 			case "scrollView":
@@ -59,6 +65,22 @@ class HistoryDetails: ViewController {
 	}
 
 	func btnBackClicked(_ sender: Button!) {
-		self.performSegue(withIdentifier: "showHistory", sender: self)
+		PerformSegue("showHistory")
+	}
+
+	func btnDeleteClicked(_ sender: Button!) {
+		let message = "Delete?"
+		let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+
+		let noAction = UIAlertAction(title: "No", style: .cancel) { _ in }
+		let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+			var sessions = Database.instance.ReadSessions("sessions")
+			sessions.remove(at: Application.instance.SessionIndex())
+			Database.instance.SaveSessions("sessions", object: sessions)
+			self.PerformSegue("showHistory")
+		}
+		alert.addAction(noAction)
+		alert.addAction(yesAction)
+		present(alert, animated: true, completion: nil)
 	}
 }
