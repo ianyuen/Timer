@@ -201,6 +201,8 @@ class Main: ViewController {
 						var sessions = Database.instance.ReadSessions("sessions")
 						sessions.append(session)
 						Database.instance.SaveSessions("sessions", object: sessions)
+
+						AskLaunchCalis()
 					} else {
 						endSecond = workout.coolDown
 						coolDown = true
@@ -255,14 +257,31 @@ class Main: ViewController {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}
 
-	func Start() {
-		counting = !counting
-		if counting {
-			if leftRound == 0 {
-				round.text = "WARM UP"
-				PlaySound("Digital")
+	func GetTotalTime() -> Int {
+		let rest = workout.rest
+		let warmUp = workout.warmUp
+		let rounds = workout.rounds
+		let coolDown = workout.coolDown
+		let roundTime = workout.roundTime
+		return warmUp + coolDown + (rest * (rounds - 1)) + (roundTime * rounds)
+	}
+
+	func AskLaunchCalis() {
+		let message = "Are you want Calisthenics?"
+		let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+		let noAction = UIAlertAction(title: "No", style: .cancel) { _ in }
+		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+			let ourApplication = UIApplication.shared
+			let URLEncodedText = "test"
+			let ourPath = "workouts://" + URLEncodedText
+			let ourURL = NSURL(string: ourPath)
+			if ourApplication.canOpenURL(ourURL as! URL) {
+				ourApplication.openURL(ourURL as! URL)
 			}
 		}
+		alert.addAction(yesAction)
+		alert.addAction(noAction)
+		present(alert, animated: true, completion: nil)
 	}
 
 	func PlaySound(_ sound: String) {
@@ -279,6 +298,25 @@ class Main: ViewController {
 		}
 	}
 
+	func Start() {
+		counting = !counting
+		if counting {
+			if leftRound == 0 {
+				round.text = "WARM UP"
+				PlaySound("Digital")
+			}
+		}
+	}
+
+	func PrintFontNames() {
+		let fontFamilyNames = UIFont.familyNames
+		for familyName in fontFamilyNames {
+			print("Font Family Name = [\(familyName)]")
+			let names = UIFont.fontNames(forFamilyName: familyName)
+			print("Font Names = [\(names)]")
+		}
+	}
+
 	func NumberToString(_ value: Int) -> String {
 		var result = ""
 		if value < 10 {
@@ -287,7 +325,7 @@ class Main: ViewController {
 		result = result + String(value)
 		return result
 	}
-
+	
 	func ConvertToClock(_ value: Int) -> String {
 		var result = ""
 		let minute = value / 60
@@ -301,23 +339,5 @@ class Main: ViewController {
 		}
 		result = result + String(second)
 		return result
-	}
-
-	func GetTotalTime() -> Int {
-		let rest = workout.rest
-		let warmUp = workout.warmUp
-		let rounds = workout.rounds
-		let coolDown = workout.coolDown
-		let roundTime = workout.roundTime
-		return warmUp + coolDown + (rest * (rounds - 1)) + (roundTime * rounds)
-	}
-
-	func PrintFontNames() {
-		let fontFamilyNames = UIFont.familyNames
-		for familyName in fontFamilyNames {
-			print("Font Family Name = [\(familyName)]")
-			let names = UIFont.fontNames(forFamilyName: familyName)
-			print("Font Names = [\(names)]")
-		}
 	}
 }
