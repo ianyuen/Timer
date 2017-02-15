@@ -134,9 +134,9 @@ class Main: ViewController {
 		button.SetText(object.text)
 		button.SetWidth(object.width)
 		button.SetHeight(object.height)
+		objectManager.AddButton(button, parent: view, object: object, target: self)
 		button.SetBackColor(object.backColor)
 		button.SetTouchColor(object.touchColor)
-		objectManager.AddButton(button, parent: view, object: object, target: self)
 		button.ChangeBackColor(object.backColor)
 	}
 

@@ -34,6 +34,8 @@ class NewButton: Button {
 			case "background":
 				object.width = width
 				object.height = height
+				backColor = object.backColor
+				touchColor = object.touchColor
 				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
