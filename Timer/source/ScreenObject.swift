@@ -30,8 +30,10 @@ class ScreenObject {
 
 	var icon = UIImage()
 	var line: Int = 1
-	var round = false
 	var clicked: Selector? = nil
+
+	var round = false
+	var cornerRadius: CGFloat = 0
 
 	var backColor: UInt32 = 0xf9aa43
 	var lineColor: UInt32 = 0xffffff

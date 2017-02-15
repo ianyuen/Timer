@@ -15,6 +15,7 @@ class NewButton: Button {
 	private var width: CGFloat = 0
 	private var height: CGFloat = 0
 
+	private var icon = UIImageView()
 	let title = UILabel()
 	let background = UILabel()
 
@@ -23,6 +24,8 @@ class NewButton: Button {
 		objectManager.Parse("NewButton")
 		for object in objectManager.GetObjects() {
 			switch object.type {
+			case "image":
+				DrawImage(object)
 			case "label":
 				object.text = text
 				objectManager.AddLabel(title, parent: self, object: object)
@@ -33,12 +36,14 @@ class NewButton: Button {
 			default: break
 			}
 		}
-		layer.masksToBounds = true
-		layer.cornerRadius = 8
 	}
 
 	func SetText(_ value: String) {
 		text = value
+	}
+
+	func SetTitle(_ value: String) {
+		title.text = value
 	}
 
 	func SetWidth(_ value: CGFloat) {
@@ -47,5 +52,22 @@ class NewButton: Button {
 
 	func SetHeight(_ value: CGFloat) {
 		height = value
+	}
+
+	func SetBackgroundColor(_ value: UInt32) {
+		let color = Color()
+		background.backgroundColor = color.UIColorFromHex(value)
+	}
+
+	func DrawImage(_ object: ScreenObject) {
+		switch object.name {
+		case "icon":
+			objectManager.AddImage(icon, parent: self, object: object)
+		default: break
+		}
+	}
+
+	func SizeToFit() {
+		title.sizeToFit()
 	}
 }

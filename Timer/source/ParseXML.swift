@@ -135,7 +135,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 			case "line":
 				object.line = Int(string, radix: 10)!
 			case "round":
-				object.round = StringToBool(string)
+				object.round = true
+				object.cornerRadius = CGFloatFromString(string)
 			case "clicked":
 				object.clicked = NSSelectorFromString(string + ":")
 

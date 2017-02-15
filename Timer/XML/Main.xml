@@ -76,7 +76,6 @@
 		<name>endClock</name>
 		<posX>screenWidth - 400</posX>
 		<posY>515</posY>
-		<text>15:00</text>
 		<font>LiberationSans</font>
 		<size>20</size>
 	</object>
@@ -92,26 +91,29 @@
 	</object>
 
 	<object>
-		<type>mainButton</type>
+		<type>newButton</type>
 		<name>startButton</name>
 		<width>450</width>
 		<height>145</height>
 		<posX>100</posX>
 		<posY>1893</posY>
-		<icon>start</icon>
 		<text>START</text>
+		<icon>start</icon>
+		<round>7</round>
+		<backColor>008FDC</backColor>
 		<clicked>btnStartClicked</clicked>
 	</object>
 
 	<object>
-		<type>mainButton</type>
+		<type>newButton</type>
 		<name>resetButton</name>
 		<width>450</width>
 		<height>145</height>
 		<posX>692</posX>
 		<posY>1893</posY>
-		<icon>reset</icon>
 		<text>RESET</text>
+		<round>7</round>
+		<backColor>008FDC</backColor>
 		<clicked>btnResetClicked</clicked>
 	</object>
 <view>

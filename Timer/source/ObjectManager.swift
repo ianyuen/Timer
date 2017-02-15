@@ -220,6 +220,11 @@ class ObjectManager {
 			}
 		}
 		button.initView()
+		if object.round {
+			button.layer.masksToBounds = true
+			button.layer.cornerRadius = object.cornerRadius
+		}
+
 		if object.title != "" {
 			button.setTitle(object.title, for: UIControlState.normal)
 			button.setTitleColor(color.UIColorFromHex(object.textColor), for: UIControlState.normal)

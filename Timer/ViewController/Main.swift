@@ -14,8 +14,8 @@ class Main: ViewController {
 	let endTime = UILabel()
 	let endClock = UILabel()
 	let background = UILabel()
-	let resetButton = MainButton()
-	let startButton = MainButton()
+	let resetButton = NewButton()
+	let startButton = NewButton()
 	let roundButton = RoundButton()
 	let screenTitle = UITextField()
 	let objectManager = ObjectManager()
@@ -90,10 +90,10 @@ class Main: ViewController {
 				DrawLabel(object)
 			case "button":
 				DrawButton(object)
+			case "newButton":
+				DrawNewButton(object)
 			case "background":
 				DrawBackground(object)
-			case "mainButton":
-				DrawMainButton(object)
 			case "roundButton":
 				objectManager.AddButton(roundButton, parent: view, object: object, target: self)
 				roundButton.endTime.text = ConvertToClock(workout.warmUp)
@@ -129,16 +129,21 @@ class Main: ViewController {
 		}
 	}
 
-	func DrawMainButton(_ object: ScreenObject) {
+	func AddNewButton(_ button: NewButton, object: ScreenObject) {
+		//startButton.SetIcon(object.icon)
+		button.SetText(object.text)
+		button.SetWidth(object.width)
+		button.SetHeight(object.height)
+		objectManager.AddButton(button, parent: view, object: object, target: self)
+		button.SetBackgroundColor(object.backColor)
+	}
+
+	func DrawNewButton(_ object: ScreenObject) {
 		switch object.name {
 		case "startButton":
-			startButton.SetIcon(object.icon)
-			startButton.SetTitle(object.text)
-			objectManager.AddButton(startButton, parent: view, object: object, target: self)
+			AddNewButton(startButton, object: object)
 		case "resetButton":
-			resetButton.SetIcon(object.icon)
-			resetButton.SetTitle(object.text)
-			objectManager.AddButton(resetButton, parent: view, object: object, target: self)
+			AddNewButton(resetButton, object: object)
 		default: break
 		}
 	}
@@ -155,8 +160,8 @@ class Main: ViewController {
 
 	func update() {
 		if (counting) {
-			let image = UIImage(named: "stop")
-			startButton.SetIcon(image!)
+			//let image = UIImage(named: "stop")
+			//startButton.SetIcon(image!)
 			startButton.SetTitle("PAUSE")
 
 			roundButton.DrawCircle(angle)
@@ -209,8 +214,8 @@ class Main: ViewController {
 			endClock.text = ConvertToClock(totalSecond)
 			roundButton.endTime.text = ConvertToClock(endSecond)
 		} else {
-			let image = UIImage(named: "start")
-			startButton.SetIcon(image!)
+			//let image = UIImage(named: "start")
+			//startButton.SetIcon(image!)
 			startButton.SetTitle("START")
 		}
 		startButton.SizeToFit()

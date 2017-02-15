@@ -14,4 +14,13 @@
 		<font>LiberationSans</font>
 		<size>20</size>
 	</object>
+
+	<object>
+		<type>image</type>
+		<name>icon</name>
+		<width>77</width>
+		<height>77</height>
+		<posX>0</posX>
+		<posY>34</posY>
+	</object>
 <view>

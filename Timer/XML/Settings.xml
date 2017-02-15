@@ -46,6 +46,7 @@
 		<posX>150</posX>
 		<posY>1609</posY>
 		<text>NEW</text>
+		<round>8</round>
 		<clicked>btnNewClicked</clicked>
 	</object>
 
@@ -57,6 +58,7 @@
 		<posX>658</posX>
 		<posY>1609</posY>
 		<text>EDIT</text>
+		<round>8</round>
 		<clicked>btnEditClicked</clicked>
 	</object>
 
@@ -68,6 +70,7 @@
 		<posX>404</posX>
 		<posY>1881</posY>
 		<text>WEIGHT</text>
+		<round>8</round>
 		<clicked>btnWeightClicked</clicked>
 	</object>
 </view>
