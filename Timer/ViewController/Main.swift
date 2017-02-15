@@ -134,8 +134,10 @@ class Main: ViewController {
 		button.SetText(object.text)
 		button.SetWidth(object.width)
 		button.SetHeight(object.height)
+		button.SetBackColor(object.backColor)
+		button.SetTouchColor(object.touchColor)
 		objectManager.AddButton(button, parent: view, object: object, target: self)
-		button.SetBackgroundColor(object.backColor)
+		button.ChangeBackColor(object.backColor)
 	}
 
 	func DrawNewButton(_ object: ScreenObject) {

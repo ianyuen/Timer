@@ -101,6 +101,7 @@
 		<icon>start</icon>
 		<round>7</round>
 		<backColor>008FDC</backColor>
+		<touchColor>A6E1FD</touchColor>
 		<clicked>btnStartClicked</clicked>
 	</object>
 

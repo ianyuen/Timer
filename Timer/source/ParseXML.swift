@@ -146,6 +146,8 @@ class ParseXML : NSObject, XMLParserDelegate {
 				object.lineColor = UInt32(string, radix: 16)!
 			case "textColor":
 				object.textColor = UInt32(string, radix: 16)!
+			case "touchColor":
+				object.touchColor = UInt32(string, radix: 16)!
 
 			default: return
 			}

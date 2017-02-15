@@ -14,6 +14,8 @@ class NewButton: Button {
 	private var text = ""
 	private var width: CGFloat = 0
 	private var height: CGFloat = 0
+	private var backColor: UInt32 = 0
+	private var touchColor: UInt32 = 0
 
 	private var icon = UIImageView()
 	let title = UILabel()
@@ -36,6 +38,16 @@ class NewButton: Button {
 			default: break
 			}
 		}
+		addTarget(self, action: #selector(Touched(_:)), for: .touchDown)
+		addTarget(self, action: #selector(Released(_:)), for: .touchUpInside)
+	}
+
+	func Touched(_ sender: Button!) {
+		ChangeBackColor(touchColor)
+	}
+
+	func Released(_ sender: Button!) {
+		ChangeBackColor(backColor)
 	}
 
 	func SetText(_ value: String) {
@@ -54,7 +66,15 @@ class NewButton: Button {
 		height = value
 	}
 
-	func SetBackgroundColor(_ value: UInt32) {
+	func SetBackColor(_ value: UInt32) {
+		backColor = value
+	}
+
+	func SetTouchColor(_ value: UInt32) {
+		touchColor = value
+	}
+
+	func ChangeBackColor(_ value: UInt32) {
 		let color = Color()
 		background.backgroundColor = color.UIColorFromHex(value)
 	}
