@@ -278,7 +278,11 @@ class Main: ViewController {
 			let ourPath = "workouts://" + URLEncodedText
 			let ourURL = NSURL(string: ourPath)
 			if ourApplication.canOpenURL(ourURL as! URL) {
-				ourApplication.openURL(ourURL as! URL)
+				if #available(iOS 10.0, *) {
+					ourApplication.open(ourURL as! URL, options: [:], completionHandler: nil)
+				} else {
+					ourApplication.openURL(ourURL as! URL)
+				}
 			}
 		}
 		alert.addAction(yesAction)
