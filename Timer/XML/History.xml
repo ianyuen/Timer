@@ -48,5 +48,6 @@
 		<posX>325</posX>
 		<posY>screenHeight - 460 + 157</posY>
 		<text>WEIGHT</text>
+		<round>8</round>
 	</object>
 </view>
