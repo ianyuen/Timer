@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>image</type>
+		<type>background</type>
 		<name>background</name>
-		<width>450</width>
-		<height>145</height>
-		<icon>mainButton</icon>
+		<backColor>008FDC</backColor>
 	</object>
 
 	<object>

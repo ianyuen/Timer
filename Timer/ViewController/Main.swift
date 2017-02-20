@@ -14,8 +14,8 @@ class Main: ViewController {
 	let endTime = UILabel()
 	let endClock = UILabel()
 	let background = UILabel()
-	let resetButton = NewButton()
-	let startButton = NewButton()
+	let resetButton = MainButton()
+	let startButton = MainButton()
 	let roundButton = RoundButton()
 	let screenTitle = UITextField()
 	let objectManager = ObjectManager()
@@ -90,7 +90,7 @@ class Main: ViewController {
 				DrawLabel(object)
 			case "button":
 				DrawButton(object)
-			case "newButton":
+			case "mainButton":
 				DrawNewButton(object)
 			case "background":
 				DrawBackground(object)
@@ -129,15 +129,12 @@ class Main: ViewController {
 		}
 	}
 
-	func AddNewButton(_ button: NewButton, object: ScreenObject) {
-		//startButton.SetIcon(object.icon)
-		button.SetText(object.text)
+	func AddNewButton(_ button: MainButton, object: ScreenObject) {
+		button.SetIcon(object.icon)
+		button.SetTitle(object.text)
 		button.SetWidth(object.width)
 		button.SetHeight(object.height)
 		objectManager.AddButton(button, parent: view, object: object, target: self)
-		button.SetBackColor(object.backColor)
-		button.SetTouchColor(object.touchColor)
-		button.ChangeBackColor(object.backColor)
 	}
 
 	func DrawNewButton(_ object: ScreenObject) {
@@ -145,6 +142,10 @@ class Main: ViewController {
 		case "startButton":
 			AddNewButton(startButton, object: object)
 		case "resetButton":
+			let touched = #selector(MainButton.Touched(_:))
+			resetButton.addTarget(resetButton, action: touched, for: .touchDown)
+			let released = #selector(MainButton.Released(_:))
+			resetButton.addTarget(resetButton, action: released, for: .touchUpInside)
 			AddNewButton(resetButton, object: object)
 		default: break
 		}
@@ -162,9 +163,10 @@ class Main: ViewController {
 
 	func update() {
 		if (counting) {
-			//let image = UIImage(named: "stop")
-			//startButton.SetIcon(image!)
+			let image = UIImage(named: "stop")
+			startButton.SetIcon(image!)
 			startButton.SetTitle("PAUSE")
+			startButton.ChangeBackColor(0xA6E1FD)
 
 			roundButton.DrawCircle(angle)
 			angle = angle + CGFloat.pi / 30
@@ -218,9 +220,10 @@ class Main: ViewController {
 			endClock.text = ConvertToClock(totalSecond)
 			roundButton.endTime.text = ConvertToClock(endSecond)
 		} else {
-			//let image = UIImage(named: "start")
-			//startButton.SetIcon(image!)
+			let image = UIImage(named: "start")
+			startButton.SetIcon(image!)
 			startButton.SetTitle("START")
+			startButton.ChangeBackColor(0x008FDC)
 		}
 		startButton.SizeToFit()
 		resetButton.SetTitle("RESET")
@@ -292,13 +295,12 @@ class Main: ViewController {
 
 	func PlaySound(_ sound: String) {
 		let url = Bundle.main.url(forResource: sound, withExtension: "mp3")!
-		
 		do {
 			player = try AVAudioPlayer(contentsOf: url)
 			guard let player = player else { return }
 			
 			player.prepareToPlay()
-			player.play()
+			//player.play()
 		} catch let error {
 			print(error.localizedDescription)
 		}

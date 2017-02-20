@@ -91,7 +91,7 @@
 	</object>
 
 	<object>
-		<type>newButton</type>
+		<type>mainButton</type>
 		<name>startButton</name>
 		<width>450</width>
 		<height>145</height>
@@ -100,19 +100,18 @@
 		<text>START</text>
 		<icon>start</icon>
 		<round>7</round>
-		<backColor>008FDC</backColor>
-		<touchColor>A6E1FD</touchColor>
 		<clicked>btnStartClicked</clicked>
 	</object>
 
 	<object>
-		<type>newButton</type>
+		<type>mainButton</type>
 		<name>resetButton</name>
 		<width>450</width>
 		<height>145</height>
 		<posX>692</posX>
 		<posY>1893</posY>
 		<text>RESET</text>
+		<icon>reset</icon>
 		<round>7</round>
 		<backColor>008FDC</backColor>
 		<clicked>btnResetClicked</clicked>

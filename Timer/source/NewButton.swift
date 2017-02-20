@@ -17,17 +17,14 @@ class NewButton: Button {
 	private var backColor: UInt32 = 0
 	private var touchColor: UInt32 = 0
 
-	private var icon = UIImageView()
-	let title = UILabel()
-	let background = UILabel()
+	private let title = UILabel()
+	private let background = UILabel()
 
 	override func initView() {
 		objectManager.parent = self
 		objectManager.Parse("NewButton")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "image":
-				DrawImage(object)
 			case "label":
 				object.text = text
 				objectManager.AddLabel(title, parent: self, object: object)
@@ -79,14 +76,6 @@ class NewButton: Button {
 	func ChangeBackColor(_ value: UInt32) {
 		let color = Color()
 		background.backgroundColor = color.UIColorFromHex(value)
-	}
-
-	func DrawImage(_ object: ScreenObject) {
-		switch object.name {
-		case "icon":
-			objectManager.AddImage(icon, parent: self, object: object)
-		default: break
-		}
 	}
 
 	func SizeToFit() {
