@@ -83,6 +83,7 @@ class Settings: ViewController, UITableViewDelegate, UITableViewDataSource {
 		tableView.layoutMargins = UIEdgeInsets.zero
 		tableView.separatorInset = UIEdgeInsets.zero
 		tableView.tableFooterView = UIView()
+		tableView.tableHeaderView = StandardTableHeaderView()
 		let color = Color()
 		textColor = color.UIColorFromHex(object.textColor)
 		tableView.separatorColor = color.UIColorFromHex(object.lineColor)
@@ -125,6 +126,18 @@ class Settings: ViewController, UITableViewDelegate, UITableViewDataSource {
 
 	func btnWeightClicked(_ sender:UIButton!) {
 		//self.performSegue(withIdentifier: "showDetails", sender: self)
+	}
+
+	func StandardTableHeaderView() -> UIView {
+		let label = UILabel()
+		let width = view.frame.width
+		let height = 1 / UIScreen().scale
+		label.frame = CGRect(x: 0, y: 0 , width: width, height: height)
+		label.backgroundColor = Color().UIColorFromHex(0xA6E1FD)
+
+		let header = UIView()
+		header.addSubview(label)
+		return header
 	}
 
 	//tableview delegate
