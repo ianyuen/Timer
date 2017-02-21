@@ -13,6 +13,7 @@ class HistoryDetail: View {
 
 	private var title = UILabel()
 	private var content = UILabel()
+	private var background = UILabel()
 
 	private var titleText = ""
 	private var contentText = ""
@@ -24,6 +25,8 @@ class HistoryDetail: View {
 			switch object.type {
 			case "label":
 				AddLabel(object)
+			case "background":
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}

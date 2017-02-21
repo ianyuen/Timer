@@ -32,9 +32,9 @@
 	<object>
 		<type>table</type>
 		<posY>210</posY>
-		<width>screenWidth - 100</width>
+		<width>screenWidth</width>
 		<height>screenHeight - 210 - 460</height>
-		<rowHeight>370</rowHeight>
+		<rowHeight>470</rowHeight>
 		<backColor>FFFFFF</backColor>
 		<lineColor>A6E1FD</lineColor>
 		<textColor>A6E1FD</textColor>

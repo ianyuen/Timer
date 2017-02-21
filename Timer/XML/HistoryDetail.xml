@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
+		<type>background</type>
+		<name>background</name>
+		<width>screenWidth - 100</width>
+		<height>120</height>
+		<backColor>A6E1FD</backColor>
+	</object>
+
+	<object>
 		<type>label</type>
 		<name>title</name>
 		<posX>50</posX>

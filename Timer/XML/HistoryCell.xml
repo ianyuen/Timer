@@ -1,33 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>background</type>
-		<name>background</name>
-		<width>screenWidth - 50 - 50</width>
-		<height>370</height>
-		<posX>50</posX>
-		<backColor>A6E1FD</backColor>
-	</object>
-
-	<object>
 		<type>historyDetail</type>
 		<name>training</name>
 		<round>true</round>
 		<width>screenWidth - 50 - 50</width>
 		<height>120</height>
 		<posX>50</posX>
+		<posY>50</posY>
 		<text>Training:</text>
-	</object>
-
-	<object>
-		<type>line</type>
-		<name>line1</name>
-		<posX>0</posX>
-		<posY>120</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<posX>50</posX>
-		<backColor>FFFFFF</backColor>
 	</object>
 
 	<object>
@@ -36,20 +17,9 @@
 		<round>true</round>
 		<width>screenWidth - 50 - 50</width>
 		<height>120</height>
-		<posY>125</posY>
 		<posX>50</posX>
+		<posY>175</posY>
 		<text>Date:</text>
-	</object>
-
-	<object>
-		<type>line</type>
-		<name>line2</name>
-		<posX>0</posX>
-		<posY>120 + 5 + 120</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<posX>50</posX>
-		<backColor>FFFFFF</backColor>
 	</object>
 
 	<object>
@@ -59,7 +29,7 @@
 		<width>screenWidth - 50 - 50</width>
 		<height>120</height>
 		<posX>50</posX>
-		<posY>125 + 125</posY>
+		<posY>300</posY>
 		<text>Time:</text>
 	</object>
 </view>
