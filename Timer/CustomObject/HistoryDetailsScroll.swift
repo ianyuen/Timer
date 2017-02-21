@@ -23,16 +23,6 @@ class HistoryDetailsScroll: ScrollView {
 	let training = HistoryDetail()
 	let totalTrainingTime = HistoryDetail()
 
-	let line1 = SingleLine()
-	let line2 = SingleLine()
-	let line3 = SingleLine()
-	let line4 = SingleLine()
-	let line5 = SingleLine()
-	let line6 = SingleLine()
-	let line7 = SingleLine()
-	let line8 = SingleLine()
-	let line9 = SingleLine()
-
 	let background = UILabel()
 
 	override func initView() {
@@ -40,38 +30,12 @@ class HistoryDetailsScroll: ScrollView {
 		objectManager.Parse("HistoryDetailsScroll")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "line":
-				AddLine(object)
 			case "background":
 				objectManager.AddBackground(background, parent: self, object: object)
 			case "historyDetail":
 				FindHistoryDetail(object)
 			default: break
 			}
-		}
-	}
-
-	func AddLine(_ object: ScreenObject) {
-		switch object.name {
-		case "line1":
-			objectManager.AddLine(line1, parent: self, object: object)
-		case "line2":
-			objectManager.AddLine(line2, parent: self, object: object)
-		case "line3":
-			objectManager.AddLine(line3, parent: self, object: object)
-		case "line4":
-			objectManager.AddLine(line4, parent: self, object: object)
-		case "line5":
-			objectManager.AddLine(line5, parent: self, object: object)
-		case "line6":
-			objectManager.AddLine(line6, parent: self, object: object)
-		case "line7":
-			objectManager.AddLine(line7, parent: self, object: object)
-		case "line8":
-			objectManager.AddLine(line8, parent: self, object: object)
-		case "line9":
-			objectManager.AddLine(line9, parent: self, object: object)
-		default: break
 		}
 	}
 

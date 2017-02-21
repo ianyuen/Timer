@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
-		<type>background</type>
-		<name>background</name>
-		<width>screenWidth - 50 - 50</width>
-		<height>1245</height>
-		<posX>50</posX>
-		<backColor>A6E1FD</backColor>
-	</object>
-
-	<object>
 		<type>historyDetail</type>
 		<name>training</name>
 		<width>screenWidth - 50 - 50</width>
@@ -18,17 +9,6 @@
 		<text>Training:</text>
 	</object>
 <!-- *********************************** -->
-	<object>
-		<type>line</type>
-		<name>line1</name>
-		<posX>0</posX>
-		<posY>120</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<posX>50</posX>
-		<backColor>F6992C</backColor>
-	</object>
-
 	<object>
 		<type>historyDetail</type>
 		<name>date</name>
@@ -40,17 +20,6 @@
 	</object>
 <!-- *********************************** -->
 	<object>
-		<type>line</type>
-		<name>line2</name>
-		<posX>0</posX>
-		<posY>120 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<posX>50</posX>
-		<backColor>F6992C</backColor>
-	</object>
-
-	<object>
 		<type>historyDetail</type>
 		<name>time</name>
 		<width>screenWidth - 50 - 50</width>
@@ -60,16 +29,6 @@
 		<text>Time:</text>
 	</object>
 <!-- *********************************** -->
-	<object>
-		<type>line</type>
-		<name>line3</name>
-		<posX>50</posX>
-		<posY>245 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-
 	<object>
 		<type>historyDetail</type>
 		<name>totalRounds</name>
@@ -81,16 +40,6 @@
 	</object>
 <!-- *********************************** -->
 	<object>
-		<type>line</type>
-		<name>line4</name>
-		<posX>50</posX>
-		<posY>370 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-	
-	<object>
 		<type>historyDetail</type>
 		<name>rounds</name>
 		<width>screenWidth - 50 - 50</width>
@@ -100,16 +49,6 @@
 		<text>Rounds:</text>
 	</object>
 <!-- *********************************** -->
-	<object>
-		<type>line</type>
-		<name>line5</name>
-		<posX>50</posX>
-		<posY>495 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-	
 	<object>
 		<type>historyDetail</type>
 		<name>roundTime</name>
@@ -121,16 +60,6 @@
 	</object>
 <!-- *********************************** -->
 	<object>
-		<type>line</type>
-		<name>line6</name>
-		<posX>50</posX>
-		<posY>620 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-	
-	<object>
 		<type>historyDetail</type>
 		<name>restTime</name>
 		<width>screenWidth - 50 - 50</width>
@@ -140,16 +69,6 @@
 		<text>Rest Time:</text>
 	</object>
 <!-- *********************************** -->
-	<object>
-		<type>line</type>
-		<name>line7</name>
-		<posX>50</posX>
-		<posY>745 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-	
 	<object>
 		<type>historyDetail</type>
 		<name>warmUpTime</name>
@@ -161,16 +80,6 @@
 	</object>
 <!-- *********************************** -->
 	<object>
-		<type>line</type>
-		<name>line8</name>
-		<posX>50</posX>
-		<posY>870 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-	
-	<object>
 		<type>historyDetail</type>
 		<name>coolDownTime</name>
 		<width>screenWidth - 50 - 50</width>
@@ -180,16 +89,6 @@
 		<text>Cool Down Time:</text>
 	</object>
 <!-- *********************************** -->
-	<object>
-		<type>line</type>
-		<name>line9</name>
-		<posX>50</posX>
-		<posY>995 + 125</posY>
-		<width>screenWidth - 50 - 50</width>
-		<height>5</height>
-		<backColor>F6992C</backColor>
-	</object>
-	
 	<object>
 		<type>historyDetail</type>
 		<name>totalTrainingTime</name>

@@ -14,9 +14,6 @@ class HistoryCell: TableViewCell {
 
 	let date = HistoryDetail()
 	let time = HistoryDetail()
-	let line1 = SingleLine()
-	let line2 = SingleLine()
-	let line3 = SingleLine()
 	let training = HistoryDetail()
 	let background = UILabel()
 	let historyButton = HistoryButton()
@@ -30,8 +27,6 @@ class HistoryCell: TableViewCell {
 		objectManager.Parse("HistoryCell")
 		for object in objectManager.GetObjects() {
 			switch object.type {
-			case "line":
-				AddLine(object)
 			case "background":
 				objectManager.AddBackground(background, parent: self, object: object)
 			case "historyDetail":
@@ -40,18 +35,6 @@ class HistoryCell: TableViewCell {
 				objectManager.AddView(historyButton, parent: self, object: object)
 			default: break
 			}
-		}
-	}
-
-	func AddLine(_ object: ScreenObject) {
-		switch object.name {
-		case "line1":
-			objectManager.AddLine(line1, parent: self, object: object)
-		case "line2":
-			objectManager.AddLine(line2, parent: self, object: object)
-		case "line3":
-			objectManager.AddLine(line3, parent: self, object: object)
-		default: break
 		}
 	}
 
