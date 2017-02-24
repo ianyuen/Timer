@@ -26,16 +26,21 @@ class Main: ViewController {
 	var session = Session()
 	var workout = Workout()
 
-	var angle: CGFloat = 0.0
+	var angle: CGFloat = 0
+	var angleTotal: CGFloat = 0
+	var angleRatio: CGFloat = 0
+
+	var coolDown = false
 	var counting = false
 
-	var endSecond = 0
-	var coolDown = false
+	var counter:CGFloat = 0
+	var endSecond: CGFloat = 0
+	var totalSecond:CGFloat = 0
+
 	var leftRest = 0
 	var leftRound = 0
 	var totalRest = 0
 	var totalRound = 0
-	var totalSecond = 0
 
 	var player: AVAudioPlayer?
 
@@ -55,13 +60,14 @@ class Main: ViewController {
 		}
 
 		workout = workouts[index]
-		endSecond = workout.warmUp
+		endSecond = CGFloat(workout.warmUp) * 10
 		totalRest = workout.rounds - 1
 		totalRound = workout.rounds
-		totalSecond = GetTotalTime()
+		totalSecond = GetTotalTime() * 10
+		angleRatio = endSecond / 60
 
 		let selector = #selector(update)
-		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: selector, userInfo: nil, repeats: true);
+		Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: selector, userInfo: nil, repeats: true);
 		initView()
 
 		if Database.instance.HaveData("defaultWorkout") == false {
@@ -69,8 +75,9 @@ class Main: ViewController {
 			workouts.append(Workout())
 			Database.instance.SaveWorkouts("defaultWorkout", object: workouts)
 		}
-
-		//PrintFontNames()
+	#if DEBUG
+		PrintFontNames()
+	#endif
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -96,7 +103,7 @@ class Main: ViewController {
 				DrawBackground(object)
 			case "roundButton":
 				objectManager.AddButton(roundButton, parent: view, object: object, target: self)
-				roundButton.endTime.text = ConvertToClock(workout.warmUp)
+				roundButton.endTime.text = ConvertToClock(workout.warmUp * 10)
 			default: break
 			}
 		}
@@ -111,7 +118,7 @@ class Main: ViewController {
 		case "endTime":
 			objectManager.AddLabel(endTime, parent: view, object: object)
 		case "endClock":
-			object.text = ConvertToClock(totalSecond)
+			object.text = ConvertToClock(Int(totalSecond))
 			objectManager.AddLabel(endClock, parent: view, object: object)
 		default: break
 		}
@@ -168,22 +175,35 @@ class Main: ViewController {
 			startButton.SetTitle("PAUSE")
 			startButton.ChangeBackColor(0xA6E1FD)
 
-			roundButton.DrawCircle(angle)
-			angle = angle + CGFloat.pi / 30
-
+			if counter >= angleTotal {
+				roundButton.DrawCircle(angle)
+				angle = angle + CGFloat.pi / 30
+				angleTotal = angleTotal + angleRatio
+			}
+			counter = counter + 1
 			endSecond = endSecond - 1
 			if endSecond < 0 {
 				angle = 0
 				if leftRound < totalRound {
 					if leftRest == leftRound {
-						endSecond = workout.roundTime
+						endSecond = CGFloat(workout.roundTime) * 10
+
+						counter = 0
+						angleTotal = 0
+						angleRatio = endSecond / 60
+
 						leftRound = leftRound + 1
 
 						let leftText = NumberToString(leftRound)
 						let totalText = NumberToString(totalRound)
 						round.text = "ROUND   " + leftText + "/" + totalText
 					} else {
-						endSecond = workout.rest
+						endSecond = CGFloat(workout.rest) * 10
+
+						counter = 0
+						angleTotal = 0
+						angleRatio = endSecond / 60
+
 						leftRest = leftRest + 1
 						round.text = "REST TIME"
 					}
@@ -200,7 +220,7 @@ class Main: ViewController {
 						session.warmUpTime = workout.warmUp
 						session.coolDownTime = workout.coolDown
 						session.totalRounds = workout.rounds
-						session.totalTrainingTime = GetTotalTime()
+						session.totalTrainingTime = Int(GetTotalTime())
 						session.training = workout.name
 						var sessions = Database.instance.ReadSessions("sessions")
 						sessions.append(session)
@@ -208,7 +228,12 @@ class Main: ViewController {
 
 						AskLaunchCalis()
 					} else {
-						endSecond = workout.coolDown
+						endSecond = CGFloat(workout.coolDown) * 10
+
+						counter = 0
+						angleTotal = 0
+						angleRatio = endSecond / 60
+
 						coolDown = true
 						round.text = "COOL DOWN"
 					}
@@ -217,8 +242,8 @@ class Main: ViewController {
 			} else {
 				totalSecond = totalSecond - 1
 			}
-			endClock.text = ConvertToClock(totalSecond)
-			roundButton.endTime.text = ConvertToClock(endSecond)
+			endClock.text = ConvertToClock(Int(totalSecond))
+			roundButton.endTime.text = ConvertToClock(Int(endSecond))
 		} else {
 			let image = UIImage(named: "start")
 			startButton.SetIcon(image!)
@@ -230,20 +255,25 @@ class Main: ViewController {
 	}
 
 	func btnResetClicked(_ sender: UIButton!) {
-		angle = 0
 		counting = false
-		endSecond = workout.warmUp
 
+		angle = 0
 		leftRest = 0
 		leftRound = 0
+
 		totalRound = workout.rounds
-		totalSecond = GetTotalTime()
-		
+		totalSecond = GetTotalTime() * 10
+		endSecond = CGFloat(workout.warmUp) * 10
+
+		counter = 0
+		angleTotal = 0
+		angleRatio = endSecond / 60
+
 		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
-		endClock.text = ConvertToClock(totalSecond)
+		endClock.text = ConvertToClock(Int(totalSecond))
 		
 		roundButton.initView()
-		roundButton.endTime.text = ConvertToClock(endSecond)
+		roundButton.endTime.text = ConvertToClock(Int(endSecond))
 	}
 
 	func btnStartClicked(_ sender: UIButton!) {
@@ -262,17 +292,18 @@ class Main: ViewController {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
 	}
 
-	func GetTotalTime() -> Int {
-		let rest = workout.rest
-		let warmUp = workout.warmUp
+	func GetTotalTime() -> CGFloat {
+		var total: CGFloat = 0
 		let rounds = workout.rounds
-		let coolDown = workout.coolDown
-		let roundTime = workout.roundTime
-		return warmUp + coolDown + (rest * (rounds - 1)) + (roundTime * rounds)
+		total = total + CGFloat((workout.rest * (rounds - 1)))
+		total = total + CGFloat(workout.warmUp)
+		total = total + CGFloat(workout.coolDown)
+		total = total + CGFloat(workout.roundTime * rounds)
+		return total
 	}
 
 	func AskLaunchCalis() {
-		let message = "Are you want Calisthenics?"
+		let message = "Are you want open Calisthenics?"
 		let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
 		let noAction = UIAlertAction(title: "No", style: .cancel) { _ in }
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
@@ -311,6 +342,7 @@ class Main: ViewController {
 		if counting {
 			if leftRound == 0 {
 				round.text = "WARM UP"
+				angleTotal = angleTotal + angleRatio
 				PlaySound("Digital")
 			}
 		}
@@ -335,9 +367,11 @@ class Main: ViewController {
 	}
 	
 	func ConvertToClock(_ value: Int) -> String {
+		let convert = Int(value / 10)
+		let minute = convert / 60
+		let second = convert % 60
+
 		var result = ""
-		let minute = value / 60
-		let second = value % 60
 		if minute < 10 {
 			result = result + "0"
 		}
