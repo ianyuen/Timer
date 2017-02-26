@@ -36,9 +36,17 @@
 	</object>
 
 	<object>
+		<type>background</type>
+		<name>background</name>
+		<posY>128 + 205</posY>
+		<width>1242</width>
+		<height>825</height>
+		<backColor>A5E3FC</backColor>
+	</object>
+
+	<object>
 		<type>roundSecondsGroup</type>
 		<name>roundTime</name>
-		<posX>50</posX>
 		<posY>128 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
@@ -49,8 +57,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>redTime</name>
-		<posX>50</posX>
-		<posY>128 + 206 + 206</posY>
+		<posY>334 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
 		<icon>redIcon</icon>
@@ -60,8 +67,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>warmUpTime</name>
-		<posX>50</posX>
-		<posY>128 + 206 + 206 + 206</posY>
+		<posY>540 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
 		<icon>warmUpIcon</icon>
@@ -71,8 +77,7 @@
 	<object>
 		<type>roundSecondsGroup</type>
 		<name>coolDownTime</name>
-		<posX>50</posX>
-		<posY>128 + 206 + 206 + 206 + 206</posY>
+		<posY>746 + 206</posY>
 		<width>screenWidth</width>
 		<height>206</height>
 		<icon>coolDownIcon</icon>
@@ -83,7 +88,7 @@
 		<type>label</type>
 		<name>trainingTime</name>
 		<posX>centerWidth</posX>
-		<posY>128 + 206 + 206 + 206 + 206 + 206 + 85</posY>
+		<posY>952 + 206 + 85</posY>
 		<text>Training Time</text>
 		<font>LiberationSans</font>
 		<size>26</size>

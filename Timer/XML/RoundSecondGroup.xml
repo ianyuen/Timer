@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <view>
 	<object>
+		<type>background</type>
+		<name>background</name>
+		<width>1242</width>
+		<height>205</height>
+		<backColor>FFFFFF</backColor>
+	</object>
+
+	<object>
 		<type>image</type>
 		<name>icon</name>
-		<posX>00</posX>
+		<posX>50</posX>
 		<posY>70</posY>
 		<width>80</width>
 		<height>80</height>
@@ -12,7 +20,7 @@
 	<object>
 		<type>label</type>
 		<name>title</name>
-		<posX>110</posX>
+		<posX>160</posX>
 		<posY>70</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
@@ -24,7 +32,7 @@
 		<name>time</name>
 		<width>145</width>
 		<height>80</height>
-		<posX>662</posX>
+		<posX>712</posX>
 		<posY>70</posY>
 		<font>LiberationSans</font>
 		<size>16</size>
@@ -34,7 +42,7 @@
 	<object>
 		<type>label</type>
 		<name>seconds</name>
-		<posX>837</posX>
+		<posX>887</posX>
 		<posY>70</posY>
 		<text>Seconds</text>
 		<font>LiberationSans</font>

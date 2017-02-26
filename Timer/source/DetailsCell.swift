@@ -19,6 +19,8 @@ class DetailsCell: ScrollView {
 	let roundsNumber = TextBox()
 	let trainingTime = UILabel()
 
+	let background = UILabel()
+
 	let redTime = RoundSecondsGroup()
 	let roundTime = RoundSecondsGroup()
 	let warmUpTime = RoundSecondsGroup()
@@ -78,6 +80,8 @@ class DetailsCell: ScrollView {
 				AddComboBox(object)
 			case "newButton":
 				AddButton(object)
+			case "background":
+				objectManager.AddBackground(background, parent: self, object: object)
 			case "line":
 				AddLine(object)
 			case "roundSecondsGroup":

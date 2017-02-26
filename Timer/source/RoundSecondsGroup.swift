@@ -19,6 +19,7 @@ class RoundSecondsGroup: View {
 	let title = UILabel()
 	var textBox = TextBox()
 	let seconds = UILabel()
+	let background = UILabel()
 
 	override func initView() {
 		objectManager.parent = self
@@ -33,6 +34,8 @@ class RoundSecondsGroup: View {
 			case "textBox":
 				object.text = textBox.textField.text!
 				objectManager.AddTextBox(textBox, view: self, object: object)
+			case "background":
+				objectManager.AddBackground(background, parent: self, object: object)
 			default: break
 			}
 		}
