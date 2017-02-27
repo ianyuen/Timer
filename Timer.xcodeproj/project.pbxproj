@@ -63,6 +63,9 @@
 		10FB6C5A1DF539270076E3DB /* RoundSecondGroup.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */; };
 		3C13DDBF1E4F09B800175144 /* Digital.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C13DDBE1E4F09B800175144 /* Digital.mp3 */; };
 		3C1783961E5346640044288B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1783951E5346640044288B /* TableViewCell.swift */; };
+		3C579EA71E64614C004994D5 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C579EA61E64614C004994D5 /* Exercise.swift */; };
+		3C579EA91E64684A004994D5 /* ExercisesGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C579EA81E64684A004994D5 /* ExercisesGroup.swift */; };
+		3CA5BDDE1E6424B1002A75A9 /* Exercise.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5BDDD1E6424B1002A75A9 /* Exercise.xml */; };
 		3CB204B51E1FF0F100433581 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB204B41E1FF0F100433581 /* Workout.swift */; };
 		3CE751511E1E7E15007B43B2 /* HistoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */; };
 		3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */; };
@@ -132,6 +135,9 @@
 		10FB6C591DF539270076E3DB /* RoundSecondGroup.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RoundSecondGroup.xml; path = XML/RoundSecondGroup.xml; sourceTree = "<group>"; };
 		3C13DDBE1E4F09B800175144 /* Digital.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Digital.mp3; path = Sounds/Digital.mp3; sourceTree = "<group>"; };
 		3C1783951E5346640044288B /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = Timer/CustomObject/TableViewCell.swift; sourceTree = "<group>"; };
+		3C579EA61E64614C004994D5 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Timer/CustomObject/Exercise.swift; sourceTree = "<group>"; };
+		3C579EA81E64684A004994D5 /* ExercisesGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExercisesGroup.swift; path = Timer/CustomObject/ExercisesGroup.swift; sourceTree = "<group>"; };
+		3CA5BDDD1E6424B1002A75A9 /* Exercise.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Exercise.xml; path = XML/Exercise.xml; sourceTree = "<group>"; };
 		3CB204B41E1FF0F100433581 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Database/Workout.swift; sourceTree = "<group>"; };
 		3CE751501E1E7E15007B43B2 /* HistoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetails.swift; path = ViewController/HistoryDetails.swift; sourceTree = "<group>"; };
 		3CE751521E1E7F99007B43B2 /* HistoryDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetails.xml; path = XML/HistoryDetails.xml; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				107E5DBE1E06DCF70047EFCF /* ComboButton.swift */,
+				3C579EA61E64614C004994D5 /* Exercise.swift */,
+				3C579EA81E64684A004994D5 /* ExercisesGroup.swift */,
 				107A287C1E01BD63005F0A8B /* HistoryButton.swift */,
 				3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */,
 				3C1783951E5346640044288B /* TableViewCell.swift */,
@@ -219,6 +227,7 @@
 				1093C4711E12ED5600B9912E /* ComboExpand.xml */,
 				10E9525D1DF2AEB200F6EE01 /* Details.xml */,
 				10443BFA1DF3A59D00FAECA0 /* DetailsCell.xml */,
+				3CA5BDDD1E6424B1002A75A9 /* Exercise.xml */,
 				10F7DDB61DFEBDD900BF5D36 /* History.xml */,
 				107A28791E01BBF9005F0A8B /* HistoryButton.xml */,
 				10ECC8061E0046EB000D2E7C /* HistoryCell.xml */,
@@ -378,6 +387,7 @@
 				10E9525E1DF2AEB200F6EE01 /* Details.xml in Resources */,
 				3CE751531E1E7F99007B43B2 /* HistoryDetails.xml in Resources */,
 				10ADCD691DE5F9030078D587 /* RoundButton.xml in Resources */,
+				3CA5BDDE1E6424B1002A75A9 /* Exercise.xml in Resources */,
 				10E288F71DE33CD200A5C80B /* Main.xml in Resources */,
 				10FB24E61DD0D3EE00A47755 /* LaunchScreen.storyboard in Resources */,
 				104415441DFB153900978FD5 /* WorkoutButton.xml in Resources */,
@@ -433,6 +443,7 @@
 				3CF95D951E2B4E5B00D95318 /* HistoryDetailsScroll.swift in Sources */,
 				104415421DFB147F00978FD5 /* WorkoutButton.swift in Sources */,
 				10E288EC1DE3347E00A5C80B /* Main.swift in Sources */,
+				3C579EA91E64684A004994D5 /* ExercisesGroup.swift in Sources */,
 				3C1783961E5346640044288B /* TableViewCell.swift in Sources */,
 				10ECC80D1E0054A9000D2E7C /* HistoryCell.swift in Sources */,
 				10ECC8091E0047AF000D2E7C /* HistoryScroll.swift in Sources */,
@@ -445,6 +456,7 @@
 				10F7DDB91DFEBE1A00BF5D36 /* History.swift in Sources */,
 				10FB24DC1DD0D3EE00A47755 /* AppDelegate.swift in Sources */,
 				107675D11DEF3DCC00CEDAC7 /* BackButton.swift in Sources */,
+				3C579EA71E64614C004994D5 /* Exercise.swift in Sources */,
 				10E9525C1DF2AE7500F6EE01 /* Details.swift in Sources */,
 				10E288F91DE35D8000A5C80B /* Color.swift in Sources */,
 				107A287F1E01CA39005F0A8B /* ViewButton.swift in Sources */,

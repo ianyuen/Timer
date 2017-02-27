@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailsCell: ScrollView {
+	var savePosY: CGFloat = 0
 	var controller = ViewController()
 	let objectManager = ObjectManager()
 
@@ -39,6 +40,7 @@ class DetailsCell: ScrollView {
 	let motivationText = UILabel()
 
 	let exercise = UILabel()
+	let exercisesGroup = ExercisesGroup()
 
 	let round1Text = TextBox()
 	let round1Title = UILabel()
@@ -61,9 +63,9 @@ class DetailsCell: ScrollView {
 
 	override func initView() {
 		if Application.instance.GetWorkoutTask() == Application.WorkoutTask.edit {
-			let workoutIndex = Application.instance.WorkoutIndex()
+			let index = Application.instance.WorkoutIndex()
 			let workouts = Database.instance.ReadWorkouts("workouts")
-			workout = workouts[workoutIndex]
+			workout = workouts[index]
 		}
 
 		objectManager.parent = self
@@ -82,19 +84,23 @@ class DetailsCell: ScrollView {
 				AddButton(object)
 			case "background":
 				objectManager.AddBackground(background, parent: self, object: object)
-			case "line":
-				AddLine(object)
 			case "roundSecondsGroup":
 				AddRoundSecondsGroup(object)
+			case "exercisesGroup":
+				objectManager.AddView(exercisesGroup, parent: self, object: object)
 			default: break
 			}
 		}
 
-		var contentHeight: CGFloat = 0
-		for view in subviews {
-			let viewHeight = view.frame.origin.y + view.frame.height
-			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
+		if workout.routine == false {
+			exercise.isHidden = true
+			exercisesGroup.isHidden = true
+		} else {
+			NewPosButton(saveButton)
+			NewPosButton(deleteButton)
 		}
+
+		let contentHeight: CGFloat = fitContentHeight()
 		contentSize = CGSize(width: frame.width, height: contentHeight)
 
 		redTime.textBox.textField.text = String(workout.rest)
@@ -106,12 +112,6 @@ class DetailsCell: ScrollView {
 		roundsNumber.textField.text = String(workout.rounds)
 
 		GetTotalTime()
-	}
-
-	func AddLine(_ object: ScreenObject) {
-		switch object.name {
-		default: break
-		}
 	}
 
 	func AddLabel(_ object: ScreenObject) {
@@ -145,10 +145,6 @@ class DetailsCell: ScrollView {
 			totalText.textField.isUserInteractionEnabled = false
 			totalText.SetTextColor(object.textColor)
 			objectManager.AddTextBox(totalText, view: self, object: object)
-		case "round1Text":
-			objectManager.AddTextBox(round1Text, view: self, object: object)
-		case "round2Text":
-			objectManager.AddTextBox(round2Text, view: self, object: object)
 		case "profileText":
 			object.text = profileText.textField.text!
 			profileText.SetTextColor(object.textColor)
@@ -204,6 +200,7 @@ class DetailsCell: ScrollView {
 			saveButton.SetWidth(object.width)
 			saveButton.SetHeight(object.height)
 			objectManager.AddButton(saveButton, parent: self, object: object, target: self)
+			savePosY = saveButton.frame.origin.y
 		case "deleteButton":
 			deleteButton.SetText(object.text)
 			deleteButton.SetWidth(object.width)
@@ -216,6 +213,7 @@ class DetailsCell: ScrollView {
 	func btnSaveClicked(_ sender: Button) {
 		workout.name = profileText.textField.text!
 		workout.rounds = Int(roundsNumber.textField.text!)!
+		workout.roundsName = exercisesGroup.GetRoundsName()
 
 		workout.rest = Int(redTime.textBox.textField.text!)!
 		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
@@ -334,10 +332,12 @@ class DetailsCell: ScrollView {
 		let noAction = UIAlertAction(title: "No", style: .default) { _ in
 			self.routine.SetTitle("No")
 			self.workout.routine = false
+			self.HideExercises()
 		}
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
 			self.routine.SetTitle("Yes")
 			self.workout.routine = true
+			self.ShowExercises()
 		}
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
 		
@@ -375,6 +375,23 @@ class DetailsCell: ScrollView {
 		return result
 	}
 
+	func NewPosButton(_ button: Button) {
+		var y: CGFloat = 0
+		if workout.routine {
+			let exerciseHeight = exercise.frame.height
+			let exercisesHeight = exercisesGroup.GetContentHeight()
+			y = button.frame.origin.y + exerciseHeight + exercisesHeight
+		} else {
+			y = savePosY
+		}
+
+		let x = button.frame.origin.x
+		let width = button.frame.width
+		let height = button.frame.height
+
+		button.frame = CGRect(x: x, y: y, width: width, height: height)
+	}
+
 	func GetTotalTime() {
 		let rest = StringToInt(redTime.textBox.textField.text!)
 		let warm = StringToInt(warmUpTime.textBox.textField.text!)
@@ -391,6 +408,27 @@ class DetailsCell: ScrollView {
 			return false
 		}
 		return true
+	}
+
+	func ShowExercises() {
+		exercise.isHidden = false
+		exercisesGroup.isHidden = false
+		NewPosButton(saveButton)
+		NewPosButton(deleteButton)
+
+		let contentHeight = fitContentHeight()
+		contentSize = CGSize(width: frame.width, height: contentHeight)
+
+	}
+
+	func HideExercises() {
+		exercise.isHidden = true
+		exercisesGroup.isHidden = true
+		NewPosButton(saveButton)
+		NewPosButton(deleteButton)
+
+		let contentHeight = fitContentHeight()
+		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 
 	func DeleteWorkout() {

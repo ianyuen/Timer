@@ -12,8 +12,6 @@ class HistoryButton: View {
 	let objectManager = ObjectManager()
 
 	let background = UILabel()
-	//let viewButton = ViewButton()
-	//let deleteButton = Button()
 
 	override func initView() {
 		objectManager.parent = self

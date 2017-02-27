@@ -11,6 +11,7 @@ import Foundation
 class Workout: NSObject, NSCoding {
 	var name: String
 	var rounds: Int
+	var roundsName: [String]
 
 	var rest: Int
 	var warmUp: Int
@@ -25,6 +26,7 @@ class Workout: NSObject, NSCoding {
 	func encode(with coder: NSCoder) {
 		coder.encode(name, forKey: "name")
 		coder.encode(rounds, forKey: "rounds")
+		coder.encode(roundsName, forKey: "roundsName")
 
 		coder.encode(rest, forKey: "red")
 		coder.encode(warmUp, forKey: "warmUp")
@@ -40,6 +42,7 @@ class Workout: NSObject, NSCoding {
 	required init(coder decoder: NSCoder) {
 		name = decoder.decodeObject(forKey: "name") as! String
 		rounds = decoder.decodeInteger(forKey: "rounds")
+		roundsName = decoder.decodeObject(forKey: "roundsName") as! [String]
 
 		rest = decoder.decodeInteger(forKey: "red")
 		warmUp = decoder.decodeInteger(forKey: "warmUp")
@@ -52,9 +55,10 @@ class Workout: NSObject, NSCoding {
 		motivation = decoder.decodeBool(forKey: "motivation")
 	}
 
-	required init(name: String = "Workout", rounds: Int = 2, red: Int = 10, warmUp: Int = 10, coolDown: Int = 10, roundTime: Int = 20, sound: String = "Digital", vibrate: Bool = true, routine: Bool = true, motivation: Bool = true) {
+	required init(name: String = "Workout", rounds: Int = 2, roundsName: [String] = [String](), red: Int = 10, warmUp: Int = 10, coolDown: Int = 10, roundTime: Int = 20, sound: String = "Digital", vibrate: Bool = true, routine: Bool = false, motivation: Bool = true) {
 		self.name = name
 		self.rounds = rounds
+		self.roundsName = roundsName
 
 		self.rest = red
 		self.warmUp = warmUp

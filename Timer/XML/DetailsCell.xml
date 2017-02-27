@@ -205,12 +205,29 @@
 	</object>
 <!-- ********************************************** -->
 	<object>
+		<type>label</type>
+		<name>exercise</name>
+		<posX>centerWidth</posX>
+		<posY>2166 + 100</posY>
+		<text>Exercise</text>
+		<font>LiberationSans</font>
+		<size>26</size>
+		<textColor>4BC9FE</textColor>
+	</object>
+
+	<object>
+		<type>exercisesGroup</type>
+		<name>exercisesGroup</name>
+		<posY>2166 + 100</posY>
+	</object>
+<!-- ********************************************** -->
+	<object>
 		<type>newButton</type>
 		<name>saveButton</name>
 		<width>472</width>
 		<height>145</height>
 		<posX>83</posX>
-		<posY>2166 + 150</posY>
+		<posY>2166 + 100</posY>
 		<text>SAVE</text>
 		<round>8</round>
 		<clicked>btnSaveClicked</clicked>
@@ -222,7 +239,7 @@
 		<width>472</width>
 		<height>145</height>
 		<posX>647</posX>
-		<posY>2166 + 150</posY>
+		<posY>2166 + 100</posY>
 		<text>DELETE</text>
 		<round>8</round>
 		<clicked>btnDeleteClicked</clicked>
