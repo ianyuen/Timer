@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class Main: ViewController {
 	let round = UILabel()
@@ -82,7 +83,6 @@ class Main: ViewController {
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 
 	func initView() {
@@ -110,12 +110,12 @@ class Main: ViewController {
 	}
 
 	func ResetTimer() {
-		counting = false
+		SaveSession()
 		
 		angle = 0
 		leftRest = 0
 		leftRound = 0
-		
+		counting = false
 		totalRound = workout.rounds
 		totalSecond = GetTotalTime() * 10
 		endSecond = CGFloat(workout.warmUp) * 10
@@ -206,6 +206,7 @@ class Main: ViewController {
 			endSecond = endSecond - 1
 			if endSecond == 50 {
 				PlaySound(workout.sound)
+				AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 			}
 			if endSecond < 0 {
 				angle = 0
@@ -239,21 +240,7 @@ class Main: ViewController {
 						counting = false
 						let totalText = NumberToString(totalRound)
 						round.text = "ROUND   " + totalText + "/" + totalText
-
-						session.epoch = Double(floor(NSDate().timeIntervalSince1970))
-						session.rounds = workout.rounds
-						session.restTime = workout.rest
-						session.roundTime = workout.roundTime
-						session.roundsName = workout.roundsName
-						session.warmUpTime = workout.warmUp
-						session.coolDownTime = workout.coolDown
-						session.totalRounds = workout.rounds
-						session.totalTrainingTime = Int(GetTotalTime())
-						session.training = workout.name
-						var sessions = Database.instance.ReadSessions("sessions")
-						sessions.append(session)
-						Database.instance.SaveSessions("sessions", object: sessions)
-
+						SaveSession()
 						AskLaunchCalis()
 					} else {
 						endSecond = CGFloat(workout.coolDown) * 10
@@ -297,12 +284,10 @@ class Main: ViewController {
 	
 	func btnHistoryClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showHistory", sender: self)
-		ResetTimer()
 	}
 	
 	func btnSettingsClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
-		ResetTimer()
 	}
 
 	func GetTotalTime() -> CGFloat {
@@ -348,6 +333,22 @@ class Main: ViewController {
 		} catch let error {
 			print(error.localizedDescription)
 		}
+	}
+
+	func SaveSession() {
+		session.epoch = Double(floor(NSDate().timeIntervalSince1970))
+		session.rounds = leftRound
+		session.restTime = workout.rest
+		session.roundTime = workout.roundTime
+		session.roundsName = workout.roundsName
+		session.warmUpTime = workout.warmUp
+		session.coolDownTime = workout.coolDown
+		session.totalRounds = workout.rounds
+		session.totalTrainingTime = Int(GetTotalTime()) - Int(totalSecond / 10)
+		session.training = workout.name
+		var sessions = Database.instance.ReadSessions("sessions")
+		sessions.append(session)
+		Database.instance.SaveSessions("sessions", object: sessions)
 	}
 
 	func Start() {
