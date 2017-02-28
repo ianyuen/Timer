@@ -20,6 +20,7 @@ class ExercisesGroup: View {
 		let workouts = Database.instance.ReadWorkouts("workouts")
 		let workout = workouts[index]
 
+		exercises = [Exercise]()
 		for i in 1 ... workout.rounds {
 			let name = "Round " + String(i)
 			if workout.roundsName.count < i {
@@ -36,7 +37,6 @@ class ExercisesGroup: View {
 			objectManager.AddView(exercise, parent: self, object: object)
 			posY = posY + 256
 		}
-		isUserInteractionEnabled = true
 	}
 
 	func GetRoundsName() -> [String] {
@@ -54,5 +54,16 @@ class ExercisesGroup: View {
 			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
 		}
 		return contentHeight
+	}
+
+	func RemoveChildrent() {
+		for view in subviews {
+			view.removeFromSuperview()
+		}
+		let x = frame.origin.x
+		let y = frame.origin.y
+		let width = frame.width
+		let height: CGFloat = 0
+		frame = CGRect(x: x, y: y, width: width, height: height)
 	}
 }

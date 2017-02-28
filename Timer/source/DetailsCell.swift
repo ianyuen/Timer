@@ -40,7 +40,6 @@ class DetailsCell: ScrollView {
 	let motivationText = UILabel()
 
 	let exercise = UILabel()
-	let exercisesGroup = ExercisesGroup()
 
 	let round1Text = TextBox()
 	let round1Title = UILabel()
@@ -55,10 +54,29 @@ class DetailsCell: ScrollView {
 	var timeRound = 0
 	var timeTotal = 0
 	var workout = Workout()
+	var exercises = [Exercise]()
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
 		GetTotalTime()
+		let roundNumber = Int(roundsNumber.textField.text!)
+		if roundNumber != workout.rounds {
+			workout.rounds = roundNumber!
+			var workouts = Database.instance.ReadWorkouts("workouts")
+			workouts[Application.instance.WorkoutIndex()] = workout
+			Database.instance.SaveWorkouts("workouts", object: workouts)
+
+			for childrent in exercises {
+				childrent.removeFromSuperview()
+			}
+			ExercisesGenerate()
+
+			NewPosButton(saveButton)
+			NewPosButton(deleteButton)
+
+			let contentHeight: CGFloat = fitContentHeight()
+			contentSize = CGSize(width: frame.width, height: contentHeight)
+		}
 	}
 
 	override func initView() {
@@ -86,16 +104,14 @@ class DetailsCell: ScrollView {
 				objectManager.AddBackground(background, parent: self, object: object)
 			case "roundSecondsGroup":
 				AddRoundSecondsGroup(object)
-			case "exercisesGroup":
-				objectManager.AddView(exercisesGroup, parent: self, object: object)
 			default: break
 			}
 		}
 
 		if workout.routine == false {
 			exercise.isHidden = true
-			exercisesGroup.isHidden = true
 		} else {
+			ExercisesGenerate()
 			NewPosButton(saveButton)
 			NewPosButton(deleteButton)
 		}
@@ -213,7 +229,7 @@ class DetailsCell: ScrollView {
 	func btnSaveClicked(_ sender: Button) {
 		workout.name = profileText.textField.text!
 		workout.rounds = Int(roundsNumber.textField.text!)!
-		workout.roundsName = exercisesGroup.GetRoundsName()
+		workout.roundsName = ExercisesGetName()
 
 		workout.rest = Int(redTime.textBox.textField.text!)!
 		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
@@ -376,13 +392,10 @@ class DetailsCell: ScrollView {
 	}
 
 	func NewPosButton(_ button: Button) {
-		var y: CGFloat = 0
+		var y = savePosY
 		if workout.routine {
-			let exerciseHeight = exercise.frame.height
-			let exercisesHeight = exercisesGroup.GetContentHeight()
-			y = button.frame.origin.y + exerciseHeight + exercisesHeight
-		} else {
-			y = savePosY
+			let exercisesHeight = ExercisesGetHeight()
+			y = exercisesHeight + button.frame.height
 		}
 
 		let x = button.frame.origin.x
@@ -412,7 +425,7 @@ class DetailsCell: ScrollView {
 
 	func ShowExercises() {
 		exercise.isHidden = false
-		exercisesGroup.isHidden = false
+		ExercisesGenerate()
 		NewPosButton(saveButton)
 		NewPosButton(deleteButton)
 
@@ -423,12 +436,53 @@ class DetailsCell: ScrollView {
 
 	func HideExercises() {
 		exercise.isHidden = true
-		exercisesGroup.isHidden = true
+		for childrent in exercises {
+			childrent.removeFromSuperview()
+		}
 		NewPosButton(saveButton)
 		NewPosButton(deleteButton)
 
 		let contentHeight = fitContentHeight()
 		contentSize = CGSize(width: frame.width, height: contentHeight)
+	}
+
+	func ExercisesGetName() -> [String] {
+		var result = [String]()
+		for childrent in exercises {
+			result.append(childrent.GetContent())
+		}
+		return result
+	}
+
+	func ExercisesGetHeight() -> CGFloat {
+		var contentHeight: CGFloat = 0
+		for childrent in exercises {
+			let viewHeight = childrent.frame.origin.y + childrent.frame.height
+			contentHeight = contentHeight > viewHeight ? contentHeight : viewHeight
+		}
+		return contentHeight
+	}
+
+	func ExercisesGenerate() {
+		var posY: CGFloat = 2266
+
+		exercises = [Exercise]()
+		for i in 1 ... workout.rounds {
+			let name = "Round " + String(i)
+			if workout.roundsName.count < i {
+				workout.roundsName.append(name)
+			}
+			let exercise = Exercise()
+			exercise.SetTitle(name)
+			exercise.SetContent(workout.roundsName[i - 1])
+			exercises.append(exercise)
+			
+			let object = ScreenObject()
+			object.yPosition = posY
+			object.height = 254
+			objectManager.AddView(exercise, parent: self, object: object)
+			posY = posY + 256
+		}
 	}
 
 	func DeleteWorkout() {

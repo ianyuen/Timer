@@ -30,7 +30,6 @@ class Exercise: View {
 			default: break
 			}
 		}
-		isUserInteractionEnabled = true
 	}
 
 	func SetTitle(_ title: String) {

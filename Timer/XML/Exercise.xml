@@ -17,8 +17,7 @@
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>50</posX>
-		<posY>100 + 116</posY>
-		<text></text>
+		<posY>116 + 100</posY>
 		<font>LiberationSans</font>
 		<size>20</size>
 		<textColor>008FDC</textColor>
