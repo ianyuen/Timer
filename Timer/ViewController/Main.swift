@@ -204,7 +204,7 @@ class Main: ViewController {
 			}
 			counter = counter + 1
 			endSecond = endSecond - 1
-			if endSecond == 5 {
+			if endSecond == 50 {
 				PlaySound(workout.sound)
 			}
 			if endSecond < 0 {
@@ -284,27 +284,7 @@ class Main: ViewController {
 	}
 
 	func btnResetClicked(_ sender: UIButton!) {
-		/*
-		counting = false
-
-		angle = 0
-		leftRest = 0
-		leftRound = 0
-
-		totalRound = workout.rounds
-		totalSecond = GetTotalTime() * 10
-		endSecond = CGFloat(workout.warmUp) * 10
-
-		counter = 0
-		angleTotal = 0
-		angleRatio = endSecond / 60
-
-		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
-		endClock.text = ConvertToClock(Int(totalSecond))
-		
-		roundButton.initView()
-		roundButton.endTime.text = ConvertToClock(Int(endSecond))
-		*/
+		ResetTimer()
 	}
 
 	func btnStartClicked(_ sender: UIButton!) {
