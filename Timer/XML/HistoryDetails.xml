@@ -14,7 +14,7 @@
 		<width>200</width>
 		<height>90</height>
 		<posX>50</posX>
-		<posY>105</posY>
+		<posY>90</posY>
 		<clicked>btnBackClicked</clicked>
 	</object>
 
@@ -25,7 +25,7 @@
 		<posY>90</posY>
 		<text>Training Session</text>
 		<font>LiberationSans</font>
-		<size>26</size>
+		<size>22</size>
 		<textColor>373639</textColor>
 	</object>
 

@@ -4,10 +4,8 @@
 		<type>label</type>
 		<name>title</name>
 		<posX>50</posX>
-		<posY>116</posY>
-		<text></text>
-		<font>LiberationSans</font>
 		<size>20</size>
+		<font>LiberationSans</font>
 		<textColor>363739</textColor>
 	</object>
 
@@ -17,9 +15,9 @@
 		<width>screenWidth - 100</width>
 		<height>128</height>
 		<posX>50</posX>
-		<posY>116 + 100</posY>
-		<font>LiberationSans</font>
+		<posY>100</posY>
 		<size>20</size>
+		<font>LiberationSans</font>
 		<textColor>008FDC</textColor>
 		<backColor>A5E1FD</backColor>
 	</object>

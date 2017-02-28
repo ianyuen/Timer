@@ -75,7 +75,9 @@ class History: ViewController, UITableViewDelegate, UITableViewDataSource {
 		tableView.layoutMargins = UIEdgeInsets.zero
 		tableView.separatorInset = UIEdgeInsets.zero
 		tableView.tableFooterView = UIView()
-		tableView.tableHeaderView = StandardTableHeaderView()
+		if sessions.count > 0 {
+			tableView.tableHeaderView = StandardTableHeaderView()
+		}
 		let color = Color()
 		//textColor = color.UIColorFromHex(object.textColor)
 		tableView.separatorColor = color.UIColorFromHex(object.lineColor)

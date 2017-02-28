@@ -109,6 +109,28 @@ class Main: ViewController {
 		}
 	}
 
+	func ResetTimer() {
+		counting = false
+		
+		angle = 0
+		leftRest = 0
+		leftRound = 0
+		
+		totalRound = workout.rounds
+		totalSecond = GetTotalTime() * 10
+		endSecond = CGFloat(workout.warmUp) * 10
+		
+		counter = 0
+		angleTotal = 0
+		angleRatio = endSecond / 60
+		
+		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
+		endClock.text = ConvertToClock(Int(totalSecond))
+		
+		roundButton.initView()
+		roundButton.endTime.text = ConvertToClock(Int(endSecond))
+	}
+
 	func DrawLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "round":
@@ -182,6 +204,9 @@ class Main: ViewController {
 			}
 			counter = counter + 1
 			endSecond = endSecond - 1
+			if endSecond == 5 {
+				PlaySound(workout.sound)
+			}
 			if endSecond < 0 {
 				angle = 0
 				if leftRound < totalRound {
@@ -197,6 +222,7 @@ class Main: ViewController {
 						let leftText = NumberToString(leftRound)
 						let totalText = NumberToString(totalRound)
 						round.text = "ROUND   " + leftText + "/" + totalText
+						roundButton.SetAnim("round")
 					} else {
 						endSecond = CGFloat(workout.rest) * 10
 
@@ -206,6 +232,7 @@ class Main: ViewController {
 
 						leftRest = leftRest + 1
 						round.text = "REST TIME"
+						roundButton.SetAnim("rest")
 					}
 				} else {
 					if coolDown {
@@ -237,6 +264,7 @@ class Main: ViewController {
 
 						coolDown = true
 						round.text = "COOL DOWN"
+						roundButton.SetAnim("cool")
 					}
 				}
 				roundButton.initView()
@@ -256,6 +284,7 @@ class Main: ViewController {
 	}
 
 	func btnResetClicked(_ sender: UIButton!) {
+		/*
 		counting = false
 
 		angle = 0
@@ -275,6 +304,7 @@ class Main: ViewController {
 		
 		roundButton.initView()
 		roundButton.endTime.text = ConvertToClock(Int(endSecond))
+		*/
 	}
 
 	func btnStartClicked(_ sender: UIButton!) {
@@ -287,10 +317,12 @@ class Main: ViewController {
 	
 	func btnHistoryClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showHistory", sender: self)
+		ResetTimer()
 	}
 	
 	func btnSettingsClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
+		ResetTimer()
 	}
 
 	func GetTotalTime() -> CGFloat {
@@ -332,7 +364,7 @@ class Main: ViewController {
 			guard let player = player else { return }
 			
 			player.prepareToPlay()
-			//player.play()
+			player.play()
 		} catch let error {
 			print(error.localizedDescription)
 		}
@@ -344,7 +376,6 @@ class Main: ViewController {
 			if leftRound == 0 {
 				round.text = "WARM UP"
 				angleTotal = angleTotal + angleRatio
-				PlaySound("Digital")
 			}
 		}
 	}

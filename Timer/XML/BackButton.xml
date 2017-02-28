@@ -2,8 +2,6 @@
 <view>
 	<object>
 		<type>image</type>
-		<posX>0</posX>
-		<posY>0</posY>
 		<width>50</width>
 		<height>90</height>
 		<icon>back</icon>
@@ -14,7 +12,8 @@
 		<posX>60</posX>
 		<posY>centerHeight</posY>
 		<text>Back</text>
+		<size>20</size>
 		<font>LiberationSans</font>
-		<size>15</size>
+		<textColor>4CC8FF</textColor>
 	</object>
 </view>

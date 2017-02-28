@@ -39,6 +39,7 @@ class NewButton: Button {
 		}
 		addTarget(self, action: #selector(Touched(_:)), for: .touchDown)
 		addTarget(self, action: #selector(Released(_:)), for: .touchUpInside)
+		addTarget(self, action: #selector(Released(_:)), for: .touchDragOutside)
 	}
 
 	func Touched(_ sender: Button!) {

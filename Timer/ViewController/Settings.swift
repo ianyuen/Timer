@@ -133,7 +133,7 @@ class Settings: ViewController, UITableViewDelegate, UITableViewDataSource {
 		let width = view.frame.width
 		let height = 1 / UIScreen().scale
 		label.frame = CGRect(x: 0, y: 0 , width: width, height: height)
-		label.backgroundColor = Color().UIColorFromHex(0xA6E1FD)
+		label.backgroundColor = Color().UIColorFromHex(0x64C9FC)
 
 		let header = UIView()
 		header.addSubview(label)
@@ -153,6 +153,9 @@ class Settings: ViewController, UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
 		cell.textLabel?.text = workouts[indexPath.row].name
 		cell.textLabel?.textColor = textColor
+		let fontName = cell.textLabel?.font.fontName
+		let font = UIFont(name: fontName!, size: 20)
+		cell.textLabel?.font = font
 		return cell
 	}
 

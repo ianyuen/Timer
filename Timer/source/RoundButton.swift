@@ -19,6 +19,7 @@ class RoundButton: Button {
 	var drawing = false
 	var objectManager = ObjectManager()
 
+	private var image = "warm"
 	private var controller = UIViewController()
 
 	override func initView () {
@@ -30,13 +31,17 @@ class RoundButton: Button {
 		objectManager.DrawObject(endTime, type: "label", name: "endTime")
 	}
 
+	func SetAnim(_ value: String) {
+		image = value
+	}
+
 	func SetController(_ viewController: UIViewController) {
 		controller = viewController
 	}
 
 	func DrawCircle(_ angle: CGFloat) {
 		let background4 = UIImageView()
-		objectManager.DrawObject(background4, type: "image", name: "background4", angle: angle)
+		objectManager.DrawObject(background4, type: "image", name: "background4", angle: angle, image: image)
 		objectManager.DrawObject(background1, type: "image", name: "background1")
 		objectManager.DrawObject(background3, type: "image", name: "background3")
 		objectManager.DrawObject(endTime, type: "label", name: "endTime")

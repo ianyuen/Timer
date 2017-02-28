@@ -21,7 +21,6 @@ class Workout: NSObject, NSCoding {
 	var sound: String
 	var vibrate: Bool
 	var routine: Bool
-	var motivation: Bool
 
 	func encode(with coder: NSCoder) {
 		coder.encode(name, forKey: "name")
@@ -36,7 +35,6 @@ class Workout: NSObject, NSCoding {
 		coder.encode(sound, forKey: "sound")
 		coder.encode(vibrate, forKey: "vibrate")
 		coder.encode(routine, forKey: "routine")
-		coder.encode(motivation, forKey: "motivation")
 	}
 
 	required init(coder decoder: NSCoder) {
@@ -52,10 +50,9 @@ class Workout: NSObject, NSCoding {
 		sound = decoder.decodeObject(forKey: "sound") as! String
 		vibrate = decoder.decodeBool(forKey: "vibrate")
 		routine = decoder.decodeBool(forKey: "routine")
-		motivation = decoder.decodeBool(forKey: "motivation")
 	}
 
-	required init(name: String = "Workout", rounds: Int = 2, roundsName: [String] = [String](), red: Int = 10, warmUp: Int = 10, coolDown: Int = 10, roundTime: Int = 20, sound: String = "Digital", vibrate: Bool = true, routine: Bool = false, motivation: Bool = true) {
+	required init(name: String = "Workout", rounds: Int = 2, roundsName: [String] = [String](), red: Int = 10, warmUp: Int = 10, coolDown: Int = 10, roundTime: Int = 20, sound: String = "Alarm", vibrate: Bool = true, routine: Bool = false, motivation: Bool = true) {
 		self.name = name
 		self.rounds = rounds
 		self.roundsName = roundsName
@@ -68,6 +65,5 @@ class Workout: NSObject, NSCoding {
 		self.sound = sound
 		self.vibrate = vibrate
 		self.routine = routine
-		self.motivation = motivation
 	}
 }

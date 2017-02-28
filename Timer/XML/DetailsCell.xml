@@ -41,7 +41,7 @@
 		<posY>128 + 205</posY>
 		<width>1242</width>
 		<height>825</height>
-		<backColor>A5E3FC</backColor>
+		<backColor>64C9FC</backColor>
 	</object>
 
 	<object>
@@ -179,7 +179,7 @@
 		<title>Yes</title>
 		<clicked>btnRoutineClicked</clicked>
 	</object>
-
+<!--
 	<object>
 		<type>label</type>
 		<name>motivationText</name>
@@ -203,22 +203,26 @@
 		<title>Yes</title>
 		<clicked>btnMotivationClicked</clicked>
 	</object>
+ -->
+<!-- ********************************************** -->
+	<object>
+		<type>background</type>
+		<name>line</name>
+		<posY>1880 + 128 + 30</posY>
+		<width>1242</width>
+		<height>1</height>
+		<backColor>64C9FC</backColor>
+	</object>
 <!-- ********************************************** -->
 	<object>
 		<type>label</type>
 		<name>exercise</name>
 		<posX>centerWidth</posX>
-		<posY>2166 + 100</posY>
+		<posY>2038 + 30</posY>
 		<text>Exercise</text>
 		<font>LiberationSans</font>
 		<size>26</size>
 		<textColor>4BC9FE</textColor>
-	</object>
-
-	<object>
-		<type>exercisesGroup</type>
-		<name>exercisesGroup</name>
-		<posY>2166 + 100</posY>
 	</object>
 <!-- ********************************************** -->
 	<object>
@@ -227,7 +231,7 @@
 		<width>472</width>
 		<height>145</height>
 		<posX>83</posX>
-		<posY>2166 + 100</posY>
+		<posY>2038 + 30</posY>
 		<text>SAVE</text>
 		<round>8</round>
 		<clicked>btnSaveClicked</clicked>
@@ -239,7 +243,7 @@
 		<width>472</width>
 		<height>145</height>
 		<posX>647</posX>
-		<posY>2166 + 100</posY>
+		<posY>2038 + 30</posY>
 		<text>DELETE</text>
 		<round>8</round>
 		<clicked>btnDeleteClicked</clicked>

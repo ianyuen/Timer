@@ -11,10 +11,10 @@
 	<object>
 		<type>backButton</type>
 		<name>backButton</name>
-		<width>200</width>
+		<width>250</width>
 		<height>90</height>
 		<posX>50</posX>
-		<posY>105</posY>
+		<posY>90</posY>
 		<clicked>btnBackClicked</clicked>
 	</object>
 
@@ -25,7 +25,7 @@
 		<posY>90</posY>
 		<text>Training Routine</text>
 		<font>LiberationSans</font>
-		<size>26</size>
+		<size>22</size>
 	</object>
 
 	<object>

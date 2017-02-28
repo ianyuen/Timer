@@ -36,9 +36,7 @@ class DetailsCell: ScrollView {
 	let routine = ComboButton()
 	let routineText = UILabel()
 
-	let motivation = ComboButton()
-	let motivationText = UILabel()
-
+	let line = UILabel()
 	let exercise = UILabel()
 
 	let round1Text = TextBox()
@@ -98,7 +96,7 @@ class DetailsCell: ScrollView {
 			case "newButton":
 				AddButton(object)
 			case "background":
-				objectManager.AddBackground(background, parent: self, object: object)
+				AddBackground(object)
 			case "roundSecondsGroup":
 				AddRoundSecondsGroup(object)
 			default: break
@@ -135,8 +133,6 @@ class DetailsCell: ScrollView {
 			objectManager.AddLabel(vibrateText, parent: self, object: object)
 		case "routineText":
 			objectManager.AddLabel(routineText, parent: self, object: object)
-		case "motivationText":
-			objectManager.AddLabel(motivationText, parent: self, object: object)
 		case "roundsTitle":
 			objectManager.AddLabel(roundsTitle, parent: self, object: object)
 		case "round1Title":
@@ -170,6 +166,16 @@ class DetailsCell: ScrollView {
 		}
 	}
 
+	func AddBackground(_ object: ScreenObject) {
+		switch object.name {
+		case "line":
+			objectManager.AddBackground(line, parent: self, object: object)
+		case "background":
+			objectManager.AddBackground(background, parent: self, object: object)
+		default: break
+		}
+	}
+
 	func AddComboBox(_ object: ScreenObject) {
 		switch object.name {
 		case "sound":
@@ -181,9 +187,6 @@ class DetailsCell: ScrollView {
 		case "routine":
 			object.title = workout.routine ? "Yes" : "No"
 			objectManager.AddComboButton(routine, parent: self, object: object)
-		case "motivation":
-			object.title = workout.motivation ? "Yes" : "No"
-			objectManager.AddComboButton(motivation, parent: self, object: object)
 		default: break
 		}
 	}
@@ -236,7 +239,7 @@ class DetailsCell: ScrollView {
 		workout.sound = sound.GetTitle()
 		workout.vibrate = vibrate.GetTitle() == "Yes" ? true : false
 		workout.routine = routine.GetTitle() == "Yes" ? true : false
-		workout.motivation = motivation.GetTitle() == "Yes" ? true : false
+		//workout.motivation = motivation.GetTitle() == "Yes" ? true : false
 
 		var workouts = Database.instance.ReadWorkouts("workouts")
 		switch Application.instance.GetWorkoutTask() {
@@ -291,34 +294,34 @@ class DetailsCell: ScrollView {
 
 	func btnSoundClicked(_ sender:UIButton!) {
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
-		
-		let noAction = UIAlertAction(title: "No", style: .default) { _ in
-			self.sound.SetTitle("No")
-			self.workout.sound = "No"
+
+		let alarmAction = UIAlertAction(title: "Alarm", style: .default) { _ in
+			self.sound.SetTitle("Alarm")
+			self.workout.sound = "Alarm"
 		}
-		let gymAction = UIAlertAction(title: "Gym", style: .default) { _ in
-			self.sound.SetTitle("Gym")
-			self.workout.sound = "Gym"
+		let beepAction = UIAlertAction(title: "Beep", style: .default) { _ in
+			self.sound.SetTitle("Beep")
+			self.workout.sound = "Beep"
 		}
-		let humanAction = UIAlertAction(title: "Human", style: .default) { _ in
-			self.sound.SetTitle("Human")
-			self.workout.sound = "Human"
+		let bellAction = UIAlertAction(title: "Bell", style: .default) { _ in
+			self.sound.SetTitle("Bell")
+			self.workout.sound = "Bell"
 		}
-		let boxingAction = UIAlertAction(title: "Boxing", style: .default) { _ in
-			self.sound.SetTitle("Boxing")
-			self.workout.sound = "Boxing"
+		let clickAction = UIAlertAction(title: "Click", style: .default) { _ in
+			self.sound.SetTitle("Click")
+			self.workout.sound = "Click"
 		}
-		let digitalAction = UIAlertAction(title: "Digital", style: .default) { _ in
-			self.sound.SetTitle("Digital")
-			self.workout.sound = "Digital"
+		let tickingAction = UIAlertAction(title: "Ticking", style: .default) { _ in
+			self.sound.SetTitle("Ticking")
+			self.workout.sound = "Ticking"
 		}
 
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		alert.addAction(digitalAction)
-		alert.addAction(boxingAction)
-		alert.addAction(humanAction)
-		alert.addAction(gymAction)
-		alert.addAction(noAction)
+		alert.addAction(alarmAction)
+		alert.addAction(beepAction)
+		alert.addAction(bellAction)
+		alert.addAction(clickAction)
+		alert.addAction(tickingAction)
 		alert.addAction(cancelAction)
 		controller.present(alert, animated: true, completion: nil)
 	}
@@ -351,24 +354,6 @@ class DetailsCell: ScrollView {
 			self.routine.SetTitle("Yes")
 			self.workout.routine = true
 			self.ShowExercises()
-		}
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
-		
-		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		alert.addAction(yesAction)
-		alert.addAction(noAction)
-		alert.addAction(cancelAction)
-		controller.present(alert, animated: true, completion: nil)
-	}
-	
-	func btnMotivationClicked(_ sender:UIButton!) {
-		let noAction = UIAlertAction(title: "No", style: .default) { _ in
-			self.motivation.SetTitle("No")
-			self.workout.motivation = false
-		}
-		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-			self.motivation.SetTitle("Yes")
-			self.workout.motivation = true
 		}
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
 		
@@ -461,7 +446,7 @@ class DetailsCell: ScrollView {
 	}
 
 	func ExercisesGenerate() {
-		var posY: CGFloat = 2266
+		var posY: CGFloat = 2038 + 145 + 30 + 30
 
 		exercises = [Exercise]()
 		for i in 1 ... workout.rounds {
