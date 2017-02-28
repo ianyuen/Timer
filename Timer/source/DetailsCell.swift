@@ -62,9 +62,6 @@ class DetailsCell: ScrollView {
 		let roundNumber = Int(roundsNumber.textField.text!)
 		if roundNumber != workout.rounds {
 			workout.rounds = roundNumber!
-			var workouts = Database.instance.ReadWorkouts("workouts")
-			workouts[Application.instance.WorkoutIndex()] = workout
-			Database.instance.SaveWorkouts("workouts", object: workouts)
 
 			for childrent in exercises {
 				childrent.removeFromSuperview()

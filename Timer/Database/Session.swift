@@ -14,6 +14,7 @@ class Session: NSObject, NSCoding {
 	var restTime: Int
 	var training: String
 	var roundTime: Int
+	var roundsName: [String]
 	var warmUpTime: Int
 	var totalRounds: Int
 	var coolDownTime: Int
@@ -25,6 +26,7 @@ class Session: NSObject, NSCoding {
 		coder.encode(restTime, forKey: "restTime")
 		coder.encode(training, forKey: "training")
 		coder.encode(roundTime, forKey: "roundTime")
+		coder.encode(roundsName, forKey: "roundsName")
 		coder.encode(warmUpTime, forKey: "warmUpTime")
 		coder.encode(totalRounds, forKey: "totalRounds")
 		coder.encode(coolDownTime, forKey: "coolDownTime")
@@ -37,6 +39,7 @@ class Session: NSObject, NSCoding {
 		restTime = decoder.decodeInteger(forKey: "restTime")
 		training = decoder.decodeObject(forKey: "training") as! String
 		roundTime = decoder.decodeInteger(forKey: "roundTime")
+		roundsName = decoder.decodeObject(forKey: "roundsName") as! [String]
 		warmUpTime = decoder.decodeInteger(forKey: "warmUpTime")
 		totalRounds = decoder.decodeInteger(forKey: "totalRounds")
 		coolDownTime = decoder.decodeInteger(forKey: "coolDownTime")
@@ -44,13 +47,14 @@ class Session: NSObject, NSCoding {
 
 	}
 
-	required init(training: String = "Workout", epoch: Double = 1484449200, totalRounds: Int = 7, rounds: Int = 7, roundTime: Int = 20, restTime: Int = 20, warmUpTime: Int = 20, coolDownTime: Int = 20, totalTrainingTime: Int = 70) {
+	required init(training: String = "Workout", epoch: Double = 1484449200, totalRounds: Int = 7, rounds: Int = 7, roundTime: Int = 20, restTime: Int = 20, roundsName: [String] = [String](), warmUpTime: Int = 20, coolDownTime: Int = 20, totalTrainingTime: Int = 70) {
 		self.epoch = epoch
 		self.training = training
 
 		self.rounds = rounds
 		self.restTime = restTime
 		self.roundTime = roundTime
+		self.roundsName = roundsName
 		self.warmUpTime = warmUpTime
 		self.totalRounds = totalRounds
 		self.coolDownTime = coolDownTime

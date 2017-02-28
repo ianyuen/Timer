@@ -37,6 +37,24 @@ class HistoryDetailsScroll: ScrollView {
 			default: break
 			}
 		}
+		let sessions = Database.instance.ReadSessions("sessions")
+		let session = sessions[Application.instance.SessionIndex()]
+		if session.roundsName.count > 0 {
+			var posY:CGFloat = 1250
+			var index = 1
+			for name in session.roundsName {
+				let history = HistoryDetail()
+				let object = ScreenObject()
+				object.xPosition = 50
+				object.yPosition = posY
+				object.width = 1142
+				object.height = 120
+				object.text = String(index) + " - " + name
+				AddHistoryDetail(history, object: object, content: "")
+				posY = posY + 125
+				index = index + 1
+			}
+		}
 	}
 
 	func AddHistoryDetail(_ historyDetail: HistoryDetail, object: ScreenObject, content: String) {

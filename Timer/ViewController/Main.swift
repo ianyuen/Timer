@@ -217,6 +217,7 @@ class Main: ViewController {
 						session.rounds = workout.rounds
 						session.restTime = workout.rest
 						session.roundTime = workout.roundTime
+						session.roundsName = workout.roundsName
 						session.warmUpTime = workout.warmUp
 						session.coolDownTime = workout.coolDown
 						session.totalRounds = workout.rounds
