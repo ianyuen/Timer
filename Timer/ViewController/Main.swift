@@ -328,7 +328,7 @@ class Main: ViewController {
 		session.totalTrainingTime = Int(GetTotalTime()) - Int(totalSecond / 10)
 		session.training = workout.name
 		var sessions = Database.instance.ReadSessions("sessions")
-		sessions.append(session)
+		sessions.insert(session, at: 0)
 		Database.instance.SaveSessions("sessions", object: sessions)
 	}
 
