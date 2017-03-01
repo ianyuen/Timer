@@ -461,6 +461,7 @@ class DetailsCell: ScrollView {
 			
 			let object = ScreenObject()
 			object.yPosition = posY
+			object.width = 1242
 			object.height = 254
 			objectManager.AddView(exercise, parent: self, object: object)
 			posY = posY + 256

@@ -109,28 +109,6 @@ class Main: ViewController {
 		}
 	}
 
-	func ResetTimer() {
-		SaveSession()
-		
-		angle = 0
-		leftRest = 0
-		leftRound = 0
-		counting = false
-		totalRound = workout.rounds
-		totalSecond = GetTotalTime() * 10
-		endSecond = CGFloat(workout.warmUp) * 10
-		
-		counter = 0
-		angleTotal = 0
-		angleRatio = endSecond / 60
-		
-		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
-		endClock.text = ConvertToClock(Int(totalSecond))
-		
-		roundButton.initView()
-		roundButton.endTime.text = ConvertToClock(Int(endSecond))
-	}
-
 	func DrawLabel(_ object: ScreenObject) {
 		switch object.name {
 		case "round":
@@ -271,23 +249,26 @@ class Main: ViewController {
 	}
 
 	func btnResetClicked(_ sender: UIButton!) {
+		SaveSession()
 		ResetTimer()
 	}
 
 	func btnStartClicked(_ sender: UIButton!) {
-		Start()
+		StartTimer()
 	}
 	
 	func btnRoundClicked(_ sender: UIButton!) {
-		Start()
+		StartTimer()
 	}
 	
 	func btnHistoryClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showHistory", sender: self)
+		ResetTimer()
 	}
 	
 	func btnSettingsClicked(_ sender: UIButton!) {
 		self.performSegue(withIdentifier: "showSettings", sender: self)
+		ResetTimer()
 	}
 
 	func GetTotalTime() -> CGFloat {
@@ -351,7 +332,27 @@ class Main: ViewController {
 		Database.instance.SaveSessions("sessions", object: sessions)
 	}
 
-	func Start() {
+	func ResetTimer() {
+		angle = 0
+		leftRest = 0
+		leftRound = 0
+		counting = false
+		totalRound = workout.rounds
+		totalSecond = GetTotalTime() * 10
+		endSecond = CGFloat(workout.warmUp) * 10
+		
+		counter = 0
+		angleTotal = 0
+		angleRatio = endSecond / 60
+		
+		round.text = "ROUND   " + NumberToString(leftRound) + "/" + NumberToString(totalRound)
+		endClock.text = ConvertToClock(Int(totalSecond))
+		
+		roundButton.initView()
+		roundButton.endTime.text = ConvertToClock(Int(endSecond))
+	}
+
+	func StartTimer() {
 		counting = !counting
 		if counting {
 			if leftRound == 0 {
