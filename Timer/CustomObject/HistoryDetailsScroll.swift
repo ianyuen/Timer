@@ -41,20 +41,29 @@ class HistoryDetailsScroll: ScrollView {
 		let session = sessions[Application.instance.SessionIndex()]
 		if session.roundsName.count > 0 {
 			var posY:CGFloat = 1250
+
+			let exercise = HistoryDetail()
+			let object = ScreenObject()
+			object.xPosition = 50
+			object.yPosition = posY
+			object.width = 1142
+			object.height = 120
+			object.text = "Exercise:"
+			AddHistoryDetail(exercise, object: object, content: "")
+			posY = posY + 125
+
 			var index = 1
 			for name in session.roundsName {
-				let history = HistoryDetail()
-				let object = ScreenObject()
-				object.xPosition = 50
 				object.yPosition = posY
-				object.width = 1142
-				object.height = 120
 				object.text = String(index) + " - " + name
+				let history = HistoryDetail()
 				AddHistoryDetail(history, object: object, content: "")
 				posY = posY + 125
 				index = index + 1
 			}
 		}
+		let contentHeight: CGFloat = fitContentHeight()
+		contentSize = CGSize(width: frame.width, height: contentHeight)
 	}
 
 	func AddHistoryDetail(_ historyDetail: HistoryDetail, object: ScreenObject, content: String) {
