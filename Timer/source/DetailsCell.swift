@@ -54,27 +54,61 @@ class DetailsCell: ScrollView {
 	var workout = Workout()
 	var exercises = [Exercise]()
 
+	private var needDown = false
+
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		DismissKeyboard()
 		GetTotalTime()
-		let roundNumber = Int(roundsNumber.textField.text!)
-		if roundNumber != workout.rounds {
-			workout.rounds = roundNumber!
+		workout.rounds = Int(roundsNumber.textField.text!)!
+		if workout.routine {
+			let roundNumber = Int(roundsNumber.textField.text!)
+			if roundNumber != workout.rounds {
+				workout.rounds = roundNumber!
 
-			for childrent in exercises {
-				childrent.removeFromSuperview()
+				for childrent in exercises {
+					childrent.removeFromSuperview()
+				}
+
+				ExercisesGenerate()
+				NewPosButton(saveButton)
+				NewPosButton(deleteButton)
+
+				let contentHeight: CGFloat = fitContentHeight()
+				contentSize = CGSize(width: frame.width, height: contentHeight)
 			}
-			ExercisesGenerate()
+		}
+	}
 
-			NewPosButton(saveButton)
-			NewPosButton(deleteButton)
+	func keyboardWillHide(notification: NSNotification) {
+		if needDown {
+			let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+			controller.view.frame.origin.y += (keyboardSize?.height)!
+			needDown = false
+		}
+	}
 
-			let contentHeight: CGFloat = fitContentHeight()
-			contentSize = CGSize(width: frame.width, height: contentHeight)
+	func keyboardWillShow(notification: NSNotification) {
+		if needDown == false {
+			let currentY = contentOffset.y
+			let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+			if currentY >= (keyboardSize?.height)! {
+				controller.view.frame.origin.y -= (keyboardSize?.height)!
+				needDown = true
+			}
 		}
 	}
 
 	override func initView() {
+		let nameHide = NSNotification.Name.UIKeyboardWillHide
+		let keyboardHide = #selector(keyboardWillHide(notification:))
+
+		let nameShow = NSNotification.Name.UIKeyboardWillShow
+		let keyboardShow = #selector(keyboardWillShow(notification:))
+
+		let notification = NotificationCenter.default
+		notification.addObserver(self, selector: keyboardShow, name: nameShow, object: nil)
+		notification.addObserver(self, selector: keyboardHide, name: nameHide, object: nil)
+
 		if Application.instance.GetWorkoutTask() == Application.WorkoutTask.edit {
 			let index = Application.instance.WorkoutIndex()
 			let workouts = Database.instance.ReadWorkouts("workouts")
@@ -229,8 +263,11 @@ class DetailsCell: ScrollView {
 	func btnSaveClicked(_ sender: Button) {
 		workout.name = profileText.textField.text!
 		workout.rounds = Int(roundsNumber.textField.text!)!
-		workout.roundsName = ExercisesGetName()
-
+		if workout.routine {
+			workout.roundsName = ExercisesGetName()
+		} else {
+			workout.roundsName = [String]()
+		}
 		workout.rest = Int(redTime.textBox.textField.text!)!
 		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
 		workout.coolDown = Int(coolDownTime.textBox.textField.text!)!
@@ -239,7 +276,6 @@ class DetailsCell: ScrollView {
 		workout.sound = sound.GetTitle()
 		workout.vibrate = vibrate.GetTitle() == "Yes" ? true : false
 		workout.routine = routine.GetTitle() == "Yes" ? true : false
-		//workout.motivation = motivation.GetTitle() == "Yes" ? true : false
 
 		var workouts = Database.instance.ReadWorkouts("workouts")
 		switch Application.instance.GetWorkoutTask() {
@@ -307,10 +343,6 @@ class DetailsCell: ScrollView {
 			self.sound.SetTitle("Bell")
 			self.workout.sound = "Bell"
 		}
-		let clickAction = UIAlertAction(title: "Click", style: .default) { _ in
-			self.sound.SetTitle("Click")
-			self.workout.sound = "Click"
-		}
 		let tickingAction = UIAlertAction(title: "Ticking", style: .default) { _ in
 			self.sound.SetTitle("Ticking")
 			self.workout.sound = "Ticking"
@@ -320,7 +352,6 @@ class DetailsCell: ScrollView {
 		alert.addAction(alarmAction)
 		alert.addAction(beepAction)
 		alert.addAction(bellAction)
-		alert.addAction(clickAction)
 		alert.addAction(tickingAction)
 		alert.addAction(cancelAction)
 		controller.present(alert, animated: true, completion: nil)
@@ -419,6 +450,7 @@ class DetailsCell: ScrollView {
 	func HideExercises() {
 		exercise.isHidden = true
 		for childrent in exercises {
+			childrent.isHidden = true
 			childrent.removeFromSuperview()
 		}
 		NewPosButton(saveButton)

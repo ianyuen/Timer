@@ -182,7 +182,7 @@ class Main: ViewController {
 			}
 			counter = counter + 1
 			endSecond = endSecond - 1
-			if endSecond == 50 {
+			if endSecond == 30 {
 				PlaySound(workout.sound)
 				AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 			}
@@ -249,8 +249,10 @@ class Main: ViewController {
 	}
 
 	func btnResetClicked(_ sender: UIButton!) {
-		SaveSession()
-		ResetTimer()
+		if counting {
+			SaveSession()
+			ResetTimer()
+		}
 	}
 
 	func btnStartClicked(_ sender: UIButton!) {

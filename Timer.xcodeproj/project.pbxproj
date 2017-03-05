@@ -71,7 +71,6 @@
 		3CF89CF81E65AB1200C71BBF /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3CF89CF71E65AB1200C71BBF /* Alarm.mp3 */; };
 		3CF89D051E65B81000C71BBF /* Beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3CF89D011E65B81000C71BBF /* Beep.mp3 */; };
 		3CF89D061E65B81000C71BBF /* Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3CF89D021E65B81000C71BBF /* Bell.mp3 */; };
-		3CF89D071E65B81000C71BBF /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3CF89D031E65B81000C71BBF /* Click.mp3 */; };
 		3CF89D081E65B81000C71BBF /* Ticking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3CF89D041E65B81000C71BBF /* Ticking.mp3 */; };
 		3CF95D951E2B4E5B00D95318 /* HistoryDetailsScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */; };
 		3CF95D971E2B4F0A00D95318 /* HistoryDetailsScroll.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CF95D961E2B4F0A00D95318 /* HistoryDetailsScroll.xml */; };
@@ -146,7 +145,6 @@
 		3CF89CF71E65AB1200C71BBF /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Alarm.mp3; path = Sounds/Alarm.mp3; sourceTree = "<group>"; };
 		3CF89D011E65B81000C71BBF /* Beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Beep.mp3; path = Sounds/Beep.mp3; sourceTree = "<group>"; };
 		3CF89D021E65B81000C71BBF /* Bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Bell.mp3; path = Sounds/Bell.mp3; sourceTree = "<group>"; };
-		3CF89D031E65B81000C71BBF /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Click.mp3; path = Sounds/Click.mp3; sourceTree = "<group>"; };
 		3CF89D041E65B81000C71BBF /* Ticking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Ticking.mp3; path = Sounds/Ticking.mp3; sourceTree = "<group>"; };
 		3CF95D941E2B4E5B00D95318 /* HistoryDetailsScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDetailsScroll.swift; path = Timer/CustomObject/HistoryDetailsScroll.swift; sourceTree = "<group>"; };
 		3CF95D961E2B4F0A00D95318 /* HistoryDetailsScroll.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HistoryDetailsScroll.xml; path = XML/HistoryDetailsScroll.xml; sourceTree = "<group>"; };
@@ -315,7 +313,6 @@
 				3CF89CF71E65AB1200C71BBF /* Alarm.mp3 */,
 				3CF89D011E65B81000C71BBF /* Beep.mp3 */,
 				3CF89D021E65B81000C71BBF /* Bell.mp3 */,
-				3CF89D031E65B81000C71BBF /* Click.mp3 */,
 				3CF89D041E65B81000C71BBF /* Ticking.mp3 */,
 			);
 			name = Sounds;
@@ -406,7 +403,6 @@
 				3CF89CF81E65AB1200C71BBF /* Alarm.mp3 in Resources */,
 				10ADCD631DE5CCAA0078D587 /* MainButton.xml in Resources */,
 				10ECC8071E0046EB000D2E7C /* HistoryCell.xml in Resources */,
-				3CF89D071E65B81000C71BBF /* Click.mp3 in Resources */,
 				1093C4721E12ED5600B9912E /* ComboExpand.xml in Resources */,
 				107A28811E01CB28005F0A8B /* ViewButton.xml in Resources */,
 				107E5DC11E06E4C10047EFCF /* ComboButton.xml in Resources */,
