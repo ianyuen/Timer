@@ -33,6 +33,7 @@ class Main: ViewController {
 
 	var coolDown = false
 	var counting = false
+	var finished = true
 
 	var counter:CGFloat = 0
 	var endSecond: CGFloat = 0
@@ -216,6 +217,7 @@ class Main: ViewController {
 				} else {
 					if coolDown {
 						counting = false
+						finished = true
 						let totalText = NumberToString(totalRound)
 						round.text = "ROUND   " + totalText + "/" + totalText
 						SaveSession()
@@ -249,9 +251,10 @@ class Main: ViewController {
 	}
 
 	func btnResetClicked(_ sender: UIButton!) {
-		if counting {
+		if !finished {
 			SaveSession()
 			ResetTimer()
+			finished = true
 		}
 	}
 
@@ -356,6 +359,7 @@ class Main: ViewController {
 
 	func StartTimer() {
 		counting = !counting
+		finished = false
 		if counting {
 			if leftRound == 0 {
 				round.text = "WARM UP"
