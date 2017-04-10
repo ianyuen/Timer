@@ -280,28 +280,35 @@ class DetailsCell: ScrollView {
 		var workouts = Database.instance.ReadWorkouts("workouts")
 		switch Application.instance.GetWorkoutTask() {
 		case Application.WorkoutTask.new:
-			var canAdd = true
-			for temp in workouts {
-				if temp.name == profileText.textField.text {
-					canAdd = false
-					break
-				}
-			}
-			if canAdd {
+			if !IsExistWorkout() && !IsEmptyValue() {
 				workouts.append(workout)
 				Database.instance.SaveWorkouts("workouts", object: workouts)
 				controller.PerformSegue("showSettings")
-			} else {
+			} else if IsExistWorkout(){
 				let message = "Can't add exist profile"
+				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+				alert.addAction(okAction)
+				controller.present(alert, animated: true, completion: nil)
+			} else if IsEmptyValue() {
+				let message = "Can't add empty value"
 				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
 				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
 				alert.addAction(okAction)
 				controller.present(alert, animated: true, completion: nil)
 			}
 		case Application.WorkoutTask.edit:
-			workouts[Application.instance.WorkoutIndex()] = workout
-			Database.instance.SaveWorkouts("workouts", object: workouts)
-			controller.PerformSegue("showSettings")
+			if IsEmptyValue() {
+				let message = "Can't save empty value"
+				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+				alert.addAction(okAction)
+				controller.present(alert, animated: true, completion: nil)
+			} else {
+				workouts[Application.instance.WorkoutIndex()] = workout
+				Database.instance.SaveWorkouts("workouts", object: workouts)
+				controller.PerformSegue("showSettings")
+			}
 		}
 	}
 
@@ -404,6 +411,28 @@ class DetailsCell: ScrollView {
 		return result
 	}
 
+	func IsExistWorkout() -> Bool {
+		let workouts = Database.instance.ReadWorkouts("workouts")
+		for workout in workouts {
+			if workout.name == profileText.textField.text {
+				return true
+			}
+		}
+		return false
+	}
+
+	func IsEmptyValue() -> Bool {
+		let rest = StringToInt(redTime.textBox.textField.text!)
+		let warm = StringToInt(warmUpTime.textBox.textField.text!)
+		let cool = StringToInt(coolDownTime.textBox.textField.text!)
+		let round = StringToInt(roundTime.textBox.textField.text!)
+		let rounds = StringToInt(roundsNumber.textField.text!)
+		if rest == 0 || warm == 0 || cool == 0 || round == 0 || rounds == 0 {
+			return true
+		}
+		return false
+	}
+
 	func NewPosButton(_ button: Button) {
 		var y = savePosY
 		if workout.routine {
@@ -419,6 +448,21 @@ class DetailsCell: ScrollView {
 	}
 
 	func GetTotalTime() {
+		if redTime.textBox.textField.text == "" {
+			redTime.textBox.textField.text = "0"
+		}
+		if warmUpTime.textBox.textField.text == "" {
+			warmUpTime.textBox.textField.text = "0"
+		}
+		if coolDownTime.textBox.textField.text == "" {
+			coolDownTime.textBox.textField.text = "0"
+		}
+		if roundTime.textBox.textField.text == "" {
+			roundTime.textBox.textField.text = "0"
+		}
+		if roundsNumber.textField.text == "" {
+			roundsNumber.textField.text = "0"
+		}
 		let rest = StringToInt(redTime.textBox.textField.text!)
 		let warm = StringToInt(warmUpTime.textBox.textField.text!)
 		let cool = StringToInt(coolDownTime.textBox.textField.text!)
