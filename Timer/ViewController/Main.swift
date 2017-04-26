@@ -183,11 +183,11 @@ class Main: ViewController {
 			}
 			counter = counter + 1
 			endSecond = endSecond - 1
-			if endSecond == 30 {
+			if endSecond == 10 {
 				PlaySound(workout.sound)
-				AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 			}
 			if endSecond < 0 {
+				AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 				angle = 0
 				if leftRound < totalRound {
 					if leftRest == leftRound {
@@ -295,11 +295,11 @@ class Main: ViewController {
 			let URLEncodedText = "test"
 			let ourPath = "workouts://" + URLEncodedText
 			let ourURL = NSURL(string: ourPath)
-			if ourApplication.canOpenURL(ourURL as! URL) {
+			if ourApplication.canOpenURL(ourURL! as URL) {
 				if #available(iOS 10.0, *) {
-					ourApplication.open(ourURL as! URL, options: [:], completionHandler: nil)
+					ourApplication.open(ourURL! as URL, options: [:], completionHandler: nil)
 				} else {
-					ourApplication.openURL(ourURL as! URL)
+					ourApplication.openURL(ourURL! as URL)
 				}
 			}
 		}
