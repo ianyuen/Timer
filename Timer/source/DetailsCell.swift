@@ -261,55 +261,8 @@ class DetailsCell: ScrollView {
 	}
 
 	func btnSaveClicked(_ sender: Button) {
-		workout.name = profileText.textField.text!
-		workout.rounds = Int(roundsNumber.textField.text!)!
-		if workout.routine {
-			workout.roundsName = ExercisesGetName()
-		} else {
-			workout.roundsName = [String]()
-		}
-		workout.rest = Int(redTime.textBox.textField.text!)!
-		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
-		workout.coolDown = Int(coolDownTime.textBox.textField.text!)!
-		workout.roundTime = Int(roundTime.textBox.textField.text!)!
-
-		workout.sound = sound.GetTitle()
-		workout.vibrate = vibrate.GetTitle() == "Yes" ? true : false
-		workout.routine = routine.GetTitle() == "Yes" ? true : false
-
-		var workouts = Database.instance.ReadWorkouts("workouts")
-		switch Application.instance.GetWorkoutTask() {
-		case Application.WorkoutTask.new:
-			if !IsExistWorkout() && !IsEmptyValue() {
-				workouts.append(workout)
-				Database.instance.SaveWorkouts("workouts", object: workouts)
-				controller.PerformSegue("showSettings")
-			} else if IsExistWorkout(){
-				let message = "Can't add exist profile"
-				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
-				alert.addAction(okAction)
-				controller.present(alert, animated: true, completion: nil)
-			} else if IsEmptyValue() {
-				let message = "Can't add empty value"
-				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
-				alert.addAction(okAction)
-				controller.present(alert, animated: true, completion: nil)
-			}
-		case Application.WorkoutTask.edit:
-			if IsEmptyValue() {
-				let message = "Can't save empty value"
-				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
-				alert.addAction(okAction)
-				controller.present(alert, animated: true, completion: nil)
-			} else {
-				workouts[Application.instance.WorkoutIndex()] = workout
-				Database.instance.SaveWorkouts("workouts", object: workouts)
-				controller.PerformSegue("showSettings")
-			}
-		}
+		UpdateWorkout()
+		SaveWorkout()
 	}
 
 	func btnDeleteClicked(_ sender: Button) {
@@ -402,15 +355,6 @@ class DetailsCell: ScrollView {
 		controller.present(alert, animated: true, completion: nil)
 	}
 
-	func IntToString(_ value: Int) -> String {
-		var result = ""
-		if value < 10 {
-			result = result + "0"
-		}
-		result = result + String(value)
-		return result
-	}
-
 	func IsExistWorkout() -> Bool {
 		let workouts = Database.instance.ReadWorkouts("workouts")
 		for workout in workouts {
@@ -431,6 +375,54 @@ class DetailsCell: ScrollView {
 			return true
 		}
 		return false
+	}
+
+	func IsChanged() -> Bool {
+		var changed = false
+		
+		UpdateWorkout()
+		let workouts = Database.instance.ReadWorkouts("workouts")
+		if workout.name != workouts[Application.instance.WorkoutIndex()].name {
+			changed = true
+		}
+		if workout.rounds != workouts[Application.instance.WorkoutIndex()].rounds {
+			changed = true
+		}
+		if workout.roundsName != workouts[Application.instance.WorkoutIndex()].roundsName {
+			changed = true
+		}
+		if workout.rest != workouts[Application.instance.WorkoutIndex()].rest {
+			changed = true
+		}
+		if workout.warmUp != workouts[Application.instance.WorkoutIndex()].warmUp {
+			changed = true
+		}
+		if workout.coolDown != workouts[Application.instance.WorkoutIndex()].coolDown {
+			changed = true
+		}
+		if workout.roundTime != workouts[Application.instance.WorkoutIndex()].roundTime {
+			changed = true
+		}
+		if workout.sound != workouts[Application.instance.WorkoutIndex()].sound {
+			changed = true
+		}
+		if workout.vibrate != workouts[Application.instance.WorkoutIndex()].vibrate {
+			changed = true
+		}
+		if workout.routine != workouts[Application.instance.WorkoutIndex()].routine {
+			changed = true
+		}
+		
+		return changed
+	}
+
+	func IntToString(_ value: Int) -> String {
+		var result = ""
+		if value < 10 {
+			result = result + "0"
+		}
+		result = result + String(value)
+		return result
 	}
 
 	func NewPosButton(_ button: Button) {
@@ -480,6 +472,42 @@ class DetailsCell: ScrollView {
 		return true
 	}
 
+	func SaveWorkout() {
+		var workouts = Database.instance.ReadWorkouts("workouts")
+		switch Application.instance.GetWorkoutTask() {
+		case Application.WorkoutTask.new:
+			if !IsExistWorkout() && !IsEmptyValue() {
+				workouts.append(workout)
+				Database.instance.SaveWorkouts("workouts", object: workouts)
+				controller.PerformSegue("showSettings")
+			} else if IsExistWorkout(){
+				let message = "Can't add exist profile"
+				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+				alert.addAction(okAction)
+				controller.present(alert, animated: true, completion: nil)
+			} else if IsEmptyValue() {
+				let message = "Can't add empty value"
+				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+				alert.addAction(okAction)
+				controller.present(alert, animated: true, completion: nil)
+			}
+		case Application.WorkoutTask.edit:
+			if IsEmptyValue() {
+				let message = "Can't save empty value"
+				let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+				let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+				alert.addAction(okAction)
+				controller.present(alert, animated: true, completion: nil)
+			} else {
+				workouts[Application.instance.WorkoutIndex()] = workout
+				Database.instance.SaveWorkouts("workouts", object: workouts)
+				controller.PerformSegue("showSettings")
+			}
+		}
+	}
+
 	func ShowExercises() {
 		exercise.isHidden = false
 		ExercisesGenerate()
@@ -510,6 +538,24 @@ class DetailsCell: ScrollView {
 			result.append(childrent.GetContent())
 		}
 		return result
+	}
+
+	func UpdateWorkout() {
+		workout.name = profileText.textField.text!
+		workout.rounds = Int(roundsNumber.textField.text!)!
+		if workout.routine {
+			workout.roundsName = ExercisesGetName()
+		} else {
+			workout.roundsName = [String]()
+		}
+		workout.rest = Int(redTime.textBox.textField.text!)!
+		workout.warmUp = Int(warmUpTime.textBox.textField.text!)!
+		workout.coolDown = Int(coolDownTime.textBox.textField.text!)!
+		workout.roundTime = Int(roundTime.textBox.textField.text!)!
+		
+		workout.sound = sound.GetTitle()
+		workout.vibrate = vibrate.GetTitle() == "Yes" ? true : false
+		workout.routine = routine.GetTitle() == "Yes" ? true : false
 	}
 
 	func ExercisesGetHeight() -> CGFloat {

@@ -76,6 +76,22 @@ class Details: ViewController {
 	}
 
 	func btnBackClicked(_ sender:UIButton!) {
-		self.performSegue(withIdentifier: "showSettings", sender: self)
+		content.UpdateWorkout()
+		if content.IsChanged() {
+			let message = "Are you want save workout?"
+			let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+			let noAction = UIAlertAction(title: "No", style: .default) { _ in }
+			let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+				self.content.SaveWorkout()
+				self.performSegue(withIdentifier: "showSettings", sender: self)
+			}
+			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+			alert.addAction(yesAction)
+			alert.addAction(noAction)
+			alert.addAction(cancelAction)
+			present(alert, animated: true, completion: nil)
+		} else {
+			self.performSegue(withIdentifier: "showSettings", sender: self)
+		}
 	}
 }
