@@ -45,6 +45,7 @@ class Main: ViewController {
 	var totalRound = 0
 
 	var player: AVAudioPlayer?
+	var askedOpen = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -52,6 +53,12 @@ class Main: ViewController {
 		ScreenSize.instance.SetStatusHeight(UIApplication.shared.statusBarFrame.size.height)
 		ScreenSize.instance.SetCurrentWidth(self.view.frame.size.width)
 		ScreenSize.instance.SetCurrentHeight(self.view.frame.size.height)
+
+		if Database.instance.HaveData("askedOpen") {
+			askedOpen = Database.instance.ReadBool("askedOpen")
+		} else {
+			Database.instance.SaveBool("askedOpen", data: askedOpen)
+		}
 
 		var index = Database.instance.ReadInt("workoutIndex")
 		var workouts = Database.instance.ReadWorkouts("workouts")
@@ -221,7 +228,10 @@ class Main: ViewController {
 						let totalText = NumberToString(totalRound)
 						round.text = "ROUND   " + totalText + "/" + totalText
 						SaveSession()
-						AskLaunchCalis()
+						ResetTimer()
+						if !askedOpen {
+							AskLaunchCalis()
+						}
 					} else {
 						endSecond = CGFloat(workout.coolDown) * 10
 
@@ -289,7 +299,10 @@ class Main: ViewController {
 	func AskLaunchCalis() {
 		let message = "Are you want open Calisthenics?"
 		let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-		let noAction = UIAlertAction(title: "No", style: .cancel) { _ in }
+		let noAction = UIAlertAction(title: "No", style: .cancel) { _ in
+			self.askedOpen = true
+			Database.instance.SaveBool("askedOpen", data: self.askedOpen)
+		}
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
 			let ourApplication = UIApplication.shared
 			let URLEncodedText = "test"

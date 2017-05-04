@@ -12,7 +12,7 @@ class Database {
 	static let instance = Database()
 
 	func HaveData(_ key: String) -> Bool {
-		if UserDefaults.standard.data(forKey: key) != nil {
+		if UserDefaults.standard.object(forKey: key) != nil {
 			return true
 		} else {
 			return false
@@ -30,6 +30,18 @@ class Database {
 			return 0
 		}
 	}
+
+    func SaveBool(_ key: String, data: Bool) {
+        UserDefaults.standard.set(data, forKey: key)
+    }
+    
+    func ReadBool(_ key: String) -> Bool {
+        if let data = UserDefaults.standard.object(forKey: key) as? Bool {
+            return data
+        } else {
+            return false
+        }
+    }
 
 	func SaveString(_ key: String, data: String) {
 		UserDefaults.standard.set(data, forKey: key)
